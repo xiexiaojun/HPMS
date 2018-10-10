@@ -1,0 +1,9 @@
+D:\gitProjects\HPMS\Test\bin\Debug\Test.dll
+D:\gitProjects\HPMS\Test\bin\Debug\Test.pdb
+D:\gitProjects\HPMS\Test\bin\Debug\HPMS.exe
+D:\gitProjects\HPMS\Test\bin\Debug\log4net.dll
+D:\gitProjects\HPMS\Test\bin\Debug\Newtonsoft.Json.Net20.dll
+D:\gitProjects\HPMS\Test\bin\Debug\HPMS.pdb
+D:\gitProjects\HPMS\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+D:\gitProjects\HPMS\Test\obj\Debug\Test.dll
+D:\gitProjects\HPMS\Test\obj\Debug\Test.pdb

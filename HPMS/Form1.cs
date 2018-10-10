@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
+using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.Languange;
+using HPMS.Log;
+using HPMS.Splash;
+using HPMS.Test;
 
 namespace HPMS
 {
@@ -14,6 +19,11 @@ namespace HPMS
         {
             EnableGlass = false;
             InitializeComponent();
+            Splasher.Status = "正在展示相关的内容";
+            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(50);
+
+            Splasher.Close();
             StyleMenuAdd();
         }
 
@@ -26,7 +36,7 @@ namespace HPMS
             中文ToolStripMenuItem.Checked = false;
             englishToolStripMenuItem.Checked = false;
             toolStripMenuItem.Checked = true;
-            var languangeSourceFile = toolStripMenuItem.Text == "中文" ? "lang/中文.json" : "lang/english.json";
+            var languangeSourceFile = toolStripMenuItem.Text == "中文" ? "lang/中文.json" : "Resources/lang/english.json";
             LanguageHelper.SetResources(languangeSourceFile);
             foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
         }
@@ -89,5 +99,33 @@ namespace HPMS
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Thread.CurrentPrincipal =
+                new GenericPrincipal(new GenericIdentity("Administrator","Figo"),
+                    new[] { "ADMIN","Add"});
+
+            //var role = "Anyone";
+            //var operation = new FileOperations();
+            //// 可以正常调用Read
+            //OperationInvoker.Invoke(operation, role, "Read", null);
+            //// 但是不能调用Write
+            //OperationInvoker.Invoke(operation, role, "Write", null);
+
+            CalculatorHandler bb=new CalculatorHandler();
+           double kk= bb.Add(3, 5);
+            MessageBox.Show(kk.ToString());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10000; i++)
+            {
+                LogHelper.WriteLog("AAA");
+                LogHelper.WriteLog("BBB", new Exception("Test")); 
+            }
+           
+        }
     }
 }

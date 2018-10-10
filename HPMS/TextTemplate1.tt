@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" debug="false" hostspecific="True" #>
+<#@ output extension=".cs" encoding="utf-8" #>
+
+
+using System;
+
+namespace <#="AAA"#> {
+
+}

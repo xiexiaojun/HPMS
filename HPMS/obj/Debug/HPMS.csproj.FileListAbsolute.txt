@@ -16,3 +16,10 @@ D:\gitProjects\HPMS\HPMS\bin\Debug\HPMS.pdb
 D:\gitProjects\HPMS\HPMS\bin\Debug\Newtonsoft.Json.Net20.dll
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.pdb
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.Splash.frmSplash.resources
+D:\gitProjects\HPMS\HPMS\bin\Debug\log4net.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\HPMS.exe.config
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csprojResolveAssemblyReference.cache
+D:\gitProjects\HPMS\HPMS\bin\Debug\32p_analyze.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\MathNet.Numerics.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\32p_analyze.xml
