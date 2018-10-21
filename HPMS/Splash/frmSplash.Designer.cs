@@ -1,4 +1,6 @@
-﻿namespace HPMS.Splash
+﻿using System.Windows.Forms;
+
+namespace HPMS.Splash
 {
     partial class frmSplash
     {
@@ -37,7 +39,7 @@
             this.lbStatusInfo.AutoSize = true;
             this.lbStatusInfo.BackColor = System.Drawing.Color.Transparent;
             this.lbStatusInfo.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbStatusInfo.ForeColor = System.Drawing.Color.White;
+            this.lbStatusInfo.ForeColor = System.Drawing.Color.Blue;
             this.lbStatusInfo.Location = new System.Drawing.Point(35, 159);
             this.lbStatusInfo.Name = "lbStatusInfo";
             this.lbStatusInfo.Size = new System.Drawing.Size(164, 12);
@@ -49,6 +51,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            
             this.ClientSize = new System.Drawing.Size(424, 223);
             this.Controls.Add(this.lbStatusInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

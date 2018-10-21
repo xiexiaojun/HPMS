@@ -1,3 +1,4 @@
 ## HPMS ##
 
-**HPMS** is a full-featured Markdown editor for Windows.
+2018-10-10 增加开关控制和网分控制
+2018-10-21 档案设置部分添加

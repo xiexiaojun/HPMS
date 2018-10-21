@@ -8,7 +8,6 @@ D:\gitProjects\HPMS\HPMS\HPMS\obj\Debug\HPMS.pdb
 D:\gitProjects\HPMS\HPMS\HPMS\bin\Debug\ChineseConverter.dll
 D:\gitProjects\HPMS\HPMS\HPMS\obj\Debug\HPMS.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\HPMS\HPMS\bin\Debug\Newtonsoft.Json.Net20.dll
-D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.Form1.resources
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.Properties.Resources.resources
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\HPMS\bin\Debug\HPMS.exe
@@ -23,3 +22,9 @@ D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\HPMS\bin\Debug\32p_analyze.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\MathNet.Numerics.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\32p_analyze.xml
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmVisaLists.resources
+D:\gitProjects\HPMS\HPMS\bin\Debug\Softgroup.NetResize45.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\Softgroup.NetResize45.xml
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmProfile.resources
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmHardwareSetting.resources
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmMain.resources

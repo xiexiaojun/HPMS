@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
+using DevComponents.DotNetBar.Controls;
 using Newtonsoft.Json;
+using TabControl = System.Windows.Forms.TabControl;
 
 namespace HPMS.Languange
 {
@@ -15,6 +18,7 @@ namespace HPMS.Languange
 
         public static void SetResources(string resourceFileName)
         {
+            resources.Clear();
             var content = File.ReadAllText(resourceFileName, Encoding.UTF8);
             if (!string.IsNullOrEmpty(content))
             {
@@ -40,18 +44,8 @@ namespace HPMS.Languange
         /// <param name="parent"></param>
         public static void SetControlLanguageText(System.Windows.Forms.Control parent)
         {
-            if (parent.HasChildren)
-            {
-                foreach (System.Windows.Forms.Control ctrl in parent.Controls)
-                {
-                    SetContainerLanguage(ctrl);
-                }
-            }
-            else
-            {
-                //SetLanguage(parent);
-                SetContainerLanguage(parent);
-            }
+            SetContainerLanguage(parent);
+
         }
         #endregion
         #region 控件简繁体语言转换
@@ -190,6 +184,10 @@ namespace HPMS.Languange
                 catch (Exception)
                 { }
             }
+            else
+            {
+                SetLanguage(ctrl);
+            }
 
             if (ctrl.HasChildren)
             {
@@ -198,10 +196,7 @@ namespace HPMS.Languange
                     SetContainerLanguage(c);
                 }
             }
-            else
-            {
-                SetLanguage(ctrl);
-            }
+          
 
         }
         /// <summary>
@@ -235,6 +230,17 @@ namespace HPMS.Languange
                     {
                     }
                 }
+                else if (ctrl is LabelX)
+                {
+                    LabelX label = (LabelX)ctrl;
+                    try
+                    {
+                        label.Text = GetLanguageText(label.Text);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
 
                 else if (ctrl is Button)
                 {
@@ -253,6 +259,17 @@ namespace HPMS.Languange
                     try
                     {
                         groupBox.Text = GetLanguageText(groupBox.Text);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                else if (ctrl is GroupPanel)
+                {
+                    GroupPanel groupPanel = (GroupPanel)ctrl;
+                    try
+                    {
+                        groupPanel.Text = GetLanguageText(groupPanel.Text);
                     }
                     catch (Exception)
                     {

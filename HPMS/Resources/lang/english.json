@@ -4,5 +4,13 @@
 	"语言": "Languange",
 	"设置": "Setting",
 	"风格": "Style",
-	"自定义": "Customer Color"
+	"自定义": "Customer Color",
+	"档案": "Profile",
+	"硬件设置": "Hardware config",
+	"网分型号": "Network analyzer type",
+	"网分地址": "Network Visa address",
+	"开关型号": "Switch Box Type",
+	"开关地址": "Switch Box Visa address",
+	"烧录器型号": "EEPROM Adapter Type",
+	"烧录器端口": "EEPROM Serial Port"
 }

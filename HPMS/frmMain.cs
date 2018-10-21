@@ -4,6 +4,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using HPMS.DB;
 using HPMS.Languange;
 using HPMS.Log;
 using HPMS.Splash;
@@ -11,11 +12,12 @@ using HPMS.Test;
 
 namespace HPMS
 {
-    public partial class Form1 : Office2007Form
+    public partial class frmMain : Office2007Form
     {
         private readonly Dictionary<string, ToolStripMenuItem> styleItems = new Dictionary<string, ToolStripMenuItem>();
+        frmHardwareSetting _frmSetting;
 
-        public Form1()
+        public frmMain()
         {
             EnableGlass = false;
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace HPMS
             中文ToolStripMenuItem.Checked = false;
             englishToolStripMenuItem.Checked = false;
             toolStripMenuItem.Checked = true;
-            var languangeSourceFile = toolStripMenuItem.Text == "中文" ? "lang/中文.json" : "Resources/lang/english.json";
+            var languangeSourceFile = toolStripMenuItem.Text == "中文" ? "Resources/lang/中文.json" : "Resources/lang/english.json";
             LanguageHelper.SetResources(languangeSourceFile);
             foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
         }
@@ -47,14 +49,14 @@ namespace HPMS
             {
                 //添加菜单一 
                 ToolStripMenuItem subItem;
-                subItem = AddContextMenu(suit.ToString(), 风格ToolStripMenuItem.DropDownItems, StyleMenuClicked);
+                subItem = AddContextMenu(suit.ToString(), m_Set_Style.DropDownItems, StyleMenuClicked);
                 styleItems.Add(suit.ToString(), subItem);
                 // cmbSkin.Items.Add(suit.ToString());
             }
 
             ToolStripMenuItem subItemCustomer;
-            subItemCustomer = AddContextMenu("-", 风格ToolStripMenuItem.DropDownItems, null);
-            subItemCustomer = AddContextMenu("自定义", 风格ToolStripMenuItem.DropDownItems, StyleMenuClicked);
+            subItemCustomer = AddContextMenu("-", m_Set_Style.DropDownItems, null);
+            subItemCustomer = AddContextMenu("自定义", m_Set_Style.DropDownItems, StyleMenuClicked);
         }
 
         private ToolStripMenuItem AddContextMenu(string text, ToolStripItemCollection cms, EventHandler callback)
@@ -120,12 +122,45 @@ namespace HPMS
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int a = 8;
+            int b = 0;
+            int c = a / b;
             for (int i = 0; i < 10000; i++)
             {
                 LogHelper.WriteLog("AAA");
                 LogHelper.WriteLog("BBB", new Exception("Test")); 
             }
            
+        }
+
+        private void m_Set_profile_Click(object sender, EventArgs e)
+        {
+          
+
+            if (_frmSetting == null || _frmSetting.IsDisposed)
+            {
+                _frmSetting = new frmHardwareSetting();
+                _frmSetting.StartPosition = FormStartPosition.CenterParent;
+                _frmSetting.ShowDialog();
+            }
+            else
+            {
+                _frmSetting.WindowState = FormWindowState.Normal;
+                _frmSetting.ShowDialog();
+            }
+           
+        }
+
+       
+
+      
+
+       
+
+        private void m_Set_profile_Click_1(object sender, EventArgs e)
+        {
+            frmProfile aFrmParamSetting = new frmProfile();
+            aFrmParamSetting.ShowDialog();
         }
     }
 }

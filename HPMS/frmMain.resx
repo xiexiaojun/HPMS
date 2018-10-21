@@ -133,17 +133,29 @@
   <data name="englishToolStripMenuItem.Text" xml:space="preserve">
     <value>English</value>
   </data>
-  <data name="语言ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+  <data name="m_Set_Languange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
   </data>
-  <data name="语言ToolStripMenuItem.Text" xml:space="preserve">
+  <data name="m_Set_Languange.Text" xml:space="preserve">
     <value>语言</value>
   </data>
-  <data name="风格ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+  <data name="m_Set_Style.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
   </data>
-  <data name="风格ToolStripMenuItem.Text" xml:space="preserve">
+  <data name="m_Set_Style.Text" xml:space="preserve">
     <value>风格</value>
+  </data>
+  <data name="m_Set_hardware.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_hardware.Text" xml:space="preserve">
+    <value>硬件设置</value>
+  </data>
+  <data name="m_Set_profile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_profile.Text" xml:space="preserve">
+    <value>档案设置</value>
   </data>
   <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 21</value>
@@ -492,10 +504,10 @@
   <data name="&gt;&gt;设置ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;语言ToolStripMenuItem.Name" xml:space="preserve">
-    <value>语言ToolStripMenuItem</value>
+  <data name="&gt;&gt;m_Set_Languange.Name" xml:space="preserve">
+    <value>m_Set_Languange</value>
   </data>
-  <data name="&gt;&gt;语言ToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;m_Set_Languange.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;中文ToolStripMenuItem.Name" xml:space="preserve">
@@ -510,10 +522,22 @@
   <data name="&gt;&gt;englishToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;风格ToolStripMenuItem.Name" xml:space="preserve">
-    <value>风格ToolStripMenuItem</value>
+  <data name="&gt;&gt;m_Set_Style.Name" xml:space="preserve">
+    <value>m_Set_Style</value>
   </data>
-  <data name="&gt;&gt;风格ToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;m_Set_Style.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_Set_hardware.Name" xml:space="preserve">
+    <value>m_Set_hardware</value>
+  </data>
+  <data name="&gt;&gt;m_Set_hardware.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_Set_profile.Name" xml:space="preserve">
+    <value>m_Set_profile</value>
+  </data>
+  <data name="&gt;&gt;m_Set_profile.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;styleManager1.Name" xml:space="preserve">
@@ -529,7 +553,7 @@
     <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
+    <value>frmMain</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.Office2007Form, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>

@@ -102,7 +102,7 @@ namespace HPMS.Equipment.NetworkAnalyzer
             {
                 if (!_connected)
                 {
-                    mbSession = (IMessageBasedSession)ResourceManager.GetLocalManager().Open(_visaAddress);
+                    mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(_visaAddress);
                     _connected = true;
                 }
               
