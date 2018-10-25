@@ -16,8 +16,16 @@ namespace HPMS.DB
     /// </summary>
     public abstract class DbHelperOleDb
     {
-        //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.		
-        public static string connectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=MesDataCenter;uid=sa;pwd=data'songyy";// PubConstant.ConnectionString;     		
+        //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.	
+#if DEBUG
+        public static string connectionString = "Provider=SQLNCLI11;Data Source=172.20.23.107;Persist Security Info=True;User ID=sa;Initial Catalog=MesDataCenter;Password=data'songyy";
+        public static string DB_HTPSDBConnectionString = "Provider=SQLNCLI11;Data Source=172.20.23.107;Persist Security Info=True;User ID=sa;Initial Catalog=HTPSDB;Password=data'songyy";
+#else
+        public static string connectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=MesDataCenter;uid=sa;pwd=data'songyy";
+        public static string DB_HTPSDBConnectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=HTPSDB;uid=sa;pwd=data'songyy";
+
+#endif
+        //public static string connectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=MesDataCenter;uid=sa;pwd=data'songyy";// PubConstant.ConnectionString;     		
         public DbHelperOleDb()
         {
         }
@@ -316,6 +324,33 @@ namespace HPMS.DB
             }
         }
 
+        /// <summary>
+        /// 执行SQL语句，返回影响的记录数
+        /// </summary>
+        /// <param name="SQLString">SQL语句</param>
+        /// <returns>影响的记录数</returns>
+        public static int ExecuteSql(string SQLString, params OleDbParameter[] cmdParms)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand cmd = new OleDbCommand())
+                {
+                    try
+                    {
+                        PrepareCommand(cmd, connection, null, SQLString, cmdParms);
+                        int rows = cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
+                        return rows;
+                    }
+                    catch (System.Data.OleDb.OleDbException E)
+                    {
+                        throw new Exception(E.Message);
+                    }
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// 执行多条SQL语句，实现数据库事务。
@@ -504,6 +539,36 @@ namespace HPMS.DB
         public static string DB_HTPSDBConnectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=HTPSDB;uid=sa;pwd=data'songyy";
 
 #endif
+
+        public static bool AddUser(User user)
+        {
+            bool ret = false;
+            string updateSql = "INSERT INTO HPMS_User (" +
+                               "UserName, Password, Salt, RoleID, isSuper, CreateID, CreateDate, Status" +
+                               ") VALUES (" +
+                               "?, ?, ?, ?, ?, ?, ?, ?)";
+            OleDbParameter[] b = new OleDbParameter[8];
+            b[0] = new OleDbParameter("0", user.Username);
+            b[1] = new OleDbParameter("1", user.Psw);
+            //salt is always figoba currently
+            b[2] = new OleDbParameter("2", "figoba");
+            b[3] = new OleDbParameter("3", user.RoleId);
+            //all users created by this code are always normal users,so isSuper=0.
+            b[4] = new OleDbParameter("4", 0);
+            b[5] = new OleDbParameter("5", user.CreaterId);
+            b[6] = new OleDbParameter("6", user.CreateDate);
+            b[7] = new OleDbParameter("7", (int)user.RecordStatus);
+         
+
+
+            int insertCount = DbHelperOleDb.ExecuteSql(updateSql, DB_MesDataCenterConnectionString, b);
+            if (insertCount == 1)
+            {
+                ret = true;
+            }
+            return ret;
+        }
+
 
         public static bool saveSNRecord()
         {

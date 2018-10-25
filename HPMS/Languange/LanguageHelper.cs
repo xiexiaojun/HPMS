@@ -219,6 +219,18 @@ namespace HPMS.Languange
                     {
                     }
                 }
+                else if (ctrl is CheckBoxX)
+                {
+                    CheckBoxX checkBoxX = (CheckBoxX) ctrl;
+                    try
+                    {
+                        checkBoxX.Text = GetLanguageText(checkBoxX.Text);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+
                 else if (ctrl is Label)
                 {
                     Label label = (Label)ctrl;
@@ -245,6 +257,17 @@ namespace HPMS.Languange
                 else if (ctrl is Button)
                 {
                     Button button = (Button)ctrl;
+                    try
+                    {
+                        button.Text = GetLanguageText(button.Text);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                else if (ctrl is ButtonX)
+                {
+                    ButtonX button = (ButtonX)ctrl;
                     try
                     {
                         button.Text = GetLanguageText(button.Text);

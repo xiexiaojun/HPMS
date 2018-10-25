@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -145,6 +146,31 @@ namespace HPMS.Util
                 }
             }
 
+        }
+
+        public static string SerializeDataTableXml(DataTable pDt)
+        {
+            // 序列化DataTable
+            StringBuilder sb = new StringBuilder();
+            XmlWriter writer = XmlWriter.Create(sb);
+            pDt.TableName = "Test";
+            XmlSerializer serializer = new XmlSerializer(typeof(DataTable));
+            serializer.Serialize(writer, pDt);
+            writer.Close();
+
+            return sb.ToString();
+        }
+
+        public static DataTable DeserializeDataTable(string pXml)
+        {
+
+            StringReader strReader = new StringReader(pXml);
+            XmlReader xmlReader = XmlReader.Create(strReader);
+            XmlSerializer serializer = new XmlSerializer(typeof(DataTable));
+
+            DataTable dt = serializer.Deserialize(xmlReader) as DataTable;
+
+            return dt;
         }
     }
 }

@@ -5,6 +5,8 @@ namespace HPMS.Util
 {
     public class UI
     {
+       
+       
         public static Point LocationOnClient(Control c, Point pointOffset)
         {
            
@@ -14,7 +16,7 @@ namespace HPMS.Util
             p.Offset(pointOffset);
             return p;
           }
+
         
-       
     }
 }

@@ -1,14 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using DevComponents.DotNetBar;
 using HPMS.Equipment.Enum;
 using HPMS.Util;
 
 namespace HPMS.Config
 {
+    public class Theme
+    {
+        public eStyle EStyle { get; set; }
+        public string Color { get; set; }
+        public bool Customer { get; set; }
+    }
     public class LocalConfig
     {
+        public static bool SaveTheme(Theme theme)
+        {
+            string strThemeFilePath = "config\\theme.xml";
+            return SaveObjToXmlFile(strThemeFilePath, theme);
+        }
+
+        public static Theme LoadTheme()
+        {
+            string strThemeFilePath = "config\\theme.xml";
+            return (Theme)GetObjFromXmlFile(strThemeFilePath, typeof(Theme));
+        }
         public static object GetObjFromXmlFile(string objXmlPath, Type type)
         {
             return Serializer.FromXmlString(objXmlPath, type);
@@ -53,5 +73,13 @@ namespace HPMS.Config
         public string[]FextPair { get; set; }
     }
 
-    
+    public class Project
+    {
+        public DataTable FreSpec { get; set; }
+
+        //public bool SaveToDb()
+        //{
+        //    DataTable a = this.FreSpec;
+        //}
+    }
 }

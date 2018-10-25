@@ -26,7 +26,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,7 +58,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\32p_analyze.dll</HintPath>
     </Reference>
+    <Reference Include="Aspose.Cells, Version=8.6.3.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="HslCommunication, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\HslCommunication.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\log4net.dll</HintPath>
@@ -67,9 +76,9 @@
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.Common\v4.0_15.0.40.49154__dc6ad606294fc298\NationalInstruments.Common.dll</HintPath>
     </Reference>
     <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json.Net20, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.Net20.dll.3.5.0\lib\2.0\Newtonsoft.Json.Net20.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -96,6 +105,7 @@
     <Compile Include="AOP\AOP.cs" />
     <Compile Include="Config\LocalConfig.cs" />
     <Compile Include="DB\DbHelperOleDb.cs" />
+    <Compile Include="DB\LoginHelper.cs" />
     <Compile Include="Equipment\Enum\EquipmentType.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\E5071C.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\INetworkAnalyzer.cs" />
@@ -105,6 +115,12 @@
     <Compile Include="Equipment\Switch\Switch_MCU.cs" />
     <Compile Include="Equipment\Util.cs" />
     <Compile Include="Equipment\Visa\VisaSerial.cs" />
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +139,12 @@
     <Compile Include="frmHardwareSetting.Designer.cs">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegist.Designer.cs">
+      <DependentUpon>frmRegist.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVisaLists.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +155,7 @@
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RightsControl\RightsWrapper.cs" />
     <Compile Include="Splash\frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,8 +170,12 @@
       <DependentUpon>TextTemplate1.tt</DependentUpon>
     </Compile>
     <Compile Include="Util\ArrayEnhance.cs" />
+    <Compile Include="Util\EasyExcel.cs" />
     <Compile Include="Util\Serializer.cs" />
     <Compile Include="Util\UI.cs" />
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHardwareSetting.resx">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegist.resx">
+      <DependentUpon>frmRegist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVisaLists.resx">
       <DependentUpon>frmVisaLists.cs</DependentUpon>
@@ -180,7 +210,6 @@
     <None Include="Resources\lang\中文.json">
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -227,8 +256,14 @@
   <ItemGroup>
     <Content Include="Dll\32p_analyze.dll" />
     <Content Include="Dll\32p_analyze.XML" />
+    <Content Include="Dll\Aspose.Cells.dll" />
+    <Content Include="Dll\HslCommunication.dll" />
+    <Content Include="Dll\HslCommunication.xml" />
     <Content Include="Dll\log4net.dll" />
     <Content Include="Dll\MathNet.Numerics.dll" />
+    <Content Include="Dll\Newtonsoft.Json.dll" />
+    <Content Include="Dll\Newtonsoft.Json.xml" />
+    <None Include="Resources\图片2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

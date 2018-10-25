@@ -38,6 +38,9 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.checkBoxX4 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelX43 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX15 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX38 = new DevComponents.DotNetBar.LabelX();
             this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
@@ -78,12 +81,12 @@
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.chkList_Diff = new System.Windows.Forms.CheckedListBox();
             this.tabPage_SpecFrequency = new System.Windows.Forms.TabPage();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
+            this.btn_SpecFreFileBrowse = new DevComponents.DotNetBar.ButtonX();
             this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgv_SpecFre = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,7 +95,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage_Other = new System.Windows.Forms.TabPage();
+            this.tabPage_Wizard = new System.Windows.Forms.TabPage();
             this.panelEx7 = new DevComponents.DotNetBar.PanelEx();
             this.checkBoxX2 = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -181,8 +184,8 @@
             this.panelEx3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage_SpecFrequency.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
-            this.tabPage_Other.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_SpecFre)).BeginInit();
+            this.tabPage_Wizard.SuspendLayout();
             this.panelEx7.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage_SpecTime.SuspendLayout();
@@ -328,6 +331,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.checkBoxX4);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.labelX43);
             this.splitContainer1.Panel1.Controls.Add(this.textBoxX15);
             this.splitContainer1.Panel1.Controls.Add(this.labelX38);
             this.splitContainer1.Panel1.Controls.Add(this.buttonX8);
@@ -343,6 +349,42 @@
             this.splitContainer1.SplitterDistance = 37;
             this.splitContainer1.TabIndex = 2;
             // 
+            // checkBoxX4
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX4.Location = new System.Drawing.Point(410, 10);
+            this.checkBoxX4.Name = "checkBoxX4";
+            this.checkBoxX4.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX4.TabIndex = 11;
+            this.checkBoxX4.Text = "向导模式";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "SFP+",
+            "QSFP"});
+            this.comboBox1.Location = new System.Drawing.Point(312, 9);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(90, 20);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // labelX43
+            // 
+            // 
+            // 
+            // 
+            this.labelX43.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX43.Location = new System.Drawing.Point(254, 9);
+            this.labelX43.Name = "labelX43";
+            this.labelX43.Size = new System.Drawing.Size(50, 18);
+            this.labelX43.TabIndex = 9;
+            this.labelX43.Text = "类型";
+            // 
             // textBoxX15
             // 
             // 
@@ -350,9 +392,9 @@
             // 
             this.textBoxX15.Border.Class = "TextBoxBorder";
             this.textBoxX15.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX15.Location = new System.Drawing.Point(54, 6);
+            this.textBoxX15.Location = new System.Drawing.Point(58, 6);
             this.textBoxX15.Name = "textBoxX15";
-            this.textBoxX15.Size = new System.Drawing.Size(215, 21);
+            this.textBoxX15.Size = new System.Drawing.Size(183, 21);
             this.textBoxX15.TabIndex = 8;
             // 
             // labelX38
@@ -363,7 +405,7 @@
             this.labelX38.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX38.Location = new System.Drawing.Point(10, 6);
             this.labelX38.Name = "labelX38";
-            this.labelX38.Size = new System.Drawing.Size(59, 18);
+            this.labelX38.Size = new System.Drawing.Size(50, 18);
             this.labelX38.TabIndex = 4;
             this.labelX38.Text = "料号";
             // 
@@ -397,7 +439,7 @@
             this.tabControl1.Controls.Add(this.tabPage_General);
             this.tabControl1.Controls.Add(this.tabPage_Project);
             this.tabControl1.Controls.Add(this.tabPage_SpecFrequency);
-            this.tabControl1.Controls.Add(this.tabPage_Other);
+            this.tabControl1.Controls.Add(this.tabPage_Wizard);
             this.tabControl1.Controls.Add(this.tabPage_SpecTime);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -685,6 +727,7 @@
             this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX10.TabIndex = 26;
             this.buttonX10.Text = "浏览";
+            this.buttonX10.Click += new System.EventHandler(this.buttonX10_Click);
             // 
             // textBoxX17
             // 
@@ -850,12 +893,12 @@
             // 
             // tabPage_SpecFrequency
             // 
-            this.tabPage_SpecFrequency.Controls.Add(this.buttonX4);
+            this.tabPage_SpecFrequency.Controls.Add(this.btn_SpecFreFileBrowse);
             this.tabPage_SpecFrequency.Controls.Add(this.textBoxX2);
             this.tabPage_SpecFrequency.Controls.Add(this.textBoxX1);
             this.tabPage_SpecFrequency.Controls.Add(this.labelX9);
             this.tabPage_SpecFrequency.Controls.Add(this.labelX8);
-            this.tabPage_SpecFrequency.Controls.Add(this.dataGridViewX1);
+            this.tabPage_SpecFrequency.Controls.Add(this.dgv_SpecFre);
             this.tabPage_SpecFrequency.Location = new System.Drawing.Point(4, 22);
             this.tabPage_SpecFrequency.Name = "tabPage_SpecFrequency";
             this.tabPage_SpecFrequency.Padding = new System.Windows.Forms.Padding(3);
@@ -864,16 +907,17 @@
             this.tabPage_SpecFrequency.Text = "SpecFrequency";
             this.tabPage_SpecFrequency.UseVisualStyleBackColor = true;
             // 
-            // buttonX4
+            // btn_SpecFreFileBrowse
             // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Location = new System.Drawing.Point(796, 402);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(55, 24);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 5;
-            this.buttonX4.Text = "浏览";
+            this.btn_SpecFreFileBrowse.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_SpecFreFileBrowse.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_SpecFreFileBrowse.Location = new System.Drawing.Point(796, 402);
+            this.btn_SpecFreFileBrowse.Name = "btn_SpecFreFileBrowse";
+            this.btn_SpecFreFileBrowse.Size = new System.Drawing.Size(55, 24);
+            this.btn_SpecFreFileBrowse.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_SpecFreFileBrowse.TabIndex = 5;
+            this.btn_SpecFreFileBrowse.Text = "浏览";
+            this.btn_SpecFreFileBrowse.Click += new System.EventHandler(this.btn_SpecFreFileBrowse_Click);
             // 
             // textBoxX2
             // 
@@ -923,7 +967,7 @@
             this.labelX8.TabIndex = 1;
             this.labelX8.Text = "点数";
             // 
-            // dataGridViewX1
+            // dgv_SpecFre
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -932,9 +976,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_SpecFre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_SpecFre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_SpecFre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -950,11 +994,11 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewX1.EnableHeadersVisualStyles = false;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(13, 14);
-            this.dataGridViewX1.Name = "dataGridViewX1";
+            this.dgv_SpecFre.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_SpecFre.EnableHeadersVisualStyles = false;
+            this.dgv_SpecFre.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgv_SpecFre.Location = new System.Drawing.Point(13, 14);
+            this.dgv_SpecFre.Name = "dgv_SpecFre";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -962,10 +1006,10 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewX1.RowTemplate.Height = 23;
-            this.dataGridViewX1.Size = new System.Drawing.Size(838, 374);
-            this.dataGridViewX1.TabIndex = 0;
+            this.dgv_SpecFre.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_SpecFre.RowTemplate.Height = 23;
+            this.dgv_SpecFre.Size = new System.Drawing.Size(838, 374);
+            this.dgv_SpecFre.TabIndex = 0;
             // 
             // Column1
             // 
@@ -1007,16 +1051,16 @@
             this.Column8.HeaderText = "Column8";
             this.Column8.Name = "Column8";
             // 
-            // tabPage_Other
+            // tabPage_Wizard
             // 
-            this.tabPage_Other.Controls.Add(this.panelEx7);
-            this.tabPage_Other.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_Other.Name = "tabPage_Other";
-            this.tabPage_Other.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Other.Size = new System.Drawing.Size(862, 448);
-            this.tabPage_Other.TabIndex = 3;
-            this.tabPage_Other.Text = "Other";
-            this.tabPage_Other.UseVisualStyleBackColor = true;
+            this.tabPage_Wizard.Controls.Add(this.panelEx7);
+            this.tabPage_Wizard.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Wizard.Name = "tabPage_Wizard";
+            this.tabPage_Wizard.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Wizard.Size = new System.Drawing.Size(862, 448);
+            this.tabPage_Wizard.TabIndex = 3;
+            this.tabPage_Wizard.Text = "Wizard";
+            this.tabPage_Wizard.UseVisualStyleBackColor = true;
             // 
             // panelEx7
             // 
@@ -2028,8 +2072,10 @@
             this.Controls.Add(this.expandableSplitter1);
             this.Controls.Add(this.panelEx1);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "frmProfile";
             this.Text = "档案设置";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProfile_FormClosing);
             this.Load += new System.EventHandler(this.frmProfile_Load);
             this.panelEx1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -2044,8 +2090,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage_SpecFrequency.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
-            this.tabPage_Other.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_SpecFre)).EndInit();
+            this.tabPage_Wizard.ResumeLayout(false);
             this.panelEx7.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -2127,12 +2173,12 @@
         private DevComponents.DotNetBar.LabelX labelX7;
         private System.Windows.Forms.CheckedListBox chkList_Diff;
         private System.Windows.Forms.TabPage tabPage_SpecFrequency;
-        private DevComponents.DotNetBar.ButtonX buttonX4;
+        private DevComponents.DotNetBar.ButtonX btn_SpecFreFileBrowse;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.LabelX labelX8;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgv_SpecFre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -2141,7 +2187,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.TabPage tabPage_Other;
+        private System.Windows.Forms.TabPage tabPage_Wizard;
         private DevComponents.DotNetBar.PanelEx panelEx7;
         private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -2218,5 +2264,8 @@
         private DevComponents.DotNetBar.LabelX labelX40;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
         private DevComponents.DotNetBar.LabelX labelX39;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private DevComponents.DotNetBar.LabelX labelX43;
     }
 }

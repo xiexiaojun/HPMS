@@ -1,32 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using HPMS.Config;
 using HPMS.DB;
 using HPMS.Languange;
 using HPMS.Log;
+using HPMS.RightsControl;
 using HPMS.Splash;
 using HPMS.Test;
+using HPMS.Util;
+using HslCommunication.BasicFramework;
+using Newtonsoft.Json.Linq;
 
 namespace HPMS
 {
     public partial class frmMain : Office2007Form
     {
         private readonly Dictionary<string, ToolStripMenuItem> styleItems = new Dictionary<string, ToolStripMenuItem>();
-        frmHardwareSetting _frmSetting;
+        frmHardwareSetting _frmHardwareSetting;
+        frmProfile _frmProfile;
+        private Theme _theme=new Theme();
+        SoftAuthorize softAuthorize = new HslCommunication.BasicFramework.SoftAuthorize();
+        private bool _regFlag = false;
+        private User currentUser;
+        RightsWrapper rights = new RightsWrapper();
 
         public frmMain()
         {
-            EnableGlass = false;
-            InitializeComponent();
             Splasher.Status = "正在展示相关的内容";
             System.Threading.Thread.Sleep(3000);
             System.Threading.Thread.Sleep(50);
 
             Splasher.Close();
+           
+            EnableGlass = false;
+            InitializeComponent();
+            //Splasher.Status = "正在展示相关的内容";
+            //System.Threading.Thread.Sleep(3000);
+            //System.Threading.Thread.Sleep(50);
+
+            //Splasher.Close();
             StyleMenuAdd();
+            LoadTheme();
         }
 
 
@@ -51,12 +72,11 @@ namespace HPMS
                 ToolStripMenuItem subItem;
                 subItem = AddContextMenu(suit.ToString(), m_Set_Style.DropDownItems, StyleMenuClicked);
                 styleItems.Add(suit.ToString(), subItem);
-                // cmbSkin.Items.Add(suit.ToString());
-            }
+               }
 
             ToolStripMenuItem subItemCustomer;
-            subItemCustomer = AddContextMenu("-", m_Set_Style.DropDownItems, null);
-            subItemCustomer = AddContextMenu("自定义", m_Set_Style.DropDownItems, StyleMenuClicked);
+            AddContextMenu("-", m_Set_Style.DropDownItems, null);
+            AddContextMenu("自定义", m_Set_Style.DropDownItems, StyleMenuClicked);
         }
 
         private ToolStripMenuItem AddContextMenu(string text, ToolStripItemCollection cms, EventHandler callback)
@@ -90,6 +110,11 @@ namespace HPMS
                 {
                     var color = colorDialog1.Color;
                     StyleManager.ChangeStyle(currentStyle, color);
+                    _theme.EStyle = currentStyle;
+                    _theme.Color = color.Name;
+                   
+                    _theme.Customer = true;
+                    LocalConfig.SaveTheme(_theme);
                 }
             }
             else
@@ -97,6 +122,23 @@ namespace HPMS
                 styleItems[currentStyle.ToString()].Checked = false;
                 styleClickedItem.Checked = true;
                 styleManager1.ManagerStyle = (eStyle) Enum.Parse(typeof(eStyle), styleClickedItem.Text);
+                _theme.EStyle = styleManager1.ManagerStyle;
+                styleManager1.ManagerColorTint = Color.FromName("0");
+                _theme.Customer = false;
+                LocalConfig.SaveTheme(_theme);
+            }
+        }
+
+        private void LoadTheme()
+        {
+            _theme = LocalConfig.LoadTheme();
+            if (_theme.Customer)
+            {
+                StyleManager.ChangeStyle(_theme.EStyle, Color.FromName(_theme.Color));
+            }
+            else
+            {
+                styleManager1.ManagerStyle = _theme.EStyle;
             }
         }
 
@@ -122,6 +164,7 @@ namespace HPMS
 
         private void button2_Click(object sender, EventArgs e)
         {
+         
             int a = 8;
             int b = 0;
             int c = a / b;
@@ -133,20 +176,19 @@ namespace HPMS
            
         }
 
-        private void m_Set_profile_Click(object sender, EventArgs e)
+        private void m_Set_hardware_Click(object sender, EventArgs e)
         {
           
 
-            if (_frmSetting == null || _frmSetting.IsDisposed)
+            if (_frmHardwareSetting == null || _frmHardwareSetting.IsDisposed)
             {
-                _frmSetting = new frmHardwareSetting();
-                _frmSetting.StartPosition = FormStartPosition.CenterParent;
-                _frmSetting.ShowDialog();
+                _frmHardwareSetting = new frmHardwareSetting {StartPosition = FormStartPosition.CenterParent};
+                _frmHardwareSetting.ShowDialog();
             }
             else
             {
-                _frmSetting.WindowState = FormWindowState.Normal;
-                _frmSetting.ShowDialog();
+                _frmHardwareSetting.WindowState = FormWindowState.Normal;
+                _frmHardwareSetting.ShowDialog();
             }
            
         }
@@ -157,10 +199,145 @@ namespace HPMS
 
        
 
-        private void m_Set_profile_Click_1(object sender, EventArgs e)
+        private void m_Set_profile_Click(object sender, EventArgs e)
         {
-            frmProfile aFrmParamSetting = new frmProfile();
-            aFrmParamSetting.ShowDialog();
+            if (_frmProfile == null || _frmProfile.IsDisposed)
+            {
+                _frmProfile = new frmProfile { StartPosition = FormStartPosition.CenterParent };
+                _frmProfile.ShowDialog();
+            }
+            else
+            {
+                _frmProfile.WindowState = FormWindowState.Normal;
+                _frmProfile.ShowDialog();
+            }
+           
         }
+
+        private void frmMain_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                notifyIcon1.Visible = true; //托盘图标隐藏
+            }
+            if (this.WindowState == FormWindowState.Minimized)//最小化事件
+            {
+                this.Hide();//最小化时窗体隐藏
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Show();
+                this.WindowState = FormWindowState.Normal; //还原窗体 
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show(rights.EditUser().ToString());
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            string code = ReadCode();
+            string softVersion = "";
+
+
+            // 检测激活码是否正确，没有文件，或激活码错误都算作激活失败
+            if (!IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref softVersion, code))
+            {
+                // 显示注册窗口
+
+                using (frmRegist form =
+                    new frmRegist())
+                {
+                    if (form.ShowDialog() != DialogResult.OK)
+                    {
+                        _regFlag = form._regFlag;
+                    }
+                }
+
+                if (_regFlag)
+                {
+                    Application.ExitThread();
+                    Application.Exit();
+                    Application.Restart();
+                    Process.GetCurrentProcess().Kill();  
+                  
+                }
+                else
+                {
+                    Close();
+                }
+               
+            }
+            else
+            {
+                using (frmLogin _frmLogin = new frmLogin(softVersion))
+                {
+                    if (_frmLogin.ShowDialog() != DialogResult.OK)
+                    {
+                        currentUser = _frmLogin.User;
+                        GetUserRights();
+                    }
+                    
+                }
+    
+            }
+          
+        }
+
+        private void GetUserRights()
+        {
+            Thread.CurrentPrincipal =
+                new GenericPrincipal(new GenericIdentity(currentUser.Username, currentUser.Role),
+                    currentUser.Rights);
+        }
+
+        private string ReadCode()
+        {
+            string ret = "";
+            try
+            {
+                ret = File.ReadAllText(Application.StartupPath + @"\license.lic");
+            }
+            catch (Exception e)
+            {
+                
+            }
+
+            return ret;
+        }
+
+        private bool IsAuthorize(string machineCode, string softName, ref string softVersion, string regCode)
+        {
+            bool ret = false;
+           
+            try
+            {
+                string regJson = SoftSecurity.MD5Decrypt(regCode, "bayuejun");
+                JObject tempJObject = JObject.Parse(regJson.ToString());
+                ret = (tempJObject.Property("machineCode").Value.ToString() == machineCode) ||
+                      tempJObject.Property("softName").Value.ToString() == machineCode;
+                softVersion = tempJObject.Property("softVersion").Value.ToString();
+            }
+            catch (Exception e)
+            {
+               
+            }
+
+            return ret;
+        }
+
+     
     }
 }

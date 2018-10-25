@@ -279,6 +279,7 @@
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 17;
             this.buttonX1.Text = "浏览";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // textBoxX1
             // 
@@ -326,6 +327,7 @@
             this.Controls.Add(this.btnSave);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaximizeBox = false;
             this.Name = "frmHardwareSetting";
             this.Text = "硬件设置";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSetting_FormClosing);
