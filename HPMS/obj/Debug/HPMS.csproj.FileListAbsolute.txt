@@ -34,3 +34,5 @@ D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.pdb
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csprojResolveAssemblyReference.cache
+D:\gitProjects\HPMS\HPMS\bin\Debug\WHC.Pager.WinControlEx.dll
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmAdmin.resources

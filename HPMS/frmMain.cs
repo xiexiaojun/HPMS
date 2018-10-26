@@ -338,6 +338,19 @@ namespace HPMS
             return ret;
         }
 
+        private void m_Set_user_Click(object sender, EventArgs e)
+        {
+            using (frmAdmin form =
+                new frmAdmin(currentUser))
+            {
+                form.ShowDialog();
+                //if (form.ShowDialog() != DialogResult.OK)
+                //{
+                //    _regFlag = form._regFlag;
+                //}
+            }
+        }
+
      
     }
 }

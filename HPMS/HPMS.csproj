@@ -98,6 +98,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
+    <Reference Include="WHC.Pager.WinControlEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -115,6 +116,12 @@
     <Compile Include="Equipment\Switch\Switch_MCU.cs" />
     <Compile Include="Equipment\Util.cs" />
     <Compile Include="Equipment\Visa\VisaSerial.cs" />
+    <Compile Include="frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +180,9 @@
     <Compile Include="Util\EasyExcel.cs" />
     <Compile Include="Util\Serializer.cs" />
     <Compile Include="Util\UI.cs" />
+    <EmbeddedResource Include="frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +264,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="DB\DB.sql" />
     <Content Include="Dll\32p_analyze.dll" />
     <Content Include="Dll\32p_analyze.XML" />
     <Content Include="Dll\Aspose.Cells.dll" />
@@ -263,6 +274,8 @@
     <Content Include="Dll\MathNet.Numerics.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
+    <Content Include="Dll\WHC.Pager.Entity.dll" />
+    <Content Include="Dll\WHC.Pager.WinControlEx.dll" />
     <None Include="Resources\图片2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
