@@ -1,0 +1,13 @@
+D:\gitProjects\HPMS\Register\bin\Debug\Register.exe.config
+D:\gitProjects\HPMS\Register\bin\Debug\Register.exe
+D:\gitProjects\HPMS\Register\bin\Debug\Register.pdb
+D:\gitProjects\HPMS\Register\obj\Debug\Register.frmRegister.resources
+D:\gitProjects\HPMS\Register\obj\Debug\Register.Properties.Resources.resources
+D:\gitProjects\HPMS\Register\obj\Debug\Register.csproj.GenerateResource.Cache
+D:\gitProjects\HPMS\Register\obj\Debug\Register.exe
+D:\gitProjects\HPMS\Register\obj\Debug\Register.pdb
+D:\gitProjects\HPMS\Register\obj\Debug\Register.csprojResolveAssemblyReference.cache
+D:\gitProjects\HPMS\Register\bin\Debug\HslCommunication.dll
+D:\gitProjects\HPMS\Register\bin\Debug\Newtonsoft.Json.dll
+D:\gitProjects\HPMS\Register\bin\Debug\HslCommunication.xml
+D:\gitProjects\HPMS\Register\bin\Debug\Newtonsoft.Json.xml
