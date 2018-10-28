@@ -196,6 +196,12 @@ namespace HPMS.DB
 
     public class RoleDao
     {
+        /// <summary>
+        /// 增加角色
+        /// </summary>
+        /// <param name="role"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public static bool Add(Role role,ref string msg)
         {
             bool ret = false;
