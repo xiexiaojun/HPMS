@@ -21,7 +21,7 @@ namespace HPMS.DB
         public string Name { set; get; }
         public string Description { set; get; }
         public string Version { set; get; }
-        public int Status { set; get; }
+        public RecordStatus RecordStatus { set; get; }
     }
     public class User
     {
@@ -30,7 +30,7 @@ namespace HPMS.DB
         public string Role { set; get; }
         public int RoleId { set; get; }
         public int UserId { set; get; }
-        public string[]Rights { set; get; }
+        public Dictionary<string,string>Rights { set; get; }
         public int CreaterId { set; get; }
         public string CreateDate { set; get; }
         public RecordStatus RecordStatus { set; get; }
@@ -43,7 +43,7 @@ namespace HPMS.DB
         public string Name { set; get; }
         public string Description { set; get; }
         public string RightsId { set; get; }
-        public string[]Rights { set; get; }
+        public Dictionary<string,string>Right{ set; get; }
         public int CreateId { set; get; }
         public string CreateDate { set; get; }
         public RecordStatus RecordStatus { set; get; }
@@ -143,19 +143,19 @@ namespace HPMS.DB
             
             foreach (DataRow tempRow in table.Rows)
             {
-                User user = new User
-                {
-                    UserId = (int) tempRow["ID"],
-                    Username = (string)tempRow["UserName"],
-                    Psw = (string)tempRow["Password"],
-                     Role= (string)tempRow["RoleName"],
-                     RoleId= (int)tempRow["RoleID"],
-                    CreateDate = ((DateTime)tempRow["CreateDate"]).ToString(),
-                    Rights = GetRightsById((string)tempRow["RoleRights"]),
-                    CreaterId =  (int)tempRow["CreateID"],
-                    RecordStatus = (RecordStatus)(int)tempRow["UserStatus"]
+                var user = new User();
 
-                };
+                user.UserId = (int) tempRow["ID"];
+                user.Username = (string) tempRow["UserName"];
+                user.Psw = (string) tempRow["Password"];
+                user.Role = (string) tempRow["RoleName"];
+                user.RoleId = (int) tempRow["RoleID"];
+                user.CreateDate = ((DateTime) tempRow["CreateDate"]).ToString();
+                user.Rights = RightDao.GetRightsById((string) tempRow["RoleRights"]);
+                user.CreaterId = (int) tempRow["CreateID"];
+                user.RecordStatus = (RecordStatus) (int) tempRow["UserStatus"];
+
+               
                 ret.Add(user);
             }
 
@@ -175,50 +175,19 @@ namespace HPMS.DB
 
             foreach (DataRow tempRow in table.Rows)
             {
-                User user = new User
-                {
-                    UserId = (int)tempRow["ID"],
-                    Username = (string)tempRow["UserName"],
-                    Psw = (string)tempRow["Password"],
-                    Role = (string)tempRow["RoleName"],
-                    RoleId = (int)tempRow["RoleID"],
-                    CreateDate = ((DateTime)tempRow["CreateDate"]).ToString(),
-                    Rights = GetRightsById((string)tempRow["RoleRights"]),
-                    CreaterId = (int)tempRow["CreateID"],
-                    RecordStatus = (RecordStatus)(int)tempRow["UserStatus"]
+                var user = new User();
 
-                };
+                user.UserId = (int)tempRow["ID"];
+                user.Username = (string)tempRow["UserName"];
+                user.Psw = (string)tempRow["Password"];
+                user.Role = (string)tempRow["RoleName"];
+                user.RoleId = (int)tempRow["RoleID"];
+                user.CreateDate = ((DateTime)tempRow["CreateDate"]).ToString();
+                user.Rights = RightDao.GetRightsById((string)tempRow["RoleRights"]);
+                user.CreaterId = (int)tempRow["CreateID"];
+                user.RecordStatus = (RecordStatus)(int)tempRow["UserStatus"];
+
                 ret.Add(user);
-            }
-
-            return ret;
-        }
-
-        public static string[] GetRightsById(string rightsId)
-        {
-            List<string>ret=new List<string>();
-            string querySql = "select name from HPMS_rights where ID in (" + rightsId + ")" + " and status=1";
-            DataTable dataTable = DbHelperOleDb.Query(querySql).Tables[0];
-            foreach (DataRow tempRow in dataTable.Rows)
-            {
-                ret.Add((string)tempRow[0]);
-            }
-
-            return ret.ToArray();
-        }
-
-        public static List<Right> GetAllRights()
-        {
-            List<Right> ret = new List<Right>();
-            string querySql = "SELECT ID, Name, Description, Version, Status FROM HPMS_Rights";
-            DataTable dataTable = DbHelperOleDb.Query(querySql).Tables[0];
-            foreach (DataRow tempRow in dataTable.Rows)
-            {
-                Right right=new Right();
-                right.Id = (int)tempRow["ID"];
-                right.Name = (string) tempRow["Name"];
-                right.Description = (string)tempRow["Description"];
-                ret.Add(right);
             }
 
             return ret;
@@ -295,6 +264,16 @@ namespace HPMS.DB
             return ret;
         }
 
+        public static DataTable Find()
+        {
+         
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role";
+          
+            DataSet dataSet = DbHelperOleDb.Query(querySql);
+            DataTable ret  = dataSet.Tables[0];
+
+            return ret;
+        }
         public static List<Role> Find(int roleId)
         {
             List<Role> ret = new List<Role>();
@@ -312,7 +291,7 @@ namespace HPMS.DB
                     Name = (string)tempRow["Name"],
                     Description = (string)tempRow["Description"],
                     RightsId = (string)tempRow["RightsID"],
-                    Rights = UserDao.GetRightsById((string)tempRow["RightsID"]),
+                    Right = RightDao.GetRightsById((string)tempRow["RightsID"]),
                     CreateDate = ((DateTime)tempRow["CreateDate"]).ToString(),
                     CreateId = (int)tempRow["CreateID"],
                     RecordStatus = (RecordStatus)(int)tempRow["Status"]
@@ -341,7 +320,7 @@ namespace HPMS.DB
                     Name = (string)tempRow["Name"],
                     Description = (string)tempRow["Description"],
                     RightsId = (string)tempRow["RightsID"],
-                    Rights = UserDao.GetRightsById((string)tempRow["RightsID"]),
+                    Right = RightDao.GetRightsById((string)tempRow["RightsID"]),
                     CreateDate = ((DateTime)tempRow["CreateDate"]).ToString(),
                     CreateId = (int)tempRow["CreateID"],
                     RecordStatus = (RecordStatus)(int)tempRow["Status"]
@@ -354,6 +333,53 @@ namespace HPMS.DB
         }
     }
 
+    public class RightDao
+    {
+        #region 根据权限ID获取对应的权限
+
+        public static Dictionary<string,string> GetRightsById(string rightsId)
+        {
+            var ret = new Dictionary<string,string>();
+            string querySql = "select name,Description from HPMS_rights where ID in (" + rightsId + ")" + " and status=1";
+            DataTable dataTable = DbHelperOleDb.Query(querySql).Tables[0];
+            foreach (DataRow tempRow in dataTable.Rows)
+            {
+                ret.Add((string)tempRow[0], (string)tempRow[1]);
+            }
+
+            return ret;
+        }
+
+        #endregion
+
+        #region 获取数据库中存在的所有权限
+
+        /// <summary>
+        /// 获取数据库中存在的所有权限
+        /// </summary>
+        /// <returns></returns>
+        public static List<Right> GetAllRights()
+        {
+            List<Right> ret = new List<Right>();
+            string querySql = "SELECT ID, Name, Description, Version, Status FROM HPMS_Rights";
+            DataTable dataTable = DbHelperOleDb.Query(querySql).Tables[0];
+            foreach (DataRow tempRow in dataTable.Rows)
+            {
+                var right = new Right();
+
+                right.Id = (int)tempRow["ID"];
+                right.Name = (string)tempRow["Name"];
+                right.Description = (string)tempRow["Description"];
+                right.Version = (string)tempRow["Version"];
+                right.RecordStatus = (RecordStatus)(int)tempRow["Status"];
+                ret.Add(right);
+            }
+
+            return ret;
+        }
+
+        #endregion
+    }
     
     public class LoginHelper
     {

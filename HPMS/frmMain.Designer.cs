@@ -41,6 +41,7 @@
             this.m_Set_Style = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_hardware = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_profile = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_Set_user = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -58,7 +59,6 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.m_Set_user = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_Main.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -124,6 +124,12 @@
             this.m_Set_profile.Name = "m_Set_profile";
             resources.ApplyResources(this.m_Set_profile, "m_Set_profile");
             this.m_Set_profile.Click += new System.EventHandler(this.m_Set_profile_Click);
+            // 
+            // m_Set_user
+            // 
+            this.m_Set_user.Name = "m_Set_user";
+            resources.ApplyResources(this.m_Set_user, "m_Set_user");
+            this.m_Set_user.Click += new System.EventHandler(this.m_Set_user_Click);
             // 
             // statusStrip1
             // 
@@ -260,12 +266,6 @@
             // 
             resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // m_Set_user
-            // 
-            this.m_Set_user.Name = "m_Set_user";
-            resources.ApplyResources(this.m_Set_user, "m_Set_user");
-            this.m_Set_user.Click += new System.EventHandler(this.m_Set_user_Click);
             // 
             // frmMain
             // 

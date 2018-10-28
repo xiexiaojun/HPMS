@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
@@ -300,7 +301,7 @@ namespace HPMS
         {
             Thread.CurrentPrincipal =
                 new GenericPrincipal(new GenericIdentity(currentUser.Username, currentUser.Role),
-                    currentUser.Rights);
+                    currentUser.Rights.Select(t=>t.Key).ToArray());
         }
 
         private string ReadCode()

@@ -122,43 +122,43 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="中文ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
     <value>中文</value>
   </data>
   <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="englishToolStripMenuItem.Text" xml:space="preserve">
     <value>English</value>
   </data>
   <data name="m_Set_Languange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="m_Set_Languange.Text" xml:space="preserve">
     <value>语言</value>
   </data>
   <data name="m_Set_Style.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="m_Set_Style.Text" xml:space="preserve">
     <value>风格</value>
   </data>
   <data name="m_Set_hardware.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="m_Set_hardware.Text" xml:space="preserve">
     <value>硬件设置</value>
   </data>
   <data name="m_Set_profile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="m_Set_profile.Text" xml:space="preserve">
     <value>档案设置</value>
   </data>
   <data name="m_Set_user.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="m_Set_user.Text" xml:space="preserve">
     <value>用户管理</value>
@@ -1257,6 +1257,12 @@
   <data name="&gt;&gt;m_Set_profile.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;m_Set_user.Name" xml:space="preserve">
+    <value>m_Set_user</value>
+  </data>
+  <data name="&gt;&gt;m_Set_user.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;styleManager1.Name" xml:space="preserve">
     <value>styleManager1</value>
   </data>
@@ -1274,12 +1280,6 @@
   </data>
   <data name="&gt;&gt;notifyIcon1.Type" xml:space="preserve">
     <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_Set_user.Name" xml:space="preserve">
-    <value>m_Set_user</value>
-  </data>
-  <data name="&gt;&gt;m_Set_user.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmMain</value>

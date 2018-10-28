@@ -30,8 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.itemPanel_category = new DevComponents.DotNetBar.ItemPanel();
             this.btnMyProfile = new DevComponents.DotNetBar.ButtonItem();
             this.btnRoleEdit = new DevComponents.DotNetBar.ButtonItem();
@@ -40,6 +44,7 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_MyProfile = new System.Windows.Forms.TabPage();
+            this.txtUserRole = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.chk_MyProfile_rightsList = new System.Windows.Forms.CheckedListBox();
@@ -55,7 +60,7 @@
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.bindingNavigatorEx1 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bNRoleTable = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
             this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
@@ -64,7 +69,7 @@
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvRoleTable = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.tabPage_UserEdit = new System.Windows.Forms.TabPage();
             this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
@@ -74,7 +79,7 @@
             this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.bindingNavigatorEx2 = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
+            this.bNUserTable = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
             this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
             this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
             this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
@@ -83,17 +88,18 @@
             this.textBoxItem1 = new DevComponents.DotNetBar.TextBoxItem();
             this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem10 = new DevComponents.DotNetBar.ButtonItem();
-            this.dataGridViewX2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.txtUserRole = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.dgvUserTable = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.txtRightDescription = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_MyProfile.SuspendLayout();
             this.tabPage_RoleEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bNRoleTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoleTable)).BeginInit();
             this.tabPage_UserEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bNUserTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserTable)).BeginInit();
             this.SuspendLayout();
             // 
             // itemPanel_category
@@ -199,6 +205,8 @@
             // 
             // tabPage_MyProfile
             // 
+            this.tabPage_MyProfile.Controls.Add(this.labelX10);
+            this.tabPage_MyProfile.Controls.Add(this.txtRightDescription);
             this.tabPage_MyProfile.Controls.Add(this.txtUserRole);
             this.tabPage_MyProfile.Controls.Add(this.buttonX3);
             this.tabPage_MyProfile.Controls.Add(this.labelX7);
@@ -213,6 +221,19 @@
             this.tabPage_MyProfile.TabIndex = 0;
             this.tabPage_MyProfile.Text = "我的信息";
             this.tabPage_MyProfile.UseVisualStyleBackColor = true;
+            // 
+            // txtUserRole
+            // 
+            // 
+            // 
+            // 
+            this.txtUserRole.Border.Class = "TextBoxBorder";
+            this.txtUserRole.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtUserRole.Location = new System.Drawing.Point(79, 38);
+            this.txtUserRole.Name = "txtUserRole";
+            this.txtUserRole.ReadOnly = true;
+            this.txtUserRole.Size = new System.Drawing.Size(172, 21);
+            this.txtUserRole.TabIndex = 35;
             // 
             // buttonX3
             // 
@@ -239,7 +260,6 @@
             // 
             // chk_MyProfile_rightsList
             // 
-            this.chk_MyProfile_rightsList.Enabled = false;
             this.chk_MyProfile_rightsList.FormattingEnabled = true;
             this.chk_MyProfile_rightsList.Items.AddRange(new object[] {
             "AA",
@@ -250,6 +270,8 @@
             this.chk_MyProfile_rightsList.Size = new System.Drawing.Size(238, 180);
             this.chk_MyProfile_rightsList.TabIndex = 31;
             this.chk_MyProfile_rightsList.ThreeDCheckBoxes = true;
+            this.chk_MyProfile_rightsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chk_MyProfile_rightsList_ItemCheck);
+            this.chk_MyProfile_rightsList.SelectedIndexChanged += new System.EventHandler(this.chk_MyProfile_rightsList_SelectedIndexChanged);
             // 
             // txtUserName
             // 
@@ -298,8 +320,8 @@
             this.tabPage_RoleEdit.Controls.Add(this.textBoxX1);
             this.tabPage_RoleEdit.Controls.Add(this.labelX2);
             this.tabPage_RoleEdit.Controls.Add(this.labelX1);
-            this.tabPage_RoleEdit.Controls.Add(this.bindingNavigatorEx1);
-            this.tabPage_RoleEdit.Controls.Add(this.dataGridViewX1);
+            this.tabPage_RoleEdit.Controls.Add(this.bNRoleTable);
+            this.tabPage_RoleEdit.Controls.Add(this.dgvRoleTable);
             this.tabPage_RoleEdit.Location = new System.Drawing.Point(4, 22);
             this.tabPage_RoleEdit.Name = "tabPage_RoleEdit";
             this.tabPage_RoleEdit.Padding = new System.Windows.Forms.Padding(3);
@@ -327,7 +349,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(6, 116);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(50, 22);
+            this.labelX3.Size = new System.Drawing.Size(80, 22);
             this.labelX3.TabIndex = 15;
             this.labelX3.Text = "权限列表";
             // 
@@ -406,16 +428,16 @@
             this.labelX1.TabIndex = 2;
             this.labelX1.Text = "角色名";
             // 
-            // bindingNavigatorEx1
+            // bNRoleTable
             // 
-            this.bindingNavigatorEx1.AddNewRecordButton = this.bindingNavigatorAddNewItem;
-            this.bindingNavigatorEx1.AntiAlias = true;
-            this.bindingNavigatorEx1.CountLabel = this.bindingNavigatorCountItem;
-            this.bindingNavigatorEx1.CountLabelFormat = "of {0}";
-            this.bindingNavigatorEx1.DeleteButton = this.bindingNavigatorDeleteItem;
-            this.bindingNavigatorEx1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bindingNavigatorEx1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.bindingNavigatorEx1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bNRoleTable.AddNewRecordButton = this.bindingNavigatorAddNewItem;
+            this.bNRoleTable.AntiAlias = true;
+            this.bNRoleTable.CountLabel = this.bindingNavigatorCountItem;
+            this.bNRoleTable.CountLabelFormat = "of {0}";
+            this.bNRoleTable.DeleteButton = this.bindingNavigatorDeleteItem;
+            this.bNRoleTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bNRoleTable.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.bNRoleTable.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorPositionItem,
@@ -424,19 +446,19 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigatorEx1.Location = new System.Drawing.Point(3, 359);
-            this.bindingNavigatorEx1.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigatorEx1.MoveLastButton = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigatorEx1.MoveNextButton = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigatorEx1.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigatorEx1.Name = "bindingNavigatorEx1";
-            this.bindingNavigatorEx1.PositionTextBox = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorEx1.Size = new System.Drawing.Size(721, 25);
-            this.bindingNavigatorEx1.Stretch = true;
-            this.bindingNavigatorEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bindingNavigatorEx1.TabIndex = 1;
-            this.bindingNavigatorEx1.TabStop = false;
-            this.bindingNavigatorEx1.Text = "bindingNavigatorEx1";
+            this.bNRoleTable.Location = new System.Drawing.Point(3, 359);
+            this.bNRoleTable.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
+            this.bNRoleTable.MoveLastButton = this.bindingNavigatorMoveLastItem;
+            this.bNRoleTable.MoveNextButton = this.bindingNavigatorMoveNextItem;
+            this.bNRoleTable.MovePreviousButton = this.bindingNavigatorMovePreviousItem;
+            this.bNRoleTable.Name = "bNRoleTable";
+            this.bNRoleTable.PositionTextBox = this.bindingNavigatorPositionItem;
+            this.bNRoleTable.Size = new System.Drawing.Size(721, 25);
+            this.bNRoleTable.Stretch = true;
+            this.bNRoleTable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bNRoleTable.TabIndex = 1;
+            this.bNRoleTable.TabStop = false;
+            this.bNRoleTable.Text = "bindingNavigatorEx1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -489,23 +511,41 @@
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
-            // dataGridViewX1
+            // dgvRoleTable
             // 
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(253, 6);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.RowTemplate.Height = 23;
-            this.dataGridViewX1.Size = new System.Drawing.Size(466, 347);
-            this.dataGridViewX1.TabIndex = 0;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoleTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRoleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRoleTable.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvRoleTable.EnableHeadersVisualStyles = false;
+            this.dgvRoleTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvRoleTable.Location = new System.Drawing.Point(253, 6);
+            this.dgvRoleTable.Name = "dgvRoleTable";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoleTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvRoleTable.RowTemplate.Height = 23;
+            this.dgvRoleTable.Size = new System.Drawing.Size(466, 347);
+            this.dgvRoleTable.TabIndex = 0;
+            this.dgvRoleTable.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRoleTable_CellFormatting);
             // 
             // tabPage_UserEdit
             // 
@@ -517,8 +557,8 @@
             this.tabPage_UserEdit.Controls.Add(this.textBoxX4);
             this.tabPage_UserEdit.Controls.Add(this.labelX5);
             this.tabPage_UserEdit.Controls.Add(this.labelX6);
-            this.tabPage_UserEdit.Controls.Add(this.bindingNavigatorEx2);
-            this.tabPage_UserEdit.Controls.Add(this.dataGridViewX2);
+            this.tabPage_UserEdit.Controls.Add(this.bNUserTable);
+            this.tabPage_UserEdit.Controls.Add(this.dgvUserTable);
             this.tabPage_UserEdit.Location = new System.Drawing.Point(4, 22);
             this.tabPage_UserEdit.Name = "tabPage_UserEdit";
             this.tabPage_UserEdit.Padding = new System.Windows.Forms.Padding(3);
@@ -624,16 +664,16 @@
             this.labelX6.TabIndex = 19;
             this.labelX6.Text = "用户名";
             // 
-            // bindingNavigatorEx2
+            // bNUserTable
             // 
-            this.bindingNavigatorEx2.AddNewRecordButton = this.buttonItem5;
-            this.bindingNavigatorEx2.AntiAlias = true;
-            this.bindingNavigatorEx2.CountLabel = this.labelItem1;
-            this.bindingNavigatorEx2.CountLabelFormat = "of {0}";
-            this.bindingNavigatorEx2.DeleteButton = this.buttonItem6;
-            this.bindingNavigatorEx2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bindingNavigatorEx2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.bindingNavigatorEx2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.bNUserTable.AddNewRecordButton = this.buttonItem5;
+            this.bNUserTable.AntiAlias = true;
+            this.bNUserTable.CountLabel = this.labelItem1;
+            this.bNUserTable.CountLabelFormat = "of {0}";
+            this.bNUserTable.DeleteButton = this.buttonItem6;
+            this.bNUserTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bNUserTable.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.bNUserTable.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem7,
             this.buttonItem8,
             this.textBoxItem1,
@@ -642,19 +682,19 @@
             this.buttonItem10,
             this.buttonItem5,
             this.buttonItem6});
-            this.bindingNavigatorEx2.Location = new System.Drawing.Point(3, 359);
-            this.bindingNavigatorEx2.MoveFirstButton = this.buttonItem7;
-            this.bindingNavigatorEx2.MoveLastButton = this.buttonItem10;
-            this.bindingNavigatorEx2.MoveNextButton = this.buttonItem9;
-            this.bindingNavigatorEx2.MovePreviousButton = this.buttonItem8;
-            this.bindingNavigatorEx2.Name = "bindingNavigatorEx2";
-            this.bindingNavigatorEx2.PositionTextBox = this.textBoxItem1;
-            this.bindingNavigatorEx2.Size = new System.Drawing.Size(721, 25);
-            this.bindingNavigatorEx2.Stretch = true;
-            this.bindingNavigatorEx2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bindingNavigatorEx2.TabIndex = 18;
-            this.bindingNavigatorEx2.TabStop = false;
-            this.bindingNavigatorEx2.Text = "bindingNavigatorEx2";
+            this.bNUserTable.Location = new System.Drawing.Point(3, 359);
+            this.bNUserTable.MoveFirstButton = this.buttonItem7;
+            this.bNUserTable.MoveLastButton = this.buttonItem10;
+            this.bNUserTable.MoveNextButton = this.buttonItem9;
+            this.bNUserTable.MovePreviousButton = this.buttonItem8;
+            this.bNUserTable.Name = "bNUserTable";
+            this.bNUserTable.PositionTextBox = this.textBoxItem1;
+            this.bNUserTable.Size = new System.Drawing.Size(721, 25);
+            this.bNUserTable.Stretch = true;
+            this.bNUserTable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bNUserTable.TabIndex = 18;
+            this.bNUserTable.TabStop = false;
+            this.bNUserTable.Text = "bindingNavigatorEx2";
             // 
             // buttonItem5
             // 
@@ -707,36 +747,65 @@
             this.buttonItem10.Name = "buttonItem10";
             this.buttonItem10.Text = "Move last";
             // 
-            // dataGridViewX2
+            // dgvUserTable
             // 
-            this.dataGridViewX2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewX2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX2.Location = new System.Drawing.Point(253, 4);
-            this.dataGridViewX2.Name = "dataGridViewX2";
-            this.dataGridViewX2.RowTemplate.Height = 23;
-            this.dataGridViewX2.Size = new System.Drawing.Size(466, 347);
-            this.dataGridViewX2.TabIndex = 17;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvUserTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserTable.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvUserTable.EnableHeadersVisualStyles = false;
+            this.dgvUserTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvUserTable.Location = new System.Drawing.Point(253, 4);
+            this.dgvUserTable.Name = "dgvUserTable";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvUserTable.RowTemplate.Height = 23;
+            this.dgvUserTable.Size = new System.Drawing.Size(466, 347);
+            this.dgvUserTable.TabIndex = 17;
             // 
-            // txtUserRole
+            // txtRightDescription
             // 
             // 
             // 
             // 
-            this.txtUserRole.Border.Class = "TextBoxBorder";
-            this.txtUserRole.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtUserRole.Location = new System.Drawing.Point(79, 38);
-            this.txtUserRole.Name = "txtUserRole";
-            this.txtUserRole.ReadOnly = true;
-            this.txtUserRole.Size = new System.Drawing.Size(172, 21);
-            this.txtUserRole.TabIndex = 35;
+            this.txtRightDescription.Border.Class = "TextBoxBorder";
+            this.txtRightDescription.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRightDescription.Location = new System.Drawing.Point(345, 99);
+            this.txtRightDescription.Multiline = true;
+            this.txtRightDescription.Name = "txtRightDescription";
+            this.txtRightDescription.Size = new System.Drawing.Size(297, 180);
+            this.txtRightDescription.TabIndex = 36;
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(345, 71);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(84, 22);
+            this.labelX10.TabIndex = 37;
+            this.labelX10.Text = "权限描述";
             // 
             // frmAdmin
             // 
@@ -754,11 +823,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage_MyProfile.ResumeLayout(false);
             this.tabPage_RoleEdit.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bNRoleTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoleTable)).EndInit();
             this.tabPage_UserEdit.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorEx2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bNUserTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -774,13 +843,13 @@
         private DevComponents.DotNetBar.ButtonItem btnRoleEdit;
         private DevComponents.DotNetBar.ButtonItem btnUserEdit;
         private System.Windows.Forms.TabPage tabPage_RoleEdit;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvRoleTable;
         private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX1;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx1;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bNRoleTable;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
         private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
         private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
@@ -807,7 +876,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.LabelX labelX6;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bindingNavigatorEx2;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bNUserTable;
         private DevComponents.DotNetBar.ButtonItem buttonItem5;
         private DevComponents.DotNetBar.LabelItem labelItem1;
         private DevComponents.DotNetBar.ButtonItem buttonItem6;
@@ -816,8 +885,10 @@
         private DevComponents.DotNetBar.TextBoxItem textBoxItem1;
         private DevComponents.DotNetBar.ButtonItem buttonItem9;
         private DevComponents.DotNetBar.ButtonItem buttonItem10;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX2;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvUserTable;
         private DevComponents.DotNetBar.Controls.TextBoxX txtUserRole;
+        private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtRightDescription;
 
     }
 }
