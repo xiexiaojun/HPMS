@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.itemPanel_category = new DevComponents.DotNetBar.ItemPanel();
             this.btnMyProfile = new DevComponents.DotNetBar.ButtonItem();
             this.btnRoleEdit = new DevComponents.DotNetBar.ButtonItem();
@@ -44,53 +44,40 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_MyProfile = new System.Windows.Forms.TabPage();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.txtRightDescription = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtUserRole = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
+            this.btnModifyPsw = new DevComponents.DotNetBar.ButtonX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.chk_MyProfile_rightsList = new System.Windows.Forms.CheckedListBox();
             this.txtUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.tabPage_RoleEdit = new System.Windows.Forms.TabPage();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.chkList_Diff = new System.Windows.Forms.CheckedListBox();
-            this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.bNRoleTable = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.bindingNavigatorAddNewItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorCountItem = new DevComponents.DotNetBar.LabelItem();
-            this.bindingNavigatorDeleteItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveFirstItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMovePreviousItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorPositionItem = new DevComponents.DotNetBar.TextBoxItem();
             this.bindingNavigatorMoveNextItem = new DevComponents.DotNetBar.ButtonItem();
             this.bindingNavigatorMoveLastItem = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRoleAdd = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRoleDel = new DevComponents.DotNetBar.ButtonItem();
+            this.btnRoleModify = new DevComponents.DotNetBar.ButtonItem();
             this.dgvRoleTable = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.tabPage_UserEdit = new System.Windows.Forms.TabPage();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkBoxX2 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.bNUserTable = new DevComponents.DotNetBar.Controls.BindingNavigatorEx(this.components);
-            this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
             this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
-            this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem7 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
             this.textBoxItem1 = new DevComponents.DotNetBar.TextBoxItem();
             this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem10 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAddUser = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDelUser = new DevComponents.DotNetBar.ButtonItem();
+            this.btnModifyUser = new DevComponents.DotNetBar.ButtonItem();
             this.dgvUserTable = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.txtRightDescription = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelEx1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_MyProfile.SuspendLayout();
@@ -100,6 +87,7 @@
             this.tabPage_UserEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bNUserTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // itemPanel_category
@@ -208,7 +196,7 @@
             this.tabPage_MyProfile.Controls.Add(this.labelX10);
             this.tabPage_MyProfile.Controls.Add(this.txtRightDescription);
             this.tabPage_MyProfile.Controls.Add(this.txtUserRole);
-            this.tabPage_MyProfile.Controls.Add(this.buttonX3);
+            this.tabPage_MyProfile.Controls.Add(this.btnModifyPsw);
             this.tabPage_MyProfile.Controls.Add(this.labelX7);
             this.tabPage_MyProfile.Controls.Add(this.chk_MyProfile_rightsList);
             this.tabPage_MyProfile.Controls.Add(this.txtUserName);
@@ -221,6 +209,31 @@
             this.tabPage_MyProfile.TabIndex = 0;
             this.tabPage_MyProfile.Text = "我的信息";
             this.tabPage_MyProfile.UseVisualStyleBackColor = true;
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(345, 71);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(84, 22);
+            this.labelX10.TabIndex = 37;
+            this.labelX10.Text = "权限描述";
+            // 
+            // txtRightDescription
+            // 
+            // 
+            // 
+            // 
+            this.txtRightDescription.Border.Class = "TextBoxBorder";
+            this.txtRightDescription.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRightDescription.Location = new System.Drawing.Point(345, 99);
+            this.txtRightDescription.Multiline = true;
+            this.txtRightDescription.Name = "txtRightDescription";
+            this.txtRightDescription.Size = new System.Drawing.Size(297, 180);
+            this.txtRightDescription.TabIndex = 36;
             // 
             // txtUserRole
             // 
@@ -235,16 +248,17 @@
             this.txtUserRole.Size = new System.Drawing.Size(172, 21);
             this.txtUserRole.TabIndex = 35;
             // 
-            // buttonX3
+            // btnModifyPsw
             // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX3.Location = new System.Drawing.Point(181, 295);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(70, 25);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 34;
-            this.buttonX3.Text = "修改密码";
+            this.btnModifyPsw.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnModifyPsw.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnModifyPsw.Location = new System.Drawing.Point(181, 295);
+            this.btnModifyPsw.Name = "btnModifyPsw";
+            this.btnModifyPsw.Size = new System.Drawing.Size(70, 25);
+            this.btnModifyPsw.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnModifyPsw.TabIndex = 34;
+            this.btnModifyPsw.Text = "修改密码";
+            this.btnModifyPsw.Click += new System.EventHandler(this.btnModifyPsw_Click);
             // 
             // labelX7
             // 
@@ -312,14 +326,6 @@
             // 
             // tabPage_RoleEdit
             // 
-            this.tabPage_RoleEdit.Controls.Add(this.buttonX1);
-            this.tabPage_RoleEdit.Controls.Add(this.labelX3);
-            this.tabPage_RoleEdit.Controls.Add(this.chkList_Diff);
-            this.tabPage_RoleEdit.Controls.Add(this.checkBoxX1);
-            this.tabPage_RoleEdit.Controls.Add(this.textBoxX2);
-            this.tabPage_RoleEdit.Controls.Add(this.textBoxX1);
-            this.tabPage_RoleEdit.Controls.Add(this.labelX2);
-            this.tabPage_RoleEdit.Controls.Add(this.labelX1);
             this.tabPage_RoleEdit.Controls.Add(this.bNRoleTable);
             this.tabPage_RoleEdit.Controls.Add(this.dgvRoleTable);
             this.tabPage_RoleEdit.Location = new System.Drawing.Point(4, 22);
@@ -330,111 +336,11 @@
             this.tabPage_RoleEdit.Text = "角色编辑";
             this.tabPage_RoleEdit.UseVisualStyleBackColor = true;
             // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(174, 328);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(70, 25);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 16;
-            this.buttonX1.Text = "保存";
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(6, 116);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(80, 22);
-            this.labelX3.TabIndex = 15;
-            this.labelX3.Text = "权限列表";
-            // 
-            // chkList_Diff
-            // 
-            this.chkList_Diff.FormattingEnabled = true;
-            this.chkList_Diff.Items.AddRange(new object[] {
-            "AA",
-            "BB",
-            "CC"});
-            this.chkList_Diff.Location = new System.Drawing.Point(6, 144);
-            this.chkList_Diff.Name = "chkList_Diff";
-            this.chkList_Diff.Size = new System.Drawing.Size(238, 180);
-            this.chkList_Diff.TabIndex = 14;
-            this.chkList_Diff.ThreeDCheckBoxes = true;
-            // 
-            // checkBoxX1
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX1.Location = new System.Drawing.Point(166, 108);
-            this.checkBoxX1.Name = "checkBoxX1";
-            this.checkBoxX1.Size = new System.Drawing.Size(78, 30);
-            this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX1.TabIndex = 6;
-            this.checkBoxX1.Text = "启用状态";
-            // 
-            // textBoxX2
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(72, 34);
-            this.textBoxX2.Multiline = true;
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(172, 68);
-            this.textBoxX2.TabIndex = 5;
-            // 
-            // textBoxX1
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(72, 7);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(172, 21);
-            this.textBoxX1.TabIndex = 4;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(6, 30);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(50, 22);
-            this.labelX2.TabIndex = 3;
-            this.labelX2.Text = "描述";
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(6, 6);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(50, 22);
-            this.labelX1.TabIndex = 2;
-            this.labelX1.Text = "角色名";
-            // 
             // bNRoleTable
             // 
-            this.bNRoleTable.AddNewRecordButton = this.bindingNavigatorAddNewItem;
             this.bNRoleTable.AntiAlias = true;
             this.bNRoleTable.CountLabel = this.bindingNavigatorCountItem;
             this.bNRoleTable.CountLabelFormat = "of {0}";
-            this.bNRoleTable.DeleteButton = this.bindingNavigatorDeleteItem;
             this.bNRoleTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bNRoleTable.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.bNRoleTable.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -444,8 +350,9 @@
             this.bindingNavigatorCountItem,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.btnRoleAdd,
+            this.btnRoleDel,
+            this.btnRoleModify});
             this.bNRoleTable.Location = new System.Drawing.Point(3, 359);
             this.bNRoleTable.MoveFirstButton = this.bindingNavigatorMoveFirstItem;
             this.bNRoleTable.MoveLastButton = this.bindingNavigatorMoveLastItem;
@@ -456,26 +363,14 @@
             this.bNRoleTable.Size = new System.Drawing.Size(721, 25);
             this.bNRoleTable.Stretch = true;
             this.bNRoleTable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bNRoleTable.TabIndex = 1;
+            this.bNRoleTable.TabIndex = 17;
             this.bNRoleTable.TabStop = false;
             this.bNRoleTable.Text = "bindingNavigatorEx1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Text = "of {0}";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -511,52 +406,65 @@
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
+            // btnRoleAdd
+            // 
+            this.btnRoleAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnRoleAdd.Image")));
+            this.btnRoleAdd.Name = "btnRoleAdd";
+            this.btnRoleAdd.Text = "Add new";
+            this.btnRoleAdd.Click += new System.EventHandler(this.btnRoleAdd_Click);
+            // 
+            // btnRoleDel
+            // 
+            this.btnRoleDel.Image = ((System.Drawing.Image)(resources.GetObject("btnRoleDel.Image")));
+            this.btnRoleDel.Name = "btnRoleDel";
+            this.btnRoleDel.Text = "Delete";
+            this.btnRoleDel.Click += new System.EventHandler(this.btnRoleDel_Click);
+            // 
+            // btnRoleModify
+            // 
+            this.btnRoleModify.Icon = ((System.Drawing.Icon)(resources.GetObject("btnRoleModify.Icon")));
+            this.btnRoleModify.Name = "btnRoleModify";
+            this.btnRoleModify.Text = "buttonItem1";
+            this.btnRoleModify.Click += new System.EventHandler(this.btnRoleModify_Click);
+            // 
             // dgvRoleTable
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRoleTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoleTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRoleTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRoleTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRoleTable.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRoleTable.EnableHeadersVisualStyles = false;
             this.dgvRoleTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvRoleTable.Location = new System.Drawing.Point(253, 6);
+            this.dgvRoleTable.Location = new System.Drawing.Point(6, 6);
             this.dgvRoleTable.Name = "dgvRoleTable";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRoleTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoleTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRoleTable.RowTemplate.Height = 23;
-            this.dgvRoleTable.Size = new System.Drawing.Size(466, 347);
+            this.dgvRoleTable.Size = new System.Drawing.Size(713, 347);
             this.dgvRoleTable.TabIndex = 0;
             this.dgvRoleTable.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvRoleTable_CellFormatting);
             // 
             // tabPage_UserEdit
             // 
-            this.tabPage_UserEdit.Controls.Add(this.comboBoxEx1);
-            this.tabPage_UserEdit.Controls.Add(this.buttonX2);
-            this.tabPage_UserEdit.Controls.Add(this.labelX4);
-            this.tabPage_UserEdit.Controls.Add(this.checkedListBox1);
-            this.tabPage_UserEdit.Controls.Add(this.checkBoxX2);
-            this.tabPage_UserEdit.Controls.Add(this.textBoxX4);
-            this.tabPage_UserEdit.Controls.Add(this.labelX5);
-            this.tabPage_UserEdit.Controls.Add(this.labelX6);
             this.tabPage_UserEdit.Controls.Add(this.bNUserTable);
             this.tabPage_UserEdit.Controls.Add(this.dgvUserTable);
             this.tabPage_UserEdit.Location = new System.Drawing.Point(4, 22);
@@ -567,110 +475,11 @@
             this.tabPage_UserEdit.Text = "用户编辑";
             this.tabPage_UserEdit.UseVisualStyleBackColor = true;
             // 
-            // comboBoxEx1
-            // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 15;
-            this.comboBoxEx1.Location = new System.Drawing.Point(72, 30);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(172, 21);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 27;
-            // 
-            // buttonX2
-            // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(174, 326);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(70, 25);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 26;
-            this.buttonX2.Text = "保存";
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(6, 114);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(50, 22);
-            this.labelX4.TabIndex = 25;
-            this.labelX4.Text = "权限列表";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "AA",
-            "BB",
-            "CC"});
-            this.checkedListBox1.Location = new System.Drawing.Point(6, 142);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(238, 180);
-            this.checkedListBox1.TabIndex = 24;
-            this.checkedListBox1.ThreeDCheckBoxes = true;
-            // 
-            // checkBoxX2
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX2.Location = new System.Drawing.Point(166, 106);
-            this.checkBoxX2.Name = "checkBoxX2";
-            this.checkBoxX2.Size = new System.Drawing.Size(78, 30);
-            this.checkBoxX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX2.TabIndex = 23;
-            this.checkBoxX2.Text = "启用状态";
-            // 
-            // textBoxX4
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX4.Border.Class = "TextBoxBorder";
-            this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.Location = new System.Drawing.Point(72, 5);
-            this.textBoxX4.Name = "textBoxX4";
-            this.textBoxX4.Size = new System.Drawing.Size(172, 21);
-            this.textBoxX4.TabIndex = 21;
-            // 
-            // labelX5
-            // 
-            // 
-            // 
-            // 
-            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(6, 28);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(50, 22);
-            this.labelX5.TabIndex = 20;
-            this.labelX5.Text = "角色";
-            // 
-            // labelX6
-            // 
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(6, 4);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(50, 22);
-            this.labelX6.TabIndex = 19;
-            this.labelX6.Text = "用户名";
-            // 
             // bNUserTable
             // 
-            this.bNUserTable.AddNewRecordButton = this.buttonItem5;
             this.bNUserTable.AntiAlias = true;
             this.bNUserTable.CountLabel = this.labelItem1;
             this.bNUserTable.CountLabelFormat = "of {0}";
-            this.bNUserTable.DeleteButton = this.buttonItem6;
             this.bNUserTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bNUserTable.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.bNUserTable.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -680,8 +489,9 @@
             this.labelItem1,
             this.buttonItem9,
             this.buttonItem10,
-            this.buttonItem5,
-            this.buttonItem6});
+            this.btnAddUser,
+            this.btnDelUser,
+            this.btnModifyUser});
             this.bNUserTable.Location = new System.Drawing.Point(3, 359);
             this.bNUserTable.MoveFirstButton = this.buttonItem7;
             this.bNUserTable.MoveLastButton = this.buttonItem10;
@@ -696,22 +506,10 @@
             this.bNUserTable.TabStop = false;
             this.bNUserTable.Text = "bindingNavigatorEx2";
             // 
-            // buttonItem5
-            // 
-            this.buttonItem5.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem5.Image")));
-            this.buttonItem5.Name = "buttonItem5";
-            this.buttonItem5.Text = "Add new";
-            // 
             // labelItem1
             // 
             this.labelItem1.Name = "labelItem1";
             this.labelItem1.Text = "of {0}";
-            // 
-            // buttonItem6
-            // 
-            this.buttonItem6.Image = ((System.Drawing.Image)(resources.GetObject("buttonItem6.Image")));
-            this.buttonItem6.Name = "buttonItem6";
-            this.buttonItem6.Text = "Delete";
             // 
             // buttonItem7
             // 
@@ -747,65 +545,62 @@
             this.buttonItem10.Name = "buttonItem10";
             this.buttonItem10.Text = "Move last";
             // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Text = "Add new";
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // btnDelUser
+            // 
+            this.btnDelUser.Image = ((System.Drawing.Image)(resources.GetObject("btnDelUser.Image")));
+            this.btnDelUser.Name = "btnDelUser";
+            this.btnDelUser.Text = "Delete";
+            this.btnDelUser.Click += new System.EventHandler(this.btnDelUser_Click);
+            // 
+            // btnModifyUser
+            // 
+            this.btnModifyUser.Icon = ((System.Drawing.Icon)(resources.GetObject("btnModifyUser.Icon")));
+            this.btnModifyUser.Name = "btnModifyUser";
+            this.btnModifyUser.Text = "buttonItem1";
+            this.btnModifyUser.Click += new System.EventHandler(this.btnModifyUser_Click);
+            // 
             // dgvUserTable
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvUserTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserTable.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserTable.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvUserTable.EnableHeadersVisualStyles = false;
             this.dgvUserTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgvUserTable.Location = new System.Drawing.Point(253, 4);
+            this.dgvUserTable.Location = new System.Drawing.Point(6, 4);
             this.dgvUserTable.Name = "dgvUserTable";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvUserTable.RowTemplate.Height = 23;
-            this.dgvUserTable.Size = new System.Drawing.Size(466, 347);
+            this.dgvUserTable.Size = new System.Drawing.Size(713, 347);
             this.dgvUserTable.TabIndex = 17;
-            // 
-            // txtRightDescription
-            // 
-            // 
-            // 
-            // 
-            this.txtRightDescription.Border.Class = "TextBoxBorder";
-            this.txtRightDescription.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRightDescription.Location = new System.Drawing.Point(345, 99);
-            this.txtRightDescription.Multiline = true;
-            this.txtRightDescription.Name = "txtRightDescription";
-            this.txtRightDescription.Size = new System.Drawing.Size(297, 180);
-            this.txtRightDescription.TabIndex = 36;
-            // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(345, 71);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(84, 22);
-            this.labelX10.TabIndex = 37;
-            this.labelX10.Text = "权限描述";
+            this.dgvUserTable.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvUserTable_CellFormatting);
             // 
             // frmAdmin
             // 
@@ -817,6 +612,7 @@
             this.Controls.Add(this.itemPanel_category);
             this.DoubleBuffered = true;
             this.Name = "frmAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "用户管理";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.panelEx1.ResumeLayout(false);
@@ -828,6 +624,7 @@
             this.tabPage_UserEdit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bNUserTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -844,42 +641,17 @@
         private DevComponents.DotNetBar.ButtonItem btnUserEdit;
         private System.Windows.Forms.TabPage tabPage_RoleEdit;
         private DevComponents.DotNetBar.Controls.DataGridViewX dgvRoleTable;
-        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
-        private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bNRoleTable;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorAddNewItem;
-        private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorDeleteItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
-        private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
-        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
+        private DevComponents.DotNetBar.ButtonX btnModifyPsw;
         private DevComponents.DotNetBar.LabelX labelX7;
         private System.Windows.Forms.CheckedListBox chk_MyProfile_rightsList;
         private DevComponents.DotNetBar.Controls.TextBoxX txtUserName;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.LabelX labelX9;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.LabelX labelX3;
-        private System.Windows.Forms.CheckedListBox chkList_Diff;
         private System.Windows.Forms.TabPage tabPage_UserEdit;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
-        private DevComponents.DotNetBar.LabelX labelX4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
-        private DevComponents.DotNetBar.LabelX labelX5;
-        private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.Controls.BindingNavigatorEx bNUserTable;
-        private DevComponents.DotNetBar.ButtonItem buttonItem5;
+        private DevComponents.DotNetBar.ButtonItem btnAddUser;
         private DevComponents.DotNetBar.LabelItem labelItem1;
-        private DevComponents.DotNetBar.ButtonItem buttonItem6;
+        private DevComponents.DotNetBar.ButtonItem btnDelUser;
         private DevComponents.DotNetBar.ButtonItem buttonItem7;
         private DevComponents.DotNetBar.ButtonItem buttonItem8;
         private DevComponents.DotNetBar.TextBoxItem textBoxItem1;
@@ -889,6 +661,18 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtUserRole;
         private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.Controls.TextBoxX txtRightDescription;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private DevComponents.DotNetBar.Controls.BindingNavigatorEx bNRoleTable;
+        private DevComponents.DotNetBar.ButtonItem btnRoleAdd;
+        private DevComponents.DotNetBar.LabelItem bindingNavigatorCountItem;
+        private DevComponents.DotNetBar.ButtonItem btnRoleDel;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveFirstItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMovePreviousItem;
+        private DevComponents.DotNetBar.TextBoxItem bindingNavigatorPositionItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveNextItem;
+        private DevComponents.DotNetBar.ButtonItem bindingNavigatorMoveLastItem;
+        private DevComponents.DotNetBar.ButtonItem btnRoleModify;
+        private DevComponents.DotNetBar.ButtonItem btnModifyUser;
 
     }
 }

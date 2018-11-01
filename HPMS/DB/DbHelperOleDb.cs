@@ -557,7 +557,7 @@ namespace HPMS.DB
             b[4] = new OleDbParameter("4", 0);
             b[5] = new OleDbParameter("5", user.CreaterId);
             b[6] = new OleDbParameter("6", user.CreateDate);
-            b[7] = new OleDbParameter("7", (int)user.RecordStatus);
+            b[7] = new OleDbParameter("7", (int)user.UserStatus);
          
 
 

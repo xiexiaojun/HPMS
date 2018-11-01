@@ -10,9 +10,9 @@ namespace HPMS.DB
 {
     public enum RecordStatus
     {
-        Enable,
-        Disable,
-        Del
+        Disable=0,
+        Enable=1,
+        Del=-1
     }
 
     public class Right
@@ -33,7 +33,9 @@ namespace HPMS.DB
         public Dictionary<string,string>Rights { set; get; }
         public int CreaterId { set; get; }
         public string CreateDate { set; get; }
-        public RecordStatus RecordStatus { set; get; }
+        public RecordStatus UserStatus { set; get; }
+        public bool IsSuper { set; get; }
+        public RecordStatus RoleStatus { set; get; }
 
      }
 
@@ -50,29 +52,29 @@ namespace HPMS.DB
     }
     public class UserDao
     {
-        public static bool AddUser(User user,ref string msg)
+        public static bool Add(User user,ref string msg)
         {
             bool ret = false;
-            if (FindUser(user.Username).Count > 0)
+            if (Find(user.Username).Count > 0)
             {
                 msg = "same user name already exists";
                 return false;
             }
             string insertSql = "INSERT INTO HPMS_User (" +
-                               "UserName, Password, Salt, RoleID, isSuper, CreateID, CreateDate, Status" +
+                               "UserName, Password, Salt, RoleID, CreateID, CreateDate, Status" +
                                ") VALUES (" +
-                               "?, ?, ?, ?, ?, ?, ?, ?)";
-            OleDbParameter[] b = new OleDbParameter[8];
+                               "?, ?, ?, ?, ?, ?, ?)";
+            OleDbParameter[] b = new OleDbParameter[7];
             b[0] = new OleDbParameter("0", user.Username);
             b[1] = new OleDbParameter("1", user.Psw);
             //salt is always figoba currently
             b[2] = new OleDbParameter("2", "figoba");
             b[3] = new OleDbParameter("3", user.RoleId);
             //all users created by this code are always normal users,so isSuper=0.
-            b[4] = new OleDbParameter("4", 0);
-            b[5] = new OleDbParameter("5", user.CreaterId);
-            b[6] = new OleDbParameter("6", user.CreateDate);
-            b[7] = new OleDbParameter("7", (int)user.RecordStatus);
+          
+            b[4] = new OleDbParameter("4", user.CreaterId);
+            b[5] = new OleDbParameter("5", user.CreateDate);
+            b[6] = new OleDbParameter("6", (int)user.UserStatus);
 
 
 
@@ -88,11 +90,11 @@ namespace HPMS.DB
             return ret;
         }
 
-        public static bool DelUser(int userId)
+        public static bool Del(int userId)
         {
             bool ret = false;
             //just make a deleted flag,do not delete record really.
-            string updateSql = "Update HPMS set Status 0 where ID = "+userId;
+            string updateSql = "Update HPMS_User set Status = -1 where ID = " + userId;
             int delCount = DbHelperOleDb.ExecuteSql(updateSql);
             if (delCount == 1)
             {
@@ -101,12 +103,12 @@ namespace HPMS.DB
             return ret;
         }
 
-        public static bool UpdateUser(User user)
+        public static bool Update(User user)
         {
             bool ret = false;
             string updateSql = "UPDATE HPMS_User" +
                                " SET UserName = ?,Password = ?,Salt = ?,RoleID = ?," +
-                               "isSuper = ?,CreateID = ?,CreateDate = ?,Status = ? where" +
+                               " CreateID = ?,CreateDate = ?,Status = ? where " +
                                "ID = ?";
             OleDbParameter[] b = new OleDbParameter[8];
             b[0] = new OleDbParameter("0", user.Username);
@@ -115,10 +117,11 @@ namespace HPMS.DB
             b[2] = new OleDbParameter("2", "figoba");
             b[3] = new OleDbParameter("3", user.RoleId);
             //all users created by this code are always normal users,so isSuper=0.
-            b[4] = new OleDbParameter("4", 0);
-            b[5] = new OleDbParameter("5", user.CreaterId);
-            b[6] = new OleDbParameter("6", user.CreateDate);
-            b[7] = new OleDbParameter("7", (int)user.RecordStatus);
+           
+            b[4] = new OleDbParameter("5", user.CreaterId);
+            b[5] = new OleDbParameter("6", user.CreateDate);
+            b[6] = new OleDbParameter("7", (int)user.UserStatus);
+            b[7] = new OleDbParameter("8", user.UserId);
 
 
 
@@ -130,11 +133,11 @@ namespace HPMS.DB
             return ret;
         }
 
-        public static List<User> FindUser(int userId)
+        public static List<User> Find(int userId)
         {
             List<User> ret=new List<User>();
             string querySql = "SELECT ID, UserName, Password, Salt, RoleID, " +
-                              "isSuper, CreateID, CreateDate,RoleRights, UserStatus,RoleName FROM v_HPMS_User" +
+                              "isSuper, CreateID, CreateDate,RoleRights, UserStatus,RoleName,RoleStatus FROM v_HPMS_User" +
                               " where ID = ?";
             OleDbParameter[] b = new OleDbParameter[1];
             b[0] = new OleDbParameter("0", userId);
@@ -153,7 +156,9 @@ namespace HPMS.DB
                 user.CreateDate = ((DateTime) tempRow["CreateDate"]).ToString();
                 user.Rights = RightDao.GetRightsById((string) tempRow["RoleRights"]);
                 user.CreaterId = (int) tempRow["CreateID"];
-                user.RecordStatus = (RecordStatus) (int) tempRow["UserStatus"];
+                user.UserStatus = (RecordStatus) (int) tempRow["UserStatus"];
+                user.IsSuper = tempRow["isSuper"] != null;
+                user.RoleStatus = (RecordStatus)(int)tempRow["RoleStatus"];
 
                
                 ret.Add(user);
@@ -162,11 +167,11 @@ namespace HPMS.DB
             return ret;
         }
 
-        public static List<User> FindUser(string userName)
+        public static List<User> Find(string userName)
         {
             List<User> ret = new List<User>();
             string querySql = "SELECT ID, UserName, Password, Salt, RoleID, " +
-                              "isSuper, CreateID, CreateDate,RoleRights, UserStatus,RoleName FROM v_HPMS_User" +
+                              "isSuper, CreateID, CreateDate,RoleRights, UserStatus,RoleName,RoleStatus FROM v_HPMS_User" +
                               " where UserName = ?";
             OleDbParameter[] b = new OleDbParameter[1];
             b[0] = new OleDbParameter("0", userName);
@@ -185,12 +190,28 @@ namespace HPMS.DB
                 user.CreateDate = ((DateTime)tempRow["CreateDate"]).ToString();
                 user.Rights = RightDao.GetRightsById((string)tempRow["RoleRights"]);
                 user.CreaterId = (int)tempRow["CreateID"];
-                user.RecordStatus = (RecordStatus)(int)tempRow["UserStatus"];
+                user.UserStatus = (RecordStatus)(int)tempRow["UserStatus"];
+                user.IsSuper = tempRow["isSuper"] != null;
+                user.RoleStatus = (RecordStatus)(int)tempRow["RoleStatus"];
 
                 ret.Add(user);
             }
 
             return ret;
+        }
+
+        public static DataTable Find()
+        {
+
+            string querySql = "SELECT ID, UserName, Password, Salt, RoleID, " +
+                              " CreateID, CreateDate,RoleRights, UserStatus,RoleName,RoleStatus FROM v_HPMS_User" +
+                              " where isSuper is Null and UserStatus >=0 ";
+          
+           
+            DataSet dataSet = DbHelperOleDb.Query(querySql);
+            return dataSet.Tables[0];
+
+          
         }
     }
 
@@ -238,7 +259,7 @@ namespace HPMS.DB
         {
             bool ret = false;
             //just make a deleted flag,do not delete record really.
-            string updateSql = "Update HPMS_Role set Status 0 where ID = " + roleId;
+            string updateSql = "Update HPMS_Role set Status = -1 where ID = " + roleId;
             int delCount = DbHelperOleDb.ExecuteSql(updateSql);
             if (delCount == 1)
             {
@@ -273,7 +294,7 @@ namespace HPMS.DB
         public static DataTable Find()
         {
          
-            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role";
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role Where Status >=0 and isSuper is Null";
           
             DataSet dataSet = DbHelperOleDb.Query(querySql);
             DataTable ret  = dataSet.Tables[0];
@@ -283,7 +304,7 @@ namespace HPMS.DB
         public static List<Role> Find(int roleId)
         {
             List<Role> ret = new List<Role>();
-            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where ID=?";
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where ID=? and  Status >=0";
             OleDbParameter[] b = new OleDbParameter[1];
             b[0] = new OleDbParameter("0", roleId);
             DataSet dataSet = DbHelperOleDb.Query(querySql, b);
@@ -312,10 +333,38 @@ namespace HPMS.DB
         public static List<Role> Find(string roleName)
         {
             List<Role> ret = new List<Role>();
-            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where Name=?";
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where Name=? and  Status >=0";
             OleDbParameter[] b = new OleDbParameter[1];
             b[0] = new OleDbParameter("0", roleName);
             DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+            DataTable table = dataSet.Tables[0];
+
+            foreach (DataRow tempRow in table.Rows)
+            {
+                Role role = new Role
+                {
+                    RoleId = (int)tempRow["ID"],
+                    Name = (string)tempRow["Name"],
+                    Description = (string)tempRow["Description"],
+                    RightsId = (string)tempRow["RightsID"],
+                    Right = RightDao.GetRightsById((string)tempRow["RightsID"]),
+                    CreateDate = ((DateTime)tempRow["CreateDate"]).ToString(),
+                    CreateId = (int)tempRow["CreateID"],
+                    RecordStatus = (RecordStatus)(int)tempRow["Status"]
+
+                };
+                ret.Add(role);
+            }
+
+            return ret;
+        }
+
+        public static List<Role> FindAll()
+        {
+            List<Role> ret = new List<Role>();
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where  Status =1 and isSuper is Null";
+           
+            DataSet dataSet = DbHelperOleDb.Query(querySql);
             DataTable table = dataSet.Tables[0];
 
             foreach (DataRow tempRow in table.Rows)

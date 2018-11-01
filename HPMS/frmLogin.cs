@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DevComponents.DotNetBar;
 using HPMS.DB;
+using HPMS.Util;
 
 namespace HPMS
 {
@@ -31,13 +32,27 @@ namespace HPMS
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtUser.Text;
-            List<User> userList=UserDao.FindUser(userName);
+            List<User> userList=UserDao.Find(userName);
             if (userList.Count == 1)
             {
                 User = userList[0];
                 if (User.Psw == txtPsw.Text)
                 {
-                    this.Close();
+                    if (User.UserStatus != RecordStatus.Enable)
+                    {
+                        UI.MessageBoxMuti("账户已停用或被删除");
+                    }
+                    else
+                    {
+                        if (User.IsSuper)
+                        {
+                            Gloabal.GUser = User;
+                            this.Close();
+                        }
+                    }
+                  
+                    //if(User.)
+                  
                 }
             }
             else

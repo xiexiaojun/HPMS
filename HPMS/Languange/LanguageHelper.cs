@@ -14,9 +14,10 @@ namespace HPMS.Languange
 {
     public class LanguageHelper
     {
-        private static Dictionary<string, string> resources=new Dictionary<string, string>();
+        private static Dictionary<string, string> resources=new Dictionary<string, string>();//界面语言资源
+        private static Dictionary<string,string> msgResources=new Dictionary<string, string>();//消息语言资源,只有英文，代码里面是中文
 
-        public static void SetResources(string resourceFileName)
+        public static void SetResources(string resourceFileName,string msgFileName)
         {
             resources.Clear();
             var content = File.ReadAllText(resourceFileName, Encoding.UTF8);
@@ -33,6 +34,32 @@ namespace HPMS.Languange
                     else
                     {
                         resources[key] = dict[key];
+                    }
+                }
+            }
+
+            if (msgFileName == null)
+            {
+                msgResources = null;
+            }
+            else
+            {
+                msgResources.Clear();
+                var contentMsg = File.ReadAllText(msgFileName, Encoding.UTF8);
+                if (!string.IsNullOrEmpty(content))
+                {
+                    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(contentMsg);
+                    foreach (string key in dict.Keys)
+                    {
+                        //遍历集合如果语言资源键值不存在，则创建，否则更新
+                        if (!msgResources.ContainsKey(key))
+                        {
+                            msgResources.Add(key, dict[key]);
+                        }
+                        else
+                        {
+                            msgResources[key] = dict[key];
+                        }
                     }
                 }
             }
@@ -367,6 +394,25 @@ namespace HPMS.Languange
             }
         }
 
+
+        public static string GetMsgText(string value)
+        {
+            if (msgResources == null)
+            {
+                return value;
+            }
+            else
+            {
+                if (msgResources.ContainsKey(value))
+                {
+                    return msgResources[value];
+                }
+                else
+                {
+                    return value;
+                }
+            }
+        }
 
         /// <summary>
         /// 根据语言标识符得到转换后的值

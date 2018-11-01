@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevComponents.DotNetBar;
 using HPMS.AOP;
+using HPMS.DB;
 
 namespace HPMS.RightsControl
 {
@@ -31,6 +32,39 @@ namespace HPMS.RightsControl
             {
                 VARIABLE.Enabled = true;
             }
+        }
+
+        [Permisson("Edit User")]
+        public bool SaveRole(Role role, ref string msg)
+        {
+            return RoleDao.Add(role, ref msg);
+        }
+
+        [Permisson("Edit User")]
+        public bool UpdateRole(Role role)
+        {
+            return RoleDao.Update(role);
+        }
+        [Permisson("Edit User")]
+        public bool DeleteRole(int roleId)
+        {
+            return RoleDao.Delete(roleId);
+        }
+
+        [Permisson("Edit User")]
+        public bool SaveUser(User user, ref string msg)
+        {
+            return UserDao.Add(user, ref msg);
+        }
+        [Permisson("Edit User")]
+        public bool UpdateUser(User user)
+        {
+            return UserDao.Update(user);
+        }
+        [Permisson("Edit User")]
+        public bool DeleteUser(int userId)
+        {
+            return UserDao.Del(userId);
         }
       }
 }

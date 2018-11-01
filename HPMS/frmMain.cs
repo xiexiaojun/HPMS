@@ -30,7 +30,7 @@ namespace HPMS
         SoftAuthorize softAuthorize = new HslCommunication.BasicFramework.SoftAuthorize();
         private bool _regFlag = false;
         private User currentUser;
-        RightsWrapper rights = new RightsWrapper();
+       
 
         public frmMain()
         {
@@ -49,6 +49,7 @@ namespace HPMS
             //Splasher.Close();
             StyleMenuAdd();
             LoadTheme();
+            Gloabal.GRightsWrapper=new RightsWrapper();
         }
 
 
@@ -61,7 +62,8 @@ namespace HPMS
             englishToolStripMenuItem.Checked = false;
             toolStripMenuItem.Checked = true;
             var languangeSourceFile = toolStripMenuItem.Text == "中文" ? "Resources/lang/中文.json" : "Resources/lang/english.json";
-            LanguageHelper.SetResources(languangeSourceFile);
+            var msgSourceFile = toolStripMenuItem.Text == "中文" ? null : "Resources/lang/englishMsg.json";
+            LanguageHelper.SetResources(languangeSourceFile, msgSourceFile);
             foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
         }
 
@@ -244,7 +246,7 @@ namespace HPMS
         private void buttonX1_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show(rights.EditUser().ToString());
+            MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -350,6 +352,12 @@ namespace HPMS
                 //    _regFlag = form._regFlag;
                 //}
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form1 fr=new Form1();
+            fr.ShowDialog();
         }
 
      

@@ -21,7 +21,10 @@ namespace HPMS
         static void Main()
         {
             //绑定程序中的异常处理
-            BindExceptionHandler();
+            #if Release
+                        BindExceptionHandler();     
+            #endif
+           
             Softgroup.NetResize.License.LicenseName = "figoba1";
             Softgroup.NetResize.License.LicenseUser = "figoba@gmail1.com";
             Softgroup.NetResize.License.LicenseKey = "FWAQB8CVZ9GDUBBUCRICXU9WE";

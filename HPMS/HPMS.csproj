@@ -116,6 +116,9 @@
     <Compile Include="Equipment\Switch\Switch_MCU.cs" />
     <Compile Include="Equipment\Util.cs" />
     <Compile Include="Equipment\Visa\VisaSerial.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +149,23 @@
     <Compile Include="frmHardwareSetting.Designer.cs">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPswModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPswModify.Designer.cs">
+      <DependentUpon>frmPswModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegist.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegist.Designer.cs">
       <DependentUpon>frmRegist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRoleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRoleEdit.Designer.cs">
+      <DependentUpon>frmRoleEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVisaLists.cs">
       <SubType>Form</SubType>
@@ -178,8 +193,20 @@
     </Compile>
     <Compile Include="Util\ArrayEnhance.cs" />
     <Compile Include="Util\EasyExcel.cs" />
+    <Compile Include="Util\Gloabal.cs" />
     <Compile Include="Util\Serializer.cs" />
-    <Compile Include="Util\UI.cs" />
+    <Compile Include="Util\UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserEdit.Designer.cs">
+      <DependentUpon>frmUserEdit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,8 +222,14 @@
     <EmbeddedResource Include="frmHardwareSetting.resx">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPswModify.resx">
+      <DependentUpon>frmPswModify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegist.resx">
       <DependentUpon>frmRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRoleEdit.resx">
+      <DependentUpon>frmRoleEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVisaLists.resx">
       <DependentUpon>frmVisaLists.cs</DependentUpon>
@@ -212,11 +245,15 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Splash\frmSplash.resx" />
+    <EmbeddedResource Include="frmUserEdit.resx">
+      <DependentUpon>frmUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Equipment\NetworkAnalyzer\E5071CHelp.chm" />
     <None Include="Resources\lang\english.json">
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
+    <None Include="Resources\lang\englishMsg.json" />
     <None Include="Resources\lang\中文.json">
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
