@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtOldPsw = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtNewPsw = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.txtNewPswR = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.btnModify = new DevComponents.DotNetBar.ButtonX();
+            this.btnClose = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
-            // textBoxX1
+            // txtOldPsw
             // 
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(30, 38);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(276, 21);
-            this.textBoxX1.TabIndex = 0;
+            this.txtOldPsw.Border.Class = "TextBoxBorder";
+            this.txtOldPsw.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOldPsw.Location = new System.Drawing.Point(30, 38);
+            this.txtOldPsw.Name = "txtOldPsw";
+            this.txtOldPsw.Size = new System.Drawing.Size(276, 21);
+            this.txtOldPsw.TabIndex = 0;
             // 
             // labelX1
             // 
@@ -74,17 +74,17 @@
             this.labelX2.TabIndex = 2;
             this.labelX2.Text = "请输入新密码";
             // 
-            // textBoxX2
+            // txtNewPsw
             // 
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(30, 112);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(276, 21);
-            this.textBoxX2.TabIndex = 3;
+            this.txtNewPsw.Border.Class = "TextBoxBorder";
+            this.txtNewPsw.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtNewPsw.Location = new System.Drawing.Point(30, 112);
+            this.txtNewPsw.Name = "txtNewPsw";
+            this.txtNewPsw.Size = new System.Drawing.Size(276, 21);
+            this.txtNewPsw.TabIndex = 3;
             // 
             // labelX3
             // 
@@ -98,53 +98,54 @@
             this.labelX3.TabIndex = 4;
             this.labelX3.Text = "请再输一次";
             // 
-            // textBoxX3
+            // txtNewPswR
             // 
             // 
             // 
             // 
-            this.textBoxX3.Border.Class = "TextBoxBorder";
-            this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX3.Location = new System.Drawing.Point(30, 186);
-            this.textBoxX3.Name = "textBoxX3";
-            this.textBoxX3.Size = new System.Drawing.Size(276, 21);
-            this.textBoxX3.TabIndex = 5;
+            this.txtNewPswR.Border.Class = "TextBoxBorder";
+            this.txtNewPswR.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtNewPswR.Location = new System.Drawing.Point(30, 186);
+            this.txtNewPswR.Name = "txtNewPswR";
+            this.txtNewPswR.Size = new System.Drawing.Size(276, 21);
+            this.txtNewPswR.TabIndex = 5;
             // 
-            // buttonX1
+            // btnModify
             // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(145, 226);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(70, 30);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 6;
-            this.buttonX1.Text = "修改";
+            this.btnModify.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnModify.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnModify.Location = new System.Drawing.Point(145, 226);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(70, 30);
+            this.btnModify.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnModify.TabIndex = 6;
+            this.btnModify.Text = "修改";
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // buttonX2
+            // btnClose
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(236, 226);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(70, 30);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 7;
-            this.buttonX2.Text = "关闭";
+            this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClose.Location = new System.Drawing.Point(236, 226);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 30);
+            this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "关闭";
             // 
             // frmPswModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 264);
-            this.Controls.Add(this.buttonX2);
-            this.Controls.Add(this.buttonX1);
-            this.Controls.Add(this.textBoxX3);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.txtNewPswR);
             this.Controls.Add(this.labelX3);
-            this.Controls.Add(this.textBoxX2);
+            this.Controls.Add(this.txtNewPsw);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.labelX1);
-            this.Controls.Add(this.textBoxX1);
+            this.Controls.Add(this.txtOldPsw);
             this.DoubleBuffered = true;
             this.Name = "frmPswModify";
             this.Text = "frmPswModify";
@@ -155,13 +156,13 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtOldPsw;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtNewPsw;
         private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtNewPswR;
+        private DevComponents.DotNetBar.ButtonX btnModify;
+        private DevComponents.DotNetBar.ButtonX btnClose;
     }
 }

@@ -50,9 +50,11 @@ namespace HPMS
                             this.Close();
                         }
                     }
-                  
-                    //if(User.)
-                  
+               
+                }
+                else
+                {
+                    UI.MessageBoxMuti("用户名或密码错误");
                 }
             }
             else
@@ -61,6 +63,11 @@ namespace HPMS
             }
            
             
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
       

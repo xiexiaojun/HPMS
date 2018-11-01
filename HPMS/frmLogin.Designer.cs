@@ -112,6 +112,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "取消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // labelX3
             // 
@@ -149,7 +150,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-           // this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmLogin_Paint);
             this.ResumeLayout(false);
 
         }

@@ -354,11 +354,7 @@ namespace HPMS
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Form1 fr=new Form1();
-            fr.ShowDialog();
-        }
+       
 
      
     }

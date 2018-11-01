@@ -330,7 +330,10 @@ namespace HPMS
 
         private void btnModifyPsw_Click(object sender, EventArgs e)
         {
-            
+            using (frmPswModify frm=new frmPswModify())
+            {
+                frm.ShowDialog();
+            }
         }
 
        
