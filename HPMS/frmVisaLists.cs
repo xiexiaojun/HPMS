@@ -8,11 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
+using HPMS.Util;
 using NationalInstruments.VisaNS;
 
 namespace HPMS
 {
-    public partial class frmVisaLists : Office2007Form
+    public partial class frmVisaLists : Office2007Muti
     {
         private TextBoxX _textBoxX;
         public frmVisaLists(TextBoxX textBoxX)

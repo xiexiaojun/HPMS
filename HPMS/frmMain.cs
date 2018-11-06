@@ -9,7 +9,9 @@ using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.Config;
+using HPMS.Core;
 using HPMS.DB;
+using HPMS.Draw;
 using HPMS.Languange;
 using HPMS.Log;
 using HPMS.RightsControl;
@@ -30,6 +32,8 @@ namespace HPMS
         SoftAuthorize softAuthorize = new HslCommunication.BasicFramework.SoftAuthorize();
         private bool _regFlag = false;
         private User currentUser;
+        private AChart _aChart = null;
+        private Dictionary<string, object> chartDic = new Dictionary<string, object>();
        
 
         public frmMain()
@@ -246,7 +250,9 @@ namespace HPMS
         private void buttonX1_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
+           // MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
+            Thread t = new Thread(new ThreadStart(test));
+            t.Start();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -294,7 +300,15 @@ namespace HPMS
                     }
                     
                 }
-    
+
+                _aChart = new VsAChart(this.tabControlChart);
+                string[] testItems = { "SDD21", "SDD11", "SCD11" };
+                foreach (var VARIABLE in testItems)
+                {
+                    object chart = _aChart.ChartAdd(VARIABLE);
+                    chartDic.Add(VARIABLE, chart);
+                }
+              
             }
           
         }
@@ -354,8 +368,109 @@ namespace HPMS
             }
         }
 
-       
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Thread t = new Thread(new ThreadStart(test));
+            t.Start();
+          
+        }
 
+        private void test()
+        {
+            SITest a = new SITest();
+            a.Start(chartDic, _aChart);
+        }
+
+
+        private void GetTestItems(Project pnProject)
+        {
+          
+
+           }
+
+
+        #region Add charts
+        private void SetCharts(Project pnProject)
+        {
+            foreach (var VARIABLE in pnProject.Diff)
+            {
+                object chart = _aChart.ChartAdd(VARIABLE);
+                chartDic.Add(VARIABLE, chart);
+            }
+            foreach (var VARIABLE in pnProject.Tdr)
+            {
+                object chart = _aChart.ChartAdd(VARIABLE);
+                chartDic.Add(VARIABLE, chart);
+            }
+            foreach (var VARIABLE in pnProject.NextPair)
+            {
+                object chart = _aChart.ChartAdd(VARIABLE);
+                chartDic.Add(VARIABLE, chart);
+            }
+            foreach (var VARIABLE in pnProject.FextPair)
+            {
+                object chart = _aChart.ChartAdd(VARIABLE);
+                chartDic.Add(VARIABLE, chart);
+            }
+        }
+        
+        #endregion
+
+        #region different test Items and pairs display
+        private void DiffIni(Project pnProject)
+        {
+            lsbTestItems.Items.Clear();
+            foreach (var VARIABLE in pnProject.Diff)
+            {
+                lsbTestItems.Items.Add(VARIABLE);
+            }
+            foreach (var VARIABLE in pnProject.Tdr)
+            {
+                lsbTestItems.Items.Add(VARIABLE);
+            }
+            lsbTestPairs.Items.Clear();
+            foreach (var VARIABLE in pnProject.DiffPair)
+            {
+                lsbTestPairs.Items.Add(VARIABLE);
+            }
+        }
+        
+        #endregion
+
+        #region Next test Items and pairs display
+        private void NextIni(Project pnProject)
+        {
+            lsbTestItems.Items.Clear();
+            foreach (var VARIABLE in pnProject.NextPair)
+            {
+                lsbTestItems.Items.Add(VARIABLE);
+            }
+            foreach (var VARIABLE in pnProject.NextPair)
+            {
+                lsbTestPairs.Items.Add(VARIABLE);
+            }
+        }
+
+        #endregion
+
+        #region Fext test Items and pairs display
+        private void FextIni(Project pnProject)
+        {
+            lsbTestItems.Items.Clear();
+            foreach (var VARIABLE in pnProject.FextPair)
+            {
+                lsbTestItems.Items.Add(VARIABLE);
+            }
+           
+            foreach (var VARIABLE in pnProject.FextPair)
+            {
+                lsbTestPairs.Items.Add(VARIABLE);
+            }
+        }
+
+        #endregion
+       
+       
      
     }
 }

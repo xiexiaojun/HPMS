@@ -12,11 +12,12 @@ using DevComponents.DotNetBar;
 using HPMS.Config;
 using HPMS.Languange;
 using HPMS.Util;
+using _32p_analyze;
 using TabControl = System.Windows.Forms.TabControl;
 
 namespace HPMS
 {
-    public partial class frmProfile : Office2007Form
+    public partial class frmProfile : Office2007Muti
     {
         private bool _loaded = false;
         public frmProfile()
@@ -60,14 +61,10 @@ namespace HPMS
             tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel2, true, null);
             tableLayoutPanel4.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel4, true, null);
 
-            foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
-            // this.tabControl1.Region = new Region(new RectangleF(this.tabPage1.Left, this.tabPage1.Top, this.tabPage1.Width, this.tabPage1.Height));
+            cmb_ILDSpec.SelectedIndex = 0;
         }
 
-        private void buttonX2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void buttonX3_Click(object sender, EventArgs e)
         {
@@ -163,6 +160,140 @@ namespace HPMS
         {
             Hide();
             e.Cancel = true;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveProfile();
+        }
+
+        private void SaveProfile()
+        {
+            Project pnProject=new Project();
+           
+            pnProject.Awg = txt_AWG.Text;
+            pnProject.Length = double.Parse(txt_Length.Text);
+            pnProject.PnCustomer = txt_PnCustomer.Text;
+            pnProject.Customer = txt_Customer.Text;
+            pnProject.Pn = txt_Pn.Text;
+
+            pnProject.Diff = GetlistboxValue(chkList_Diff);
+            pnProject.Single = GetlistboxValue(chkList_Single);
+            pnProject.Tdr = GetlistboxValue(chkList_TDR);
+            pnProject.DiffPair = GetlistboxValue(chkList_SPair);
+            pnProject.NextPair = GetlistboxValue(chkList_NextPair);
+            pnProject.Diff = GetlistboxValue(chkList_FextPair);
+
+            pnProject.ReportTempletePath = txt_ReportTempletePath.Text;
+            pnProject.RomFileMode = GetRomFileMode();
+            pnProject.RomWrite = chk_RomWrite.Checked;
+            pnProject.RomFilePath = txt_RomFilePath.Text;
+            pnProject.SwitchFilePath = txt_SwitchFilePath.Text;
+
+            pnProject.FreSpec = (DataTable)dgv_SpecFre.DataSource;
+            pnProject.FrePoints = (int)num_FrePoints.Value;
+            pnProject.FreSpecFilePath = txt_FreSpecFilePath.Text;
+
+            TdrParam[] tdrParamTemp = GetTdrParam();
+            pnProject.Tdd11 = tdrParamTemp[0];
+            pnProject.Tdd22 = tdrParamTemp[1];
+            pnProject.Ild = (IldSpec)Enum.Parse(typeof(IldSpec), cmb_ILDSpec.SelectedItem.ToString(), true);
+            pnProject.Skew = (double) num_Skew.Value;
+
+            string savePath = "config\\PN.xml";
+            LocalConfig.SaveObjToXmlFile(savePath, pnProject);
+        }
+
+        private TdrParam[] GetTdrParam()
+        {
+            TdrParam[]ret=new TdrParam[2];
+            TdrParam tdd11=new TdrParam();
+            tdd11.StartTime = (double)num_StartTime1.Value;
+            tdd11.EndTime = (double)num_StopTime1.Value;
+            tdd11.Points = (int)num_TdrPoint1.Value;
+            tdd11.RiseTime = (double)num_RiseTime1.Value;
+            tdd11.Offset = (double)num_TdrOffset1.Value;
+
+            tdd11.UperTimePoints = new[] { (double)num_UpperMatingStartTime1.Value, (double)num_UpperCableStartTime1.Value };
+            tdd11.UperResi = new[] { (double)num_UpperMatingSpec1.Value, (double)num_UpperCableSpec1.Value };
+            tdd11.LowerTimePoints = new[] { (double)num_LowerMatingStartTime1.Value, (double)num_LowerCableStartTime1.Value };
+            tdd11.LowerResi = new[] { (double)num_LowerMatingSpec1.Value, (double)num_LowerCableSpec1.Value };
+
+
+            TdrParam tdd22 = new TdrParam();
+            tdd22.StartTime = (double)num_StartTime2.Value;
+            tdd22.EndTime = (double)num_StopTime2.Value;
+            tdd22.Points = (int)num_TdrPoint2.Value;
+            tdd22.RiseTime = (double)num_RiseTime2.Value;
+            tdd22.Offset = (double)num_TdrOffset2.Value;
+
+            tdd22.UperTimePoints = new[] { (double)num_UpperMatingStartTime2.Value, (double)num_UpperCableStartTime2.Value };
+            tdd22.UperResi = new[] { (double)num_UpperMatingSpec2.Value, (double)num_UpperCableSpec2.Value };
+            tdd22.LowerTimePoints = new[] { (double)num_LowerMatingStartTime2.Value, (double)num_LowerCableStartTime2.Value };
+            tdd22.LowerResi = new[] { (double)num_LowerMatingSpec2.Value, (double)num_LowerCableSpec2.Value };
+
+            ret[0] = tdd11;
+            ret[1] = tdd22;
+
+            return ret;
+        }
+       
+
+        private RomFileMode GetRomFileMode()
+        {
+            if (rb_DB.Checked)
+            {
+                return RomFileMode.DB;
+            }
+            else
+            {
+                return RomFileMode.Local;
+            }
+        }
+
+        private void SetRomFileMode(RomFileMode romFileMode)
+        {
+            if (romFileMode == RomFileMode.DB)
+            {
+                rb_DB.Checked = true;
+            }
+            else
+            {
+                rb_Local.Checked = true;
+            }
+        }
+
+        private List<string> GetlistboxValue(CheckedListBox clbBox)
+        {
+            List<string>ret=new List<string>();
+            foreach (var clbBoxSelectedItem in clbBox.CheckedItems)
+            {
+                ret.Add(clbBoxSelectedItem.ToString());
+            }
+
+            return ret;
+        }
+
+        private void chkTdr2Same_CheckValueChanged(object sender, EventArgs e)
+        {
+            if (chkTdr2Same.Checked)
+            {
+                num_StartTime2.Value = num_StartTime1.Value;
+                num_StopTime2.Value = num_StopTime1.Value;
+                num_TdrPoint2.Value = num_TdrPoint1.Value;
+                num_RiseTime2.Value = num_RiseTime1.Value;
+                num_TdrOffset2.Value = num_TdrOffset1.Value;
+
+                num_UpperMatingStartTime2.Value = num_UpperMatingStartTime1.Value;
+                num_UpperCableStartTime2.Value = num_UpperCableStartTime1.Value;
+                num_UpperMatingSpec2.Value = num_UpperMatingSpec1.Value;
+                num_UpperCableSpec2.Value = num_UpperCableSpec1.Value;
+                num_LowerMatingStartTime2.Value = num_LowerMatingStartTime1.Value;
+                num_LowerCableStartTime2.Value = num_LowerCableStartTime1.Value;
+                num_LowerMatingSpec2.Value = num_LowerMatingSpec1.Value;
+                num_LowerCableSpec2.Value = num_LowerCableSpec1.Value;
+
+            }
         }
     }
 }

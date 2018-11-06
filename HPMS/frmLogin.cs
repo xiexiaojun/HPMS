@@ -6,7 +6,7 @@ using HPMS.Util;
 
 namespace HPMS
 {
-    public partial class frmLogin : Office2007Form
+    public partial class frmLogin : Office2007Muti
     {
         private string _softVersion;
         public User User;

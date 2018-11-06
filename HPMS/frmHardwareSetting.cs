@@ -17,7 +17,7 @@ using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace HPMS
 {
-    public partial class frmHardwareSetting :  Office2007Form
+    public partial class frmHardwareSetting : Office2007Muti
     {
         public frmHardwareSetting()
         {
@@ -28,9 +28,7 @@ namespace HPMS
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
-           
-            foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
-
+          
             SetTooltip();
             SetAdapterPorts();
         }

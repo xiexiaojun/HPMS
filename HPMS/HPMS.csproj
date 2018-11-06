@@ -101,13 +101,24 @@
     <Reference Include="WHC.Pager.WinControlEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="ZedGraph">
+      <HintPath>Dll\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph.WinForms">
+      <HintPath>Dll\ZedGraph.WinForms.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AOP\AOP.cs" />
     <Compile Include="Config\LocalConfig.cs" />
+    <Compile Include="Core\SITest.cs" />
     <Compile Include="DB\DbHelperOleDb.cs" />
     <Compile Include="DB\LoginHelper.cs" />
+    <Compile Include="Draw\ControlSafe.cs" />
+    <Compile Include="Draw\VsAChart.cs" />
+    <Compile Include="Draw\ZedAChart.cs" />
     <Compile Include="Equipment\Enum\EquipmentType.cs" />
+    <Compile Include="Equipment\NetworkAnalyzer\DemoAnalyzer.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\E5071C.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\INetworkAnalyzer.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\N5224A.cs" />
@@ -170,6 +181,7 @@
     <Compile Include="frmVisaLists.Designer.cs">
       <DependentUpon>frmVisaLists.cs</DependentUpon>
     </Compile>
+    <Compile Include="Draw\AChart.cs" />
     <Compile Include="Languange\LanguageHelper.cs" />
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Program.cs" />
@@ -183,11 +195,6 @@
     <Compile Include="Splash\Splasher.cs" />
     <Compile Include="Test\Class1.cs" />
     <Compile Include="Test\Class2.cs" />
-    <Compile Include="TextTemplate1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TextTemplate1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Util\ArrayEnhance.cs" />
     <Compile Include="Util\EasyExcel.cs" />
     <Compile Include="Util\Gloabal.cs" />
@@ -263,10 +270,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TextTemplate1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TextTemplate1.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

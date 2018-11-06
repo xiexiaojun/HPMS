@@ -14,7 +14,7 @@ using HPMS.Util;
 
 namespace HPMS
 {
-    public partial class frmUserEdit : Office2007Form
+    public partial class frmUserEdit : Office2007Muti
     {
         private User _user;
         private Dictionary<int, Role> _allRoles;
@@ -47,8 +47,7 @@ namespace HPMS
                 txtUserRole.Text = _user.Username;
                
                 chkUserEnable.Checked = _user.UserStatus == RecordStatus.Enable;
-                int fhdw_index = this.cmbRole.FindString(_user.Role);
-                cmbRole.SelectedIndex = fhdw_index;
+                cmbRole.SelectedIndex = this.cmbRole.FindString(_user.Role);
 
 
             }

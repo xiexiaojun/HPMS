@@ -14,7 +14,7 @@ using HPMS.Util;
 
 namespace HPMS
 {
-    public partial class frmRoleEdit : Office2007Form
+    public partial class frmRoleEdit : Office2007Muti
     {
         private Role _role;
         private Dictionary<int, Right> _allRights;

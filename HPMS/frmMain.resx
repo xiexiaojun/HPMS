@@ -121,54 +121,6 @@
     <value>136, 5</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="中文ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
-    <value>中文</value>
-  </data>
-  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="m_Set_Languange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_Languange.Text" xml:space="preserve">
-    <value>语言</value>
-  </data>
-  <data name="m_Set_Style.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_Style.Text" xml:space="preserve">
-    <value>风格</value>
-  </data>
-  <data name="m_Set_hardware.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_hardware.Text" xml:space="preserve">
-    <value>硬件设置</value>
-  </data>
-  <data name="m_Set_profile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_profile.Text" xml:space="preserve">
-    <value>档案设置</value>
-  </data>
-  <data name="m_Set_user.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_user.Text" xml:space="preserve">
-    <value>用户管理</value>
-  </data>
-  <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="设置ToolStripMenuItem.Text" xml:space="preserve">
-    <value>设置</value>
-  </data>
   <data name="menuStrip_Main.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -193,6 +145,54 @@
   </data>
   <data name="&gt;&gt;menuStrip_Main.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="设置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="m_Set_Languange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_Languange.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="中文ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
+  <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
+  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="m_Set_Style.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_Style.Text" xml:space="preserve">
+    <value>风格</value>
+  </data>
+  <data name="m_Set_hardware.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_hardware.Text" xml:space="preserve">
+    <value>硬件设置</value>
+  </data>
+  <data name="m_Set_profile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_profile.Text" xml:space="preserve">
+    <value>档案设置</value>
+  </data>
+  <data name="m_Set_user.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="m_Set_user.Text" xml:space="preserve">
+    <value>用户管理</value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>292, 4</value>
@@ -230,124 +230,6 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chart1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="chart1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="chart1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>914, 407</value>
-  </data>
-  <data name="chart1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="chart1.Text" xml:space="preserve">
-    <value>chart1</value>
-  </data>
-  <data name="&gt;&gt;chart1.Name" xml:space="preserve">
-    <value>chart1</value>
-  </data>
-  <data name="&gt;&gt;chart1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
-  </data>
-  <data name="&gt;&gt;chart1.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;chart1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>920, 413</value>
-  </data>
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>920, 413</value>
-  </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>928, 439</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 3</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>928, 439</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
   </data>
@@ -359,21 +241,6 @@
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="textBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 448</value>
-  </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>928, 21</value>
-  </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>信息显示区</value>
   </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
@@ -387,132 +254,6 @@
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="buttonX1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 175</value>
-  </data>
-  <data name="buttonX1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 35</value>
-  </data>
-  <data name="buttonX1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="buttonX1.Text" xml:space="preserve">
-    <value>开始测试</value>
-  </data>
-  <data name="&gt;&gt;buttonX1.Name" xml:space="preserve">
-    <value>buttonX1</value>
-  </data>
-  <data name="&gt;&gt;buttonX1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
-  </data>
-  <data name="&gt;&gt;buttonX1.Parent" xml:space="preserve">
-    <value>panelEx1</value>
-  </data>
-  <data name="&gt;&gt;buttonX1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="textBoxX2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 114</value>
-  </data>
-  <data name="textBoxX2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 21</value>
-  </data>
-  <data name="textBoxX2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;textBoxX2.Name" xml:space="preserve">
-    <value>textBoxX2</value>
-  </data>
-  <data name="&gt;&gt;textBoxX2.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
-  </data>
-  <data name="&gt;&gt;textBoxX2.Parent" xml:space="preserve">
-    <value>panelEx1</value>
-  </data>
-  <data name="&gt;&gt;textBoxX2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="textBoxX1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 45</value>
-  </data>
-  <data name="textBoxX1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 21</value>
-  </data>
-  <data name="textBoxX1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;textBoxX1.Name" xml:space="preserve">
-    <value>textBoxX1</value>
-  </data>
-  <data name="&gt;&gt;textBoxX1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
-  </data>
-  <data name="&gt;&gt;textBoxX1.Parent" xml:space="preserve">
-    <value>panelEx1</value>
-  </data>
-  <data name="&gt;&gt;textBoxX1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="labelX3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 81</value>
-  </data>
-  <data name="labelX3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 27</value>
-  </data>
-  <data name="labelX3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="labelX3.Text" xml:space="preserve">
-    <value>序列号</value>
-  </data>
-  <data name="&gt;&gt;labelX3.Name" xml:space="preserve">
-    <value>labelX3</value>
-  </data>
-  <data name="&gt;&gt;labelX3.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
-  </data>
-  <data name="&gt;&gt;labelX3.Parent" xml:space="preserve">
-    <value>panelEx1</value>
-  </data>
-  <data name="&gt;&gt;labelX3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="labelX2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 12</value>
-  </data>
-  <data name="labelX2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 27</value>
-  </data>
-  <data name="labelX2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="labelX2.Text" xml:space="preserve">
-    <value>料号</value>
-  </data>
-  <data name="&gt;&gt;labelX2.Name" xml:space="preserve">
-    <value>labelX2</value>
-  </data>
-  <data name="&gt;&gt;labelX2.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
-  </data>
-  <data name="&gt;&gt;labelX2.Parent" xml:space="preserve">
-    <value>panelEx1</value>
-  </data>
-  <data name="&gt;&gt;labelX2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelEx1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelEx1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelEx1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 689</value>
-  </data>
-  <data name="panelEx1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;panelEx1.Name" xml:space="preserve">
     <value>panelEx1</value>
   </data>
@@ -525,6 +266,7 @@
   <data name="&gt;&gt;panelEx1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -554,6 +296,462 @@
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBox1" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panelEx1" Row="0" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,250,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100,Absolute,250" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Name" xml:space="preserve">
+    <value>tabControlChart</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.TabControl, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 3</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>928, 439</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabControlChart.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControlChart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.5pt, style=Bold</value>
+  </data>
+  <data name="tabControlChart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControlChart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>928, 439</value>
+  </data>
+  <data name="tabControlChart.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="tabControlChart.Text" xml:space="preserve">
+    <value>tabControl2</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Name" xml:space="preserve">
+    <value>tabControlChart</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.TabControl, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 448</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>928, 21</value>
+  </data>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>信息显示区</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lsbTestItems" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox2" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxX1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonX1" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxX2" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lsbTestPairs" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,35,Absolute,35,Absolute,35,Absolute,35,Absolute,50,Percent,100,Absolute,25,Absolute,220" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panelEx1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEx1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelEx1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 689</value>
+  </data>
+  <data name="panelEx1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Name" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.Name" xml:space="preserve">
+    <value>lsbTestItems</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Name" xml:space="preserve">
+    <value>labelX2</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;labelX2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.Name" xml:space="preserve">
+    <value>textBoxX1</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.Name" xml:space="preserve">
+    <value>buttonX1</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Name" xml:space="preserve">
+    <value>labelX3</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;labelX3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.Name" xml:space="preserve">
+    <value>textBoxX2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.Name" xml:space="preserve">
+    <value>lsbTestPairs</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 689</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lsbTestItems" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox2" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxX1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonX1" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxX2" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lsbTestPairs" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,35,Absolute,35,Absolute,35,Absolute,35,Absolute,50,Percent,100,Absolute,25,Absolute,220" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="lsbTestItems.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lsbTestItems.ItemHeight" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lsbTestItems.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 193</value>
+  </data>
+  <data name="lsbTestItems.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 248</value>
+  </data>
+  <data name="lsbTestItems.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.Name" xml:space="preserve">
+    <value>lsbTestItems</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lsbTestItems.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 447</value>
+  </data>
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 21</value>
+  </data>
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>信息显示区</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelX2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="labelX2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 27</value>
+  </data>
+  <data name="labelX2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelX2.Text" xml:space="preserve">
+    <value>料号</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Name" xml:space="preserve">
+    <value>labelX2</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;labelX2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="textBoxX1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="textBoxX1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 21</value>
+  </data>
+  <data name="textBoxX1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.Name" xml:space="preserve">
+    <value>textBoxX1</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonX1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 143</value>
+  </data>
+  <data name="buttonX1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 35</value>
+  </data>
+  <data name="buttonX1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="buttonX1.Text" xml:space="preserve">
+    <value>开始测试</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.Name" xml:space="preserve">
+    <value>buttonX1</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;buttonX1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="labelX3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 73</value>
+  </data>
+  <data name="labelX3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 27</value>
+  </data>
+  <data name="labelX3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelX3.Text" xml:space="preserve">
+    <value>序列号</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Name" xml:space="preserve">
+    <value>labelX3</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;labelX3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBoxX2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 108</value>
+  </data>
+  <data name="textBoxX2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 21</value>
+  </data>
+  <data name="textBoxX2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.Name" xml:space="preserve">
+    <value>textBoxX2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;textBoxX2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lsbTestPairs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lsbTestPairs.ItemHeight" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lsbTestPairs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 472</value>
+  </data>
+  <data name="lsbTestPairs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 214</value>
+  </data>
+  <data name="lsbTestPairs.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.Name" xml:space="preserve">
+    <value>lsbTestPairs</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;lsbTestPairs.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>22, 5</value>
@@ -886,7 +1084,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>69</value>
+    <value>87</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>

@@ -7,6 +7,7 @@ namespace HPMS.Equipment.Enum
 {
     public enum NetworkAnalyzer
     {
+        Demo,
         N5224A,
         E5071C
     }

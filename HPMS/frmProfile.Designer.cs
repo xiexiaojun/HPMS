@@ -36,38 +36,41 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.checkBoxX4 = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelX43 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX15 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_Pn = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX38 = new DevComponents.DotNetBar.LabelX();
             this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_General = new System.Windows.Forms.TabPage();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
-            this.textBoxX21 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX20 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX19 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX18 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_AWG = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_Length = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_Customer = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_PnCustomer = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX47 = new DevComponents.DotNetBar.LabelX();
             this.labelX46 = new DevComponents.DotNetBar.LabelX();
             this.labelX45 = new DevComponents.DotNetBar.LabelX();
             this.labelX44 = new DevComponents.DotNetBar.LabelX();
             this.tabPage_Project = new System.Windows.Forms.TabPage();
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
-            this.checkBoxX3 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
+            this.txt_SwitchFilePath = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX48 = new DevComponents.DotNetBar.LabelX();
+            this.chk_RomWrite = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.rb_Local = new System.Windows.Forms.RadioButton();
+            this.rb_DB = new System.Windows.Forms.RadioButton();
             this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX16 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_RomFilePath = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX41 = new DevComponents.DotNetBar.LabelX();
             this.labelX42 = new DevComponents.DotNetBar.LabelX();
             this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX17 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_ReportTempletePath = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
@@ -81,9 +84,9 @@
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.chkList_Diff = new System.Windows.Forms.CheckedListBox();
             this.tabPage_SpecFrequency = new System.Windows.Forms.TabPage();
+            this.num_FrePoints = new System.Windows.Forms.NumericUpDown();
             this.btn_SpecFreFileBrowse = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_FreSpecFilePath = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.dgv_SpecFre = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -111,42 +114,52 @@
             this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
-            this.textBoxX3 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX4 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX5 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX6 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX7 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.num_TdrOffset1 = new System.Windows.Forms.NumericUpDown();
+            this.num_RiseTime1 = new System.Windows.Forms.NumericUpDown();
+            this.num_TdrPoint1 = new System.Windows.Forms.NumericUpDown();
+            this.num_StopTime1 = new System.Windows.Forms.NumericUpDown();
+            this.num_StartTime1 = new System.Windows.Forms.NumericUpDown();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.labelX13 = new DevComponents.DotNetBar.LabelX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerCableSpec1 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerCableStartTime1 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperCableSpec1 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerMatingSpec1 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerMatingStartTime1 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperMatingSpec1 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperCableStartTime1 = new System.Windows.Forms.NumericUpDown();
             this.labelX22 = new DevComponents.DotNetBar.LabelX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
-            this.labelX24 = new DevComponents.DotNetBar.LabelX();
             this.labelX25 = new DevComponents.DotNetBar.LabelX();
             this.labelX26 = new DevComponents.DotNetBar.LabelX();
             this.labelX27 = new DevComponents.DotNetBar.LabelX();
             this.labelX28 = new DevComponents.DotNetBar.LabelX();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperMatingStartTime1 = new System.Windows.Forms.NumericUpDown();
+            this.labelX24 = new DevComponents.DotNetBar.LabelX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.panelEx6 = new DevComponents.DotNetBar.PanelEx();
+            this.num_TdrOffset2 = new System.Windows.Forms.NumericUpDown();
+            this.num_RiseTime2 = new System.Windows.Forms.NumericUpDown();
+            this.num_TdrPoint2 = new System.Windows.Forms.NumericUpDown();
+            this.num_StopTime2 = new System.Windows.Forms.NumericUpDown();
+            this.num_StartTime2 = new System.Windows.Forms.NumericUpDown();
+            this.labelX17 = new DevComponents.DotNetBar.LabelX();
+            this.labelX18 = new DevComponents.DotNetBar.LabelX();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
+            this.labelX20 = new DevComponents.DotNetBar.LabelX();
+            this.labelX21 = new DevComponents.DotNetBar.LabelX();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerCableSpec2 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerCableStartTime2 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperCableSpec2 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerMatingSpec2 = new System.Windows.Forms.NumericUpDown();
+            this.num_LowerMatingStartTime2 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperMatingSpec2 = new System.Windows.Forms.NumericUpDown();
+            this.num_UpperCableStartTime2 = new System.Windows.Forms.NumericUpDown();
             this.labelX29 = new DevComponents.DotNetBar.LabelX();
             this.labelX30 = new DevComponents.DotNetBar.LabelX();
             this.labelX31 = new DevComponents.DotNetBar.LabelX();
@@ -154,23 +167,18 @@
             this.labelX33 = new DevComponents.DotNetBar.LabelX();
             this.labelX34 = new DevComponents.DotNetBar.LabelX();
             this.labelX35 = new DevComponents.DotNetBar.LabelX();
-            this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.num_UpperMatingStartTime2 = new System.Windows.Forms.NumericUpDown();
+            this.chkTdr2Same = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.labelX16 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX8 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX9 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX10 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX11 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX12 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX17 = new DevComponents.DotNetBar.LabelX();
-            this.labelX18 = new DevComponents.DotNetBar.LabelX();
-            this.labelX19 = new DevComponents.DotNetBar.LabelX();
-            this.labelX20 = new DevComponents.DotNetBar.LabelX();
-            this.labelX21 = new DevComponents.DotNetBar.LabelX();
             this.panelEx8 = new DevComponents.DotNetBar.PanelEx();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.num_Skew = new System.Windows.Forms.NumericUpDown();
             this.labelX40 = new DevComponents.DotNetBar.LabelX();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cmb_ILDSpec = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.comboItem1 = new DevComponents.Editors.ComboItem();
+            this.comboItem2 = new DevComponents.Editors.ComboItem();
+            this.comboItem3 = new DevComponents.Editors.ComboItem();
+            this.comboItem4 = new DevComponents.Editors.ComboItem();
+            this.comboItem5 = new DevComponents.Editors.ComboItem();
             this.labelX39 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -184,6 +192,7 @@
             this.panelEx3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage_SpecFrequency.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_FrePoints)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SpecFre)).BeginInit();
             this.tabPage_Wizard.SuspendLayout();
             this.panelEx7.SuspendLayout();
@@ -192,27 +201,37 @@
             this.panelEx4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelEx5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrOffset1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RiseTime1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrPoint1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StopTime1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StartTime1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableSpec1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableStartTime1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableSpec1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingSpec1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingStartTime1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingSpec1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableStartTime1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingStartTime1)).BeginInit();
             this.panelEx6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrOffset2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RiseTime2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrPoint2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StopTime2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StartTime2)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableSpec2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableStartTime2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableSpec2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingSpec2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingStartTime2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingSpec2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableStartTime2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingStartTime2)).BeginInit();
             this.panelEx8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Skew)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -308,18 +327,18 @@
             this.buttonX1.TabIndex = 0;
             this.buttonX1.Text = "取消";
             // 
-            // buttonX2
+            // btnSave
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(696, 6);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(71, 27);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 1;
-            this.buttonX2.Text = "保存";
-            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSave.Location = new System.Drawing.Point(696, 6);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(71, 27);
+            this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // splitContainer1
             // 
@@ -334,11 +353,11 @@
             this.splitContainer1.Panel1.Controls.Add(this.checkBoxX4);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel1.Controls.Add(this.labelX43);
-            this.splitContainer1.Panel1.Controls.Add(this.textBoxX15);
+            this.splitContainer1.Panel1.Controls.Add(this.txt_Pn);
             this.splitContainer1.Panel1.Controls.Add(this.labelX38);
             this.splitContainer1.Panel1.Controls.Add(this.buttonX8);
             this.splitContainer1.Panel1.Controls.Add(this.buttonX7);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonX2);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSave);
             this.splitContainer1.Panel1.Controls.Add(this.buttonX1);
             // 
             // splitContainer1.Panel2
@@ -385,17 +404,17 @@
             this.labelX43.TabIndex = 9;
             this.labelX43.Text = "类型";
             // 
-            // textBoxX15
+            // txt_Pn
             // 
             // 
             // 
             // 
-            this.textBoxX15.Border.Class = "TextBoxBorder";
-            this.textBoxX15.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX15.Location = new System.Drawing.Point(58, 6);
-            this.textBoxX15.Name = "textBoxX15";
-            this.textBoxX15.Size = new System.Drawing.Size(183, 21);
-            this.textBoxX15.TabIndex = 8;
+            this.txt_Pn.Border.Class = "TextBoxBorder";
+            this.txt_Pn.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_Pn.Location = new System.Drawing.Point(58, 6);
+            this.txt_Pn.Name = "txt_Pn";
+            this.txt_Pn.Size = new System.Drawing.Size(183, 21);
+            this.txt_Pn.TabIndex = 8;
             // 
             // labelX38
             // 
@@ -463,10 +482,10 @@
             // 
             this.panelEx2.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx2.Controls.Add(this.textBoxX21);
-            this.panelEx2.Controls.Add(this.textBoxX20);
-            this.panelEx2.Controls.Add(this.textBoxX19);
-            this.panelEx2.Controls.Add(this.textBoxX18);
+            this.panelEx2.Controls.Add(this.txt_AWG);
+            this.panelEx2.Controls.Add(this.txt_Length);
+            this.panelEx2.Controls.Add(this.txt_Customer);
+            this.panelEx2.Controls.Add(this.txt_PnCustomer);
             this.panelEx2.Controls.Add(this.labelX47);
             this.panelEx2.Controls.Add(this.labelX46);
             this.panelEx2.Controls.Add(this.labelX45);
@@ -482,53 +501,53 @@
             this.panelEx2.Style.GradientAngle = 90;
             this.panelEx2.TabIndex = 0;
             // 
-            // textBoxX21
+            // txt_AWG
             // 
             // 
             // 
             // 
-            this.textBoxX21.Border.Class = "TextBoxBorder";
-            this.textBoxX21.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX21.Location = new System.Drawing.Point(648, 61);
-            this.textBoxX21.Name = "textBoxX21";
-            this.textBoxX21.Size = new System.Drawing.Size(173, 21);
-            this.textBoxX21.TabIndex = 29;
+            this.txt_AWG.Border.Class = "TextBoxBorder";
+            this.txt_AWG.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_AWG.Location = new System.Drawing.Point(648, 61);
+            this.txt_AWG.Name = "txt_AWG";
+            this.txt_AWG.Size = new System.Drawing.Size(173, 21);
+            this.txt_AWG.TabIndex = 29;
             // 
-            // textBoxX20
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX20.Border.Class = "TextBoxBorder";
-            this.textBoxX20.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX20.Location = new System.Drawing.Point(427, 61);
-            this.textBoxX20.Name = "textBoxX20";
-            this.textBoxX20.Size = new System.Drawing.Size(173, 21);
-            this.textBoxX20.TabIndex = 28;
-            // 
-            // textBoxX19
+            // txt_Length
             // 
             // 
             // 
             // 
-            this.textBoxX19.Border.Class = "TextBoxBorder";
-            this.textBoxX19.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX19.Location = new System.Drawing.Point(222, 61);
-            this.textBoxX19.Name = "textBoxX19";
-            this.textBoxX19.Size = new System.Drawing.Size(173, 21);
-            this.textBoxX19.TabIndex = 27;
+            this.txt_Length.Border.Class = "TextBoxBorder";
+            this.txt_Length.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_Length.Location = new System.Drawing.Point(427, 61);
+            this.txt_Length.Name = "txt_Length";
+            this.txt_Length.Size = new System.Drawing.Size(173, 21);
+            this.txt_Length.TabIndex = 28;
             // 
-            // textBoxX18
-            // 
-            // 
+            // txt_Customer
             // 
             // 
-            this.textBoxX18.Border.Class = "TextBoxBorder";
-            this.textBoxX18.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX18.Location = new System.Drawing.Point(18, 61);
-            this.textBoxX18.Name = "textBoxX18";
-            this.textBoxX18.Size = new System.Drawing.Size(173, 21);
-            this.textBoxX18.TabIndex = 26;
+            // 
+            // 
+            this.txt_Customer.Border.Class = "TextBoxBorder";
+            this.txt_Customer.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_Customer.Location = new System.Drawing.Point(222, 61);
+            this.txt_Customer.Name = "txt_Customer";
+            this.txt_Customer.Size = new System.Drawing.Size(173, 21);
+            this.txt_Customer.TabIndex = 27;
+            // 
+            // txt_PnCustomer
+            // 
+            // 
+            // 
+            // 
+            this.txt_PnCustomer.Border.Class = "TextBoxBorder";
+            this.txt_PnCustomer.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_PnCustomer.Location = new System.Drawing.Point(18, 61);
+            this.txt_PnCustomer.Name = "txt_PnCustomer";
+            this.txt_PnCustomer.Size = new System.Drawing.Size(173, 21);
+            this.txt_PnCustomer.TabIndex = 26;
             // 
             // labelX47
             // 
@@ -593,14 +612,17 @@
             // 
             this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx3.Controls.Add(this.checkBoxX3);
+            this.panelEx3.Controls.Add(this.buttonX3);
+            this.panelEx3.Controls.Add(this.txt_SwitchFilePath);
+            this.panelEx3.Controls.Add(this.labelX48);
+            this.panelEx3.Controls.Add(this.chk_RomWrite);
             this.panelEx3.Controls.Add(this.groupBox2);
             this.panelEx3.Controls.Add(this.buttonX9);
-            this.panelEx3.Controls.Add(this.textBoxX16);
+            this.panelEx3.Controls.Add(this.txt_RomFilePath);
             this.panelEx3.Controls.Add(this.labelX41);
             this.panelEx3.Controls.Add(this.labelX42);
             this.panelEx3.Controls.Add(this.buttonX10);
-            this.panelEx3.Controls.Add(this.textBoxX17);
+            this.panelEx3.Controls.Add(this.txt_ReportTempletePath);
             this.panelEx3.Controls.Add(this.labelX6);
             this.panelEx3.Controls.Add(this.chkList_FextPair);
             this.panelEx3.Controls.Add(this.labelX5);
@@ -624,74 +646,109 @@
             this.panelEx3.Style.GradientAngle = 90;
             this.panelEx3.TabIndex = 0;
             // 
-            // checkBoxX3
+            // buttonX3
+            // 
+            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX3.Location = new System.Drawing.Point(715, 405);
+            this.buttonX3.Name = "buttonX3";
+            this.buttonX3.Size = new System.Drawing.Size(74, 21);
+            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX3.TabIndex = 35;
+            this.buttonX3.Text = "浏览";
+            // 
+            // txt_SwitchFilePath
             // 
             // 
             // 
             // 
-            this.checkBoxX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX3.Location = new System.Drawing.Point(262, 325);
-            this.checkBoxX3.Name = "checkBoxX3";
-            this.checkBoxX3.Size = new System.Drawing.Size(116, 29);
-            this.checkBoxX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX3.TabIndex = 32;
-            this.checkBoxX3.Text = "EEPROM写入";
+            this.txt_SwitchFilePath.Border.Class = "TextBoxBorder";
+            this.txt_SwitchFilePath.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_SwitchFilePath.Location = new System.Drawing.Point(27, 405);
+            this.txt_SwitchFilePath.Name = "txt_SwitchFilePath";
+            this.txt_SwitchFilePath.Size = new System.Drawing.Size(678, 21);
+            this.txt_SwitchFilePath.TabIndex = 34;
+            // 
+            // labelX48
+            // 
+            // 
+            // 
+            // 
+            this.labelX48.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX48.Location = new System.Drawing.Point(27, 376);
+            this.labelX48.Name = "labelX48";
+            this.labelX48.Size = new System.Drawing.Size(123, 23);
+            this.labelX48.TabIndex = 33;
+            this.labelX48.Text = "开关文件路径";
+            // 
+            // chk_RomWrite
+            // 
+            // 
+            // 
+            // 
+            this.chk_RomWrite.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chk_RomWrite.Location = new System.Drawing.Point(262, 285);
+            this.chk_RomWrite.Name = "chk_RomWrite";
+            this.chk_RomWrite.Size = new System.Drawing.Size(116, 29);
+            this.chk_RomWrite.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chk_RomWrite.TabIndex = 32;
+            this.chk_RomWrite.Text = "EEPROM写入";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Location = new System.Drawing.Point(26, 305);
+            this.groupBox2.Controls.Add(this.rb_Local);
+            this.groupBox2.Controls.Add(this.rb_DB);
+            this.groupBox2.Location = new System.Drawing.Point(26, 265);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(221, 50);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "烧录模式";
             // 
-            // radioButton3
+            // rb_Local
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(120, 20);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(47, 16);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "本地";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rb_Local.AutoSize = true;
+            this.rb_Local.Location = new System.Drawing.Point(120, 20);
+            this.rb_Local.Name = "rb_Local";
+            this.rb_Local.Size = new System.Drawing.Size(47, 16);
+            this.rb_Local.TabIndex = 8;
+            this.rb_Local.TabStop = true;
+            this.rb_Local.Text = "本地";
+            this.rb_Local.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rb_DB
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(15, 20);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(59, 16);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "数据库";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rb_DB.AutoSize = true;
+            this.rb_DB.Location = new System.Drawing.Point(15, 20);
+            this.rb_DB.Name = "rb_DB";
+            this.rb_DB.Size = new System.Drawing.Size(59, 16);
+            this.rb_DB.TabIndex = 7;
+            this.rb_DB.TabStop = true;
+            this.rb_DB.Text = "数据库";
+            this.rb_DB.UseVisualStyleBackColor = true;
             // 
             // buttonX9
             // 
             this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX9.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX9.Location = new System.Drawing.Point(714, 398);
+            this.buttonX9.Location = new System.Drawing.Point(714, 349);
             this.buttonX9.Name = "buttonX9";
             this.buttonX9.Size = new System.Drawing.Size(74, 21);
             this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX9.TabIndex = 30;
             this.buttonX9.Text = "浏览";
             // 
-            // textBoxX16
+            // txt_RomFilePath
             // 
             // 
             // 
             // 
-            this.textBoxX16.Border.Class = "TextBoxBorder";
-            this.textBoxX16.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX16.Location = new System.Drawing.Point(26, 398);
-            this.textBoxX16.Name = "textBoxX16";
-            this.textBoxX16.Size = new System.Drawing.Size(678, 21);
-            this.textBoxX16.TabIndex = 29;
+            this.txt_RomFilePath.Border.Class = "TextBoxBorder";
+            this.txt_RomFilePath.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_RomFilePath.Location = new System.Drawing.Point(26, 349);
+            this.txt_RomFilePath.Name = "txt_RomFilePath";
+            this.txt_RomFilePath.Size = new System.Drawing.Size(678, 21);
+            this.txt_RomFilePath.TabIndex = 29;
             // 
             // labelX41
             // 
@@ -699,9 +756,9 @@
             // 
             // 
             this.labelX41.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX41.Location = new System.Drawing.Point(26, 361);
+            this.labelX41.Location = new System.Drawing.Point(26, 320);
             this.labelX41.Name = "labelX41";
-            this.labelX41.Size = new System.Drawing.Size(209, 31);
+            this.labelX41.Size = new System.Drawing.Size(209, 23);
             this.labelX41.TabIndex = 28;
             this.labelX41.Text = "EEPROM模板路径";
             // 
@@ -711,9 +768,9 @@
             // 
             // 
             this.labelX42.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX42.Location = new System.Drawing.Point(26, 241);
+            this.labelX42.Location = new System.Drawing.Point(26, 218);
             this.labelX42.Name = "labelX42";
-            this.labelX42.Size = new System.Drawing.Size(209, 31);
+            this.labelX42.Size = new System.Drawing.Size(209, 22);
             this.labelX42.TabIndex = 27;
             this.labelX42.Text = "报告模板路径";
             // 
@@ -721,7 +778,7 @@
             // 
             this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX10.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX10.Location = new System.Drawing.Point(714, 278);
+            this.buttonX10.Location = new System.Drawing.Point(714, 240);
             this.buttonX10.Name = "buttonX10";
             this.buttonX10.Size = new System.Drawing.Size(74, 21);
             this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -729,17 +786,17 @@
             this.buttonX10.Text = "浏览";
             this.buttonX10.Click += new System.EventHandler(this.buttonX10_Click);
             // 
-            // textBoxX17
+            // txt_ReportTempletePath
             // 
             // 
             // 
             // 
-            this.textBoxX17.Border.Class = "TextBoxBorder";
-            this.textBoxX17.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX17.Location = new System.Drawing.Point(26, 278);
-            this.textBoxX17.Name = "textBoxX17";
-            this.textBoxX17.Size = new System.Drawing.Size(678, 21);
-            this.textBoxX17.TabIndex = 25;
+            this.txt_ReportTempletePath.Border.Class = "TextBoxBorder";
+            this.txt_ReportTempletePath.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_ReportTempletePath.Location = new System.Drawing.Point(26, 240);
+            this.txt_ReportTempletePath.Name = "txt_ReportTempletePath";
+            this.txt_ReportTempletePath.Size = new System.Drawing.Size(678, 21);
+            this.txt_ReportTempletePath.TabIndex = 25;
             // 
             // labelX6
             // 
@@ -747,7 +804,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(706, 13);
+            this.labelX6.Location = new System.Drawing.Point(706, 3);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(112, 21);
             this.labelX6.TabIndex = 24;
@@ -760,7 +817,7 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_FextPair.Location = new System.Drawing.Point(706, 40);
+            this.chkList_FextPair.Location = new System.Drawing.Point(706, 30);
             this.chkList_FextPair.Name = "chkList_FextPair";
             this.chkList_FextPair.Size = new System.Drawing.Size(102, 180);
             this.chkList_FextPair.TabIndex = 23;
@@ -772,7 +829,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(570, 13);
+            this.labelX5.Location = new System.Drawing.Point(570, 3);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(112, 21);
             this.labelX5.TabIndex = 22;
@@ -785,7 +842,7 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_NextPair.Location = new System.Drawing.Point(570, 40);
+            this.chkList_NextPair.Location = new System.Drawing.Point(570, 30);
             this.chkList_NextPair.Name = "chkList_NextPair";
             this.chkList_NextPair.Size = new System.Drawing.Size(102, 180);
             this.chkList_NextPair.TabIndex = 21;
@@ -797,7 +854,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(434, 13);
+            this.labelX4.Location = new System.Drawing.Point(434, 3);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(112, 21);
             this.labelX4.TabIndex = 20;
@@ -810,7 +867,7 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_SPair.Location = new System.Drawing.Point(434, 40);
+            this.chkList_SPair.Location = new System.Drawing.Point(434, 30);
             this.chkList_SPair.Name = "chkList_SPair";
             this.chkList_SPair.Size = new System.Drawing.Size(102, 180);
             this.chkList_SPair.TabIndex = 19;
@@ -822,7 +879,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(298, 13);
+            this.labelX3.Location = new System.Drawing.Point(298, 3);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(112, 21);
             this.labelX3.TabIndex = 18;
@@ -835,7 +892,7 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_TDR.Location = new System.Drawing.Point(298, 40);
+            this.chkList_TDR.Location = new System.Drawing.Point(298, 30);
             this.chkList_TDR.Name = "chkList_TDR";
             this.chkList_TDR.Size = new System.Drawing.Size(102, 180);
             this.chkList_TDR.TabIndex = 17;
@@ -847,7 +904,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(152, 13);
+            this.labelX2.Location = new System.Drawing.Point(152, 3);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(112, 21);
             this.labelX2.TabIndex = 16;
@@ -860,7 +917,7 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_Single.Location = new System.Drawing.Point(162, 40);
+            this.chkList_Single.Location = new System.Drawing.Point(162, 30);
             this.chkList_Single.Name = "chkList_Single";
             this.chkList_Single.Size = new System.Drawing.Size(102, 180);
             this.chkList_Single.TabIndex = 15;
@@ -872,7 +929,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(26, 13);
+            this.labelX7.Location = new System.Drawing.Point(26, 3);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(112, 21);
             this.labelX7.TabIndex = 14;
@@ -885,7 +942,7 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_Diff.Location = new System.Drawing.Point(26, 40);
+            this.chkList_Diff.Location = new System.Drawing.Point(26, 30);
             this.chkList_Diff.Name = "chkList_Diff";
             this.chkList_Diff.Size = new System.Drawing.Size(102, 180);
             this.chkList_Diff.TabIndex = 13;
@@ -893,9 +950,9 @@
             // 
             // tabPage_SpecFrequency
             // 
+            this.tabPage_SpecFrequency.Controls.Add(this.num_FrePoints);
             this.tabPage_SpecFrequency.Controls.Add(this.btn_SpecFreFileBrowse);
-            this.tabPage_SpecFrequency.Controls.Add(this.textBoxX2);
-            this.tabPage_SpecFrequency.Controls.Add(this.textBoxX1);
+            this.tabPage_SpecFrequency.Controls.Add(this.txt_FreSpecFilePath);
             this.tabPage_SpecFrequency.Controls.Add(this.labelX9);
             this.tabPage_SpecFrequency.Controls.Add(this.labelX8);
             this.tabPage_SpecFrequency.Controls.Add(this.dgv_SpecFre);
@@ -906,6 +963,13 @@
             this.tabPage_SpecFrequency.TabIndex = 2;
             this.tabPage_SpecFrequency.Text = "SpecFrequency";
             this.tabPage_SpecFrequency.UseVisualStyleBackColor = true;
+            // 
+            // num_FrePoints
+            // 
+            this.num_FrePoints.Location = new System.Drawing.Point(54, 408);
+            this.num_FrePoints.Name = "num_FrePoints";
+            this.num_FrePoints.Size = new System.Drawing.Size(111, 21);
+            this.num_FrePoints.TabIndex = 6;
             // 
             // btn_SpecFreFileBrowse
             // 
@@ -919,29 +983,17 @@
             this.btn_SpecFreFileBrowse.Text = "浏览";
             this.btn_SpecFreFileBrowse.Click += new System.EventHandler(this.btn_SpecFreFileBrowse_Click);
             // 
-            // textBoxX2
+            // txt_FreSpecFilePath
             // 
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(318, 405);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(464, 21);
-            this.textBoxX2.TabIndex = 4;
-            // 
-            // textBoxX1
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(92, 408);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(96, 21);
-            this.textBoxX1.TabIndex = 2;
+            this.txt_FreSpecFilePath.Border.Class = "TextBoxBorder";
+            this.txt_FreSpecFilePath.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txt_FreSpecFilePath.Location = new System.Drawing.Point(318, 405);
+            this.txt_FreSpecFilePath.Name = "txt_FreSpecFilePath";
+            this.txt_FreSpecFilePath.Size = new System.Drawing.Size(464, 21);
+            this.txt_FreSpecFilePath.TabIndex = 4;
             // 
             // labelX9
             // 
@@ -992,7 +1044,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_SpecFre.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_SpecFre.EnableHeadersVisualStyles = false;
@@ -1251,11 +1303,11 @@
             // 
             this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx5.Controls.Add(this.textBoxX3);
-            this.panelEx5.Controls.Add(this.textBoxX4);
-            this.panelEx5.Controls.Add(this.textBoxX5);
-            this.panelEx5.Controls.Add(this.textBoxX6);
-            this.panelEx5.Controls.Add(this.textBoxX7);
+            this.panelEx5.Controls.Add(this.num_TdrOffset1);
+            this.panelEx5.Controls.Add(this.num_RiseTime1);
+            this.panelEx5.Controls.Add(this.num_TdrPoint1);
+            this.panelEx5.Controls.Add(this.num_StopTime1);
+            this.panelEx5.Controls.Add(this.num_StartTime1);
             this.panelEx5.Controls.Add(this.labelX11);
             this.panelEx5.Controls.Add(this.labelX12);
             this.panelEx5.Controls.Add(this.labelX13);
@@ -1274,65 +1326,44 @@
             this.panelEx5.Style.GradientAngle = 90;
             this.panelEx5.TabIndex = 0;
             // 
-            // textBoxX3
+            // num_TdrOffset1
             // 
+            this.num_TdrOffset1.DecimalPlaces = 2;
+            this.num_TdrOffset1.Location = new System.Drawing.Point(756, 30);
+            this.num_TdrOffset1.Name = "num_TdrOffset1";
+            this.num_TdrOffset1.Size = new System.Drawing.Size(74, 21);
+            this.num_TdrOffset1.TabIndex = 51;
             // 
+            // num_RiseTime1
             // 
+            this.num_RiseTime1.DecimalPlaces = 2;
+            this.num_RiseTime1.Location = new System.Drawing.Point(620, 30);
+            this.num_RiseTime1.Name = "num_RiseTime1";
+            this.num_RiseTime1.Size = new System.Drawing.Size(74, 21);
+            this.num_RiseTime1.TabIndex = 50;
             // 
-            this.textBoxX3.Border.Class = "TextBoxBorder";
-            this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX3.Location = new System.Drawing.Point(756, 30);
-            this.textBoxX3.Name = "textBoxX3";
-            this.textBoxX3.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX3.TabIndex = 46;
+            // num_TdrPoint1
             // 
-            // textBoxX4
+            this.num_TdrPoint1.Location = new System.Drawing.Point(490, 30);
+            this.num_TdrPoint1.Name = "num_TdrPoint1";
+            this.num_TdrPoint1.Size = new System.Drawing.Size(74, 21);
+            this.num_TdrPoint1.TabIndex = 49;
             // 
+            // num_StopTime1
             // 
+            this.num_StopTime1.DecimalPlaces = 2;
+            this.num_StopTime1.Location = new System.Drawing.Point(360, 30);
+            this.num_StopTime1.Name = "num_StopTime1";
+            this.num_StopTime1.Size = new System.Drawing.Size(74, 21);
+            this.num_StopTime1.TabIndex = 48;
             // 
+            // num_StartTime1
             // 
-            this.textBoxX4.Border.Class = "TextBoxBorder";
-            this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.Location = new System.Drawing.Point(626, 30);
-            this.textBoxX4.Name = "textBoxX4";
-            this.textBoxX4.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX4.TabIndex = 45;
-            // 
-            // textBoxX5
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX5.Border.Class = "TextBoxBorder";
-            this.textBoxX5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX5.Location = new System.Drawing.Point(496, 30);
-            this.textBoxX5.Name = "textBoxX5";
-            this.textBoxX5.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX5.TabIndex = 44;
-            // 
-            // textBoxX6
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX6.Border.Class = "TextBoxBorder";
-            this.textBoxX6.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX6.Location = new System.Drawing.Point(366, 30);
-            this.textBoxX6.Name = "textBoxX6";
-            this.textBoxX6.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX6.TabIndex = 43;
-            // 
-            // textBoxX7
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX7.Border.Class = "TextBoxBorder";
-            this.textBoxX7.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX7.Location = new System.Drawing.Point(236, 30);
-            this.textBoxX7.Name = "textBoxX7";
-            this.textBoxX7.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX7.TabIndex = 42;
+            this.num_StartTime1.DecimalPlaces = 2;
+            this.num_StartTime1.Location = new System.Drawing.Point(230, 30);
+            this.num_StartTime1.Name = "num_StartTime1";
+            this.num_StartTime1.Size = new System.Drawing.Size(74, 21);
+            this.num_StartTime1.TabIndex = 47;
             // 
             // labelX11
             // 
@@ -1403,21 +1434,21 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown9, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown8, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown7, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown6, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown5, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown4, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown3, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.num_LowerCableSpec1, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.num_LowerCableStartTime1, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.num_UpperCableSpec1, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.num_LowerMatingSpec1, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.num_LowerMatingStartTime1, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.num_UpperMatingSpec1, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.num_UpperCableStartTime1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.labelX22, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelX23, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelX24, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelX25, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelX26, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelX27, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelX28, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.num_UpperMatingStartTime1, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelX24, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 66);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -1428,61 +1459,68 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(850, 109);
             this.tableLayoutPanel2.TabIndex = 36;
             // 
-            // numericUpDown9
+            // num_LowerCableSpec1
             // 
-            this.numericUpDown9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown9.Location = new System.Drawing.Point(680, 81);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(166, 21);
-            this.numericUpDown9.TabIndex = 22;
+            this.num_LowerCableSpec1.DecimalPlaces = 2;
+            this.num_LowerCableSpec1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerCableSpec1.Location = new System.Drawing.Point(680, 81);
+            this.num_LowerCableSpec1.Name = "num_LowerCableSpec1";
+            this.num_LowerCableSpec1.Size = new System.Drawing.Size(166, 21);
+            this.num_LowerCableSpec1.TabIndex = 22;
             // 
-            // numericUpDown8
+            // num_LowerCableStartTime1
             // 
-            this.numericUpDown8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown8.Location = new System.Drawing.Point(511, 81);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown8.TabIndex = 21;
+            this.num_LowerCableStartTime1.DecimalPlaces = 2;
+            this.num_LowerCableStartTime1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerCableStartTime1.Location = new System.Drawing.Point(511, 81);
+            this.num_LowerCableStartTime1.Name = "num_LowerCableStartTime1";
+            this.num_LowerCableStartTime1.Size = new System.Drawing.Size(162, 21);
+            this.num_LowerCableStartTime1.TabIndex = 21;
             // 
-            // numericUpDown7
+            // num_UpperCableSpec1
             // 
-            this.numericUpDown7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown7.Location = new System.Drawing.Point(342, 81);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown7.TabIndex = 20;
+            this.num_UpperCableSpec1.DecimalPlaces = 2;
+            this.num_UpperCableSpec1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperCableSpec1.Location = new System.Drawing.Point(342, 81);
+            this.num_UpperCableSpec1.Name = "num_UpperCableSpec1";
+            this.num_UpperCableSpec1.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperCableSpec1.TabIndex = 20;
             // 
-            // numericUpDown6
+            // num_LowerMatingSpec1
             // 
-            this.numericUpDown6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown6.Location = new System.Drawing.Point(680, 50);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(166, 21);
-            this.numericUpDown6.TabIndex = 19;
+            this.num_LowerMatingSpec1.DecimalPlaces = 2;
+            this.num_LowerMatingSpec1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerMatingSpec1.Location = new System.Drawing.Point(680, 50);
+            this.num_LowerMatingSpec1.Name = "num_LowerMatingSpec1";
+            this.num_LowerMatingSpec1.Size = new System.Drawing.Size(166, 21);
+            this.num_LowerMatingSpec1.TabIndex = 19;
             // 
-            // numericUpDown5
+            // num_LowerMatingStartTime1
             // 
-            this.numericUpDown5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown5.Location = new System.Drawing.Point(511, 50);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown5.TabIndex = 18;
+            this.num_LowerMatingStartTime1.DecimalPlaces = 2;
+            this.num_LowerMatingStartTime1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerMatingStartTime1.Location = new System.Drawing.Point(511, 50);
+            this.num_LowerMatingStartTime1.Name = "num_LowerMatingStartTime1";
+            this.num_LowerMatingStartTime1.Size = new System.Drawing.Size(162, 21);
+            this.num_LowerMatingStartTime1.TabIndex = 18;
             // 
-            // numericUpDown4
+            // num_UpperMatingSpec1
             // 
-            this.numericUpDown4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown4.Location = new System.Drawing.Point(342, 50);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown4.TabIndex = 17;
+            this.num_UpperMatingSpec1.DecimalPlaces = 2;
+            this.num_UpperMatingSpec1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperMatingSpec1.Location = new System.Drawing.Point(342, 50);
+            this.num_UpperMatingSpec1.Name = "num_UpperMatingSpec1";
+            this.num_UpperMatingSpec1.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperMatingSpec1.TabIndex = 17;
             // 
-            // numericUpDown3
+            // num_UpperCableStartTime1
             // 
-            this.numericUpDown3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown3.Location = new System.Drawing.Point(173, 81);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown3.TabIndex = 16;
+            this.num_UpperCableStartTime1.DecimalPlaces = 2;
+            this.num_UpperCableStartTime1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperCableStartTime1.Location = new System.Drawing.Point(173, 81);
+            this.num_UpperCableStartTime1.Name = "num_UpperCableStartTime1";
+            this.num_UpperCableStartTime1.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperCableStartTime1.TabIndex = 16;
             // 
             // labelX22
             // 
@@ -1515,22 +1553,6 @@
             this.labelX23.TabIndex = 4;
             this.labelX23.Text = "Min Start Time(ns)";
             this.labelX23.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // labelX24
-            // 
-            this.labelX24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.labelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX24.Location = new System.Drawing.Point(342, 4);
-            this.labelX24.Name = "labelX24";
-            this.labelX24.Size = new System.Drawing.Size(162, 39);
-            this.labelX24.TabIndex = 3;
-            this.labelX24.Text = "Max Spec(ohm)";
-            this.labelX24.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX25
             // 
@@ -1596,13 +1618,30 @@
             this.labelX28.Text = "Cable Area";
             this.labelX28.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // numericUpDown2
+            // num_UpperMatingStartTime1
             // 
-            this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown2.Location = new System.Drawing.Point(173, 50);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown2.TabIndex = 15;
+            this.num_UpperMatingStartTime1.DecimalPlaces = 2;
+            this.num_UpperMatingStartTime1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperMatingStartTime1.Location = new System.Drawing.Point(173, 50);
+            this.num_UpperMatingStartTime1.Name = "num_UpperMatingStartTime1";
+            this.num_UpperMatingStartTime1.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperMatingStartTime1.TabIndex = 15;
+            // 
+            // labelX24
+            // 
+            this.labelX24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.labelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX24.Location = new System.Drawing.Point(342, 4);
+            this.labelX24.Name = "labelX24";
+            this.labelX24.Size = new System.Drawing.Size(162, 39);
+            this.labelX24.TabIndex = 3;
+            this.labelX24.Text = "Max Spec(ohm)";
+            this.labelX24.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX10
             // 
@@ -1621,19 +1660,19 @@
             // 
             this.panelEx6.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx6.Controls.Add(this.tableLayoutPanel4);
-            this.panelEx6.Controls.Add(this.checkBoxX1);
-            this.panelEx6.Controls.Add(this.labelX16);
-            this.panelEx6.Controls.Add(this.textBoxX8);
-            this.panelEx6.Controls.Add(this.textBoxX9);
-            this.panelEx6.Controls.Add(this.textBoxX10);
-            this.panelEx6.Controls.Add(this.textBoxX11);
-            this.panelEx6.Controls.Add(this.textBoxX12);
+            this.panelEx6.Controls.Add(this.num_TdrOffset2);
+            this.panelEx6.Controls.Add(this.num_RiseTime2);
+            this.panelEx6.Controls.Add(this.num_TdrPoint2);
+            this.panelEx6.Controls.Add(this.num_StopTime2);
+            this.panelEx6.Controls.Add(this.num_StartTime2);
             this.panelEx6.Controls.Add(this.labelX17);
             this.panelEx6.Controls.Add(this.labelX18);
             this.panelEx6.Controls.Add(this.labelX19);
             this.panelEx6.Controls.Add(this.labelX20);
             this.panelEx6.Controls.Add(this.labelX21);
+            this.panelEx6.Controls.Add(this.tableLayoutPanel4);
+            this.panelEx6.Controls.Add(this.chkTdr2Same);
+            this.panelEx6.Controls.Add(this.labelX16);
             this.panelEx6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx6.Location = new System.Drawing.Point(3, 184);
             this.panelEx6.Name = "panelEx6";
@@ -1645,6 +1684,105 @@
             this.panelEx6.Style.GradientAngle = 90;
             this.panelEx6.TabIndex = 1;
             // 
+            // num_TdrOffset2
+            // 
+            this.num_TdrOffset2.DecimalPlaces = 2;
+            this.num_TdrOffset2.Location = new System.Drawing.Point(755, 32);
+            this.num_TdrOffset2.Name = "num_TdrOffset2";
+            this.num_TdrOffset2.Size = new System.Drawing.Size(74, 21);
+            this.num_TdrOffset2.TabIndex = 61;
+            // 
+            // num_RiseTime2
+            // 
+            this.num_RiseTime2.DecimalPlaces = 2;
+            this.num_RiseTime2.Location = new System.Drawing.Point(619, 32);
+            this.num_RiseTime2.Name = "num_RiseTime2";
+            this.num_RiseTime2.Size = new System.Drawing.Size(74, 21);
+            this.num_RiseTime2.TabIndex = 60;
+            // 
+            // num_TdrPoint2
+            // 
+            this.num_TdrPoint2.Location = new System.Drawing.Point(489, 32);
+            this.num_TdrPoint2.Name = "num_TdrPoint2";
+            this.num_TdrPoint2.Size = new System.Drawing.Size(74, 21);
+            this.num_TdrPoint2.TabIndex = 59;
+            // 
+            // num_StopTime2
+            // 
+            this.num_StopTime2.DecimalPlaces = 2;
+            this.num_StopTime2.Location = new System.Drawing.Point(359, 32);
+            this.num_StopTime2.Name = "num_StopTime2";
+            this.num_StopTime2.Size = new System.Drawing.Size(74, 21);
+            this.num_StopTime2.TabIndex = 58;
+            // 
+            // num_StartTime2
+            // 
+            this.num_StartTime2.DecimalPlaces = 2;
+            this.num_StartTime2.Location = new System.Drawing.Point(229, 32);
+            this.num_StartTime2.Name = "num_StartTime2";
+            this.num_StartTime2.Size = new System.Drawing.Size(74, 21);
+            this.num_StartTime2.TabIndex = 57;
+            // 
+            // labelX17
+            // 
+            // 
+            // 
+            // 
+            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX17.Location = new System.Drawing.Point(758, 5);
+            this.labelX17.Name = "labelX17";
+            this.labelX17.Size = new System.Drawing.Size(80, 18);
+            this.labelX17.TabIndex = 56;
+            this.labelX17.Text = "阻抗补偿";
+            // 
+            // labelX18
+            // 
+            // 
+            // 
+            // 
+            this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX18.Location = new System.Drawing.Point(625, 5);
+            this.labelX18.Name = "labelX18";
+            this.labelX18.Size = new System.Drawing.Size(86, 18);
+            this.labelX18.TabIndex = 55;
+            this.labelX18.Text = "上升时间";
+            // 
+            // labelX19
+            // 
+            // 
+            // 
+            // 
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(496, 5);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(67, 18);
+            this.labelX19.TabIndex = 54;
+            this.labelX19.Text = "点数";
+            // 
+            // labelX20
+            // 
+            // 
+            // 
+            // 
+            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX20.Location = new System.Drawing.Point(365, 5);
+            this.labelX20.Name = "labelX20";
+            this.labelX20.Size = new System.Drawing.Size(85, 18);
+            this.labelX20.TabIndex = 53;
+            this.labelX20.Text = "结束时间";
+            // 
+            // labelX21
+            // 
+            // 
+            // 
+            // 
+            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX21.Location = new System.Drawing.Point(235, 5);
+            this.labelX21.Name = "labelX21";
+            this.labelX21.Size = new System.Drawing.Size(82, 18);
+            this.labelX21.TabIndex = 52;
+            this.labelX21.Text = "开始时间";
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -1654,13 +1792,13 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown10, 4, 2);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown11, 3, 2);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown12, 2, 2);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown13, 4, 1);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown14, 3, 1);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown15, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown16, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.num_LowerCableSpec2, 4, 2);
+            this.tableLayoutPanel4.Controls.Add(this.num_LowerCableStartTime2, 3, 2);
+            this.tableLayoutPanel4.Controls.Add(this.num_UpperCableSpec2, 2, 2);
+            this.tableLayoutPanel4.Controls.Add(this.num_LowerMatingSpec2, 4, 1);
+            this.tableLayoutPanel4.Controls.Add(this.num_LowerMatingStartTime2, 3, 1);
+            this.tableLayoutPanel4.Controls.Add(this.num_UpperMatingSpec2, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.num_UpperCableStartTime2, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.labelX29, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelX30, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelX31, 2, 0);
@@ -1668,7 +1806,7 @@
             this.tableLayoutPanel4.Controls.Add(this.labelX33, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelX34, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.labelX35, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.numericUpDown17, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.num_UpperMatingStartTime2, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 66);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -1679,61 +1817,68 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(850, 109);
             this.tableLayoutPanel4.TabIndex = 38;
             // 
-            // numericUpDown10
+            // num_LowerCableSpec2
             // 
-            this.numericUpDown10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown10.Location = new System.Drawing.Point(680, 81);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(166, 21);
-            this.numericUpDown10.TabIndex = 22;
+            this.num_LowerCableSpec2.DecimalPlaces = 2;
+            this.num_LowerCableSpec2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerCableSpec2.Location = new System.Drawing.Point(680, 81);
+            this.num_LowerCableSpec2.Name = "num_LowerCableSpec2";
+            this.num_LowerCableSpec2.Size = new System.Drawing.Size(166, 21);
+            this.num_LowerCableSpec2.TabIndex = 22;
             // 
-            // numericUpDown11
+            // num_LowerCableStartTime2
             // 
-            this.numericUpDown11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown11.Location = new System.Drawing.Point(511, 81);
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown11.TabIndex = 21;
+            this.num_LowerCableStartTime2.DecimalPlaces = 2;
+            this.num_LowerCableStartTime2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerCableStartTime2.Location = new System.Drawing.Point(511, 81);
+            this.num_LowerCableStartTime2.Name = "num_LowerCableStartTime2";
+            this.num_LowerCableStartTime2.Size = new System.Drawing.Size(162, 21);
+            this.num_LowerCableStartTime2.TabIndex = 21;
             // 
-            // numericUpDown12
+            // num_UpperCableSpec2
             // 
-            this.numericUpDown12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown12.Location = new System.Drawing.Point(342, 81);
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown12.TabIndex = 20;
+            this.num_UpperCableSpec2.DecimalPlaces = 2;
+            this.num_UpperCableSpec2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperCableSpec2.Location = new System.Drawing.Point(342, 81);
+            this.num_UpperCableSpec2.Name = "num_UpperCableSpec2";
+            this.num_UpperCableSpec2.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperCableSpec2.TabIndex = 20;
             // 
-            // numericUpDown13
+            // num_LowerMatingSpec2
             // 
-            this.numericUpDown13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown13.Location = new System.Drawing.Point(680, 50);
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(166, 21);
-            this.numericUpDown13.TabIndex = 19;
+            this.num_LowerMatingSpec2.DecimalPlaces = 2;
+            this.num_LowerMatingSpec2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerMatingSpec2.Location = new System.Drawing.Point(680, 50);
+            this.num_LowerMatingSpec2.Name = "num_LowerMatingSpec2";
+            this.num_LowerMatingSpec2.Size = new System.Drawing.Size(166, 21);
+            this.num_LowerMatingSpec2.TabIndex = 19;
             // 
-            // numericUpDown14
+            // num_LowerMatingStartTime2
             // 
-            this.numericUpDown14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown14.Location = new System.Drawing.Point(511, 50);
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown14.TabIndex = 18;
+            this.num_LowerMatingStartTime2.DecimalPlaces = 2;
+            this.num_LowerMatingStartTime2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_LowerMatingStartTime2.Location = new System.Drawing.Point(511, 50);
+            this.num_LowerMatingStartTime2.Name = "num_LowerMatingStartTime2";
+            this.num_LowerMatingStartTime2.Size = new System.Drawing.Size(162, 21);
+            this.num_LowerMatingStartTime2.TabIndex = 18;
             // 
-            // numericUpDown15
+            // num_UpperMatingSpec2
             // 
-            this.numericUpDown15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown15.Location = new System.Drawing.Point(342, 50);
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown15.TabIndex = 17;
+            this.num_UpperMatingSpec2.DecimalPlaces = 2;
+            this.num_UpperMatingSpec2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperMatingSpec2.Location = new System.Drawing.Point(342, 50);
+            this.num_UpperMatingSpec2.Name = "num_UpperMatingSpec2";
+            this.num_UpperMatingSpec2.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperMatingSpec2.TabIndex = 17;
             // 
-            // numericUpDown16
+            // num_UpperCableStartTime2
             // 
-            this.numericUpDown16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown16.Location = new System.Drawing.Point(173, 81);
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown16.TabIndex = 16;
+            this.num_UpperCableStartTime2.DecimalPlaces = 2;
+            this.num_UpperCableStartTime2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperCableStartTime2.Location = new System.Drawing.Point(173, 81);
+            this.num_UpperCableStartTime2.Name = "num_UpperCableStartTime2";
+            this.num_UpperCableStartTime2.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperCableStartTime2.TabIndex = 16;
             // 
             // labelX29
             // 
@@ -1847,26 +1992,28 @@
             this.labelX35.Text = "Cable Area";
             this.labelX35.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // numericUpDown17
+            // num_UpperMatingStartTime2
             // 
-            this.numericUpDown17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown17.Location = new System.Drawing.Point(173, 50);
-            this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown17.TabIndex = 15;
+            this.num_UpperMatingStartTime2.DecimalPlaces = 2;
+            this.num_UpperMatingStartTime2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.num_UpperMatingStartTime2.Location = new System.Drawing.Point(173, 50);
+            this.num_UpperMatingStartTime2.Name = "num_UpperMatingStartTime2";
+            this.num_UpperMatingStartTime2.Size = new System.Drawing.Size(162, 21);
+            this.num_UpperMatingStartTime2.TabIndex = 15;
             // 
-            // checkBoxX1
+            // chkTdr2Same
             // 
             // 
             // 
             // 
-            this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX1.Location = new System.Drawing.Point(107, 31);
-            this.checkBoxX1.Name = "checkBoxX1";
-            this.checkBoxX1.Size = new System.Drawing.Size(112, 23);
-            this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX1.TabIndex = 37;
-            this.checkBoxX1.Text = "与TDD11相同";
+            this.chkTdr2Same.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkTdr2Same.Location = new System.Drawing.Point(107, 31);
+            this.chkTdr2Same.Name = "chkTdr2Same";
+            this.chkTdr2Same.Size = new System.Drawing.Size(112, 23);
+            this.chkTdr2Same.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkTdr2Same.TabIndex = 37;
+            this.chkTdr2Same.Text = "与TDD11相同";
+            this.chkTdr2Same.CheckValueChanged += new System.EventHandler(this.chkTdr2Same_CheckValueChanged);
             // 
             // labelX16
             // 
@@ -1881,133 +2028,13 @@
             this.labelX16.TabIndex = 35;
             this.labelX16.Text = "TDD22";
             // 
-            // textBoxX8
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX8.Border.Class = "TextBoxBorder";
-            this.textBoxX8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX8.Location = new System.Drawing.Point(756, 33);
-            this.textBoxX8.Name = "textBoxX8";
-            this.textBoxX8.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX8.TabIndex = 34;
-            // 
-            // textBoxX9
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX9.Border.Class = "TextBoxBorder";
-            this.textBoxX9.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX9.Location = new System.Drawing.Point(626, 33);
-            this.textBoxX9.Name = "textBoxX9";
-            this.textBoxX9.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX9.TabIndex = 33;
-            // 
-            // textBoxX10
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX10.Border.Class = "TextBoxBorder";
-            this.textBoxX10.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX10.Location = new System.Drawing.Point(496, 33);
-            this.textBoxX10.Name = "textBoxX10";
-            this.textBoxX10.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX10.TabIndex = 32;
-            // 
-            // textBoxX11
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX11.Border.Class = "TextBoxBorder";
-            this.textBoxX11.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX11.Location = new System.Drawing.Point(366, 33);
-            this.textBoxX11.Name = "textBoxX11";
-            this.textBoxX11.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX11.TabIndex = 31;
-            // 
-            // textBoxX12
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX12.Border.Class = "TextBoxBorder";
-            this.textBoxX12.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX12.Location = new System.Drawing.Point(236, 33);
-            this.textBoxX12.Name = "textBoxX12";
-            this.textBoxX12.Size = new System.Drawing.Size(68, 21);
-            this.textBoxX12.TabIndex = 30;
-            // 
-            // labelX17
-            // 
-            // 
-            // 
-            // 
-            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX17.Location = new System.Drawing.Point(759, 6);
-            this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(80, 18);
-            this.labelX17.TabIndex = 29;
-            this.labelX17.Text = "阻抗补偿";
-            // 
-            // labelX18
-            // 
-            // 
-            // 
-            // 
-            this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(626, 6);
-            this.labelX18.Name = "labelX18";
-            this.labelX18.Size = new System.Drawing.Size(86, 18);
-            this.labelX18.TabIndex = 28;
-            this.labelX18.Text = "上升时间";
-            // 
-            // labelX19
-            // 
-            // 
-            // 
-            // 
-            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX19.Location = new System.Drawing.Point(497, 6);
-            this.labelX19.Name = "labelX19";
-            this.labelX19.Size = new System.Drawing.Size(67, 18);
-            this.labelX19.TabIndex = 27;
-            this.labelX19.Text = "点数";
-            // 
-            // labelX20
-            // 
-            // 
-            // 
-            // 
-            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX20.Location = new System.Drawing.Point(366, 6);
-            this.labelX20.Name = "labelX20";
-            this.labelX20.Size = new System.Drawing.Size(85, 18);
-            this.labelX20.TabIndex = 26;
-            this.labelX20.Text = "结束时间";
-            // 
-            // labelX21
-            // 
-            // 
-            // 
-            // 
-            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX21.Location = new System.Drawing.Point(236, 6);
-            this.labelX21.Name = "labelX21";
-            this.labelX21.Size = new System.Drawing.Size(82, 18);
-            this.labelX21.TabIndex = 25;
-            this.labelX21.Text = "开始时间";
-            // 
             // panelEx8
             // 
             this.panelEx8.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx8.Controls.Add(this.numericUpDown1);
+            this.panelEx8.Controls.Add(this.num_Skew);
             this.panelEx8.Controls.Add(this.labelX40);
-            this.panelEx8.Controls.Add(this.comboBoxEx1);
+            this.panelEx8.Controls.Add(this.cmb_ILDSpec);
             this.panelEx8.Controls.Add(this.labelX39);
             this.panelEx8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx8.Location = new System.Drawing.Point(3, 365);
@@ -2020,12 +2047,13 @@
             this.panelEx8.Style.GradientAngle = 90;
             this.panelEx8.TabIndex = 2;
             // 
-            // numericUpDown1
+            // num_Skew
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(249, 30);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(162, 21);
-            this.numericUpDown1.TabIndex = 16;
+            this.num_Skew.DecimalPlaces = 2;
+            this.num_Skew.Location = new System.Drawing.Point(249, 30);
+            this.num_Skew.Name = "num_Skew";
+            this.num_Skew.Size = new System.Drawing.Size(162, 21);
+            this.num_Skew.TabIndex = 16;
             // 
             // labelX40
             // 
@@ -2039,17 +2067,44 @@
             this.labelX40.TabIndex = 5;
             this.labelX40.Text = "skew最大值";
             // 
-            // comboBoxEx1
+            // cmb_ILDSpec
             // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 15;
-            this.comboBoxEx1.Location = new System.Drawing.Point(18, 30);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 4;
+            this.cmb_ILDSpec.DisplayMember = "Text";
+            this.cmb_ILDSpec.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmb_ILDSpec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_ILDSpec.FormattingEnabled = true;
+            this.cmb_ILDSpec.ItemHeight = 15;
+            this.cmb_ILDSpec.Items.AddRange(new object[] {
+            this.comboItem1,
+            this.comboItem2,
+            this.comboItem3,
+            this.comboItem4,
+            this.comboItem5});
+            this.cmb_ILDSpec.Location = new System.Drawing.Point(18, 30);
+            this.cmb_ILDSpec.Name = "cmb_ILDSpec";
+            this.cmb_ILDSpec.Size = new System.Drawing.Size(148, 21);
+            this.cmb_ILDSpec.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmb_ILDSpec.TabIndex = 4;
+            // 
+            // comboItem1
+            // 
+            this.comboItem1.Text = "IEEE802_3ba";
+            // 
+            // comboItem2
+            // 
+            this.comboItem2.Text = "FDR";
+            // 
+            // comboItem3
+            // 
+            this.comboItem3.Text = "EDR";
+            // 
+            // comboItem4
+            // 
+            this.comboItem4.Text = "HDR";
+            // 
+            // comboItem5
+            // 
+            this.comboItem5.Text = "SAS4_0";
             // 
             // labelX39
             // 
@@ -2090,6 +2145,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage_SpecFrequency.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.num_FrePoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SpecFre)).EndInit();
             this.tabPage_Wizard.ResumeLayout(false);
             this.panelEx7.ResumeLayout(false);
@@ -2099,27 +2155,37 @@
             this.panelEx4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelEx5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrOffset1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RiseTime1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrPoint1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StopTime1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StartTime1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableSpec1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableStartTime1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableSpec1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingSpec1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingStartTime1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingSpec1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableStartTime1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingStartTime1)).EndInit();
             this.panelEx6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrOffset2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_RiseTime2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TdrPoint2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StopTime2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_StartTime2)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableSpec2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerCableStartTime2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableSpec2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingSpec2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_LowerMatingStartTime2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingSpec2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperCableStartTime2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_UpperMatingStartTime2)).EndInit();
             this.panelEx8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Skew)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2131,35 +2197,35 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.ExpandableSplitter expandableSplitter1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.ButtonX btnSave;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX15;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_Pn;
         private DevComponents.DotNetBar.LabelX labelX38;
         private DevComponents.DotNetBar.ButtonX buttonX8;
         private DevComponents.DotNetBar.ButtonX buttonX7;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_General;
         private DevComponents.DotNetBar.PanelEx panelEx2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX21;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX20;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX19;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX18;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_AWG;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_Length;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_Customer;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_PnCustomer;
         private DevComponents.DotNetBar.LabelX labelX47;
         private DevComponents.DotNetBar.LabelX labelX46;
         private DevComponents.DotNetBar.LabelX labelX45;
         private DevComponents.DotNetBar.LabelX labelX44;
         private System.Windows.Forms.TabPage tabPage_Project;
         private DevComponents.DotNetBar.PanelEx panelEx3;
-        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX3;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chk_RomWrite;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton rb_Local;
+        private System.Windows.Forms.RadioButton rb_DB;
         private DevComponents.DotNetBar.ButtonX buttonX9;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX16;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_RomFilePath;
         private DevComponents.DotNetBar.LabelX labelX41;
         private DevComponents.DotNetBar.LabelX labelX42;
         private DevComponents.DotNetBar.ButtonX buttonX10;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX17;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_ReportTempletePath;
         private DevComponents.DotNetBar.LabelX labelX6;
         private System.Windows.Forms.CheckedListBox chkList_FextPair;
         private DevComponents.DotNetBar.LabelX labelX5;
@@ -2174,8 +2240,7 @@
         private System.Windows.Forms.CheckedListBox chkList_Diff;
         private System.Windows.Forms.TabPage tabPage_SpecFrequency;
         private DevComponents.DotNetBar.ButtonX btn_SpecFreFileBrowse;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_FreSpecFilePath;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.Controls.DataGridViewX dgv_SpecFre;
@@ -2203,24 +2268,19 @@
         private DevComponents.DotNetBar.PanelEx panelEx4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevComponents.DotNetBar.PanelEx panelEx5;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX3;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX4;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX5;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX6;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX7;
         private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.LabelX labelX13;
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevComponents.DotNetBar.LabelX labelX15;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown num_LowerCableSpec1;
+        private System.Windows.Forms.NumericUpDown num_LowerCableStartTime1;
+        private System.Windows.Forms.NumericUpDown num_UpperCableSpec1;
+        private System.Windows.Forms.NumericUpDown num_LowerMatingSpec1;
+        private System.Windows.Forms.NumericUpDown num_LowerMatingStartTime1;
+        private System.Windows.Forms.NumericUpDown num_UpperMatingSpec1;
+        private System.Windows.Forms.NumericUpDown num_UpperCableStartTime1;
         private DevComponents.DotNetBar.LabelX labelX22;
         private DevComponents.DotNetBar.LabelX labelX23;
         private DevComponents.DotNetBar.LabelX labelX24;
@@ -2228,17 +2288,44 @@
         private DevComponents.DotNetBar.LabelX labelX26;
         private DevComponents.DotNetBar.LabelX labelX27;
         private DevComponents.DotNetBar.LabelX labelX28;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown num_UpperMatingStartTime1;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.PanelEx panelEx8;
+        private System.Windows.Forms.NumericUpDown num_Skew;
+        private DevComponents.DotNetBar.LabelX labelX40;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmb_ILDSpec;
+        private DevComponents.DotNetBar.LabelX labelX39;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private DevComponents.DotNetBar.LabelX labelX43;
+        private DevComponents.DotNetBar.ButtonX buttonX3;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_SwitchFilePath;
+        private DevComponents.DotNetBar.LabelX labelX48;
+        private System.Windows.Forms.NumericUpDown num_FrePoints;
+        private System.Windows.Forms.NumericUpDown num_StartTime1;
+        private System.Windows.Forms.NumericUpDown num_TdrOffset1;
+        private System.Windows.Forms.NumericUpDown num_RiseTime1;
+        private System.Windows.Forms.NumericUpDown num_TdrPoint1;
+        private System.Windows.Forms.NumericUpDown num_StopTime1;
         private DevComponents.DotNetBar.PanelEx panelEx6;
+        private System.Windows.Forms.NumericUpDown num_TdrOffset2;
+        private System.Windows.Forms.NumericUpDown num_RiseTime2;
+        private System.Windows.Forms.NumericUpDown num_TdrPoint2;
+        private System.Windows.Forms.NumericUpDown num_StopTime2;
+        private System.Windows.Forms.NumericUpDown num_StartTime2;
+        private DevComponents.DotNetBar.LabelX labelX17;
+        private DevComponents.DotNetBar.LabelX labelX18;
+        private DevComponents.DotNetBar.LabelX labelX19;
+        private DevComponents.DotNetBar.LabelX labelX20;
+        private DevComponents.DotNetBar.LabelX labelX21;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
-        private System.Windows.Forms.NumericUpDown numericUpDown13;
-        private System.Windows.Forms.NumericUpDown numericUpDown14;
-        private System.Windows.Forms.NumericUpDown numericUpDown15;
-        private System.Windows.Forms.NumericUpDown numericUpDown16;
+        private System.Windows.Forms.NumericUpDown num_LowerCableSpec2;
+        private System.Windows.Forms.NumericUpDown num_LowerCableStartTime2;
+        private System.Windows.Forms.NumericUpDown num_UpperCableSpec2;
+        private System.Windows.Forms.NumericUpDown num_LowerMatingSpec2;
+        private System.Windows.Forms.NumericUpDown num_LowerMatingStartTime2;
+        private System.Windows.Forms.NumericUpDown num_UpperMatingSpec2;
+        private System.Windows.Forms.NumericUpDown num_UpperCableStartTime2;
         private DevComponents.DotNetBar.LabelX labelX29;
         private DevComponents.DotNetBar.LabelX labelX30;
         private DevComponents.DotNetBar.LabelX labelX31;
@@ -2246,26 +2333,13 @@
         private DevComponents.DotNetBar.LabelX labelX33;
         private DevComponents.DotNetBar.LabelX labelX34;
         private DevComponents.DotNetBar.LabelX labelX35;
-        private System.Windows.Forms.NumericUpDown numericUpDown17;
-        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX1;
+        private System.Windows.Forms.NumericUpDown num_UpperMatingStartTime2;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkTdr2Same;
         private DevComponents.DotNetBar.LabelX labelX16;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX8;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX9;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX10;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX11;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX12;
-        private DevComponents.DotNetBar.LabelX labelX17;
-        private DevComponents.DotNetBar.LabelX labelX18;
-        private DevComponents.DotNetBar.LabelX labelX19;
-        private DevComponents.DotNetBar.LabelX labelX20;
-        private DevComponents.DotNetBar.LabelX labelX21;
-        private DevComponents.DotNetBar.PanelEx panelEx8;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private DevComponents.DotNetBar.LabelX labelX40;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
-        private DevComponents.DotNetBar.LabelX labelX39;
-        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private DevComponents.DotNetBar.LabelX labelX43;
+        private DevComponents.Editors.ComboItem comboItem1;
+        private DevComponents.Editors.ComboItem comboItem2;
+        private DevComponents.Editors.ComboItem comboItem3;
+        private DevComponents.Editors.ComboItem comboItem4;
+        private DevComponents.Editors.ComboItem comboItem5;
     }
 }

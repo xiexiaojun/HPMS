@@ -10,12 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using HPMS.Util;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json.Linq;
 
 namespace HPMS
 {
-    public partial class frmRegist : Office2007Form
+    public partial class frmRegist : Office2007Muti
     {
         SoftAuthorize softAuthorize = new HslCommunication.BasicFramework.SoftAuthorize();
         public bool _regFlag = false;

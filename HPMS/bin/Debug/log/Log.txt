@@ -1,0 +1,9 @@
+2018/11/2 14:37:55
+error msg:SNP file not exist: B:\THRU\0.s4p
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
+
+
+
+
+

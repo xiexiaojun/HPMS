@@ -7,6 +7,7 @@ using System.Text;
 using DevComponents.DotNetBar;
 using HPMS.Equipment.Enum;
 using HPMS.Util;
+using _32p_analyze;
 
 namespace HPMS.Config
 {
@@ -71,15 +72,62 @@ namespace HPMS.Config
         public string[]NextPair { get; set; }
         //远串对数名称
         public string[]FextPair { get; set; }
+
+
+    }
+
+    //烧录模式
+    public enum RomFileMode
+    {
+        DB,
+        Local
+    }
+
+    public class TdrParam
+    {
+        public double StartTime { set; get; }
+        public double EndTime { set; get; }
+        public int Points { set; get; }
+        public double RiseTime { set; get; }
+        public double Offset { set; get; }
+
+        public double[] UperTimePoints { set; get; }
+        public double[] LowerTimePoints { set; get; }
+
+        public double[] UperResi { set; get; }
+        public double[] LowerResi { set; get; }
+
     }
 
     public class Project
     {
-        public DataTable FreSpec { get; set; }
+        public string Pn { set; get; }
+        public string PnCustomer { set; get; }
+        public string Customer { set; get; }
+        public double Length { set; get; }
+        public string Awg { set; get; }
 
-        //public bool SaveToDb()
-        //{
-        //    DataTable a = this.FreSpec;
-        //}
+        public List<string>Diff { set; get; }
+        public List<string>Single { set; get; }
+        public List<string>Tdr { set; get; }
+        public List<string>DiffPair { set; get; }
+        public List<string>NextPair { set; get; }
+        public List<string>FextPair { set; get; }
+
+        public string ReportTempletePath { set; get; }
+        public RomFileMode RomFileMode { set; get; }
+        public string RomFilePath { set; get; }
+        public bool RomWrite { set; get; }
+        public string SwitchFilePath { set; get; }
+
+        public DataTable FreSpec { set; get; }
+        public int FrePoints { set; get; }
+        public string FreSpecFilePath { set; get; }
+        public TdrParam Tdd11 { set; get; }
+        public TdrParam Tdd22 { set; get; }
+        public IldSpec Ild { set; get; }
+        public double Skew { set; get; }
+
+      
     }
 }

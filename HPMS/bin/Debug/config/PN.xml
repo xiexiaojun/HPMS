@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Pn>L99SF001-SD-H</Pn>
+  <PnCustomer>04050987</PnCustomer>
+  <Customer>HUAWIE</Customer>
+  <Length>1000</Length>
+  <Awg>26</Awg>
+  <Diff />
+  <Single />
+  <Tdr />
+  <DiffPair />
+  <NextPair />
+  <ReportTempletePath />
+  <RomFileMode>Local</RomFileMode>
+  <RomFilePath />
+  <RomWrite>false</RomWrite>
+  <SwitchFilePath />
+  <FrePoints>0</FrePoints>
+  <FreSpecFilePath />
+  <Tdd11>
+    <StartTime>0</StartTime>
+    <EndTime>0</EndTime>
+    <Points>0</Points>
+    <RiseTime>0</RiseTime>
+    <Offset>0</Offset>
+    <UperTimePoints>
+      <double>0</double>
+      <double>0</double>
+    </UperTimePoints>
+    <LowerTimePoints>
+      <double>0</double>
+      <double>0</double>
+    </LowerTimePoints>
+    <UperResi>
+      <double>0</double>
+      <double>0</double>
+    </UperResi>
+    <LowerResi>
+      <double>0</double>
+      <double>0</double>
+    </LowerResi>
+  </Tdd11>
+  <Tdd22>
+    <StartTime>0</StartTime>
+    <EndTime>0</EndTime>
+    <Points>0</Points>
+    <RiseTime>0</RiseTime>
+    <Offset>0</Offset>
+    <UperTimePoints>
+      <double>0</double>
+      <double>0</double>
+    </UperTimePoints>
+    <LowerTimePoints>
+      <double>0</double>
+      <double>0</double>
+    </LowerTimePoints>
+    <UperResi>
+      <double>0</double>
+      <double>0</double>
+    </UperResi>
+    <LowerResi>
+      <double>0</double>
+      <double>0</double>
+    </LowerResi>
+  </Tdd22>
+  <Ild>IEEE802_3ba</Ild>
+  <Skew>0</Skew>
+</Project>
