@@ -20,6 +20,7 @@ using HPMS.Test;
 using HPMS.Util;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json.Linq;
+using Convert = HPMS.Util.Convert;
 
 namespace HPMS
 {
@@ -34,6 +35,7 @@ namespace HPMS
         private User currentUser;
         private AChart _aChart = null;
         private Dictionary<string, object> chartDic = new Dictionary<string, object>();
+        private bool _pnChange = false;
        
 
         public frmMain()
@@ -253,6 +255,12 @@ namespace HPMS
            // MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
             Thread t = new Thread(new ThreadStart(test));
             t.Start();
+
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    pgbTest.Value = i+1;
+            //    Thread.Sleep(50);
+            //}
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -297,6 +305,10 @@ namespace HPMS
                     {
                         currentUser = _frmLogin.User;
                         GetUserRights();
+                    }
+                    else
+                    {
+                        Close();
                     }
                     
                 }
@@ -377,8 +389,16 @@ namespace HPMS
 
         private void test()
         {
+            Action<string> addAction = AddStatus;
+            Action<int, bool> progressDisplay = SetProgress;
             SITest a = new SITest();
-            a.Start(chartDic, _aChart);
+            for (int i = 0; i < 1000; i++)
+            {
+                AddStatus("第"+i+"次测试开始");
+                a.Start(chartDic, _aChart, addAction, progressDisplay); 
+                Thread.Sleep(10000);
+            }
+            
         }
 
 
@@ -469,7 +489,63 @@ namespace HPMS
         }
 
         #endregion
-       
+
+        private void txt_PN_TextChanged(object sender, EventArgs e)
+        {
+            _pnChange = true;
+        }
+
+        private void txt_PN_Leave(object sender, EventArgs e)
+        {
+            if (_pnChange)
+            {
+                MessageBox.Show("aaa");
+                _pnChange = false;
+            }
+        }
+
+        private delegate void SetaddStatusCallback(string msg);
+        private void AddStatus(string msg)
+        {
+            if (rTextStatus.InvokeRequired)
+            {
+                SetaddStatusCallback d = new SetaddStatusCallback(AddStatus);
+                this.Invoke(d, new object[] { msg });
+            }
+            else
+            {
+                rTextStatus.AppendText(Convert.formatMsg(msg) + "\n");
+            }
+
+        }
+
+        delegate void SetProgressCallback(int value, bool step);
+        private void SetProgress(int value, bool step)
+        {
+            if (pgbTest.InvokeRequired)
+            {
+                SetProgressCallback d = new SetProgressCallback(SetProgress);
+                this.Invoke(d, new object[] { value, step });
+            }
+            else
+            {
+                if (step)
+                {
+                    pgbTest.Value = pgbTest.Value + value;
+                }
+                else
+                {
+                    pgbTest.Value = value;
+                }
+
+            }
+        }
+
+        private void rTextStatus_TextChanged(object sender, EventArgs e)
+        {
+            rTextStatus.SelectionStart = rTextStatus.Text.Length;
+            rTextStatus.ScrollToCaret();
+        }
        
      
     }

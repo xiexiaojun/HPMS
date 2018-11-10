@@ -148,7 +148,11 @@ namespace HPMS.Draw
             }
             else
             {
+                chart.ChartAreas[0].AxisX.CustomLabels.Clear();
+                chart.DataBindings.Clear();
                 chart.Series.Clear();
+                
+               
             }
         }
     }

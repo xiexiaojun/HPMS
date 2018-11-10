@@ -99,14 +99,16 @@ namespace HPMS.Config
 
     }
 
+    [Serializable]
     public class Project
     {
         public string Pn { set; get; }
         public string PnCustomer { set; get; }
         public string Customer { set; get; }
-        public double Length { set; get; }
-        public string Awg { set; get; }
+        public int Length { set; get; }
+        public int Awg { set; get; }
 
+        
         public List<string>Diff { set; get; }
         public List<string>Single { set; get; }
         public List<string>Tdr { set; get; }
@@ -120,7 +122,7 @@ namespace HPMS.Config
         public bool RomWrite { set; get; }
         public string SwitchFilePath { set; get; }
 
-        public DataTable FreSpec { set; get; }
+        public string FreSpec { set; get; }
         public int FrePoints { set; get; }
         public string FreSpecFilePath { set; get; }
         public TdrParam Tdd11 { set; get; }

@@ -114,6 +114,7 @@
     <Compile Include="Core\SITest.cs" />
     <Compile Include="DB\DbHelperOleDb.cs" />
     <Compile Include="DB\LoginHelper.cs" />
+    <Compile Include="DB\ProjectHelper.cs" />
     <Compile Include="Draw\ControlSafe.cs" />
     <Compile Include="Draw\VsAChart.cs" />
     <Compile Include="Draw\ZedAChart.cs" />
@@ -196,7 +197,9 @@
     <Compile Include="Test\Class1.cs" />
     <Compile Include="Test\Class2.cs" />
     <Compile Include="Util\ArrayEnhance.cs" />
+    <Compile Include="Util\Convert.cs" />
     <Compile Include="Util\EasyExcel.cs" />
+    <Compile Include="Util\Extende.cs" />
     <Compile Include="Util\Gloabal.cs" />
     <Compile Include="Util\Serializer.cs" />
     <Compile Include="Util\UI.cs">

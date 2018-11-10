@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Pn>L99SF001-SD-H</Pn>
-  <PnCustomer>04050987</PnCustomer>
-  <Customer>HUAWIE</Customer>
-  <Length>1000</Length>
-  <Awg>26</Awg>
+  <Pn />
+  <PnCustomer />
+  <Customer />
+  <Length>0</Length>
+  <Awg>0</Awg>
   <Diff />
   <Single />
   <Tdr />
   <DiffPair />
   <NextPair />
+  <FextPair />
   <ReportTempletePath />
   <RomFileMode>Local</RomFileMode>
   <RomFilePath />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using HPMS.Log;
 using HPMS.Splash;
 using Application = System.Windows.Forms.Application;
@@ -24,7 +25,7 @@ namespace HPMS
             #if Release
                         BindExceptionHandler();     
             #endif
-           
+            MessageBoxEx.EnableGlass = false;
             Softgroup.NetResize.License.LicenseName = "figoba1";
             Softgroup.NetResize.License.LicenseUser = "figoba@gmail1.com";
             Softgroup.NetResize.License.LicenseKey = "FWAQB8CVZ9GDUBBUCRICXU9WE";

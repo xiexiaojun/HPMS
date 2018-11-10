@@ -1,4 +1,7 @@
-﻿namespace HPMS
+﻿using System.Windows.Forms;
+using HPMS.Draw;
+
+namespace HPMS
 {
     partial class frmMain
     {
@@ -45,24 +48,28 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControlChart = new DevComponents.DotNetBar.TabControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lsbTestItems = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txt_PN = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lsbTestPairs = new System.Windows.Forms.ListBox();
+            this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.pgbTest = new System.Windows.Forms.ProgressBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.rTextStatus = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
             this.menuStrip_Main.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).BeginInit();
             this.panelEx1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panelEx2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -142,8 +149,8 @@
             // 
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelEx1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelEx2, 1, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // panel2
@@ -184,11 +191,6 @@
             this.tabControlChart.SelectedTabIndex = 0;
             this.tabControlChart.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
             // 
-            // textBox1
-            // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            // 
             // panelEx1
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -211,7 +213,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lsbTestItems, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxX1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonX1, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.labelX3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.textBoxX2, 0, 3);
@@ -238,15 +240,17 @@
             resources.ApplyResources(this.labelX2, "labelX2");
             this.labelX2.Name = "labelX2";
             // 
-            // textBoxX1
+            // txt_PN
             // 
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.textBoxX1, "textBoxX1");
-            this.textBoxX1.Name = "textBoxX1";
+            this.txt_PN.Border.Class = "TextBoxBorder";
+            this.txt_PN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.txt_PN, "txt_PN");
+            this.txt_PN.Name = "txt_PN";
+            this.txt_PN.TextChanged += new System.EventHandler(this.txt_PN_TextChanged);
+            this.txt_PN.Leave += new System.EventHandler(this.txt_PN_Leave);
             // 
             // buttonX1
             // 
@@ -282,10 +286,53 @@
             this.lsbTestPairs.FormattingEnabled = true;
             this.lsbTestPairs.Name = "lsbTestPairs";
             // 
+            // panelEx2
+            // 
+            this.panelEx2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx2.Controls.Add(this.rTextStatus);
+            this.panelEx2.Controls.Add(this.labelX1);
+            this.panelEx2.Controls.Add(this.pgbTest);
+            resources.ApplyResources(this.panelEx2, "panelEx2");
+            this.panelEx2.Name = "panelEx2";
+            this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx2.Style.GradientAngle = 90;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.labelX1, "labelX1");
+            this.labelX1.Name = "labelX1";
+            this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // pgbTest
+            // 
+            resources.ApplyResources(this.pgbTest, "pgbTest");
+            this.pgbTest.Name = "pgbTest";
+            // 
             // notifyIcon1
             // 
             resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // rTextStatus
+            // 
+            // 
+            // 
+            // 
+            this.rTextStatus.BackgroundStyle.Class = "RichTextBoxBorder";
+            this.rTextStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.rTextStatus, "rTextStatus");
+            this.rTextStatus.Name = "rTextStatus";
+            this.rTextStatus.TextChanged += new System.EventHandler(this.rTextStatus_TextChanged);
             // 
             // frmMain
             // 
@@ -303,12 +350,12 @@
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).EndInit();
             this.panelEx1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panelEx2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,13 +374,12 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem m_Set_hardware;
         private System.Windows.Forms.ToolStripMenuItem m_Set_profile;
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txt_PN;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -343,6 +389,10 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox lsbTestItems;
         private System.Windows.Forms.ListBox lsbTestPairs;
+        private DevComponents.DotNetBar.PanelEx panelEx2;
+        private DevComponents.DotNetBar.LabelX labelX1;
+        private ProgressBar pgbTest;
+        private DevComponents.DotNetBar.Controls.RichTextBoxEx rTextStatus;
 
     }
 }

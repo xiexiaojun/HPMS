@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.DB;
 using HPMS.Util;
@@ -59,7 +60,7 @@ namespace HPMS
             }
             else
             {
-                
+                UI.MessageBoxMuti("用户名或密码错误");
             }
            
             
@@ -67,6 +68,7 @@ namespace HPMS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 

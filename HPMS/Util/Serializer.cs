@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace HPMS.Util
 {
@@ -147,6 +149,28 @@ namespace HPMS.Util
             }
 
         }
+
+        public static string Datatable2Json(DataTable dt)
+        {
+            return JsonConvert.SerializeObject(dt);
+        }
+
+        public static DataTable Json2DataTable(string json)
+        {
+            return JsonConvert.DeserializeObject<DataTable>(json);
+
+        }
+
+        public static string Object2Json(object obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+
+        public static T Json2Object<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<T>(json);
+        }
+     
 
         public static string SerializeDataTableXml(DataTable pDt)
         {

@@ -11,6 +11,7 @@ using HPMS.Draw;
 using HPMS.Equipment.Enum;
 using HPMS.Equipment.NetworkAnalyzer;
 using HPMS.Equipment.Switch;
+using NationalInstruments.Restricted;
 using _32p_analyze;
 
 namespace HPMS.Core
@@ -19,6 +20,14 @@ namespace HPMS.Core
     {
         public Dictionary<string, object> chartDic;
         public AChart _aChart;
+        public Action<string> addStatus;
+        public Action<int, bool> displayProgress;
+    }
+
+    public struct ProducerParams
+    {
+        public Action<int, bool> displayProgress;
+        public Action<string> addStatus;
     }
     public class SITest
     {
@@ -58,12 +67,13 @@ namespace HPMS.Core
                 float[] x = SConvert.indexArray(data.dB, 0, false);
                 if (_testData.ContainsKey(testItem))
                 {
-                    
+
                     _testData[testItem].Add(x);
+                    //cpParams.addStatus(testItem + ":num:" + _testData[testItem].Count);
                 }
                 else
                 {
-                    List<float[]>temps=new List<float[]>();
+                    List<float[]> temps = new List<float[]>();
                     temps.Add(x);
                     _testData.Add(testItem, temps);
                 }
@@ -76,23 +86,32 @@ namespace HPMS.Core
             }
         }
 
-        public void Start(Dictionary<string, object> chartDic, AChart _aChart)
+        public void Start(Dictionary<string, object> chartDic, AChart _aChart, Action<string> addStatus, Action<int, bool> progressDisplay)
         {
             System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start(); 
-            StartProducer();
+            stopwatch.Start();
+            progressDisplay(0, false);
+            addStatus("测试开始");
+            _testData.Clear();
+            chartDic.ForEach(t =>
+            {
+                addStatus("清除图形"+t.Key);
+                _aChart.ChartClear(t.Value);
+            });
+            StartProducer(addStatus, progressDisplay);
             Thread.Sleep(2000);
-            StartConsumer(chartDic,_aChart);
+            StartConsumer(chartDic, _aChart, addStatus, progressDisplay);
           
-            var a = _testData;
-            var b = a;
+          
             stopwatch.Stop(); //  停止监视
             TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
-            MessageBox.Show(timespan.TotalMilliseconds.ToString());
+            addStatus("测试用时:" + timespan.TotalMilliseconds.ToString());
+           
         }
 
-        private void Producer()
+        private void Producer(object action)
         {
+            ProducerParams uiAction = (ProducerParams)action;
        
             for (int j = 0; j < 8;j++)
             {
@@ -100,6 +119,8 @@ namespace HPMS.Core
                 task.SnpPath = "B:\\THRU\\"+(j+1)+".s4p";
                 string switchMsg = "";
                 _analyzer.SaveSnp(task.SnpPath, j, ref switchMsg);
+                uiAction.addStatus("SNP 文件生成成功 路径:" + task.SnpPath);
+                uiAction.displayProgress(5, true);
                 lock (myLock)
                 {
                      TaskQueue.Enqueue(task);
@@ -116,22 +137,29 @@ namespace HPMS.Core
             //TaskSemaphore.Release(1);
         }
 
-        private void StartProducer()
+        private void StartProducer(Action<string> addStatus, Action<int, bool> progressDisplay)
         {
-             Thread t = new Thread(new ThreadStart(Producer));
-                t.Start();
+            ProducerParams producerParams=new ProducerParams();
+            Thread t = new Thread(new ParameterizedThreadStart(Producer));
+            producerParams.addStatus = addStatus;
+            producerParams.displayProgress = progressDisplay;
+            t.Start(producerParams);
            
         }
 
-        private void StartConsumer(Dictionary<string, object> chartDic, AChart _aChart)
+        private void StartConsumer(Dictionary<string, object> chartDic, AChart _aChart, Action<string> addStatus, Action<int, bool> progressDisplay)
         {
             ConsumerParams cpParams=new ConsumerParams();
             cpParams.chartDic = chartDic;
             cpParams._aChart = _aChart;
+            cpParams.addStatus = addStatus;
+            cpParams.displayProgress = progressDisplay;
             Thread t = new Thread(new ParameterizedThreadStart(this.Consumer));
                t.IsBackground = true;
                t.Start(cpParams);
             t.Join();
+            addStatus("测试结束");
+            progressDisplay(100, false);
 
         }
 
@@ -155,6 +183,8 @@ namespace HPMS.Core
                             return;
                         }
                         Analyze(GetTask.SnpPath, cpParams);
+                        cpParams.addStatus("分析SNP文件:" + GetTask.SnpPath + "完毕");
+                        cpParams.displayProgress(5, true);
                     }
                 }
                 
