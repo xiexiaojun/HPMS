@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using HPMS.Util;
+﻿using System.Collections.Generic;
 
-namespace HPMS.Equipment.Switch
+namespace CommonSwitchTool.Switch
 {
     struct CmdFrame
     {
@@ -71,7 +66,7 @@ namespace HPMS.Equipment.Switch
         private static byte[] cmdUART0 = {0xEE,0xA,0x1,0x0,0xFF,0xFC,0xFF,0xFF};//开关完整帧的数据格式
         public static byte[] GetMcuFormatBytes(bool[,] switchArrays, int switchIndex)
         {
-            bool[] currentArrays = ArrayEnhance.IndexArray(switchArrays, switchIndex,IndexType.Row);
+            bool[] currentArrays = IndexArray(switchArrays, switchIndex,IndexType.Row);
             int length = currentArrays.Length;
             List<byte>switchEnableIndexs=new List<byte>();
             for (int i = 0; i < length; i++)
@@ -84,6 +79,49 @@ namespace HPMS.Equipment.Switch
             CmdFrame cmdFrame=new CmdFrame();
             cmdFrame.param = switchEnableIndexs.ToArray();
             return cmdFrame.convertToByteArray();
+        }
+        public static byte[] GetMcuFormatBytes(byte[]switchArrays)
+        {
+           
+            CmdFrame cmdFrame = new CmdFrame();
+            cmdFrame.param = switchArrays;
+            return cmdFrame.convertToByteArray();
+        }
+
+        /// <summary>
+        /// 索引二维数组中的一行或一列
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sourceArray"></param>
+        /// <param name="index"></param>
+        /// <param name="indexType"></param>
+        /// <returns></returns>
+        private static T[] IndexArray<T>(T[,] sourceArray, int index, IndexType indexType)
+        {
+            int rowCount = sourceArray.GetLength(0);
+            int colCount = sourceArray.GetLength(1);
+            //int size = index.Length;
+            if (indexType == IndexType.Row)
+            {
+                T[] ret = new T[colCount];
+
+                for (int i = 0; i < colCount; i++)
+                {
+                    ret[i] = sourceArray[index, i];
+                }
+
+                return ret;
+            }
+            else
+            {
+                T[] ret = new T[rowCount];
+                for (int i = 0; i < rowCount; i++)
+                {
+                    ret[i] = sourceArray[i, index];
+
+                }
+                return ret;
+            }
         }
     }
 }

@@ -7,16 +7,15 @@ using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
+using CommonSwitchTool.Switch;
 using DevComponents.DotNetBar;
 using HPMS.Config;
 using HPMS.Core;
 using HPMS.DB;
 using HPMS.Draw;
 using HPMS.Languange;
-using HPMS.Log;
 using HPMS.RightsControl;
 using HPMS.Splash;
-using HPMS.Test;
 using HPMS.Util;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json.Linq;
@@ -30,12 +29,17 @@ namespace HPMS
         frmHardwareSetting _frmHardwareSetting;
         frmProfile _frmProfile;
         private Theme _theme=new Theme();
-        SoftAuthorize softAuthorize = new HslCommunication.BasicFramework.SoftAuthorize();
+        SoftAuthorize softAuthorize = new SoftAuthorize();
         private bool _regFlag = false;
         private User currentUser;
         private AChart _aChart = null;
         private Dictionary<string, object> chartDic = new Dictionary<string, object>();
         private bool _pnChange = false;
+        private Project _curretnProject;
+        private Hardware _hardware;
+        private TestConfig[] _testConfigs=new TestConfig[3];//3类测试项目参数,直通，近串，远串
+        private ISwitch _switch;
+        private Dictionary<string, plotData> _spec = new Dictionary<string, plotData>();//规格线
        
 
         public frmMain()
@@ -153,37 +157,9 @@ namespace HPMS
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Thread.CurrentPrincipal =
-                new GenericPrincipal(new GenericIdentity("Administrator","Figo"),
-                    new[] { "ADMIN","Add"});
+       
 
-            //var role = "Anyone";
-            //var operation = new FileOperations();
-            //// 可以正常调用Read
-            //OperationInvoker.Invoke(operation, role, "Read", null);
-            //// 但是不能调用Write
-            //OperationInvoker.Invoke(operation, role, "Write", null);
-
-            CalculatorHandler bb=new CalculatorHandler();
-           double kk= bb.Add(3, 5);
-            MessageBox.Show(kk.ToString());
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-         
-            int a = 8;
-            int b = 0;
-            int c = a / b;
-            for (int i = 0; i < 10000; i++)
-            {
-                LogHelper.WriteLog("AAA");
-                LogHelper.WriteLog("BBB", new Exception("Test")); 
-            }
-           
-        }
+       
 
         private void m_Set_hardware_Click(object sender, EventArgs e)
         {
@@ -202,11 +178,6 @@ namespace HPMS
            
         }
 
-       
-
-      
-
-       
 
         private void m_Set_profile_Click(object sender, EventArgs e)
         {
@@ -244,33 +215,35 @@ namespace HPMS
             }
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        
-        }
+      
 
-        private void buttonX1_Click(object sender, EventArgs e)
+        private void btnTest_Click(object sender, EventArgs e)
         {
 
            // MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
-            Thread t = new Thread(new ThreadStart(test));
+            Thread t = new Thread(new ThreadStart(SiTest));
             t.Start();
 
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    pgbTest.Value = i+1;
-            //    Thread.Sleep(50);
-            //}
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            string code = ReadCode();
+            RegisterLoginCheck();
+            SetStatusBar();
+
+        }
+
+        /// <summary>
+        /// registration & login check
+        /// </summary>
+        private void RegisterLoginCheck()
+        {
+            #region register check
+
+
             string softVersion = "";
-
-
             // 检测激活码是否正确，没有文件，或激活码错误都算作激活失败
-            if (!IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref softVersion, code))
+            if (!Resiter.IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref softVersion))
             {
                 // 显示注册窗口
 
@@ -288,15 +261,22 @@ namespace HPMS
                     Application.ExitThread();
                     Application.Exit();
                     Application.Restart();
-                    Process.GetCurrentProcess().Kill();  
-                  
+                    Process.GetCurrentProcess().Kill();
+
                 }
                 else
                 {
                     Close();
                 }
-               
+
             }
+
+
+
+            #endregion
+
+            #region Login check
+
             else
             {
                 using (frmLogin _frmLogin = new frmLogin(softVersion))
@@ -309,20 +289,20 @@ namespace HPMS
                     else
                     {
                         Close();
+                        return;
                     }
-                    
+
                 }
 
-                _aChart = new VsAChart(this.tabControlChart);
-                string[] testItems = { "SDD21", "SDD11", "SCD11" };
-                foreach (var VARIABLE in testItems)
-                {
-                    object chart = _aChart.ChartAdd(VARIABLE);
-                    chartDic.Add(VARIABLE, chart);
-                }
-              
             }
-          
+
+            #endregion
+        }
+
+        private void SetStatusBar()
+        {
+            toolStripStatusLabelUser.Text = "当前用户:" + currentUser.Username + "  角色:" + currentUser.Role;
+            //toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
         private void GetUserRights()
@@ -332,40 +312,11 @@ namespace HPMS
                     currentUser.Rights.Select(t=>t.Key).ToArray());
         }
 
-        private string ReadCode()
-        {
-            string ret = "";
-            try
-            {
-                ret = File.ReadAllText(Application.StartupPath + @"\license.lic");
-            }
-            catch (Exception e)
-            {
-                
-            }
-
-            return ret;
-        }
-
-        private bool IsAuthorize(string machineCode, string softName, ref string softVersion, string regCode)
-        {
-            bool ret = false;
-           
-            try
-            {
-                string regJson = SoftSecurity.MD5Decrypt(regCode, "bayuejun");
-                JObject tempJObject = JObject.Parse(regJson.ToString());
-                ret = (tempJObject.Property("machineCode").Value.ToString() == machineCode) ||
-                      tempJObject.Property("softName").Value.ToString() == machineCode;
-                softVersion = tempJObject.Property("softVersion").Value.ToString();
-            }
-            catch (Exception e)
-            {
-               
-            }
-
-            return ret;
-        }
+        /// <summary>
+        /// 注册文件读取
+        /// </summary>
+        /// <returns></returns>
+       
 
         private void m_Set_user_Click(object sender, EventArgs e)
         {
@@ -373,40 +324,37 @@ namespace HPMS
                 new frmAdmin(currentUser))
             {
                 form.ShowDialog();
-                //if (form.ShowDialog() != DialogResult.OK)
-                //{
-                //    _regFlag = form._regFlag;
-                //}
+            
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Thread t = new Thread(new ThreadStart(test));
-            t.Start();
-          
-        }
 
-        private void test()
+        private void SiTest()
         {
             Action<string> addAction = AddStatus;
             Action<int, bool> progressDisplay = SetProgress;
-            SITest a = new SITest();
-            for (int i = 0; i < 1000; i++)
-            {
-                AddStatus("第"+i+"次测试开始");
-                a.Start(chartDic, _aChart, addAction, progressDisplay); 
-                Thread.Sleep(10000);
-            }
-            
+            SITest siTest = new SITest();
+            AddStatus("测试开始");
+            siTest.DoTest(_testConfigs, chartDic, _aChart, addAction, progressDisplay, "B:", _spec);
+
         }
+     
+        //private void test()
+        //{
+        //    Action<string> addAction = AddStatus;
+        //    Action<int, bool> progressDisplay = SetProgress;
+        //    SITest a = new SITest();
+        //    for (int i = 0; i < 1000; i++)
+        //    {
+        //        AddStatus("第"+i+"次测试开始");
+        //        a.DoTest(_testConfigs,chartDic, _aChart, addAction, progressDisplay); 
+        //        Thread.Sleep(10000);
+        //    }
+            
+        //}
 
 
-        private void GetTestItems(Project pnProject)
-        {
-          
-
-           }
+      
 
 
         #region Add charts
@@ -436,71 +384,95 @@ namespace HPMS
         
         #endregion
 
-        #region different test Items and pairs display
-        private void DiffIni(Project pnProject)
-        {
-            lsbTestItems.Items.Clear();
-            foreach (var VARIABLE in pnProject.Diff)
-            {
-                lsbTestItems.Items.Add(VARIABLE);
-            }
-            foreach (var VARIABLE in pnProject.Tdr)
-            {
-                lsbTestItems.Items.Add(VARIABLE);
-            }
-            lsbTestPairs.Items.Clear();
-            foreach (var VARIABLE in pnProject.DiffPair)
-            {
-                lsbTestPairs.Items.Add(VARIABLE);
-            }
-        }
-        
-        #endregion
+   
 
-        #region Next test Items and pairs display
-        private void NextIni(Project pnProject)
+      
+        private void PnChangeHandle(string pn,bool dbMode)
         {
-            lsbTestItems.Items.Clear();
-            foreach (var VARIABLE in pnProject.NextPair)
+            btnTest.Enabled = false;
+            _curretnProject = ProjectHelper.Find(pn, dbMode);
+            _hardware = (Hardware)LocalConfig.GetObjFromXmlFile("config\\hardware.xml", typeof(Hardware));
+            if (_curretnProject == null)
             {
-                lsbTestItems.Items.Add(VARIABLE);
+                AddStatus("未能找到对应的料号档案");
+                
+                return;
             }
-            foreach (var VARIABLE in pnProject.NextPair)
+            AddStatus("成功找到对应的料号档案");
+            if (_hardware == null)
             {
-                lsbTestPairs.Items.Add(VARIABLE);
+                AddStatus("未能找到对应的硬件设置档案");
+                return;
             }
-        }
+            AddStatus("成功找到对应硬件设置档案");
+            
+            bool setProjectFlag = Equipment.Util.SetTestParams(_curretnProject, ref _testConfigs);
+            if (!setProjectFlag)
+            {
+                AddStatus("开关对数与测试对数不一致");
+                return;
+            }
 
-        #endregion
-
-        #region Fext test Items and pairs display
-        private void FextIni(Project pnProject)
-        {
-            lsbTestItems.Items.Clear();
-            foreach (var VARIABLE in pnProject.FextPair)
-            {
-                lsbTestItems.Items.Add(VARIABLE);
-            }
-           
-            foreach (var VARIABLE in pnProject.FextPair)
-            {
-                lsbTestPairs.Items.Add(VARIABLE);
-            }
+            _spec = TestUtil.GetPnSpec(_curretnProject);
+            ClearTestItems();
+            DisplayTestItems();
+            AddCharts();
+            btnTest.Enabled = true;
         }
 
-        #endregion
+     
 
-        private void txt_PN_TextChanged(object sender, EventArgs e)
+
+        private void AddCharts()
         {
-            _pnChange = true;
+            chartDic.Clear();
+
+            _aChart = new VsAChart(this.tabControlChart);
+            _aChart.ChartClear();
+            foreach (var VARIABLE in _testConfigs)
+            {
+                foreach (var test in VARIABLE.AnalyzeItems)
+                {
+                    object chart = _aChart.ChartAdd(test);
+                    chartDic.Add(test, chart); 
+                }
+            }
+          
+        }
+       
+
+        private void ClearTestItems()
+        {
+            chkList_TestItem.Items.Clear();
+            chkList_LossPair.Items.Clear();
+            chkList_NextPair.Items.Clear();
+            chkList_FextPair.Items.Clear();
         }
 
-        private void txt_PN_Leave(object sender, EventArgs e)
+        private void DisplayTestItems()
         {
-            if (_pnChange)
+            foreach (var VARIABLE in _testConfigs)
             {
-                MessageBox.Show("aaa");
-                _pnChange = false;
+                foreach (string s in VARIABLE.AnalyzeItems)
+                {
+                    chkList_TestItem.Items.Add(s);
+                }
+
+                foreach (Pair pair in VARIABLE.Pairs)
+                {
+                    switch (VARIABLE.ItemType)
+                    {
+                        case ItemType.Loss:
+                            chkList_LossPair.Items.Add(pair.PairName);
+                            break;
+                        case ItemType.Next:
+                            chkList_NextPair.Items.Add(pair.PairName);
+                            break;
+                        case ItemType.Fext:
+                            chkList_FextPair.Items.Add(pair.PairName);
+                            break;
+                    }
+                }
             }
         }
 
@@ -546,6 +518,23 @@ namespace HPMS
             rTextStatus.SelectionStart = rTextStatus.Text.Length;
             rTextStatus.ScrollToCaret();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+        }
+
+        private void txt_PN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PnChangeHandle(txt_PN.Text.Trim(), false);
+            }
+        }
+
+       
+
+       
        
      
     }

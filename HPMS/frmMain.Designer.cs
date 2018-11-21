@@ -43,6 +43,9 @@ namespace HPMS
             this.m_Set_profile = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_user = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,25 +53,37 @@ namespace HPMS
             this.tabControlChart = new DevComponents.DotNetBar.TabControl();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lsbTestItems = new System.Windows.Forms.ListBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.txt_PN = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.btnTest = new DevComponents.DotNetBar.ButtonX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.lsbTestPairs = new System.Windows.Forms.ListBox();
+            this.chkList_TestItem = new System.Windows.Forms.CheckedListBox();
+            this.tab_pair = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chkList_LossPair = new System.Windows.Forms.CheckedListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chkList_NextPair = new System.Windows.Forms.CheckedListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_PN = new System.Windows.Forms.TextBox();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
+            this.rTextStatus = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.pgbTest = new System.Windows.Forms.ProgressBar();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.rTextStatus = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip_Main.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).BeginInit();
             this.panelEx1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tab_pair.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panelEx2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,8 +152,29 @@ namespace HPMS
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelUser,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabelDate});
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
+            // 
+            // toolStripStatusLabelUser
+            // 
+            this.toolStripStatusLabelUser.Name = "toolStripStatusLabelUser";
+            resources.ApplyResources(this.toolStripStatusLabelUser, "toolStripStatusLabelUser");
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
+            this.toolStripStatusLabel2.Spring = true;
+            // 
+            // toolStripStatusLabelDate
+            // 
+            this.toolStripStatusLabelDate.Name = "toolStripStatusLabelDate";
+            resources.ApplyResources(this.toolStripStatusLabelDate, "toolStripStatusLabelDate");
             // 
             // styleManager1
             // 
@@ -210,26 +246,15 @@ namespace HPMS
             // tableLayoutPanel2
             // 
             resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.lsbTestItems, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonX1, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.btnTest, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.labelX3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.textBoxX2, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.lsbTestPairs, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.chkList_TestItem, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.tab_pair, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // lsbTestItems
-            // 
-            resources.ApplyResources(this.lsbTestItems, "lsbTestItems");
-            this.lsbTestItems.FormattingEnabled = true;
-            this.lsbTestItems.Name = "lsbTestItems";
-            // 
-            // textBox2
-            // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
             // 
             // labelX2
             // 
@@ -240,26 +265,14 @@ namespace HPMS
             resources.ApplyResources(this.labelX2, "labelX2");
             this.labelX2.Name = "labelX2";
             // 
-            // txt_PN
+            // btnTest
             // 
-            // 
-            // 
-            // 
-            this.txt_PN.Border.Class = "TextBoxBorder";
-            this.txt_PN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.txt_PN, "txt_PN");
-            this.txt_PN.Name = "txt_PN";
-            this.txt_PN.TextChanged += new System.EventHandler(this.txt_PN_TextChanged);
-            this.txt_PN.Leave += new System.EventHandler(this.txt_PN_Leave);
-            // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            resources.ApplyResources(this.buttonX1, "buttonX1");
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            resources.ApplyResources(this.btnTest, "btnTest");
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // labelX3
             // 
@@ -280,11 +293,70 @@ namespace HPMS
             resources.ApplyResources(this.textBoxX2, "textBoxX2");
             this.textBoxX2.Name = "textBoxX2";
             // 
-            // lsbTestPairs
+            // chkList_TestItem
             // 
-            resources.ApplyResources(this.lsbTestPairs, "lsbTestPairs");
-            this.lsbTestPairs.FormattingEnabled = true;
-            this.lsbTestPairs.Name = "lsbTestPairs";
+            resources.ApplyResources(this.chkList_TestItem, "chkList_TestItem");
+            this.chkList_TestItem.FormattingEnabled = true;
+            this.chkList_TestItem.Name = "chkList_TestItem";
+            // 
+            // tab_pair
+            // 
+            this.tab_pair.Controls.Add(this.tabPage1);
+            this.tab_pair.Controls.Add(this.tabPage2);
+            this.tab_pair.Controls.Add(this.tabPage3);
+            resources.ApplyResources(this.tab_pair, "tab_pair");
+            this.tab_pair.Name = "tab_pair";
+            this.tab_pair.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.chkList_LossPair);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chkList_LossPair
+            // 
+            resources.ApplyResources(this.chkList_LossPair, "chkList_LossPair");
+            this.chkList_LossPair.FormattingEnabled = true;
+            this.chkList_LossPair.Name = "chkList_LossPair";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.chkList_NextPair);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chkList_NextPair
+            // 
+            resources.ApplyResources(this.chkList_NextPair, "chkList_NextPair");
+            this.chkList_NextPair.FormattingEnabled = true;
+            this.chkList_NextPair.Name = "chkList_NextPair";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.chkList_FextPair);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chkList_FextPair
+            // 
+            resources.ApplyResources(this.chkList_FextPair, "chkList_FextPair");
+            this.chkList_FextPair.FormattingEnabled = true;
+            this.chkList_FextPair.Name = "chkList_FextPair";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // txt_PN
+            // 
+            resources.ApplyResources(this.txt_PN, "txt_PN");
+            this.txt_PN.Name = "txt_PN";
+            this.txt_PN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_PN_KeyDown);
             // 
             // panelEx2
             // 
@@ -303,6 +375,18 @@ namespace HPMS
             this.panelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx2.Style.GradientAngle = 90;
             // 
+            // rTextStatus
+            // 
+            // 
+            // 
+            // 
+            this.rTextStatus.BackgroundStyle.Class = "RichTextBoxBorder";
+            this.rTextStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.rTextStatus, "rTextStatus");
+            this.rTextStatus.Name = "rTextStatus";
+            this.rTextStatus.ReadOnly = true;
+            this.rTextStatus.TextChanged += new System.EventHandler(this.rTextStatus_TextChanged);
+            // 
             // labelX1
             // 
             // 
@@ -316,6 +400,7 @@ namespace HPMS
             // pgbTest
             // 
             resources.ApplyResources(this.pgbTest, "pgbTest");
+            this.pgbTest.Maximum = 300;
             this.pgbTest.Name = "pgbTest";
             // 
             // notifyIcon1
@@ -323,16 +408,11 @@ namespace HPMS
             resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // rTextStatus
+            // timer1
             // 
-            // 
-            // 
-            // 
-            this.rTextStatus.BackgroundStyle.Class = "RichTextBoxBorder";
-            this.rTextStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.rTextStatus, "rTextStatus");
-            this.rTextStatus.Name = "rTextStatus";
-            this.rTextStatus.TextChanged += new System.EventHandler(this.rTextStatus_TextChanged);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
@@ -344,17 +424,22 @@ namespace HPMS
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "frmMain";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.SizeChanged += new System.EventHandler(this.frmMain_SizeChanged);
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).EndInit();
             this.panelEx1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tab_pair.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -377,22 +462,32 @@ namespace HPMS
         private System.Windows.Forms.ToolStripMenuItem m_Set_hardware;
         private System.Windows.Forms.ToolStripMenuItem m_Set_profile;
         private DevComponents.DotNetBar.PanelEx panelEx1;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.ButtonX btnTest;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
-        private DevComponents.DotNetBar.Controls.TextBoxX txt_PN;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolStripMenuItem m_Set_user;
         private DevComponents.DotNetBar.TabControl tabControlChart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox lsbTestItems;
-        private System.Windows.Forms.ListBox lsbTestPairs;
         private DevComponents.DotNetBar.PanelEx panelEx2;
         private DevComponents.DotNetBar.LabelX labelX1;
         private ProgressBar pgbTest;
         private DevComponents.DotNetBar.Controls.RichTextBoxEx rTextStatus;
+        private ToolStripStatusLabel toolStripStatusLabelUser;
+        private ToolStripStatusLabel toolStripStatusLabel2;
+        private ToolStripStatusLabel toolStripStatusLabelDate;
+        private Timer timer1;
+        private CheckedListBox chkList_TestItem;
+        private TabControl tab_pair;
+        private TabPage tabPage1;
+        private CheckedListBox chkList_LossPair;
+        private TabPage tabPage2;
+        private CheckedListBox chkList_NextPair;
+        private TabPage tabPage3;
+        private CheckedListBox chkList_FextPair;
+        private Label label1;
+        private TextBox txt_PN;
 
     }
 }

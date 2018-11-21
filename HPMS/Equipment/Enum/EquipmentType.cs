@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace HPMS.Equipment.Enum
+﻿namespace HPMS.Equipment.Enum
 {
     public enum NetworkAnalyzer
     {

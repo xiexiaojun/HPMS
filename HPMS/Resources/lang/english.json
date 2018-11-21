@@ -24,5 +24,6 @@
     "查询":  "Query",
     "删除": "Delete",
 	"向导模式": "Wizard Mode",
-	"类型": "Type"
+	"类型": "Type",
+	"近串": "NEXT"
 }

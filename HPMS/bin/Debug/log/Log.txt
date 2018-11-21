@@ -1,5 +1,77 @@
-2018/11/2 14:37:55
-error msg:SNP file not exist: B:\THRU\0.s4p
+2018/11/20 9:47:46
+error msg:SNP file not exist: B:\THRU\1.s4p
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
+
+
+
+
+
+2018/11/20 13:57:16
+error msg:SNP file not exist: \THUR\TX1.s4p
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
+
+
+
+
+
+2018/11/20 13:58:44
+error msg:SNP file not exist: \THUR\TX1.s4p
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
+
+
+
+
+
+2018/11/20 14:03:01
+error msg:SNP file not exist: B:\THUR\TX1.s4p
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
+
+
+
+
+
+2018/11/20 14:03:44
+error msg:SNP file not exist: B:\THUR\TX1.s4p
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
+
+
+
+
+
+2018/11/20 14:04:24
+error msg:unspported parameter:TDD11
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP.EasyGetfreData(String testItem, String[]& pairNames)
+
+
+
+
+
+2018/11/20 14:06:14
+error msg:unspported parameter:TDD11
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP.EasyGetfreData(String testItem, String[]& pairNames)
+
+
+
+
+
+2018/11/20 20:14:50
+error msg:unspported parameter:TDD11
+
+codedetail: Stack trace for current level:   在 _32p_analyze.SNP.EasyGetfreData(String testItem, String[]& pairNames)
+
+
+
+
+
+2018/11/21 9:27:25
+error msg:SNP file not exist: B:\NEXT\TX1-RX1.s4p
 
 codedetail: Stack trace for current level:   在 _32p_analyze.SNP..ctor(String SNPFilePath, SNPPort snpPort)
 

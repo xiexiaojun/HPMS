@@ -24,6 +24,8 @@ namespace HPMS.Draw
         public abstract void DrawLine(object tChart, plotData temp, string seriName, LineType lineType);
         public abstract void DrawSpec(string itemName, Dictionary<string, plotData> spec, object tChart);
         public abstract void ChartClear(object tChart);
+        public abstract void ChartClear();
+       
         public  Color GetRandomColor()
         {
             int iSeed = 10;

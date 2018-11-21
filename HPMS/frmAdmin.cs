@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Controls;
 using HPMS.DB;
-using HPMS.RightsControl;
 using HPMS.Util;
-using MessageBox = System.Windows.Forms.MessageBox;
 using Size = System.Drawing.Size;
 
 namespace HPMS

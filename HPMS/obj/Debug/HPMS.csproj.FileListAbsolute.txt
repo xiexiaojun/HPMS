@@ -17,12 +17,17 @@ D:\gitProjects\HPMS\HPMS\bin\Debug\HslCommunication.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\log4net.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\Newtonsoft.Json.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\Softgroup.NetResize45.dll
-D:\gitProjects\HPMS\HPMS\bin\Debug\WHC.Pager.WinControlEx.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\VirtualSwitch.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.WinForms.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\MathNet.Numerics.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\32p_analyze.xml
 D:\gitProjects\HPMS\HPMS\bin\Debug\HslCommunication.xml
 D:\gitProjects\HPMS\HPMS\bin\Debug\Newtonsoft.Json.xml
 D:\gitProjects\HPMS\HPMS\bin\Debug\Softgroup.NetResize45.xml
+D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.xml
+D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.WinForms.xml
+D:\gitProjects\HPMS\HPMS\bin\Debug\zh-cn\ZedGraph.WinForms.resources.dll
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmAdmin.resources
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmLogin.resources
@@ -40,8 +45,3 @@ D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.Util.Office2007Muti.resources
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.pdb
-D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.dll
-D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.WinForms.dll
-D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.xml
-D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.WinForms.xml
-D:\gitProjects\HPMS\HPMS\bin\Debug\zh-cn\ZedGraph.WinForms.resources.dll

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using HPMS.Equipment.Switch;
+using CommonSwitchTool.Switch;
 using HPMS.Log;
 using NationalInstruments.VisaNS;
 
@@ -54,6 +52,31 @@ namespace HPMS.Equipment.NetworkAnalyzer
             };
             Thread.Sleep(500);
             return SaveS4P(saveFilePath,channel, ref msg);
+        }
+
+        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, ref string msg)
+        {
+            bool ret = false;
+            ret = _iswitch.Open(switchIndex, ref msg);
+            if (!ret)
+            {
+                return false;
+            }
+            Connect();
+            string channel = _mutiChannel ? (index + 1).ToString() : "1";
+            string strSelectTrace = GetNameList(channel, false);
+
+
+            if (!SelectTrace(channel, strSelectTrace, true, ref msg))
+            {
+                return false;
+            };
+            if (!Trigger(channel, ref msg))
+            {
+                return false;
+            };
+            Thread.Sleep(500);
+            return SaveS4P(saveFilePath, channel, ref msg);
         }
 
         public bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)

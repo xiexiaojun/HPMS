@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 
 namespace HPMS.Util
@@ -100,7 +97,7 @@ namespace HPMS.Util
 
         }
 
-        private static void SelectTab(Control ctl)
+        public static void SelectTab(Control ctl)
         {
             var temp = ctl;
             while (temp.Parent != null)
@@ -108,9 +105,15 @@ namespace HPMS.Util
                 temp = temp.Parent;
                 if (temp is TabPage)
                 {
-                    var tabControls = (TabControl) temp.Parent;
+                    var tabControls = (System.Windows.Forms.TabControl)temp.Parent;
                     tabControls.SelectTab((TabPage)temp);
-                    break;
+                
+                }
+                else if (temp is TabControlPanel)
+                {
+                    var tabControls = (DevComponents.DotNetBar.TabControl)temp.Parent;
+                    tabControls.SelectedPanel=((TabControlPanel)temp);
+
                 }
             }
         }

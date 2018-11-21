@@ -1,24 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-using DevComponents.DotNetBar.Validator;
 using HPMS.Config;
 using HPMS.DB;
-using HPMS.Languange;
 using HPMS.Log;
 using HPMS.Util;
 using _32p_analyze;
-using TabControl = System.Windows.Forms.TabControl;
 
 namespace HPMS
 {

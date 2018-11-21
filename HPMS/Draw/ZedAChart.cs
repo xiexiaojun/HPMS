@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ZedGraph;
-using LineType = HPMS.Draw.LineType;
 using TabControl = DevComponents.DotNetBar.TabControl;
 
 namespace HPMS.Draw
@@ -149,6 +145,12 @@ namespace HPMS.Draw
                 chart.Refresh();
             }
         }
+
+        public override void ChartClear()
+        {
+            doneTabControl.Tabs.Clear();
+        }
+
         string XAxis_ScaleFormatEvent(GraphPane pane, Axis axis, double val, int index)
         {
             string name = pane.Title.Text;

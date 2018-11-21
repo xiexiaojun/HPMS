@@ -98,6 +98,10 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
+    <Reference Include="VirtualSwitch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\VirtualSwitch.dll</HintPath>
+    </Reference>
     <Reference Include="WHC.Pager.WinControlEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
@@ -112,6 +116,7 @@
     <Compile Include="AOP\AOP.cs" />
     <Compile Include="Config\LocalConfig.cs" />
     <Compile Include="Core\SITest.cs" />
+    <Compile Include="Core\TestConfig.cs" />
     <Compile Include="DB\DbHelperOleDb.cs" />
     <Compile Include="DB\LoginHelper.cs" />
     <Compile Include="DB\ProjectHelper.cs" />
@@ -123,9 +128,6 @@
     <Compile Include="Equipment\NetworkAnalyzer\E5071C.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\INetworkAnalyzer.cs" />
     <Compile Include="Equipment\NetworkAnalyzer\N5224A.cs" />
-    <Compile Include="Equipment\Switch\ISwitch.cs" />
-    <Compile Include="Equipment\Switch\SwitchUtil.cs" />
-    <Compile Include="Equipment\Switch\Switch_MCU.cs" />
     <Compile Include="Equipment\Util.cs" />
     <Compile Include="Equipment\Visa\VisaSerial.cs" />
     <Compile Include="frmAdmin.cs">
@@ -187,6 +189,7 @@
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RightsControl\Resiter.cs" />
     <Compile Include="RightsControl\RightsWrapper.cs" />
     <Compile Include="Splash\frmSplash.cs">
       <SubType>Form</SubType>
@@ -256,6 +259,7 @@
       <DependentUpon>UI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Config\TestItemGroup.json" />
     <None Include="Equipment\NetworkAnalyzer\E5071CHelp.chm" />
     <None Include="Resources\lang\english.json">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -314,8 +318,7 @@
     <Content Include="Dll\MathNet.Numerics.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
-    <Content Include="Dll\WHC.Pager.Entity.dll" />
-    <Content Include="Dll\WHC.Pager.WinControlEx.dll" />
+    <Content Include="Dll\VirtualSwitch.dll" />
     <None Include="Resources\图片2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -325,7 +328,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>mkdir $(ProjectDir)$(OutDir)Resources\lang;
-xcopy /e /r /y $(ProjectDir)Resources\lang $(ProjectDir)$(OutDir)\Resources\lang</PreBuildEvent>
+xcopy /e /r /y $(ProjectDir)Resources\lang $(ProjectDir)$(OutDir)\Resources\lang;
+xcopy /e /r /y $(ProjectDir)Config $(ProjectDir)$(OutDir)\Config</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

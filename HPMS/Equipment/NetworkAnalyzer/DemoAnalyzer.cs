@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 
 namespace HPMS.Equipment.NetworkAnalyzer
 {
@@ -11,7 +6,13 @@ namespace HPMS.Equipment.NetworkAnalyzer
     {
         public bool SaveSnp(string saveFilePath, int switchIndex, ref string msg)
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
+            return true;
+        }
+
+        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, ref string msg)
+        {
+            Thread.Sleep(2000);
             return true;
         }
 

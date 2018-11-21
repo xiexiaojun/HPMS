@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
 using HPMS.DB;
 using HPMS.Util;
 

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using DevComponents.DotNetBar;
+using HPMS.Util;
 using TabControl = DevComponents.DotNetBar.TabControl;
 
 namespace HPMS.Draw
@@ -120,6 +117,7 @@ namespace HPMS.Draw
                         break;
 
                 }
+                Extende.SelectTab(chart);
 
                 //chart.Visible = true;
             }
@@ -154,6 +152,17 @@ namespace HPMS.Draw
                 
                
             }
+        }
+
+        delegate void ChartClearCallback();
+        public override void ChartClear()
+        {
+            if (doneTabControl.InvokeRequired)
+            {
+                ChartClearCallback d=new ChartClearCallback(ChartClear);
+                doneTabControl.Invoke(d);
+            }
+            doneTabControl.Tabs.Clear();
         }
     }
 }

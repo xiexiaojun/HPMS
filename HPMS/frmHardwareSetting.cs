@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-
-using System.Linq;
-using System.Text;
-using System.Windows;
 using System.Windows.Forms;
-using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using HPMS.Config;
 using HPMS.Equipment.Enum;
-using HPMS.Languange;
 using HPMS.Util;
 using ToolTip = System.Windows.Forms.ToolTip;
 

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Aspose.Cells;
 
 namespace HPMS.Util
@@ -20,7 +16,10 @@ namespace HPMS.Util
         {
             Workbook workbook = new Workbook(wbPath);
             Cells cells = workbook.Worksheets[0].Cells;
-            DataTable dt = cells.ExportDataTable(0, 0, cells.MaxDataRow + 1, cells.MaxColumn+1, true);
+            ExportTableOptions exportTableOptions=new ExportTableOptions();
+            exportTableOptions.ExportAsString = true;
+            exportTableOptions.ExportColumnName = true;
+            DataTable dt = cells.ExportDataTable(0, 0, cells.MaxDataRow + 1, cells.MaxColumn + 1, exportTableOptions);
             return dt;
         }
 
