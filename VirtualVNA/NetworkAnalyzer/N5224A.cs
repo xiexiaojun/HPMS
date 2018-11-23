@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
-using CommonSwitchTool.Switch;
 using NationalInstruments.VisaNS;
+using VirtualSwitch;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
-    class N5224A:INetworkAnalyzer
+    public class N5224A:INetworkAnalyzer
     {
         private ISwitch _iswitch;
         private MessageBasedSession mbSession;
         private bool _connected = false;
         private string _visaAddress;
-        private bool _nextByTrace;
-        private bool _mutiChannel;
-        public N5224A(ISwitch iSwitch,string visaAddress,bool nextByTrace,bool mutiChannel)
+   
+        public N5224A(ISwitch iSwitch,string visaAddress)
         {
             this._iswitch = iSwitch;
             this._visaAddress = visaAddress;
-            this._nextByTrace = nextByTrace;
-            this._mutiChannel = mutiChannel;
             Connect();
 
         }
@@ -28,7 +25,7 @@ namespace VirtualVNA.NetworkAnalyzer
         {
             mbSession.Dispose();
         }
-        public bool SaveSnp(string saveFilePath, int switchIndex, ref string msg)
+        public bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace,ref string msg)
         {
             bool ret = false;
             ret=_iswitch.Open(switchIndex, ref msg);
@@ -37,7 +34,7 @@ namespace VirtualVNA.NetworkAnalyzer
                 return false;
             }
             Connect();
-            string channel =_mutiChannel?(switchIndex + 1).ToString():"1";
+            string channel = mutiChannel ? (switchIndex + 1).ToString() : "1";
             string strSelectTrace = GetNameList(channel,false);
 
 
@@ -53,7 +50,7 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath,channel, ref msg);
         }
 
-        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, ref string msg)
+        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace,ref string msg)
         {
             bool ret = false;
             ret = _iswitch.Open(switchIndex, ref msg);
@@ -62,7 +59,7 @@ namespace VirtualVNA.NetworkAnalyzer
                 return false;
             }
             Connect();
-            string channel = _mutiChannel ? (index + 1).ToString() : "1";
+            string channel = mutiChannel ? (index + 1).ToString() : "1";
             string strSelectTrace = GetNameList(channel, false);
 
 
@@ -168,7 +165,7 @@ namespace VirtualVNA.NetworkAnalyzer
                 int singleIndex = -1;
                 for (int i = 0; i < cycleCount; i++)
                 {
-                    if (FindTargetParameter(isDiff,tempNames[i]))
+                    if (FindTargetParameter(isDiff, itemNames[i]))
                     {
                         singleIndex = i;
                         ret = chNames[singleIndex];
@@ -204,7 +201,7 @@ namespace VirtualVNA.NetworkAnalyzer
         private bool SelectTrace(string channel,string traceSelected,bool isSingle,ref string msg)
         {
          
-            string strSlectedTrace = ":CALC" + channel + ":PAR:SEL " + traceSelected + "\"";
+            string strSlectedTrace = ":CALC" + channel + ":PAR:SEL " +"\""+ traceSelected + "\"";
             try
             {
                 mbSession.Write(strSlectedTrace);
@@ -229,7 +226,7 @@ namespace VirtualVNA.NetworkAnalyzer
             //set singleMode
             string strSetSingleode = "sense" + channel + ":sweep:mode single";
             //this scip command used for get E5071C work mode
-            string strGetMode = ":INIT" + channel + ":COUT?";
+            string strGetMode = "sense" + channel + ":sweep:mode?";
             //set holdMode
             string strSetHoldode = "sense" + channel + ":sweep:mode hold";
 
@@ -275,9 +272,9 @@ namespace VirtualVNA.NetworkAnalyzer
         {
             //refer to :MMEMory:STORe:SNP
             //this command used for set save data format
-            string strSetDataFormat = ":MMEM:STOR:SNP:FORM RI";
+            string strSetDataFormat = ":MMEM:STOR:TRAC:FORM:SNP RI";
 
-            string strSaveCommand = "channel" + channel + ":DATA:SNP:PORTs:Save \'1,2,3,4\', \'" + saveFilePath + "\'";
+            string strSaveCommand = "CALC" + channel + ":DATA:SNP:PORTs:Save \'1,2,3,4\', \'" + saveFilePath + "\'";
               try
             {
                 mbSession.Write(strSetDataFormat);

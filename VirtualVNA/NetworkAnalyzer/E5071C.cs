@@ -2,29 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using CommonSwitchTool.Switch;
 using NationalInstruments.VisaNS;
+using VirtualSwitch;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
-    class E5071C:INetworkAnalyzer
+    public class E5071C:INetworkAnalyzer
     {
         private ISwitch _iswitch;
         private IMessageBasedSession mbSession;
         private bool _connected = false;
         private string _visaAddress;
-        private bool _nextByTrace;
-        private bool _mutiChannel;
-        public E5071C(ISwitch iSwitch,string visaAddress,bool nextByTrace,bool mutiChannel)
+      
+        public E5071C(ISwitch iSwitch,string visaAddress)
         {
             this._iswitch = iSwitch;
             this._visaAddress = visaAddress;
-            this._nextByTrace = nextByTrace;
-            this._mutiChannel = mutiChannel;
+          
             Connect();
 
         }
-        public bool SaveSnp(string saveFilePath, int switchIndex, ref string msg)
+        public bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             bool ret = false;
             ret=_iswitch.Open(switchIndex, ref msg);
@@ -33,8 +31,8 @@ namespace VirtualVNA.NetworkAnalyzer
                 return false;
             }
             Connect();
-            string channel =_mutiChannel?(switchIndex + 1).ToString():"1";
-            List<string> namList = GetNameList(channel);
+            string channel = mutiChannel ? (switchIndex + 1).ToString() : "1";
+            List<string> namList = GetNameList(channel, nextByTrace);
             if (namList.Count == 0)
             {
                 msg = "get name list from E5071C fail";
@@ -53,7 +51,7 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, ref msg);
         }
 
-        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, ref string msg)
+        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             bool ret = false;
             ret = _iswitch.Open(switchIndex, ref msg);
@@ -62,8 +60,8 @@ namespace VirtualVNA.NetworkAnalyzer
                 return false;
             }
             Connect();
-            string channel = _mutiChannel ? (index + 1).ToString() : "1";
-            List<string> namList = GetNameList(channel);
+            string channel = mutiChannel ? (index + 1).ToString() : "1";
+            List<string> namList = GetNameList(channel, nextByTrace);
             if (namList.Count == 0)
             {
                 msg = "get name list from E5071C fail";
@@ -92,7 +90,7 @@ namespace VirtualVNA.NetworkAnalyzer
             }
             Connect();
             string channel = (switchIndex + 1).ToString();
-            List<string> namList = GetNameList(channel);
+            List<string> namList = GetNameList(channel,true);
             if (namList.Count == 0)
             {
                 msg = "get name list from E5071C fail";
@@ -151,7 +149,7 @@ namespace VirtualVNA.NetworkAnalyzer
         /// </summary>
         /// <param name="channel"></param>
         /// <returns></returns>
-        private List<string> GetNameList(string channel)
+        private List<string> GetNameList(string channel, bool nextByTrace)
         {
             //refer to SCPI.CALCulate(Ch).PARameter.COUNt
             List<string> retList=new List<string>();
@@ -162,7 +160,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 for (int i = 0; i < traceCount; i++)
                 {
-                    string strGetChannelTraceSelected = _nextByTrace ? ":CALC" + channel + ":FSIM:BAL:PAR" + (i + 1) + ":BBAL?" :
+                    string strGetChannelTraceSelected = nextByTrace ? ":CALC" + channel + ":FSIM:BAL:PAR" + (i + 1) + ":BBAL?" :
                         ":CALC" + channel + ":PAR" + (i + 1) + ":DEF?";
                     mbSession.Write(strGetChannelTraceSelected);
                     retList.Add(mbSession.ReadString(100).Trim());

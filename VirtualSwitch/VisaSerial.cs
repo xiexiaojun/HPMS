@@ -1,7 +1,7 @@
 ﻿using System;
 using NationalInstruments.VisaNS;
 
-namespace CommonSwitchTool.Switch
+namespace VirtualSwitch
 {
     public struct ErrMsg
     {

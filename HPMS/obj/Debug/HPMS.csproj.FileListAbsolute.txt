@@ -18,9 +18,12 @@ D:\gitProjects\HPMS\HPMS\bin\Debug\log4net.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\Newtonsoft.Json.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\Softgroup.NetResize45.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\VirtualSwitch.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\VirtualVNA.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.WinForms.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\MathNet.Numerics.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\VirtualSwitch.pdb
+D:\gitProjects\HPMS\HPMS\bin\Debug\VirtualVNA.pdb
 D:\gitProjects\HPMS\HPMS\bin\Debug\32p_analyze.xml
 D:\gitProjects\HPMS\HPMS\bin\Debug\HslCommunication.xml
 D:\gitProjects\HPMS\HPMS\bin\Debug\Newtonsoft.Json.xml

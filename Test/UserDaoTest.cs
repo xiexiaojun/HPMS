@@ -75,7 +75,7 @@ namespace Test
             int userId = 1; // TODO: 初始化为适当的值
             List<User> expected = null; // TODO: 初始化为适当的值
             List<User> actual;
-            actual = UserDao.FindUser(userId);
+            actual = UserDao.Find(userId);
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("验证此测试方法的正确性。");
         }

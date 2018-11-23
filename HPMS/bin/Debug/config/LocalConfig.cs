@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevComponents.DotNetBar;
-using HPMS.Equipment.Enum;
 using HPMS.Util;
+using VirtualVNA.Enum;
 using _32p_analyze;
 
 namespace HPMS.Config

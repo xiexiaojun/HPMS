@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
-using CommonSwitchTool.Switch;
+
+using VirtualSwitch;
 using DevComponents.DotNetBar;
 using HPMS.Config;
 using HPMS.Core;
@@ -18,7 +18,10 @@ using HPMS.RightsControl;
 using HPMS.Splash;
 using HPMS.Util;
 using HslCommunication.BasicFramework;
-using Newtonsoft.Json.Linq;
+using VirtualSwitch;
+//using VirtualSwitch;
+using VirtualVNA.Enum;
+using VirtualVNA.NetworkAnalyzer;
 using Convert = HPMS.Util.Convert;
 
 namespace HPMS
@@ -39,6 +42,7 @@ namespace HPMS
         private Hardware _hardware;
         private TestConfig[] _testConfigs=new TestConfig[3];//3类测试项目参数,直通，近串，远串
         private ISwitch _switch;
+        private INetworkAnalyzer _iAnalyzer;
         private Dictionary<string, plotData> _spec = new Dictionary<string, plotData>();//规格线
        
 
@@ -145,6 +149,10 @@ namespace HPMS
         private void LoadTheme()
         {
             _theme = LocalConfig.LoadTheme();
+            if (_theme == null)
+            {
+                return;
+            }
             if (_theme.Customer)
             {
                 StyleManager.ChangeStyle(_theme.EStyle, Color.FromName(_theme.Color));
@@ -333,26 +341,13 @@ namespace HPMS
         {
             Action<string> addAction = AddStatus;
             Action<int, bool> progressDisplay = SetProgress;
-            SITest siTest = new SITest();
+            SITest siTest = new SITest(_switch, _iAnalyzer);
             AddStatus("测试开始");
             siTest.DoTest(_testConfigs, chartDic, _aChart, addAction, progressDisplay, "B:", _spec);
 
         }
      
-        //private void test()
-        //{
-        //    Action<string> addAction = AddStatus;
-        //    Action<int, bool> progressDisplay = SetProgress;
-        //    SITest a = new SITest();
-        //    for (int i = 0; i < 1000; i++)
-        //    {
-        //        AddStatus("第"+i+"次测试开始");
-        //        a.DoTest(_testConfigs,chartDic, _aChart, addAction, progressDisplay); 
-        //        Thread.Sleep(10000);
-        //    }
-            
-        //}
-
+     
 
       
 
@@ -389,6 +384,7 @@ namespace HPMS
       
         private void PnChangeHandle(string pn,bool dbMode)
         {
+            string msg = "";
             btnTest.Enabled = false;
             _curretnProject = ProjectHelper.Find(pn, dbMode);
             _hardware = (Hardware)LocalConfig.GetObjFromXmlFile("config\\hardware.xml", typeof(Hardware));
@@ -405,7 +401,13 @@ namespace HPMS
                 return;
             }
             AddStatus("成功找到对应硬件设置档案");
-            
+            if (!Equipment.Util.SetHardware(_hardware,ref _switch,ref _iAnalyzer,ref msg))
+            {
+                AddStatus(msg);
+                return;
+            }
+            AddStatus("连接开关成功");
+            AddStatus("连接网分设备成功");
             bool setProjectFlag = Equipment.Util.SetTestParams(_curretnProject, ref _testConfigs);
             if (!setProjectFlag)
             {
@@ -420,14 +422,14 @@ namespace HPMS
             btnTest.Enabled = true;
         }
 
-     
+       
 
 
         private void AddCharts()
         {
             chartDic.Clear();
 
-            _aChart = new VsAChart(this.tabControlChart);
+            _aChart = new ZedAChart(this.tabControlChart);
             _aChart.ChartClear();
             foreach (var VARIABLE in _testConfigs)
             {

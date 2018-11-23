@@ -22,8 +22,9 @@ namespace HPMS.Draw
             tim.Name = testItem;
             ZedGraphControl zedGraph = new ZedGraphControl();
             zedGraph.AutoSizeMode = AutoSizeMode.GrowOnly;
-            zedGraph.Height = 237;
-            zedGraph.Width = 751;
+            //zedGraph.Height = 237;
+            //zedGraph.Width = 751;
+            zedGraph.Dock = DockStyle.Fill;
             zedGraph.Location = new Point(2, -1);
 
 

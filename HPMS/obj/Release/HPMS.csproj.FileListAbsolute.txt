@@ -7,7 +7,6 @@ D:\gitProjects\HPMS\HPMS\bin\Release\HslCommunication.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\log4net.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\Newtonsoft.Json.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\Softgroup.NetResize45.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\WHC.Pager.WinControlEx.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\ZedGraph.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\ZedGraph.WinForms.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\MathNet.Numerics.dll
@@ -34,3 +33,8 @@ D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.Util.Office2007Muti.resources
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.pdb
+D:\gitProjects\HPMS\HPMS\bin\Release\VirtualSwitch.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\VirtualVNA.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\VirtualVNA.pdb
+D:\gitProjects\HPMS\HPMS\bin\Release\VirtualSwitch.pdb
+D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.csprojResolveAssemblyReference.cache

@@ -4,11 +4,11 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using NationalInstruments.VisaNS;
-using CommonSwitchTool.Switch;
 using HPMS.Config;
 using HPMS.Core;
-using HPMS.Equipment.Enum;
 using VirtualSwitch;
+using VirtualVNA.Enum;
+using VirtualVNA.NetworkAnalyzer;
 
 namespace HPMS.Equipment
 {
@@ -20,8 +20,10 @@ namespace HPMS.Equipment
         /// <returns></returns>
         public static List<string> GetVisaList()
         {
+            Ivi.Visa.Interop.ResourceManager resourceManagerIv = new Ivi.Visa.Interop.ResourceManager();
             List<string>ret=new List<string>();
-            string[] resources = ResourceManager.GetLocalManager().FindResources("?*");
+            //string[] resources = ResourceManager.GetLocalManager().FindResources("?*");
+            string[] resources = resourceManagerIv.FindRsrc("?*");
             foreach (string s in resources)
             {
                 ret.Add(s);
@@ -32,6 +34,27 @@ namespace HPMS.Equipment
             }
             return ret;
         }
+
+        //public static visaResource[] getVisaList()
+        //{
+        //    Ivi.Visa.Interop.ResourceManager resourceManager = new Ivi.Visa.Interop.ResourceManager();
+        //    string[] temp = resourceManager.FindRsrc("?*");
+        //    visaResource[] visaList = new visaResource[temp.Length];
+        //    for (int i = 0; i < temp.Length; i++)
+        //    {
+        //        short pInterfaceType = 0;
+        //        short pInterfaceNumber = 0;
+        //        string pSessionType = "";
+        //        string pUnaliasedExpandedResourceName = "";
+        //        string pAliasIfExists = "";
+        //        resourceManager.ParseRsrcEx(temp[i], ref  pInterfaceType,
+        //            ref  pInterfaceNumber, ref  pSessionType,
+        //            ref  pUnaliasedExpandedResourceName, ref  pAliasIfExists);
+        //        visaList[i].visaName = pUnaliasedExpandedResourceName;
+        //        visaList[i].aliasName = pAliasIfExists;
+        //    }
+        //    return visaList;
+        //}
 
         /// <summary>
         /// 返回串口列表
@@ -230,6 +253,43 @@ namespace HPMS.Equipment
            
 
             return true;
+        }
+
+        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref INetworkAnalyzer iNetworkAnalyzer, ref string msg)
+        {
+            try
+            {
+                switch (hardware.SwitchBox)
+                {
+                    case SwitchBox.MCU:
+                        iswitch = new SwitchMcu(hardware.VisaSwitchBox);
+                        break;
+                    case SwitchBox.Demo:
+                        iswitch = new SwitchDemo();
+                        break;
+                }
+
+
+                switch (hardware.Analyzer)
+                {
+                    case NetworkAnalyzer.Demo:
+                        iNetworkAnalyzer = new DemoAnalyzer();
+                        break;
+                    case NetworkAnalyzer.N5224A:
+                        iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer);
+                        break;
+                }
+
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                msg = e.Message;
+                return false;
+            }
+
+
         }
     }
 }

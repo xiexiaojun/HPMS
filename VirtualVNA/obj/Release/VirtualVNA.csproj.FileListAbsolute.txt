@@ -1,0 +1,7 @@
+D:\gitProjects\HPMS\VirtualVNA\bin\Release\VirtualVNA.dll
+D:\gitProjects\HPMS\VirtualVNA\bin\Release\VirtualVNA.pdb
+D:\gitProjects\HPMS\VirtualVNA\bin\Release\VirtualSwitch.dll
+D:\gitProjects\HPMS\VirtualVNA\bin\Release\VirtualSwitch.pdb
+D:\gitProjects\HPMS\VirtualVNA\obj\Release\VirtualVNA.csprojResolveAssemblyReference.cache
+D:\gitProjects\HPMS\VirtualVNA\obj\Release\VirtualVNA.dll
+D:\gitProjects\HPMS\VirtualVNA\obj\Release\VirtualVNA.pdb

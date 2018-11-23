@@ -9,8 +9,9 @@
 
     public enum SwitchBox
     {
-        MCU
-    }
+        Demo,
+        MCU,
+     }
 
     public enum Adapter
     {

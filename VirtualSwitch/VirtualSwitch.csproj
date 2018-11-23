@@ -52,6 +52,7 @@
     <Compile Include="ISwitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SwitchDemo.cs" />
+    <Compile Include="SwitchFake.cs" />
     <Compile Include="SwitchUtil.cs" />
     <Compile Include="SwitchMcu.cs" />
     <Compile Include="VisaSerial.cs" />

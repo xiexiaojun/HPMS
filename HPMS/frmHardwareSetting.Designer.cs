@@ -48,6 +48,8 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
+            this.comboItem5 = new DevComponents.Editors.ComboItem();
+            this.comboItem6 = new DevComponents.Editors.ComboItem();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +84,6 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "硬件设置";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // labelX2
             // 
@@ -121,7 +122,8 @@
             this.cmbNwaType.ItemHeight = 15;
             this.cmbNwaType.Items.AddRange(new object[] {
             this.comboItem1,
-            this.comboItem2});
+            this.comboItem2,
+            this.comboItem5});
             this.cmbNwaType.Location = new System.Drawing.Point(25, 47);
             this.cmbNwaType.Name = "cmbNwaType";
             this.cmbNwaType.Size = new System.Drawing.Size(186, 21);
@@ -189,7 +191,8 @@
             this.cmbSwitchBox.FormattingEnabled = true;
             this.cmbSwitchBox.ItemHeight = 15;
             this.cmbSwitchBox.Items.AddRange(new object[] {
-            this.comboItem3});
+            this.comboItem3,
+            this.comboItem6});
             this.cmbSwitchBox.Location = new System.Drawing.Point(25, 167);
             this.cmbSwitchBox.Name = "cmbSwitchBox";
             this.cmbSwitchBox.Size = new System.Drawing.Size(186, 21);
@@ -274,6 +277,14 @@
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // comboItem5
+            // 
+            this.comboItem5.Text = "Demo";
+            // 
+            // comboItem6
+            // 
+            this.comboItem6.Text = "Demo";
+            // 
             // frmHardwareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -315,6 +326,8 @@
         private DevComponents.DotNetBar.ButtonX btnSave;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.Editors.ComboItem comboItem5;
+        private DevComponents.Editors.ComboItem comboItem6;
 
 
     }

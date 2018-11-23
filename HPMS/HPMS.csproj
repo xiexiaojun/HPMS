@@ -45,7 +45,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;Release</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -66,6 +66,11 @@
     <Reference Include="HslCommunication, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivi.Visa.Interop, Version=5.8.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files\IVI Foundation\VISA\VisaCom64\Primary Interop Assemblies\Ivi.Visa.Interop.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -98,11 +103,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
-    <Reference Include="VirtualSwitch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dll\VirtualSwitch.dll</HintPath>
-    </Reference>
-    <Reference Include="WHC.Pager.WinControlEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
     <Reference Include="ZedGraph">
@@ -123,13 +123,7 @@
     <Compile Include="Draw\ControlSafe.cs" />
     <Compile Include="Draw\VsAChart.cs" />
     <Compile Include="Draw\ZedAChart.cs" />
-    <Compile Include="Equipment\Enum\EquipmentType.cs" />
-    <Compile Include="Equipment\NetworkAnalyzer\DemoAnalyzer.cs" />
-    <Compile Include="Equipment\NetworkAnalyzer\E5071C.cs" />
-    <Compile Include="Equipment\NetworkAnalyzer\INetworkAnalyzer.cs" />
-    <Compile Include="Equipment\NetworkAnalyzer\N5224A.cs" />
     <Compile Include="Equipment\Util.cs" />
-    <Compile Include="Equipment\Visa\VisaSerial.cs" />
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +216,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>
@@ -260,7 +255,6 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Config\TestItemGroup.json" />
-    <None Include="Equipment\NetworkAnalyzer\E5071CHelp.chm" />
     <None Include="Resources\lang\english.json">
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
@@ -306,7 +300,16 @@
   <ItemGroup>
     <None Include="Resources\Image1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualSwitch\VirtualSwitch.csproj">
+      <Project>{6297D14F-A402-465D-9F31-D5730CB612AC}</Project>
+      <Name>VirtualSwitch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VirtualVNA\VirtualVNA.csproj">
+      <Project>{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}</Project>
+      <Name>VirtualVNA</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="DB\DB.sql" />
     <Content Include="Dll\32p_analyze.dll" />
@@ -318,7 +321,6 @@
     <Content Include="Dll\MathNet.Numerics.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
-    <Content Include="Dll\VirtualSwitch.dll" />
     <None Include="Resources\图片2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

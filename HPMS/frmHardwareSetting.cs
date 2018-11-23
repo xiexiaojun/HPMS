@@ -2,8 +2,8 @@
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
 using HPMS.Config;
-using HPMS.Equipment.Enum;
 using HPMS.Util;
+using VirtualVNA.Enum;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace HPMS
@@ -65,10 +65,7 @@ namespace HPMS
         }
 
 
-        private void HardwareIni()
-        {
-
-        }
+      
 
         private void HardwareSave()
         {
@@ -99,16 +96,7 @@ namespace HPMS
             e.Cancel = true;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
        
 
        

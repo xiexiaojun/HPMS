@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CommonSwitchTool.Switch
+namespace VirtualSwitch
 {
     struct CmdFrame
     {

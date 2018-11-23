@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-using CommonSwitchTool.Switch;
+
 using HPMS.Config;
 using HPMS.Draw;
-using HPMS.Equipment.NetworkAnalyzer;
 using NationalInstruments.Restricted;
+using VirtualSwitch;
+using VirtualVNA.NetworkAnalyzer;
 using _32p_analyze;
 
 namespace HPMS.Core
@@ -34,7 +35,7 @@ namespace HPMS.Core
     {
         private Project _project;
         private ISwitch _switch;
-        private INetworkAnalyzer _analyzer=new DemoAnalyzer();
+        private INetworkAnalyzer _analyzer;
         private string _snpFolder;
         private object myLock = new object();
         private Queue<TaskSnp> TaskQueue = new Queue<TaskSnp>();
@@ -43,6 +44,14 @@ namespace HPMS.Core
 
         private Dictionary<string, List<float[]>> _testData=new Dictionary<string, List<float[]>>();
         public Dictionary<string,string>_specLine=new Dictionary<string, string>();
+
+
+        public SITest(ISwitch iSwitch,INetworkAnalyzer iNetworkAnalyzer)
+        {
+            this._switch = iSwitch;
+            this._analyzer = iNetworkAnalyzer;
+        }
+
 
         private  class TaskSnp
         {
@@ -207,19 +216,23 @@ namespace HPMS.Core
         private void Producer(object action)
         {
             ProducerParams producerParams = (ProducerParams)action;
-
+            bool multiChannel = false;
+            bool nextByTrace = false;
             foreach (TestConfig testConfig in producerParams.TestConfigs)
             {
                 switch (testConfig.ItemType)
                 {
                     case ItemType.Loss:
                         producerParams.AddStatus("直通测试开始");
+                        multiChannel = true;
                         break;
                     case ItemType.Next:
                         producerParams.AddStatus("近串测试开始");
+                        nextByTrace = true;
                         break;
                     case ItemType.Fext:
                         producerParams.AddStatus("远串测试开始");
+                        nextByTrace = true;
                         break;
                 }
 
@@ -235,7 +248,7 @@ namespace HPMS.Core
                     task.ProgressValue = pair.ProgressValue;
                     
                     string switchMsg = "";
-                    _analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex,pairIndex, ref switchMsg);
+                    _analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex,pairIndex,multiChannel,nextByTrace, ref switchMsg);
                     producerParams.AddStatus("SNP 文件生成成功 路径:" + task.SnpPath);
                     producerParams.DisplayProgress(pair.ProgressValue, true);
                     lock (myLock)

@@ -76,6 +76,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UIAutomationProvider" />
+    <Reference Include="VirtualSwitch">
+      <HintPath>..\VirtualSwitch\bin\Debug\VirtualSwitch.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
@@ -92,6 +95,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="N5224ATest.cs" />
+    <Compile Include="SwitchDemoTest.cs" />
     <Compile Include="SwitchUtilTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +107,10 @@
     <ProjectReference Include="..\HPMS\HPMS.csproj">
       <Project>{e5745732-dec0-443d-8673-73d7ea302ef5}</Project>
       <Name>HPMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VirtualVNA\VirtualVNA.csproj">
+      <Project>{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}</Project>
+      <Name>VirtualVNA</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

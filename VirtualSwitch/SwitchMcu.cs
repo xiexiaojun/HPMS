@@ -1,6 +1,5 @@
 ﻿
 
-using CommonSwitchTool.Switch;
 
 namespace VirtualSwitch
 {

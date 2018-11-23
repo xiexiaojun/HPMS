@@ -1,6 +1,7 @@
-﻿using HPMS.Equipment.Switch;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using VirtualSwitch;
 
 namespace Test
 {
