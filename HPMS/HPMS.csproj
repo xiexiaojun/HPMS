@@ -62,7 +62,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\Aspose.Cells.dll</HintPath>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=10.5.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.Charts, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar.Charts.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\DevComponents.DotNetBar2\14.1.0.28__7eb7c3a35b91de04\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
     <Reference Include="HslCommunication, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\HslCommunication.dll</HintPath>
@@ -121,6 +128,7 @@
     <Compile Include="DB\LoginHelper.cs" />
     <Compile Include="DB\ProjectHelper.cs" />
     <Compile Include="Draw\ControlSafe.cs" />
+    <Compile Include="Draw\DotnetChart.cs" />
     <Compile Include="Draw\VsAChart.cs" />
     <Compile Include="Draw\ZedAChart.cs" />
     <Compile Include="Equipment\Util.cs" />
@@ -183,6 +191,11 @@
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RightsControl\Resiter.cs" />
     <Compile Include="RightsControl\RightsWrapper.cs" />
     <Compile Include="Splash\frmSplash.cs">
@@ -238,14 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Splash\frmSplash.resx" />
     <EmbeddedResource Include="frmUserEdit.resx">
       <DependentUpon>frmUserEdit.cs</DependentUpon>
@@ -321,6 +329,12 @@
     <Content Include="Dll\MathNet.Numerics.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\model.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\language.png" />
+    <None Include="Resources\style.png" />
+    <None Include="Resources\tool.png" />
     <None Include="Resources\图片2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

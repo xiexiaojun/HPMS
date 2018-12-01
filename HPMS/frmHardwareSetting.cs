@@ -22,6 +22,7 @@ namespace HPMS
           
             SetTooltip();
             SetAdapterPorts();
+            HardwareLoad();
         }
 
        
@@ -77,9 +78,30 @@ namespace HPMS
             hardware.VisaSwitchBox = txtSbVisaAdd.Text;
             hardware.Adapter = (Adapter)Enum.Parse(typeof(Adapter), cmbAdapterType.SelectedItem.ToString());
             hardware.AdapterPort = cmbAdpaterPort.Text;
+            hardware.SnpFolder = txtSnpSaveFolder.Text;
+            hardware.TxtFolder = txtTxtSaveFolder.Text;
 
             LocalConfig.SaveObjToXmlFile("config\\hardware.xml", hardware);
             
+
+
+        }
+
+        private void HardwareLoad()
+        {
+            Hardware hardware = (Hardware) LocalConfig.GetObjFromXmlFile("config\\hardware.xml", typeof(Hardware));
+            cmbNwaType.SelectedIndex = cmbNwaType.FindString(hardware.Analyzer.ToString());
+            cmbSwitchBox.SelectedIndex = cmbSwitchBox.FindString(hardware.SwitchBox.ToString());
+           
+            txtNwaVisaAdd.Text=hardware.VisaNetWorkAnalyzer ;
+            txtSbVisaAdd.Text=hardware.VisaSwitchBox ;
+            cmbAdapterType.SelectedIndex = cmbAdapterType.FindString(hardware.Adapter.ToString());
+            
+            cmbAdpaterPort.Text=hardware.AdapterPort ;
+            txtSnpSaveFolder.Text=hardware.SnpFolder ;
+            txtTxtSaveFolder.Text=hardware.TxtFolder ;
+
+        
 
 
         }
@@ -96,7 +118,24 @@ namespace HPMS
             e.Cancel = true;
         }
 
-       
+        private void FolderBrowseCallback( Action<string> action)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                action.Invoke(fbd.SelectedPath);
+            }
+        }
+
+        private void btnBrowseSnp_Click(object sender, EventArgs e)
+        {
+            FolderBrowseCallback(delegate(string folderName) { txtSnpSaveFolder.Text = folderName; });
+        }
+
+        private void btnBrowseTxt_Click(object sender, EventArgs e)
+        {
+            FolderBrowseCallback(delegate(string folderName) { txtTxtSaveFolder.Text = folderName; });
+        }
        
 
        

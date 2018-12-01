@@ -39,7 +39,8 @@ namespace HPMS.Languange
 
             if (msgFileName == null)
             {
-                msgResources = null;
+                msgResources.Clear();
+                //msgResources = null;
             }
             else
             {

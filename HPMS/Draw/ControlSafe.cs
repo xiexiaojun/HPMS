@@ -10,12 +10,12 @@ namespace HPMS.Draw
         //定义delegate以便Invoke时使用   
         private delegate void SetControlEnable(Control control,bool value);
         //跟SetProgressBarValue委托相匹配的方法   
-        public static void Setcontrolenable(Control control, bool value)  
+        public static void SetcontrolEnable(Control control, bool value)  
         {
             //control.Enabled = value;
             if (control.InvokeRequired)
             {
-                SetControlEnable d = Setcontrolenable;
+                SetControlEnable d = SetcontrolEnable;
                 control.BeginInvoke(d, new object[] { control, value });
             }
             else
@@ -40,6 +40,20 @@ namespace HPMS.Draw
                 control.Text = "";
             }
 
+        }
+
+        private delegate void DClearListview(ListView listView);
+        public static void ClearListview(ListView listView)
+        {
+            if (listView.InvokeRequired)
+            {
+                DClearListview dSetListbox = ClearListview;
+                listView.BeginInvoke(dSetListbox, new object[] { listView });
+            }
+            else
+            {
+                listView.Items.Clear();
+            }
         }
 
         private delegate void DSetListbox(ListBox listBox, string textValue);

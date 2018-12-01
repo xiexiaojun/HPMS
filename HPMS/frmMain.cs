@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
-
-using VirtualSwitch;
 using DevComponents.DotNetBar;
+using VirtualSwitch;
+
 using HPMS.Config;
 using HPMS.Core;
 using HPMS.DB;
@@ -28,9 +29,10 @@ namespace HPMS
 {
     public partial class frmMain : Office2007Form
     {
-        private readonly Dictionary<string, ToolStripMenuItem> styleItems = new Dictionary<string, ToolStripMenuItem>();
+       
         frmHardwareSetting _frmHardwareSetting;
         frmProfile _frmProfile;
+        private Dictionary<string,ToolStripMenuItem>styleItems=new Dictionary<string, ToolStripMenuItem>();
         private Theme _theme=new Theme();
         SoftAuthorize softAuthorize = new SoftAuthorize();
         private bool _regFlag = false;
@@ -44,7 +46,12 @@ namespace HPMS
         private ISwitch _switch;
         private INetworkAnalyzer _iAnalyzer;
         private Dictionary<string, plotData> _spec = new Dictionary<string, plotData>();//规格线
+
+        private FormUi _formUi = new FormUi();
+        private Dictionary<string,Dictionary<string,KeyPoint>> _keyPointValue=new Dictionary<string, Dictionary<string, KeyPoint>>();
+        private Dictionary<string,float[]>_keyPoint=new Dictionary<string, float[]>();
        
+
 
         public frmMain()
         {
@@ -56,14 +63,10 @@ namespace HPMS
            
             EnableGlass = false;
             InitializeComponent();
-            //Splasher.Status = "正在展示相关的内容";
-            //System.Threading.Thread.Sleep(3000);
-            //System.Threading.Thread.Sleep(50);
-
-            //Splasher.Close();
-            StyleMenuAdd();
-            LoadTheme();
+            GetThemeDic();
+            
             Gloabal.GRightsWrapper=new RightsWrapper();
+           
         }
 
 
@@ -81,19 +84,18 @@ namespace HPMS
             foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
         }
 
-        private void StyleMenuAdd()
-        {
-            foreach (eStyle suit in Enum.GetValues(typeof(eStyle)))
-            {
-                //添加菜单一 
-                ToolStripMenuItem subItem;
-                subItem = AddContextMenu(suit.ToString(), m_Set_Style.DropDownItems, StyleMenuClicked);
-                styleItems.Add(suit.ToString(), subItem);
-               }
 
-            ToolStripMenuItem subItemCustomer;
-            AddContextMenu("-", m_Set_Style.DropDownItems, null);
-            AddContextMenu("自定义", m_Set_Style.DropDownItems, StyleMenuClicked);
+        private void FastProfileAdd()
+        {
+            ToolStripMenuItem_Manual.Enabled = false;
+            ToolStripMenuItem_Auto.Checked = true;
+            List<string> fastProfile = Equipment.Util.GetFastProfile();
+            foreach (string profile in fastProfile)
+            {
+                ToolStripMenuItem subItem;
+                AddContextMenu(profile, ToolStripMenuItem_FastProfile.DropDownItems,
+                    FastProfileClicked);
+            }
         }
 
         private ToolStripMenuItem AddContextMenu(string text, ToolStripItemCollection cms, EventHandler callback)
@@ -116,20 +118,48 @@ namespace HPMS
 
             return null;
         }
-
-        private void StyleMenuClicked(object sender, EventArgs e)
+        private void FastProfileClicked(object sender, EventArgs e)
         {
-            var styleClickedItem = (ToolStripMenuItem) sender;
+            var styleClickedItem = (ToolStripMenuItem)sender;
+            ToolStripMenuItem parentItem = (ToolStripMenuItem)styleClickedItem.OwnerItem;
+            //bool fastProfileEnabled=toolStripMenuItem_ProfilePNEnable.Checked ;
+            foreach (var variable in parentItem.DropDownItems)
+            {
+                if (!(variable is ToolStripSeparator))
+                {
+                    ToolStripMenuItem childItem = (ToolStripMenuItem)variable;
+                    childItem.Checked = false;
+                }
+               
+            }
+            //SetBrotherMenuStatus(sender, false);
+            //toolStripMenuItem_ProfilePNEnable.Checked = fastProfileEnabled;
+            styleClickedItem.Checked = true;
+            MessageBox.Show(styleClickedItem.Text);
+        }
+
+
+      
+
+       
+        private void menuStyle_Click(object sender, EventArgs e)
+        {
+            var styleClickedItem = (ToolStripMenuItem)sender;
             var currentStyle = styleManager1.ManagerStyle;
-            if (styleClickedItem.Tag.ToString() == "自定义TAG")
+            
+            if (styleClickedItem.Tag.ToString() == "customerColor")
             {
                 if (colorDialog1.ShowDialog() == DialogResult.OK)
                 {
                     var color = colorDialog1.Color;
-                    StyleManager.ChangeStyle(currentStyle, color);
+                    if (StyleManager.IsMetro(currentStyle))
+                        StyleManager.MetroColorGeneratorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(Color.White, color);
+                    else
+                        StyleManager.ColorTint = color;
+                    //StyleManager.ChangeStyle(currentStyle, color);
                     _theme.EStyle = currentStyle;
                     _theme.Color = color.Name;
-                   
+                    _theme.Tag = styleClickedItem.Tag.ToString();
                     _theme.Customer = true;
                     LocalConfig.SaveTheme(_theme);
                 }
@@ -138,11 +168,25 @@ namespace HPMS
             {
                 styleItems[currentStyle.ToString()].Checked = false;
                 styleClickedItem.Checked = true;
-                styleManager1.ManagerStyle = (eStyle) Enum.Parse(typeof(eStyle), styleClickedItem.Text);
+                styleManager1.ManagerStyle = (eStyle)Enum.Parse(typeof(eStyle), styleClickedItem.Tag.ToString());
                 _theme.EStyle = styleManager1.ManagerStyle;
                 styleManager1.ManagerColorTint = Color.FromName("0");
                 _theme.Customer = false;
+                _theme.Tag = styleClickedItem.Tag.ToString();
                 LocalConfig.SaveTheme(_theme);
+            }
+        }
+
+        private void GetThemeDic()
+        {
+            foreach (var VARIABLE in Skin_ToolStripMenuItem.DropDownItems)
+            {
+                if (!(VARIABLE is ToolStripSeparator))
+                {
+                    ToolStripMenuItem temp = (ToolStripMenuItem)VARIABLE;
+                    styleItems.Add(temp.Tag.ToString(), temp);
+                }
+              
             }
         }
 
@@ -155,10 +199,18 @@ namespace HPMS
             }
             if (_theme.Customer)
             {
-                StyleManager.ChangeStyle(_theme.EStyle, Color.FromName(_theme.Color));
+                styleItems[_theme.Tag].Checked = true;
+                styleManager1.ManagerStyle = _theme.EStyle;
+                if (StyleManager.IsMetro(_theme.EStyle))
+                    StyleManager.MetroColorGeneratorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(Color.White, Color.FromName(_theme.Color));
+                else
+                    StyleManager.ColorTint = Color.FromName(_theme.Color);
+                //StyleManager.ChangeStyle(_theme.EStyle, Color.FromName(_theme.Color));
+                //StyleManager.ColorTint = Color.FromName(_theme.Color);
             }
             else
             {
+                styleItems[_theme.Tag].Checked = true;
                 styleManager1.ManagerStyle = _theme.EStyle;
             }
         }
@@ -237,8 +289,11 @@ namespace HPMS
         private void frmMain_Load(object sender, EventArgs e)
         {
             RegisterLoginCheck();
+            LoadTheme();
             SetStatusBar();
-
+            SetUiAction();
+            FastProfileAdd();
+            //lsvKeyPointSet();
         }
 
         /// <summary>
@@ -343,12 +398,155 @@ namespace HPMS
             Action<int, bool> progressDisplay = SetProgress;
             SITest siTest = new SITest(_switch, _iAnalyzer);
             AddStatus("测试开始");
-            siTest.DoTest(_testConfigs, chartDic, _aChart, addAction, progressDisplay, "B:", _spec);
-
+            Savepath savepath=new Savepath();
+            if (!SetTestFilePath(ref savepath))
+            {
+                return;
+            }
+            ControlSafe.SetcontrolEnable(btnTest,false);
+            ControlSafe.ClearListview(lsvKeyPoint);
+            siTest.DoTest(_testConfigs, chartDic, _aChart, _formUi, _spec,_keyPoint, savepath);
+            ControlSafe.SetcontrolEnable(btnTest, true);
         }
-     
-     
 
+        private bool SetTestFilePath(ref Savepath savepath)
+        {
+            if (txtSN.Text.Trim() == "")
+            {
+                AddStatus("SN不能为空");
+                UI.MessageBoxMuti("SN为空,请输入SN");
+                return false;
+            }
+            else
+            {
+                string pn = Util.Convert.SlashRepalce(txt_PN.Text.Trim());
+                string sn=Util.Convert.SlashRepalce(txtSN.Text.Trim());
+                savepath.SnpFilePath = _hardware.SnpFolder + "\\" + pn + "\\" + sn;
+                savepath.TxtFilePath = _hardware.TxtFolder + "\\" + pn + "\\" + sn;
+
+                Directory.CreateDirectory(savepath.SnpFilePath);
+                Directory.CreateDirectory(savepath.TxtFilePath);
+                return true;
+            }
+        }
+
+        private void SetKeyPoint()
+        {
+            float[] SDD21 = new[] { 120000000f, 130000000f, 140000000f, 150000000f };
+            float[] SDD11 = new[] { 120000000f, 130000000f, 140000000f, 150000000f };
+            _keyPoint.Add("SDD21",SDD21);
+            _keyPoint.Add("SDD11", SDD11);
+        }
+
+        private delegate void SetKeyPointListCallback(Dictionary<string, List<PairData>> keyValue);
+        private void SetKeyPointList(Dictionary<string, List<PairData>> keyValue)
+        {
+            if (lsvKeyPoint.InvokeRequired)
+            {
+                SetKeyPointListCallback d=new SetKeyPointListCallback(SetKeyPointList);
+                this.BeginInvoke(d, new object[] { keyValue });
+            }
+            else
+            {
+                
+                lsvKeyPoint.BeginUpdate();
+                foreach (var variable in keyValue)
+                {
+                    ListViewGroup tempGroup = new ListViewGroup();
+                    tempGroup.Header = variable.Key;
+                    this.lsvKeyPoint.Groups.Add(tempGroup);
+                    foreach (var pairItem in variable.Value)
+                    {
+                        int length = pairItem.XData.Length;
+                        for (int i = 0; i < length; i++)
+                        {
+                            ListViewItem lvi = new ListViewItem();
+                            lvi.SubItems.Add(pairItem.PairName);
+                            lvi.SubItems.Add(pairItem.XData[i].ToString());
+                            lvi.SubItems.Add(pairItem.YData[i].ToString());
+                            tempGroup.Items.Add(lvi);
+                            this.lsvKeyPoint.Items.Add(lvi);
+                        }
+                    }
+                }
+                lsvKeyPoint.EndUpdate();
+            }
+        }
+
+        private void lsvKeyPointSet()
+        {
+            this.lsvKeyPoint.BeginUpdate();  //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度 
+
+
+
+            ListViewGroup man_lvg = new ListViewGroup();  //创建男生分组
+
+            man_lvg.Header = "男生";  //设置组的标题。
+
+            //man_lvg.Name = "man";   //设置组的名称。
+
+            man_lvg.HeaderAlignment = HorizontalAlignment.Left;   //设置组标题文本的对齐方式。（默认为Left）
+
+            ListViewGroup women_lvg = new ListViewGroup();  //创建女生分组
+
+            women_lvg.Header = "女生";
+
+            //women_lvg.Name = "women";
+
+            women_lvg.HeaderAlignment = HorizontalAlignment.Center;   //组标题居中对齐
+
+            this.lsvKeyPoint.Groups.Add(man_lvg);    //把男生分组添加到listview中
+
+            this.lsvKeyPoint.Groups.Add(women_lvg);   //把男生分组添加到listview中
+
+            this.lsvKeyPoint.ShowGroups = true;  //记得要设置ShowGroups属性为true（默认是false），否则显示不出分组
+
+            for (int i = 0; i < 5; i++)
+            {
+                ListViewItem lvi = new ListViewItem();
+
+                lvi.ImageIndex = i;
+
+                lvi.Text = "item" + i;
+
+                lvi.ForeColor = Color.Blue;  //设置行颜色
+
+                lvi.SubItems.Add("第2列,第" + i + "行");
+
+                lvi.SubItems.Add("第3列,第" + i + "行");
+
+                man_lvg.Items.Add(lvi);   //分组添加子项
+                //women_lvg.Items.Add(lvi);   //分组添加子项
+
+                // 或 lvi.Group = man_lvg;  //分组添加子项
+
+                this.lsvKeyPoint.Items.Add(lvi);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                ListViewItem lvi = new ListViewItem();
+
+                lvi.ImageIndex = i;
+
+                lvi.Text = "item" + i;
+
+                lvi.ForeColor = Color.Blue;  //设置行颜色
+
+                lvi.SubItems.Add("第2列,第" + i + "行");
+
+                lvi.SubItems.Add("第3列,第" + i + "行");
+
+               // man_lvg.Items.Add(lvi);   //分组添加子项
+                women_lvg.Items.Add(lvi);   //分组添加子项
+
+                // 或 lvi.Group = man_lvg;  //分组添加子项
+
+                this.lsvKeyPoint.Items.Add(lvi);
+            }
+
+
+            this.lsvKeyPoint.EndUpdate();
+        }
       
 
 
@@ -418,18 +616,23 @@ namespace HPMS
             _spec = TestUtil.GetPnSpec(_curretnProject);
             ClearTestItems();
             DisplayTestItems();
+            
             AddCharts();
+            SetKeyPoint();
             btnTest.Enabled = true;
         }
 
-       
+        private void testDemo(object sender,EventArgs e)
+        {
+            MessageBox.Show("a");
+        }
 
 
         private void AddCharts()
         {
             chartDic.Clear();
 
-            _aChart = new ZedAChart(this.tabControlChart);
+            _aChart = new VsAChart(this.tabControlChart);
             _aChart.ChartClear();
             foreach (var VARIABLE in _testConfigs)
             {
@@ -478,6 +681,76 @@ namespace HPMS
             }
         }
 
+
+        private void SetUiAction()
+        {
+            _formUi.AddStatus = AddStatus;
+            _formUi.ProgressDisplay = SetProgress;
+            _formUi.SetCheckItem = SetCheckItem;
+            _formUi.SetResult = SetResult;
+            _formUi.SetKeyPointList = SetKeyPointList;
+        }
+
+        private delegate void SetCheckItemCallback(string itemName, ClbType clbType);
+        private void SetCheckItem(string itemName,ClbType clbType)
+        {
+            CheckedListBox targetCheckedListBox=new CheckedListBox();
+            switch (clbType)
+            {
+                case ClbType.TestItem:
+                    targetCheckedListBox = chkList_TestItem;
+                    break;
+                case ClbType.DiffPair:
+                    targetCheckedListBox = chkList_LossPair;
+                    break;
+                case ClbType.NextPair:
+                    targetCheckedListBox = chkList_NextPair;
+                    break;
+                case ClbType.FextPair:
+                    targetCheckedListBox = chkList_FextPair;
+                    break;
+            }
+            if (targetCheckedListBox.InvokeRequired)
+            {
+                SetCheckItemCallback d = new SetCheckItemCallback(SetCheckItem);
+                this.Invoke(d, new object[] { itemName, clbType });
+            }
+            else
+            {
+                int index = targetCheckedListBox.FindString(itemName);
+                targetCheckedListBox.SelectedIndex = index;
+                Extende.SelectTab(targetCheckedListBox);
+            }
+
+        }
+
+        private delegate void SetResultCallback(string msg);
+        private void SetResult(string msg)
+        {
+            if (labelResult.InvokeRequired)
+            {
+                SetResultCallback d = new SetResultCallback(SetResult);
+                this.Invoke(d, new object[] { msg });
+            }
+            else
+            {
+                labelResult.Text = msg;
+                if (msg == "TEST")
+                {
+                    labelResult.ForeColor=Color.Blue;
+                }
+                if (msg == "PASS")
+                {
+                    labelResult.ForeColor = Color.Green;
+                }
+                if (msg == "FAIL")
+                {
+                    labelResult.ForeColor = Color.Red;
+                }
+            }
+        }
+
+
         private delegate void SetaddStatusCallback(string msg);
         private void AddStatus(string msg)
         {
@@ -488,7 +761,7 @@ namespace HPMS
             }
             else
             {
-                rTextStatus.AppendText(Convert.formatMsg(msg) + "\n");
+                rTextStatus.AppendText(Convert.FormatMsg(msg) + "\n");
             }
 
         }
@@ -533,6 +806,54 @@ namespace HPMS
                 PnChangeHandle(txt_PN.Text.Trim(), false);
             }
         }
+
+        private void ToolStripMenuItem_ProfileMode_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem[] profileModeItems = new[] {ToolStripMenuItem_PNProfile, ToolStripMenuItem_FastProfile};
+            ToolStripMenuItem_FastProfile.Checked = !ToolStripMenuItem_FastProfile.Checked;
+            foreach (var variable in profileModeItems)
+            {
+                variable.Checked = false;
+            }
+
+            ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem) sender;
+            clickedMenuItem.Checked = true;
+            SetChildMenuEnable(ToolStripMenuItem_FastProfile, clickedMenuItem.Name == "ToolStripMenuItem_FastProfile");
+           
+        }
+
+
+        /// <summary>
+        /// 设置菜单的兄弟节点check状态，也包括自身
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="status"></param>
+        private void SetBrotherMenuStatus(object sender, bool status)
+        {
+            var styleClickedItem = (ToolStripMenuItem)sender;
+            ToolStripMenuItem parentItem = (ToolStripMenuItem)styleClickedItem.OwnerItem;
+            foreach (var variable in parentItem.DropDownItems)
+            {
+                ToolStripMenuItem childItem = (ToolStripMenuItem)variable;
+                childItem.Checked = status;
+            }
+        }
+
+        /// <summary>
+        /// 设置菜单的子节点启用状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="status"></param>
+        private void SetChildMenuEnable(object sender, bool status)
+        {
+            ToolStripMenuItem parentItem = (ToolStripMenuItem)sender;
+            foreach (var variable in parentItem.DropDownItems)
+            {
+                ToolStripMenuItem childItem = (ToolStripMenuItem)variable;
+                childItem.Enabled = status;
+            }
+        }
+      
 
        
 

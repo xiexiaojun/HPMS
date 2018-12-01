@@ -28,6 +28,7 @@ namespace HPMS.Core
         public List<Pair> Pairs { set; get; }
         public ItemType ItemType { set; get; }
         public List<TdrParam>TdrParams { set; get; }
+        public Dictionary<string,float[]>KeyPoint { set; get; }
     }
 
     /// <summary>
@@ -44,16 +45,45 @@ namespace HPMS.Core
     /// </summary>
     public struct FormUi
     {
-        public Action<string> AddAction;
+        public Action<string> AddStatus;
         public Action<int, bool> ProgressDisplay;
+        public Action<string, ClbType> SetCheckItem;
+        public Action<string> SetResult;
+        public Action<Dictionary<string, List<PairData>>> SetKeyPointList;
 
     }
 
+    /// <summary>
+    /// 文件路径保存设定
+    /// </summary>
+    public struct Savepath
+    {
+        public string SnpFilePath;
+        public string TxtFilePath;
+    }
+
+    /// <summary>
+    /// checklistbox 项目分类
+    /// </summary>
+    public enum ClbType
+    {
+        TestItem,
+        DiffPair,
+        NextPair,
+        FextPair
+    }
     public struct Pair
     {
         public string PairName;
         public byte[] SwitchIndex;
         public int ProgressValue;
+    }
+
+    public struct KeyPoint
+    {
+        public double[] X;
+        public double[] Y;
+
     }
 
     public class TestUtil

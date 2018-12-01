@@ -35,26 +35,7 @@ namespace HPMS.Equipment
             return ret;
         }
 
-        //public static visaResource[] getVisaList()
-        //{
-        //    Ivi.Visa.Interop.ResourceManager resourceManager = new Ivi.Visa.Interop.ResourceManager();
-        //    string[] temp = resourceManager.FindRsrc("?*");
-        //    visaResource[] visaList = new visaResource[temp.Length];
-        //    for (int i = 0; i < temp.Length; i++)
-        //    {
-        //        short pInterfaceType = 0;
-        //        short pInterfaceNumber = 0;
-        //        string pSessionType = "";
-        //        string pUnaliasedExpandedResourceName = "";
-        //        string pAliasIfExists = "";
-        //        resourceManager.ParseRsrcEx(temp[i], ref  pInterfaceType,
-        //            ref  pInterfaceNumber, ref  pSessionType,
-        //            ref  pUnaliasedExpandedResourceName, ref  pAliasIfExists);
-        //        visaList[i].visaName = pUnaliasedExpandedResourceName;
-        //        visaList[i].aliasName = pAliasIfExists;
-        //    }
-        //    return visaList;
-        //}
+  
 
         /// <summary>
         /// 返回串口列表
@@ -290,6 +271,21 @@ namespace HPMS.Equipment
             }
 
 
+        }
+
+        /// <summary>
+        /// 获取快捷档案配置，如QSFP等
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetFastProfile()
+        {
+            string fastProfilePath = "fastProfile";
+            if (!Directory.Exists(fastProfilePath))
+            {
+                return new List<string>();
+            }
+            DirectoryInfo fPDirectoryInfo=new DirectoryInfo(fastProfilePath);
+            return fPDirectoryInfo.GetFiles().Select(t => Path.GetFileNameWithoutExtension(t.FullName)).ToList();
         }
     }
 }

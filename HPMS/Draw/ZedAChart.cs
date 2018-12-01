@@ -89,7 +89,7 @@ namespace HPMS.Draw
             }
             else
             {
-
+                
 
                 PointPairList list = new PointPairList();
                 //int length = temp.xData.Length;
@@ -103,22 +103,28 @@ namespace HPMS.Draw
                 // Generate a blue curve with circle symbols, and "My Curve 2" in the legend
                 LineItem myCurve1 =
                     new LineItem(seriName, temp.xData.Select(x => (double)x).ToArray(), temp.yData.Select(x => (double)x).ToArray(),
-                        lineType == LineType.Spec ? Color.Red : GetRandomColor(), SymbolType.None, 0.1f);
+                        lineType == LineType.Spec ? Color.Red : GetRandomColor(), SymbolType.None, 1.5f);
                 myCurve1.Line.IsSmooth = true;
+                myCurve1.Line.IsAntiAlias = true;
                 myCurve1.Line.SmoothTension = 0.1F;
                 myCurve1.Line.GradientFill.Type = FillType.Brush;
                 myPane.CurveList.Add(myCurve1);
                 // myPane.AddCurve(seriName, temp.xData.Select(x => (double)x).ToArray(), temp.yData.Select(x => (double)x).ToArray(), lineType == LineType.Spec ? Color.Red : Util.getRandomColor(), SymbolType.None);
 
                 myPane.Legend.Position = LegendPos.InsideBotRight;
-
-
+                //chart.Font = new System.Drawing.Font("Consolas", 20.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                myPane.Legend.FontSpec.Family = "Consolas";
+               // myPane.Legend.FontSpec.Size = 25;
+             
+               
 
                 chart.AxisChange();
                 //chart.IsAntiAlias = true;
                 chart.Refresh();
             }
         }
+
+        
 
         public override void DrawSpec(string itemName, Dictionary<string, plotData> spec, object tChart)
         {

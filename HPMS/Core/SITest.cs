@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Threading;
 
 using HPMS.Config;
@@ -16,20 +18,26 @@ namespace HPMS.Core
     {
         public Dictionary<string, object> ChartDic;
         public AChart AChart;
-        public Action<string> AddStatus;
-        public Action<int, bool> DisplayProgress;
+        public FormUi FormUi;
         public TestConfig[] TestConfigs;
         public Dictionary<string, plotData> Spec;
-     
+        public string SaveTxtPath;
+
     }
 
     public struct ProducerParams
     {
-        public Action<int, bool> DisplayProgress;
-        public Action<string> AddStatus;
+        public FormUi FormUi;
         public TestConfig[] TestConfigs;
         public string TestDataPath;
      
+    }
+
+    public struct PairData
+    {
+        public string PairName;
+        public float[] YData;
+        public float[] XData;
     }
     public class SITest
     {
@@ -42,7 +50,8 @@ namespace HPMS.Core
         //private Semaphore TaskSemaphore = new Semaphore(0, 1);
         private bool stop = false;
 
-        private Dictionary<string, List<float[]>> _testData=new Dictionary<string, List<float[]>>();
+        private Dictionary<string, List<PairData>> _testData = new Dictionary<string, List<PairData>>();
+        private Dictionary<string,Dictionary<string,bool>>_testResult=new Dictionary<string, Dictionary<string, bool>>();
         public Dictionary<string,string>_specLine=new Dictionary<string, string>();
 
 
@@ -64,55 +73,113 @@ namespace HPMS.Core
             
         }
 
+        private void InsertTestData(plotData plotData,string testItem,string pairName)
+        {
+            if (_testData.ContainsKey(testItem))
+            {
+                PairData pairData=new PairData();
+                pairData.YData = plotData.yData;
+                pairData.XData = plotData.xData;
+                pairData.PairName = pairName;
+                _testData[testItem].Add(pairData);
+                //cpParams.addStatus(testItem + ":num:" + _testData[testItem].Count);
+            }
+            else
+            {
+                List<PairData> temps = new List<PairData>();
+                PairData pairData = new PairData();
+                pairData.YData = plotData.yData;
+                pairData.XData = plotData.xData;
+                pairData.PairName = pairName;
+                temps.Add(pairData);
+                _testData.Add(testItem, temps);
+            }
+        }
+
+        private void DrawSpec(string testItem, ConsumerParams cpParams, object tempChart)
+        {
+            if (!_specLine.ContainsKey(testItem + "_UPPER"))
+            {
+                _specLine.Add(testItem + "_UPPER", testItem + "_UPPER");
+                if (cpParams.Spec.ContainsKey(testItem + "_UPPER"))
+                {
+                    cpParams.AChart.DrawLine(tempChart, cpParams.Spec[testItem + "_UPPER"], "UPPER", LineType.Spec);
+                }
+
+            }
+            if (!_specLine.ContainsKey(testItem + "_LOWER"))
+            {
+                _specLine.Add(testItem + "_LOWER", testItem + "_LOWER");
+                if (cpParams.Spec.ContainsKey(testItem + "_LOWER"))
+                {
+                    cpParams.AChart.DrawLine(tempChart, cpParams.Spec[testItem + "_LOWER"], "LOWER", LineType.Spec);
+                }
+            }
+        }
+
+        private void InsertTestJudge(string testItem,bool result,TaskSnp taskSnp)
+        {
+            if (_testResult.ContainsKey(testItem))
+            {
+                _testResult[testItem].Add(taskSnp.PairName, result);
+            }
+            else
+            {
+                Dictionary<string, bool> tResult = new Dictionary<string, bool>();
+                tResult.Add(taskSnp.PairName, result);
+                _testResult.Add(testItem, tResult);
+            }
+        }
+
         private void Analyze(TaskSnp taskSnp, ConsumerParams cpParams)
         {
        
             SNP temp = new SNP(taskSnp.SnpPath, SNPPort.X1234);
             Thread.Sleep(3000);
-            double[] tempValue=new double[2000];
-            for (int i = 0; i < 2000; i++)
-            {
-                tempValue[i] = 0;
-            }
+           
             foreach (var testItem in taskSnp.AnalyzeItem)
             {
                 object tempChart = cpParams.ChartDic[testItem];
                 plotData plotData = GetPlotdata(temp, testItem, taskSnp.ItemType, cpParams);
-                LineType lineType = testItem.StartsWith("TDD") ? LineType.Time : LineType.Fre;
-                if (_testData.ContainsKey(testItem))
-                {
+                string savePath = cpParams.SaveTxtPath + "\\" + testItem + ".txt";
+                SaveTxt(plotData,savePath);
+                cpParams.FormUi.AddStatus(savePath + "写入成功");
 
-                    _testData[testItem].Add(plotData.xData);
-                    //cpParams.addStatus(testItem + ":num:" + _testData[testItem].Count);
-                }
-                else
-                {
-                    List<float[]> temps = new List<float[]>();
-                    temps.Add(plotData.xData);
-                    _testData.Add(testItem, temps);
-                }
-                if (!_specLine.ContainsKey(testItem + "_UPPER"))
-                {
-                    _specLine.Add(testItem + "_UPPER", testItem + "_UPPER");
-                    if (cpParams.Spec.ContainsKey(testItem + "_UPPER"))
-                    {
-                        cpParams.AChart.DrawLine(tempChart, cpParams.Spec[testItem + "_UPPER"], testItem + "_UPPER", lineType);
-                    }
-                    
-                }
-                if (!_specLine.ContainsKey(testItem + "_LOWER"))
-                {
-                    _specLine.Add(testItem + "_LOWER", testItem + "_LOWER");
-                    if (cpParams.Spec.ContainsKey(testItem + "_LOWER"))
-                    {
-                        cpParams.AChart.DrawLine(tempChart, cpParams.Spec[testItem + "_LOWER"], testItem + "_LOWER", lineType);
-                    }
-                }
+                InsertTestData(plotData, testItem, taskSnp.PairName);
 
+                DrawSpec(testItem, cpParams, tempChart);
+                bool result = HPMS.Util.Convert.Judge(cpParams.Spec, plotData, testItem);
+                cpParams.FormUi.AddStatus(testItem + " " + taskSnp.PairName + ":" + (result ? "PASS" : "Fail"));
+                InsertTestJudge(testItem, result, taskSnp);
 
-                
+                cpParams.FormUi.SetCheckItem(testItem, ClbType.TestItem);
+                cpParams.AChart.DrawLine(tempChart, plotData, taskSnp.PairName, testItem.StartsWith("TDD") ? LineType.Time : LineType.Fre);
 
-                cpParams.AChart.DrawLine(tempChart, plotData, testItem + taskSnp.PairName, lineType);
+            }
+        }
+
+        private void SaveTxt(plotData plotData,string saveFilePath)
+        {
+            if (File.Exists(saveFilePath))
+            {
+                var allLines = File.ReadAllLines(saveFilePath);
+                int length = allLines.Length;
+                string[]addedLines=new string[length];
+                for (int i = 0; i < length; i++)
+                {
+                    addedLines[i] = allLines[i] + "\t" + plotData.yData[i];
+                }
+                File.WriteAllLines(saveFilePath,addedLines);
+            }
+            else
+            {
+                int length = plotData.xData.Length;
+                string[] addedLines = new string[length];
+                for (int i = 0; i < length; i++)
+                {
+                    addedLines[i] = plotData.xData[i] + "\t" + plotData.yData[i];
+                }
+                File.WriteAllLines(saveFilePath, addedLines);
 
             }
         }
@@ -170,28 +237,89 @@ namespace HPMS.Core
         }
 
         public void DoTest(TestConfig[] testConfigs,Dictionary<string, object> chartDic, 
-            AChart _aChart, Action<string> addStatus, Action<int, bool> progressDisplay,string testDataPath, Dictionary<string, plotData> spec)
+            AChart _aChart, FormUi formUi,Dictionary<string, plotData> spec, Dictionary<string,float[]>keyPoint,Savepath savepath)
         {
             System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            progressDisplay(0, false);
-            addStatus("测试开始");
+            formUi.ProgressDisplay(0, false);
+            formUi.AddStatus("测试开始");
+            formUi.SetResult("TEST");
             _testData.Clear();
+            _testResult.Clear();
             _specLine.Clear();
             chartDic.ForEach(t =>
             {
-                addStatus("清除图形"+t.Key);
+                formUi.AddStatus("清除图形" + t.Key);
                 _aChart.ChartClear(t.Value);
             });
-            StartProducer(testConfigs, addStatus, progressDisplay, testDataPath);
+            StartProducer(testConfigs, formUi, savepath.SnpFilePath);
             Thread.Sleep(2000);
-            StartConsumer(testConfigs, chartDic, _aChart, addStatus, progressDisplay, spec);
-          
-          
+            StartConsumer(testConfigs, chartDic, _aChart, formUi, spec, savepath.TxtFilePath);
+
+            SetTestResult(formUi.AddStatus,formUi.SetResult);
+            var aa = GetKeyValue(keyPoint);
+            formUi.SetKeyPointList(aa);
             stopwatch.Stop(); //  停止监视
             TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
-            addStatus("测试用时:" + timespan.TotalMilliseconds.ToString());
+            formUi.AddStatus("测试用时:" + timespan.TotalSeconds);
            
+        }
+
+        private Dictionary<string, List<PairData>>  GetKeyValue(Dictionary<string, float[]> keyPoint)
+        {
+            Dictionary<string, List<PairData>> testItemData = new Dictionary<string, List<PairData>>();
+            foreach (var testItem in keyPoint)
+            {
+                if (_testData.ContainsKey(testItem.Key))
+                {
+                    List<PairData> temp = _testData[testItem.Key];
+                    List<PairData>testItemPairData=new List<PairData>();
+                    foreach (var pair in temp)
+                    {
+                        PairData keyPairData = GetPair(pair, testItem.Value);
+                        testItemPairData.Add(keyPairData);
+                    }
+                    testItemData.Add(testItem.Key, testItemPairData);
+                }
+            }
+
+            return testItemData;
+        }
+
+        private PairData GetPair(PairData source,float[]keyPoint)
+        {
+            PairData ret=new PairData();
+            int length = keyPoint.Length;
+            float[]valueY=new float[length];
+            for (int i = 0; i < length; i++)
+            {
+                int findedIndex = FindIndex(source.XData, keyPoint[i]);
+                valueY[i] = source.YData[findedIndex];
+            }
+
+            ret.PairName = source.PairName;
+            ret.XData = keyPoint;
+            ret.YData = valueY;
+            return ret;
+        }
+
+        private int FindIndex(float[] data, float value)
+        {
+            return Convert.ToInt32((value - data[0]) / (data[1] - data[0]));
+        }
+
+        private void SetTestResult(Action<string> addStatus,Action<string>setResult)
+        {
+            bool TotalResult = true;
+            foreach (var variable in _testResult)
+            {
+               bool result= variable.Value.Select(t => t.Value).Aggregate((a, b) => a && b);
+               addStatus(variable.Key + ":" + (result ? "PASS" : "FAIL"));
+                TotalResult = TotalResult && result;
+            }
+
+            addStatus("Test result:" + (TotalResult ? "PASS" : "FAIL"));
+            setResult(TotalResult ? "PASS" : "FAIL");
         }
 
         private string GetSnpPath(string parentFolder,string pair,ItemType itemType)
@@ -218,28 +346,32 @@ namespace HPMS.Core
             ProducerParams producerParams = (ProducerParams)action;
             bool multiChannel = false;
             bool nextByTrace = false;
+            ClbType clbType = ClbType.TestItem;
             foreach (TestConfig testConfig in producerParams.TestConfigs)
             {
                 switch (testConfig.ItemType)
                 {
                     case ItemType.Loss:
-                        producerParams.AddStatus("直通测试开始");
+                        producerParams.FormUi.AddStatus("直通测试开始");
                         multiChannel = true;
+                        clbType = ClbType.DiffPair;
                         break;
                     case ItemType.Next:
-                        producerParams.AddStatus("近串测试开始");
+                        producerParams.FormUi.AddStatus("近串测试开始");
                         nextByTrace = true;
+                        clbType = ClbType.NextPair;
                         break;
                     case ItemType.Fext:
-                        producerParams.AddStatus("远串测试开始");
+                        producerParams.FormUi.AddStatus("远串测试开始");
                         nextByTrace = true;
+                        clbType = ClbType.FextPair;
                         break;
                 }
 
                 int pairIndex = 0;
                 foreach (Pair pair in testConfig.Pairs)
                 {
-                    producerParams.AddStatus(pair.PairName+":start");
+                    producerParams.FormUi.AddStatus(pair.PairName + ":start");
                     TaskSnp task=new TaskSnp();
                     task.ItemType = testConfig.ItemType;
                     task.SnpPath = GetSnpPath(producerParams.TestDataPath, pair.PairName, testConfig.ItemType);
@@ -249,8 +381,9 @@ namespace HPMS.Core
                     
                     string switchMsg = "";
                     _analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex,pairIndex,multiChannel,nextByTrace, ref switchMsg);
-                    producerParams.AddStatus("SNP 文件生成成功 路径:" + task.SnpPath);
-                    producerParams.DisplayProgress(pair.ProgressValue, true);
+                    producerParams.FormUi.SetCheckItem(pair.PairName, clbType);
+                    producerParams.FormUi.AddStatus("SNP 文件生成成功 路径:" + task.SnpPath);
+                    producerParams.FormUi.ProgressDisplay(pair.ProgressValue, true);
                     lock (myLock)
                     {
                         TaskQueue.Enqueue(task);
@@ -269,34 +402,38 @@ namespace HPMS.Core
             //TaskSemaphore.Release(1);
         }
 
-        private void StartProducer(TestConfig[] testConfigs,Action<string> addStatus, Action<int, bool> progressDisplay,string testDataPath)
+        private void StartProducer(TestConfig[] testConfigs, FormUi formUi, string testDataPath)
         {
             ProducerParams producerParams=new ProducerParams();
             Thread t = new Thread(new ParameterizedThreadStart(Producer));
             producerParams.TestConfigs = testConfigs;
-            producerParams.AddStatus = addStatus;
-            producerParams.DisplayProgress = progressDisplay;
+            producerParams.FormUi = formUi;
             producerParams.TestDataPath = testDataPath;
             t.Start(producerParams);
            
         }
 
         private void StartConsumer(TestConfig[] testConfigs,Dictionary<string, object> chartDic,
-            AChart _aChart, Action<string> addStatus, Action<int, bool> progressDisplay, Dictionary<string, plotData> spec)
+            AChart _aChart, FormUi formUi, Dictionary<string, plotData> spec, string saveTxtPath)
         {
             ConsumerParams cpParams=new ConsumerParams();
             cpParams.ChartDic = chartDic;
             cpParams.AChart = _aChart;
             cpParams.TestConfigs = testConfigs;
-            cpParams.AddStatus = addStatus;
-            cpParams.DisplayProgress = progressDisplay;
+            cpParams.FormUi = formUi;
             cpParams.Spec = spec;
+            cpParams.SaveTxtPath = saveTxtPath+"\\"+"TXT";
+            if (Directory.Exists(cpParams.SaveTxtPath))
+            {
+                Directory.Delete(cpParams.SaveTxtPath,true);
+            }
+            Directory.CreateDirectory(cpParams.SaveTxtPath);
             Thread t = new Thread(new ParameterizedThreadStart(this.Consumer));
                t.IsBackground = true;
                t.Start(cpParams);
             t.Join();
-            addStatus("测试结束");
-            progressDisplay(300, false);
+            formUi.AddStatus("测试结束");
+            formUi.ProgressDisplay(300, false);
 
         }
 
@@ -324,8 +461,8 @@ namespace HPMS.Core
                         }
                         Analyze(GetTask, cpParams);
                         
-                        cpParams.AddStatus("分析SNP文件:" + GetTask.SnpPath + "完毕");
-                        cpParams.DisplayProgress(GetTask.ProgressValue, true);
+                        cpParams.FormUi.AddStatus("分析SNP文件:" + GetTask.SnpPath + "完毕");
+                        cpParams.FormUi.ProgressDisplay(GetTask.ProgressValue, true);
                     }
                 }
                 

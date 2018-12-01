@@ -220,6 +220,7 @@
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx1.Controls.Add(this.itemPanel_category);
             this.panelEx1.Controls.Add(this.labelX1);
+            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
@@ -241,9 +242,11 @@
             this.itemPanel_category.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.itemPanel_category.ContainerControlProcessDialogKey = true;
             this.itemPanel_category.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.itemPanel_category.DragDropSupport = true;
             this.itemPanel_category.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
             this.itemPanel_category.Location = new System.Drawing.Point(0, 21);
             this.itemPanel_category.Name = "itemPanel_category";
+            this.itemPanel_category.ReserveLeftSpace = false;
             this.itemPanel_category.Size = new System.Drawing.Size(164, 494);
             this.itemPanel_category.TabIndex = 1;
             this.itemPanel_category.Text = "itemPanel1";
@@ -473,6 +476,7 @@
             this.panelEx2.Controls.Add(this.labelX46);
             this.panelEx2.Controls.Add(this.labelX45);
             this.panelEx2.Controls.Add(this.labelX44);
+            this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx2.Location = new System.Drawing.Point(3, 3);
             this.panelEx2.Name = "panelEx2";
@@ -617,6 +621,7 @@
             this.panelEx3.Controls.Add(this.chkList_Single);
             this.panelEx3.Controls.Add(this.labelX7);
             this.panelEx3.Controls.Add(this.chkList_Diff);
+            this.panelEx3.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx3.Location = new System.Drawing.Point(3, 3);
             this.panelEx3.Name = "panelEx3";
@@ -1068,6 +1073,7 @@
             this.panelEx4.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx4.Controls.Add(this.tableLayoutPanel1);
+            this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx4.Location = new System.Drawing.Point(3, 3);
             this.panelEx4.Name = "panelEx4";
@@ -1113,6 +1119,7 @@
             this.panelEx5.Controls.Add(this.labelX15);
             this.panelEx5.Controls.Add(this.tableLayoutPanel2);
             this.panelEx5.Controls.Add(this.labelX10);
+            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx5.Location = new System.Drawing.Point(3, 3);
             this.panelEx5.Name = "panelEx5";
@@ -1536,6 +1543,7 @@
             this.panelEx6.Controls.Add(this.tableLayoutPanel4);
             this.panelEx6.Controls.Add(this.chkTdr2Same);
             this.panelEx6.Controls.Add(this.labelX16);
+            this.panelEx6.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx6.Location = new System.Drawing.Point(3, 184);
             this.panelEx6.Name = "panelEx6";
@@ -1964,6 +1972,7 @@
             this.panelEx8.Controls.Add(this.labelX40);
             this.panelEx8.Controls.Add(this.cmb_ILDSpec);
             this.panelEx8.Controls.Add(this.labelX39);
+            this.panelEx8.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx8.Location = new System.Drawing.Point(3, 365);
             this.panelEx8.Name = "panelEx8";
