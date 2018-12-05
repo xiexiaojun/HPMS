@@ -45,6 +45,14 @@ namespace HPMS.Draw
             //chart.Width = 999;
             //chart.Height = 336;
             chart.Location = new Point(4, 0);
+            if (testItem.StartsWith("T"))
+            {
+                chart.GetToolTipText += chart_GetToolTipTextTime;
+            }
+            else
+            {
+                chart.GetToolTipText += chart_GetToolTipTextFre;
+            }
            
 
 
@@ -110,6 +118,39 @@ namespace HPMS.Draw
             return chart;
         }
 
+        private void chart_GetToolTipTextTime(object sender, ToolTipEventArgs e)
+        {
+            //判断鼠标是否移动到数据标记点，是则显示提示信息
+            if (e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                int i = e.HitTestResult.PointIndex;
+                DataPoint dp = e.HitTestResult.Series.Points[i];
+                //分别显示x轴和y轴的数值，其中{1:F3},表示显示的是float类型，精确到小数点后3位。                     
+                e.Text = string.Format("time:{0:F2}ns\nimpedance:{1:F2}Ω ", dp.XValue, dp.YValues[0]);
+
+            
+            }
+
+          
+        }
+
+        private void chart_GetToolTipTextFre(object sender, ToolTipEventArgs e)
+        {
+            //判断鼠标是否移动到数据标记点，是则显示提示信息
+            if (e.HitTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                int i = e.HitTestResult.PointIndex;
+                DataPoint dp = e.HitTestResult.Series.Points[i];
+                //分别显示x轴和y轴的数值，其中{1:F3},表示显示的是float类型，精确到小数点后3位。                     
+                e.Text = string.Format("fre:{0:F2}Ghz\nloss:{1:F2}dB ", dp.XValue/1000000000, dp.YValues[0]);
+
+
+            }
+
+
+        }
+
+
         private void chart_MouseDown(object sender, MouseEventArgs e)
         {
             Chart chart = (Chart) sender;
@@ -127,12 +168,14 @@ namespace HPMS.Draw
                     {
                         series.SetCustomProperty("CHECK", "☐");
                         series.Color = Color.FromArgb(0, series.Color);
+                        
                     }
                     else
                     {
                         series.SetCustomProperty("CHECK", "☑");
-                        series.Color = ColorTranslator.FromHtml(
-                            series.GetCustomProperty("COLOR"));
+                        //series.Color = ColorTranslator.FromHtml(
+                        //    series.GetCustomProperty("COLOR"));
+                        series.Color = Color.FromArgb(255, series.Color);
                     }
                 }
             }
@@ -170,7 +213,9 @@ namespace HPMS.Draw
                 currentSeries.XValueType = ChartValueType.Single;  //设置X轴上的值类型
                 //currentSeries.Label = "#VAL";                //设置显示X Y的值    
                 //currentSeries.LabelForeColor = Color.Black;
-                currentSeries.ToolTip = "#VALX:#VAL";     //鼠标移动到对应点显示数值
+               // currentSeries.ToolTip = "#VALX:#VAL";     //鼠标移动到对应点显示数值
+                currentSeries.ToolTip = string.Format("X - {0}/{2} , Y - {1}",  "#VALX",
+                    "#VALY{F2}",1000);     //鼠标移动到对应点显示数值
                 currentSeries.ChartType = SeriesChartType.FastLine;    //图类型(折线)
                 //currentSeries.ChartType = SeriesChartType.Line;    //图类型(折线)
                 currentSeries.IsValueShownAsLabel = false;
@@ -218,7 +263,7 @@ namespace HPMS.Draw
                         break;
                     case LineType.Spec:
                         currentSeries.Color = Color.Red;
-                        currentSeries.BorderWidth = 3;
+                        currentSeries.BorderWidth = 2;
                         break;
 
                 }

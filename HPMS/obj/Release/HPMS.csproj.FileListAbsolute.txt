@@ -38,3 +38,4 @@ D:\gitProjects\HPMS\HPMS\bin\Release\VirtualVNA.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\VirtualVNA.pdb
 D:\gitProjects\HPMS\HPMS\bin\Release\VirtualSwitch.pdb
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.csprojResolveAssemblyReference.cache
+D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.frmAbout.resources

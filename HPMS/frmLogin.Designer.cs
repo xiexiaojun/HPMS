@@ -145,6 +145,7 @@
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.labelX1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

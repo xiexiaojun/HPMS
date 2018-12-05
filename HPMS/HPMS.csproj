@@ -53,6 +53,9 @@
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>animal_bird_twitter_72px_4141_easyicon.net.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="32p_analyze, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -132,6 +135,12 @@
     <Compile Include="Draw\VsAChart.cs" />
     <Compile Include="Draw\ZedAChart.cs" />
     <Compile Include="Equipment\Util.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +230,9 @@
     <Compile Include="frmUserEdit.Designer.cs">
       <DependentUpon>frmUserEdit.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +321,10 @@
     <None Include="Resources\Image1.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tool\Tool.csproj">
+      <Project>{5809ce1d-e066-4c45-9125-20da17b0e212}</Project>
+      <Name>Tool</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VirtualSwitch\VirtualSwitch.csproj">
       <Project>{6297D14F-A402-465D-9F31-D5730CB612AC}</Project>
       <Name>VirtualSwitch</Name>
@@ -319,7 +335,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\DB.sql" />
+    <Content Include="animal_bird_twitter_72px_4141_easyicon.net.ico" />
+    <Content Include="DB\sql\DB.sql" />
+    <Content Include="DB\sql\MESDataCenter.HPMS_Project 2018-12-03.sql" />
+    <Content Include="DB\sql\MESDataCenter.HPMS_Rights 2018-12-03.sql" />
+    <Content Include="DB\sql\MESDataCenter.HPMS_Role 2018-12-03.sql" />
+    <Content Include="DB\sql\MESDataCenter.HPMS_User 2018-12-03.sql" />
+    <Content Include="DB\sql\view.sql" />
     <Content Include="Dll\32p_analyze.dll" />
     <Content Include="Dll\32p_analyze.XML" />
     <Content Include="Dll\Aspose.Cells.dll" />

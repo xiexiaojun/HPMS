@@ -10,6 +10,7 @@ namespace HPMS.Config
     public class Theme
     {
         public eStyle EStyle { get; set; }
+        public string Tag { get; set; }
         public string Color { get; set; }
         public bool Customer { get; set; }
     }
@@ -52,6 +53,10 @@ namespace HPMS.Config
         public Adapter Adapter { get; set; }
         //烧录器端口
         public string AdapterPort { get; set; }
+        //SNP保存路径
+        public string SnpFolder { get; set; }
+        //txt保存路径
+        public string TxtFolder { get; set; }
     }
 
     public class TestItem
@@ -78,6 +83,8 @@ namespace HPMS.Config
         DB,
         Local
     }
+
+   
 
     public class TdrParam
     {

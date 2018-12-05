@@ -43,19 +43,20 @@ namespace HPMS.Core
     {
         private Project _project;
         private ISwitch _switch;
-        private INetworkAnalyzer _analyzer;
+        private NetworkAnalyzer _analyzer;
         private string _snpFolder;
         private object myLock = new object();
         private Queue<TaskSnp> TaskQueue = new Queue<TaskSnp>();
         //private Semaphore TaskSemaphore = new Semaphore(0, 1);
         private bool stop = false;
+        bool _totalResult = true;
 
         private Dictionary<string, List<PairData>> _testData = new Dictionary<string, List<PairData>>();
         private Dictionary<string,Dictionary<string,bool>>_testResult=new Dictionary<string, Dictionary<string, bool>>();
         public Dictionary<string,string>_specLine=new Dictionary<string, string>();
 
 
-        public SITest(ISwitch iSwitch,INetworkAnalyzer iNetworkAnalyzer)
+        public SITest(ISwitch iSwitch,NetworkAnalyzer iNetworkAnalyzer)
         {
             this._switch = iSwitch;
             this._analyzer = iNetworkAnalyzer;
@@ -135,7 +136,7 @@ namespace HPMS.Core
         {
        
             SNP temp = new SNP(taskSnp.SnpPath, SNPPort.X1234);
-            Thread.Sleep(3000);
+           // Thread.Sleep(3000);
            
             foreach (var testItem in taskSnp.AnalyzeItem)
             {
@@ -318,8 +319,8 @@ namespace HPMS.Core
                 TotalResult = TotalResult && result;
             }
 
-            addStatus("Test result:" + (TotalResult ? "PASS" : "FAIL"));
-            setResult(TotalResult ? "PASS" : "FAIL");
+            addStatus("Test result:" + (TotalResult && _totalResult ? "PASS" : "FAIL"));
+            setResult(TotalResult && _totalResult ? "PASS" : "FAIL");
         }
 
         private string GetSnpPath(string parentFolder,string pair,ItemType itemType)
@@ -338,10 +339,20 @@ namespace HPMS.Core
                 snpFolder = "FEXT";
             }
 
+            if (!Directory.Exists(parentFolder + "\\" + snpFolder))
+            {
+                Directory.CreateDirectory(parentFolder + "\\" + snpFolder);
+            }
+            else if (File.Exists(parentFolder + "\\" + snpFolder + "\\" + pair + ".s4p"))
+            {
+                File.Delete(parentFolder + "\\" + snpFolder + "\\" + pair + ".s4p");
+            }
+
+            
             return parentFolder + "\\" + snpFolder + "\\" + pair + ".s4p";
         }
 
-        private void Producer(object action)
+        private void SnpProducer(object action)
         {
             ProducerParams producerParams = (ProducerParams)action;
             bool multiChannel = false;
@@ -349,6 +360,10 @@ namespace HPMS.Core
             ClbType clbType = ClbType.TestItem;
             foreach (TestConfig testConfig in producerParams.TestConfigs)
             {
+                if (stop)
+                {
+                    break;
+                }
                 switch (testConfig.ItemType)
                 {
                     case ItemType.Loss:
@@ -371,6 +386,10 @@ namespace HPMS.Core
                 int pairIndex = 0;
                 foreach (Pair pair in testConfig.Pairs)
                 {
+                    if (stop)
+                    {
+                        return;
+                    }
                     producerParams.FormUi.AddStatus(pair.PairName + ":start");
                     TaskSnp task=new TaskSnp();
                     task.ItemType = testConfig.ItemType;
@@ -380,10 +399,28 @@ namespace HPMS.Core
                     task.ProgressValue = pair.ProgressValue;
                     
                     string switchMsg = "";
-                    _analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex,pairIndex,multiChannel,nextByTrace, ref switchMsg);
-                    producerParams.FormUi.SetCheckItem(pair.PairName, clbType);
-                    producerParams.FormUi.AddStatus("SNP 文件生成成功 路径:" + task.SnpPath);
-                    producerParams.FormUi.ProgressDisplay(pair.ProgressValue, true);
+                    try
+                    {
+                        _analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex, pairIndex, multiChannel, nextByTrace, ref switchMsg);
+                    }
+                    catch (Exception e)
+                    {
+                        stop = true;
+                        _totalResult = false;
+                        //Console.WriteLine(e);
+                        producerParams.FormUi.AddStatus(e.Message);
+                        return;
+                    }
+
+                    if (!stop)
+                    {
+                        producerParams.FormUi.SetCheckItem(pair.PairName, clbType);
+                        producerParams.FormUi.AddStatus("SNP 文件生成成功 路径:" + task.SnpPath);
+                        producerParams.FormUi.ProgressDisplay(pair.ProgressValue, true);
+                    }
+                      
+                  
+                   
                     lock (myLock)
                     {
                         TaskQueue.Enqueue(task);
@@ -405,7 +442,7 @@ namespace HPMS.Core
         private void StartProducer(TestConfig[] testConfigs, FormUi formUi, string testDataPath)
         {
             ProducerParams producerParams=new ProducerParams();
-            Thread t = new Thread(new ParameterizedThreadStart(Producer));
+            Thread t = new Thread(new ParameterizedThreadStart(SnpProducer));
             producerParams.TestConfigs = testConfigs;
             producerParams.FormUi = formUi;
             producerParams.TestDataPath = testDataPath;
@@ -428,7 +465,7 @@ namespace HPMS.Core
                 Directory.Delete(cpParams.SaveTxtPath,true);
             }
             Directory.CreateDirectory(cpParams.SaveTxtPath);
-            Thread t = new Thread(new ParameterizedThreadStart(this.Consumer));
+            Thread t = new Thread(new ParameterizedThreadStart(this.SnpConsumer));
                t.IsBackground = true;
                t.Start(cpParams);
             t.Join();
@@ -438,7 +475,7 @@ namespace HPMS.Core
         }
 
         // 消费者  
-        private void Consumer(object data)
+        private void SnpConsumer(object data)
         {
             ConsumerParams cpParams = (ConsumerParams)data;
             TaskSnp GetTask = null;
@@ -446,7 +483,7 @@ namespace HPMS.Core
           
            
 
-            while (true)
+            while (true&&!stop)
             {
                 //TaskSemaphore.WaitOne();
                 lock (myLock)
@@ -457,6 +494,18 @@ namespace HPMS.Core
                         if (GetTask == null)
                         {
                             stop = true;
+                            return;
+                        }
+
+                        string msg = "";
+                        int iChecktime = 0;
+                        bool bFileExist=Tool.FileCheck.FileIsUsing(GetTask.SnpPath, 10000, 10000, ref msg, ref iChecktime);
+                        if (!bFileExist)
+                        {
+                            stop = true;
+                            _totalResult = false;
+                            cpParams.FormUi.AddStatus("SNP文件:" + GetTask.SnpPath + "不存在:"+msg);
+                           // cpParams.FormUi.ProgressDisplay(300, false);
                             return;
                         }
                         Analyze(GetTask, cpParams);

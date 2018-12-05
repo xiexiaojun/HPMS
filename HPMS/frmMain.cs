@@ -24,6 +24,7 @@ using VirtualSwitch;
 using VirtualVNA.Enum;
 using VirtualVNA.NetworkAnalyzer;
 using Convert = HPMS.Util.Convert;
+using NetworkAnalyzer = VirtualVNA.NetworkAnalyzer.NetworkAnalyzer;
 
 namespace HPMS
 {
@@ -44,7 +45,7 @@ namespace HPMS
         private Hardware _hardware;
         private TestConfig[] _testConfigs=new TestConfig[3];//3类测试项目参数,直通，近串，远串
         private ISwitch _switch;
-        private INetworkAnalyzer _iAnalyzer;
+        private NetworkAnalyzer _iAnalyzer;
         private Dictionary<string, plotData> _spec = new Dictionary<string, plotData>();//规格线
 
         private FormUi _formUi = new FormUi();
@@ -432,6 +433,7 @@ namespace HPMS
 
         private void SetKeyPoint()
         {
+            _keyPoint.Clear();
             float[] SDD21 = new[] { 120000000f, 130000000f, 140000000f, 150000000f };
             float[] SDD11 = new[] { 120000000f, 130000000f, 140000000f, 150000000f };
             _keyPoint.Add("SDD21",SDD21);
@@ -473,80 +475,7 @@ namespace HPMS
             }
         }
 
-        private void lsvKeyPointSet()
-        {
-            this.lsvKeyPoint.BeginUpdate();  //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度 
-
-
-
-            ListViewGroup man_lvg = new ListViewGroup();  //创建男生分组
-
-            man_lvg.Header = "男生";  //设置组的标题。
-
-            //man_lvg.Name = "man";   //设置组的名称。
-
-            man_lvg.HeaderAlignment = HorizontalAlignment.Left;   //设置组标题文本的对齐方式。（默认为Left）
-
-            ListViewGroup women_lvg = new ListViewGroup();  //创建女生分组
-
-            women_lvg.Header = "女生";
-
-            //women_lvg.Name = "women";
-
-            women_lvg.HeaderAlignment = HorizontalAlignment.Center;   //组标题居中对齐
-
-            this.lsvKeyPoint.Groups.Add(man_lvg);    //把男生分组添加到listview中
-
-            this.lsvKeyPoint.Groups.Add(women_lvg);   //把男生分组添加到listview中
-
-            this.lsvKeyPoint.ShowGroups = true;  //记得要设置ShowGroups属性为true（默认是false），否则显示不出分组
-
-            for (int i = 0; i < 5; i++)
-            {
-                ListViewItem lvi = new ListViewItem();
-
-                lvi.ImageIndex = i;
-
-                lvi.Text = "item" + i;
-
-                lvi.ForeColor = Color.Blue;  //设置行颜色
-
-                lvi.SubItems.Add("第2列,第" + i + "行");
-
-                lvi.SubItems.Add("第3列,第" + i + "行");
-
-                man_lvg.Items.Add(lvi);   //分组添加子项
-                //women_lvg.Items.Add(lvi);   //分组添加子项
-
-                // 或 lvi.Group = man_lvg;  //分组添加子项
-
-                this.lsvKeyPoint.Items.Add(lvi);
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                ListViewItem lvi = new ListViewItem();
-
-                lvi.ImageIndex = i;
-
-                lvi.Text = "item" + i;
-
-                lvi.ForeColor = Color.Blue;  //设置行颜色
-
-                lvi.SubItems.Add("第2列,第" + i + "行");
-
-                lvi.SubItems.Add("第3列,第" + i + "行");
-
-               // man_lvg.Items.Add(lvi);   //分组添加子项
-                women_lvg.Items.Add(lvi);   //分组添加子项
-
-                // 或 lvi.Group = man_lvg;  //分组添加子项
-
-                this.lsvKeyPoint.Items.Add(lvi);
-            }
-
-
-            this.lsvKeyPoint.EndUpdate();
-        }
+       
       
 
 
@@ -851,6 +780,14 @@ namespace HPMS
             {
                 ToolStripMenuItem childItem = (ToolStripMenuItem)variable;
                 childItem.Enabled = status;
+            }
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmAbout frm=new frmAbout())
+            {
+                frm.ShowDialog();
             }
         }
       

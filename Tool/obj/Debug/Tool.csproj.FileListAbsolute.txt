@@ -1,0 +1,4 @@
+D:\gitProjects\HPMS\Tool\bin\Debug\Tool.dll
+D:\gitProjects\HPMS\Tool\bin\Debug\Tool.pdb
+D:\gitProjects\HPMS\Tool\obj\Debug\Tool.dll
+D:\gitProjects\HPMS\Tool\obj\Debug\Tool.pdb

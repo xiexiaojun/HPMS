@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.Log;
@@ -17,6 +19,7 @@ namespace HPMS
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.AssemblyResolve+=CurrentDomain_AssemblyResolve;
             //绑定程序中的异常处理
             #if Release
                         BindExceptionHandler();     
@@ -29,6 +32,12 @@ namespace HPMS
             Application.SetCompatibleTextRenderingDefault(false);
             Splasher.Show(typeof(frmSplash));
             Application.Run(new frmMain());
+        }
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            AssemblyName assemblyName = new AssemblyName(args.Name);
+            return Assembly.LoadFrom("dll");
         }
 
         private static void BindExceptionHandler()

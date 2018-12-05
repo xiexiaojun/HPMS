@@ -7,10 +7,10 @@ using VirtualSwitch;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
-    public class E5071C:INetworkAnalyzer
+    public class E5071C:NetworkAnalyzer
     {
         private ISwitch _iswitch;
-        private IMessageBasedSession mbSession;
+        private MessageBasedSession mbSession;
         private bool _connected = false;
         private string _visaAddress;
       
@@ -22,7 +22,15 @@ namespace VirtualVNA.NetworkAnalyzer
             Connect();
 
         }
-        public bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace, ref string msg)
+        ~E5071C()
+        {
+            if (mbSession != null)
+            {
+                mbSession.Dispose();
+            }
+            
+        }
+        public override bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             bool ret = false;
             ret=_iswitch.Open(switchIndex, ref msg);
@@ -51,7 +59,7 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, ref msg);
         }
 
-        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace, ref string msg)
+        public override bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             bool ret = false;
             ret = _iswitch.Open(switchIndex, ref msg);
@@ -80,7 +88,7 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, ref msg);
         }
 
-        public bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)
+        public override bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)
         {
             bool ret = false;
             ret = _iswitch.Open(switchIndex, ref msg);
@@ -131,7 +139,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 if (!_connected)
                 {
-                    mbSession = (IMessageBasedSession)ResourceManager.GetLocalManager().Open(_visaAddress);
+                    mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(_visaAddress);
                     _connected = true;
                 }
               

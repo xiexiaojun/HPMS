@@ -48,3 +48,6 @@ D:\gitProjects\HPMS\HPMS\bin\Debug\ZedGraph.WinForms.xml
 D:\gitProjects\HPMS\HPMS\bin\Debug\zh-cn\ZedGraph.WinForms.resources.dll
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.pdb
+D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.frmAbout.resources
+D:\gitProjects\HPMS\HPMS\bin\Debug\Tool.dll
+D:\gitProjects\HPMS\HPMS\bin\Debug\Tool.pdb

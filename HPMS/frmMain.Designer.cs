@@ -34,37 +34,6 @@ namespace HPMS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusMsg = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelDate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.btnTest = new DevComponents.DotNetBar.ButtonX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.txtSN = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.chkList_TestItem = new System.Windows.Forms.CheckedListBox();
-            this.tab_pair = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chkList_LossPair = new System.Windows.Forms.CheckedListBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chkList_NextPair = new System.Windows.Forms.CheckedListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_PN = new System.Windows.Forms.TextBox();
-            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
-            this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
-            this.rTextStatus = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
-            this.labelResult = new DevComponents.DotNetBar.LabelX();
-            this.pgbTest = new DevComponents.DotNetBar.Controls.ProgressBarX();
-            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
             this.模式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Auto = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Manual = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +68,31 @@ namespace HPMS
             this.cOM计算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusMsg = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.btnTest = new DevComponents.DotNetBar.ButtonX();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.txtSN = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.chkList_TestItem = new System.Windows.Forms.CheckedListBox();
+            this.tab_pair = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chkList_LossPair = new System.Windows.Forms.CheckedListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chkList_NextPair = new System.Windows.Forms.CheckedListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_PN = new System.Windows.Forms.TextBox();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx6 = new DevComponents.DotNetBar.PanelEx();
             this.tabControlChart = new DevComponents.DotNetBar.TabControl();
@@ -108,6 +102,12 @@ namespace HPMS
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
+            this.rTextStatus = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
+            this.labelResult = new DevComponents.DotNetBar.LabelX();
+            this.pgbTest = new DevComponents.DotNetBar.Controls.ProgressBarX();
+            this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
             this.menuStrip_Main.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -117,12 +117,12 @@ namespace HPMS
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.panelEx3.SuspendLayout();
-            this.panelEx4.SuspendLayout();
             this.panelEx2.SuspendLayout();
             this.panelEx6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).BeginInit();
             this.expandablePanel1.SuspendLayout();
+            this.panelEx3.SuspendLayout();
+            this.panelEx4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -137,276 +137,6 @@ namespace HPMS
             this.帮助ToolStripMenuItem});
             resources.ApplyResources(this.menuStrip_Main, "menuStrip_Main");
             this.menuStrip_Main.Name = "menuStrip_Main";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelUser,
-            this.toolStripStatusMsg,
-            this.toolStripStatusLabelDate});
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
-            this.statusStrip1.Name = "statusStrip1";
-            // 
-            // toolStripStatusLabelUser
-            // 
-            this.toolStripStatusLabelUser.Name = "toolStripStatusLabelUser";
-            resources.ApplyResources(this.toolStripStatusLabelUser, "toolStripStatusLabelUser");
-            // 
-            // toolStripStatusMsg
-            // 
-            this.toolStripStatusMsg.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
-            this.toolStripStatusMsg.Name = "toolStripStatusMsg";
-            resources.ApplyResources(this.toolStripStatusMsg, "toolStripStatusMsg");
-            this.toolStripStatusMsg.Spring = true;
-            // 
-            // toolStripStatusLabelDate
-            // 
-            this.toolStripStatusLabelDate.Name = "toolStripStatusLabelDate";
-            resources.ApplyResources(this.toolStripStatusLabelDate, "toolStripStatusLabelDate");
-            // 
-            // styleManager1
-            // 
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Blue;
-            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(26))))));
-            // 
-            // notifyIcon1
-            // 
-            resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // tableLayoutPanel1
-            // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.panelEx1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelEx2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelEx3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panelEx5, 0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // panelEx1
-            // 
-            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.tableLayoutPanel2);
-            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
-            resources.ApplyResources(this.panelEx1, "panelEx1");
-            this.panelEx1.Name = "panelEx1";
-            this.tableLayoutPanel1.SetRowSpan(this.panelEx1, 2);
-            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx1.Style.GradientAngle = 90;
-            // 
-            // tableLayoutPanel2
-            // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnTest, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.labelX3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.txtSN, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.chkList_TestItem, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.tab_pair, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.labelX2, "labelX2");
-            this.labelX2.Name = "labelX2";
-            // 
-            // btnTest
-            // 
-            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            resources.ApplyResources(this.btnTest, "btnTest");
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.labelX3, "labelX3");
-            this.labelX3.Name = "labelX3";
-            // 
-            // txtSN
-            // 
-            // 
-            // 
-            // 
-            this.txtSN.Border.Class = "TextBoxBorder";
-            this.txtSN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.txtSN, "txtSN");
-            this.txtSN.Name = "txtSN";
-            // 
-            // chkList_TestItem
-            // 
-            resources.ApplyResources(this.chkList_TestItem, "chkList_TestItem");
-            this.chkList_TestItem.FormattingEnabled = true;
-            this.chkList_TestItem.Name = "chkList_TestItem";
-            // 
-            // tab_pair
-            // 
-            this.tab_pair.Controls.Add(this.tabPage1);
-            this.tab_pair.Controls.Add(this.tabPage2);
-            this.tab_pair.Controls.Add(this.tabPage3);
-            resources.ApplyResources(this.tab_pair, "tab_pair");
-            this.tab_pair.Name = "tab_pair";
-            this.tab_pair.SelectedIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.chkList_LossPair);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // chkList_LossPair
-            // 
-            resources.ApplyResources(this.chkList_LossPair, "chkList_LossPair");
-            this.chkList_LossPair.FormattingEnabled = true;
-            this.chkList_LossPair.Name = "chkList_LossPair";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.chkList_NextPair);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // chkList_NextPair
-            // 
-            resources.ApplyResources(this.chkList_NextPair, "chkList_NextPair");
-            this.chkList_NextPair.FormattingEnabled = true;
-            this.chkList_NextPair.Name = "chkList_NextPair";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.chkList_FextPair);
-            resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // chkList_FextPair
-            // 
-            resources.ApplyResources(this.chkList_FextPair, "chkList_FextPair");
-            this.chkList_FextPair.FormattingEnabled = true;
-            this.chkList_FextPair.Name = "chkList_FextPair";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // txt_PN
-            // 
-            resources.ApplyResources(this.txt_PN, "txt_PN");
-            this.txt_PN.Name = "txt_PN";
-            this.txt_PN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_PN_KeyDown);
-            // 
-            // panelEx3
-            // 
-            this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx3.Controls.Add(this.panelEx4);
-            this.panelEx3.DisabledBackColor = System.Drawing.Color.Empty;
-            resources.ApplyResources(this.panelEx3, "panelEx3");
-            this.panelEx3.Name = "panelEx3";
-            this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx3.Style.GradientAngle = 90;
-            // 
-            // panelEx4
-            // 
-            this.panelEx4.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx4.Controls.Add(this.rTextStatus);
-            this.panelEx4.Controls.Add(this.labelResult);
-            this.panelEx4.Controls.Add(this.pgbTest);
-            this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
-            resources.ApplyResources(this.panelEx4, "panelEx4");
-            this.panelEx4.Name = "panelEx4";
-            this.panelEx4.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx4.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx4.Style.GradientAngle = 90;
-            // 
-            // rTextStatus
-            // 
-            this.rTextStatus.BackColorRichTextBox = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.rTextStatus.BackgroundStyle.Class = "RichTextBoxBorder";
-            this.rTextStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.rTextStatus, "rTextStatus");
-            this.rTextStatus.Name = "rTextStatus";
-            this.rTextStatus.ReadOnly = true;
-            this.rTextStatus.Rtf = "{\\rtf1\\ansi\\ansicpg936\\deff0\\deflang1033\\deflangfe2052{\\fonttbl{\\f0\\fnil\\fcharset" +
-    "134 \\\'ce\\\'a2\\\'c8\\\'ed\\\'d1\\\'c5\\\'ba\\\'da;}}\r\n\\viewkind4\\uc1\\pard\\lang2052\\f0\\fs18\\pa" +
-    "r\r\n}\r\n";
-            this.rTextStatus.TextChanged += new System.EventHandler(this.rTextStatus_TextChanged);
-            // 
-            // labelResult
-            // 
-            // 
-            // 
-            // 
-            this.labelResult.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.labelResult, "labelResult");
-            this.labelResult.Name = "labelResult";
-            this.labelResult.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // pgbTest
-            // 
-            // 
-            // 
-            // 
-            this.pgbTest.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            resources.ApplyResources(this.pgbTest, "pgbTest");
-            this.pgbTest.Maximum = 300;
-            this.pgbTest.Name = "pgbTest";
-            this.pgbTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
-            // 
-            // panelEx5
-            // 
-            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.tableLayoutPanel1.SetColumnSpan(this.panelEx5, 2);
-            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
-            resources.ApplyResources(this.panelEx5, "panelEx5");
-            this.panelEx5.Name = "panelEx5";
-            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx5.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx5.Style.GradientAngle = 90;
             // 
             // 模式ToolStripMenuItem
             // 
@@ -651,6 +381,190 @@ namespace HPMS
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
             resources.ApplyResources(this.关于ToolStripMenuItem, "关于ToolStripMenuItem");
+            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelUser,
+            this.toolStripStatusMsg,
+            this.toolStripStatusLabelDate});
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
+            this.statusStrip1.Name = "statusStrip1";
+            // 
+            // toolStripStatusLabelUser
+            // 
+            this.toolStripStatusLabelUser.Name = "toolStripStatusLabelUser";
+            resources.ApplyResources(this.toolStripStatusLabelUser, "toolStripStatusLabelUser");
+            // 
+            // toolStripStatusMsg
+            // 
+            this.toolStripStatusMsg.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.toolStripStatusMsg.Name = "toolStripStatusMsg";
+            resources.ApplyResources(this.toolStripStatusMsg, "toolStripStatusMsg");
+            this.toolStripStatusMsg.Spring = true;
+            // 
+            // toolStripStatusLabelDate
+            // 
+            this.toolStripStatusLabelDate.Name = "toolStripStatusLabelDate";
+            resources.ApplyResources(this.toolStripStatusLabelDate, "toolStripStatusLabelDate");
+            // 
+            // styleManager1
+            // 
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Blue;
+            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(26))))));
+            // 
+            // notifyIcon1
+            // 
+            resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.panelEx1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelEx2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelEx3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panelEx5, 0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // panelEx1
+            // 
+            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.tableLayoutPanel2);
+            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.panelEx1, "panelEx1");
+            this.panelEx1.Name = "panelEx1";
+            this.tableLayoutPanel1.SetRowSpan(this.panelEx1, 2);
+            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx1.Style.GradientAngle = 90;
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnTest, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.labelX3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtSN, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.chkList_TestItem, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.tab_pair, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.labelX2, "labelX2");
+            this.labelX2.Name = "labelX2";
+            // 
+            // btnTest
+            // 
+            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            resources.ApplyResources(this.btnTest, "btnTest");
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.labelX3, "labelX3");
+            this.labelX3.Name = "labelX3";
+            // 
+            // txtSN
+            // 
+            // 
+            // 
+            // 
+            this.txtSN.Border.Class = "TextBoxBorder";
+            this.txtSN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.txtSN, "txtSN");
+            this.txtSN.Name = "txtSN";
+            // 
+            // chkList_TestItem
+            // 
+            resources.ApplyResources(this.chkList_TestItem, "chkList_TestItem");
+            this.chkList_TestItem.FormattingEnabled = true;
+            this.chkList_TestItem.Name = "chkList_TestItem";
+            // 
+            // tab_pair
+            // 
+            this.tab_pair.Controls.Add(this.tabPage1);
+            this.tab_pair.Controls.Add(this.tabPage2);
+            this.tab_pair.Controls.Add(this.tabPage3);
+            resources.ApplyResources(this.tab_pair, "tab_pair");
+            this.tab_pair.Name = "tab_pair";
+            this.tab_pair.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.chkList_LossPair);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chkList_LossPair
+            // 
+            resources.ApplyResources(this.chkList_LossPair, "chkList_LossPair");
+            this.chkList_LossPair.FormattingEnabled = true;
+            this.chkList_LossPair.Name = "chkList_LossPair";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.chkList_NextPair);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chkList_NextPair
+            // 
+            resources.ApplyResources(this.chkList_NextPair, "chkList_NextPair");
+            this.chkList_NextPair.FormattingEnabled = true;
+            this.chkList_NextPair.Name = "chkList_NextPair";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.chkList_FextPair);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chkList_FextPair
+            // 
+            resources.ApplyResources(this.chkList_FextPair, "chkList_FextPair");
+            this.chkList_FextPair.FormattingEnabled = true;
+            this.chkList_FextPair.Name = "chkList_FextPair";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // txt_PN
+            // 
+            resources.ApplyResources(this.txt_PN, "txt_PN");
+            this.txt_PN.Name = "txt_PN";
+            this.txt_PN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_PN_KeyDown);
             // 
             // panelEx2
             // 
@@ -772,6 +686,93 @@ namespace HPMS
             // 
             resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
+            // panelEx3
+            // 
+            this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx3.Controls.Add(this.panelEx4);
+            this.panelEx3.DisabledBackColor = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.panelEx3, "panelEx3");
+            this.panelEx3.Name = "panelEx3";
+            this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx3.Style.GradientAngle = 90;
+            // 
+            // panelEx4
+            // 
+            this.panelEx4.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx4.Controls.Add(this.rTextStatus);
+            this.panelEx4.Controls.Add(this.labelResult);
+            this.panelEx4.Controls.Add(this.pgbTest);
+            this.panelEx4.DisabledBackColor = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.panelEx4, "panelEx4");
+            this.panelEx4.Name = "panelEx4";
+            this.panelEx4.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx4.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx4.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx4.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx4.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx4.Style.GradientAngle = 90;
+            // 
+            // rTextStatus
+            // 
+            this.rTextStatus.BackColorRichTextBox = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.rTextStatus.BackgroundStyle.Class = "RichTextBoxBorder";
+            this.rTextStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.rTextStatus, "rTextStatus");
+            this.rTextStatus.Name = "rTextStatus";
+            this.rTextStatus.ReadOnly = true;
+            this.rTextStatus.Rtf = "{\\rtf1\\ansi\\ansicpg936\\deff0\\deflang1033\\deflangfe2052{\\fonttbl{\\f0\\fnil\\fcharset" +
+    "134 \\\'ce\\\'a2\\\'c8\\\'ed\\\'d1\\\'c5\\\'ba\\\'da;}}\r\n\\viewkind4\\uc1\\pard\\lang2052\\f0\\fs18\\pa" +
+    "r\r\n}\r\n";
+            this.rTextStatus.TextChanged += new System.EventHandler(this.rTextStatus_TextChanged);
+            // 
+            // labelResult
+            // 
+            // 
+            // 
+            // 
+            this.labelResult.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.labelResult, "labelResult");
+            this.labelResult.Name = "labelResult";
+            this.labelResult.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // pgbTest
+            // 
+            // 
+            // 
+            // 
+            this.pgbTest.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.pgbTest, "pgbTest");
+            this.pgbTest.Maximum = 300;
+            this.pgbTest.Name = "pgbTest";
+            this.pgbTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
+            // 
+            // panelEx5
+            // 
+            this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.tableLayoutPanel1.SetColumnSpan(this.panelEx5, 2);
+            this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.panelEx5, "panelEx5");
+            this.panelEx5.Name = "panelEx5";
+            this.panelEx5.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx5.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx5.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx5.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx5.Style.GradientAngle = 90;
+            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -779,6 +780,7 @@ namespace HPMS
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip_Main);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -795,12 +797,12 @@ namespace HPMS
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.panelEx3.ResumeLayout(false);
-            this.panelEx4.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             this.panelEx6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).EndInit();
             this.expandablePanel1.ResumeLayout(false);
+            this.panelEx3.ResumeLayout(false);
+            this.panelEx4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

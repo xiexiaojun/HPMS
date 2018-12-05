@@ -72,11 +72,11 @@ namespace Test
         public void SaveSnpTest()
         {
             ISwitch iSwitch = new SwitchDemo(); // TODO: 初始化为适当的值
-            string visaAddress = "TCPIP0::172.20.30.123::inst0::INSTR"; // TODO: 初始化为适当的值
+            string visaAddress = "TCPIP0::172.20.30.133::inst0::INSTR"; // TODO: 初始化为适当的值
             bool nextByTrace = false; // TODO: 初始化为适当的值
             bool mutiChannel = false; // TODO: 初始化为适当的值
             N5224A target = new N5224A(iSwitch, visaAddress); // TODO: 初始化为适当的值
-            string saveFilePath = "C:\\11.s4p"; // TODO: 初始化为适当的值
+            string saveFilePath = "D:/11.s4p"; // TODO: 初始化为适当的值
             int switchIndex = 0; // TODO: 初始化为适当的值
             string msg = string.Empty; // TODO: 初始化为适当的值
             string msgExpected = string.Empty; // TODO: 初始化为适当的值

@@ -1,22 +1,25 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
-    public class DemoAnalyzer:INetworkAnalyzer
+    public class DemoAnalyzer:NetworkAnalyzer
     {
-        public bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace, ref string msg)
+        public override bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             Thread.Sleep(2000);
+           // throw new Exception("Test error");
             return true;
         }
 
-        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace, ref string msg)
+        public override bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             Thread.Sleep(2000);
+           // throw new Exception("Test error");
             return true;
         }
 
-        public bool GetTestData(ref double[] fre, double[] db, int switchIndex, ref string msg)
+        public override bool GetTestData(ref double[] fre, double[] db, int switchIndex, ref string msg)
         {
             return true;
         }

@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.cmbAdpaterPort = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -51,26 +51,27 @@
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtSnpSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.btnBrowseSnp = new DevComponents.DotNetBar.ButtonX();
-            this.labelX41 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.btnBrowseTxt = new DevComponents.DotNetBar.ButtonX();
             this.txtTxtSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX41 = new DevComponents.DotNetBar.LabelX();
+            this.btnBrowseSnp = new DevComponents.DotNetBar.ButtonX();
+            this.txtSnpSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonX2
+            // btnCancel
             // 
-            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(473, 9);
-            this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(104, 26);
-            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX2.TabIndex = 17;
-            this.buttonX2.Text = "取消";
+            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCancel.Location = new System.Drawing.Point(473, 9);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(104, 26);
+            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
@@ -308,43 +309,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "路径设置";
             // 
-            // txtSnpSaveFolder
-            // 
-            // 
-            // 
-            // 
-            this.txtSnpSaveFolder.Border.Class = "TextBoxBorder";
-            this.txtSnpSaveFolder.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSnpSaveFolder.Location = new System.Drawing.Point(21, 49);
-            this.txtSnpSaveFolder.Name = "txtSnpSaveFolder";
-            this.txtSnpSaveFolder.ReadOnly = true;
-            this.txtSnpSaveFolder.Size = new System.Drawing.Size(412, 21);
-            this.txtSnpSaveFolder.TabIndex = 3;
-            // 
-            // btnBrowseSnp
-            // 
-            this.btnBrowseSnp.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnBrowseSnp.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnBrowseSnp.Location = new System.Drawing.Point(457, 49);
-            this.btnBrowseSnp.Name = "btnBrowseSnp";
-            this.btnBrowseSnp.Size = new System.Drawing.Size(74, 21);
-            this.btnBrowseSnp.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnBrowseSnp.TabIndex = 31;
-            this.btnBrowseSnp.Text = "浏览";
-            this.btnBrowseSnp.Click += new System.EventHandler(this.btnBrowseSnp_Click);
-            // 
-            // labelX41
-            // 
-            // 
-            // 
-            // 
-            this.labelX41.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX41.Location = new System.Drawing.Point(21, 20);
-            this.labelX41.Name = "labelX41";
-            this.labelX41.Size = new System.Drawing.Size(209, 23);
-            this.labelX41.TabIndex = 32;
-            this.labelX41.Text = "SNP文件保存路径";
-            // 
             // labelX7
             // 
             // 
@@ -382,13 +346,50 @@
             this.txtTxtSaveFolder.Size = new System.Drawing.Size(412, 21);
             this.txtTxtSaveFolder.TabIndex = 33;
             // 
+            // labelX41
+            // 
+            // 
+            // 
+            // 
+            this.labelX41.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX41.Location = new System.Drawing.Point(21, 20);
+            this.labelX41.Name = "labelX41";
+            this.labelX41.Size = new System.Drawing.Size(209, 23);
+            this.labelX41.TabIndex = 32;
+            this.labelX41.Text = "SNP文件保存路径";
+            // 
+            // btnBrowseSnp
+            // 
+            this.btnBrowseSnp.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnBrowseSnp.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnBrowseSnp.Location = new System.Drawing.Point(457, 49);
+            this.btnBrowseSnp.Name = "btnBrowseSnp";
+            this.btnBrowseSnp.Size = new System.Drawing.Size(74, 21);
+            this.btnBrowseSnp.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnBrowseSnp.TabIndex = 31;
+            this.btnBrowseSnp.Text = "浏览";
+            this.btnBrowseSnp.Click += new System.EventHandler(this.btnBrowseSnp_Click);
+            // 
+            // txtSnpSaveFolder
+            // 
+            // 
+            // 
+            // 
+            this.txtSnpSaveFolder.Border.Class = "TextBoxBorder";
+            this.txtSnpSaveFolder.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSnpSaveFolder.Location = new System.Drawing.Point(21, 49);
+            this.txtSnpSaveFolder.Name = "txtSnpSaveFolder";
+            this.txtSnpSaveFolder.ReadOnly = true;
+            this.txtSnpSaveFolder.Size = new System.Drawing.Size(412, 21);
+            this.txtSnpSaveFolder.TabIndex = 3;
+            // 
             // frmHardwareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 438);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.buttonX2);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
             this.DoubleBuffered = true;
@@ -424,7 +425,7 @@
         private DevComponents.Editors.ComboItem comboItem4;
         private DevComponents.DotNetBar.ButtonX btnSave;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.Editors.ComboItem comboItem5;
         private DevComponents.Editors.ComboItem comboItem6;
         private System.Windows.Forms.GroupBox groupBox2;

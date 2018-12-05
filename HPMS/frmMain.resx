@@ -970,7 +970,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_NextPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 161</value>
+    <value>272, 157</value>
   </data>
   <data name="chkList_NextPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -988,7 +988,7 @@
     <value>0</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+    <value>4, 26</value>
   </data>
   <data name="tabPage2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -997,7 +997,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 169</value>
+    <value>278, 165</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1027,7 +1027,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_FextPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 161</value>
+    <value>272, 157</value>
   </data>
   <data name="chkList_FextPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1045,7 +1045,7 @@
     <value>0</value>
   </data>
   <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+    <value>4, 26</value>
   </data>
   <data name="tabPage3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -1054,7 +1054,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 169</value>
+    <value>278, 165</value>
   </data>
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1234,7 +1234,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="tabControlChart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>804, 360</value>
+    <value>1057, 360</value>
   </data>
   <data name="tabControlChart.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -1261,7 +1261,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelEx6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>804, 360</value>
+    <value>1057, 360</value>
   </data>
   <data name="panelEx6.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
@@ -1312,7 +1312,7 @@
     <value>0, 26</value>
   </data>
   <data name="lsvKeyPoint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 334</value>
+    <value>30, 334</value>
   </data>
   <data name="lsvKeyPoint.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1327,16 +1327,16 @@
     <value>expandablePanel1</value>
   </data>
   <data name="&gt;&gt;lsvKeyPoint.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="expandablePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="expandablePanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>804, 0</value>
+    <value>1057, 0</value>
   </data>
   <data name="expandablePanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 360</value>
+    <value>30, 360</value>
   </data>
   <data name="expandablePanel1.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
@@ -1354,7 +1354,7 @@
     <value>panelEx2</value>
   </data>
   <data name="&gt;&gt;expandablePanel1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="panelEx2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1935,56 +1935,11 @@
         f/4=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>HPMS</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabelUser.Name" xml:space="preserve">
-    <value>toolStripStatusLabelUser</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabelUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusMsg.Name" xml:space="preserve">
-    <value>toolStripStatusMsg</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusMsg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabelDate.Name" xml:space="preserve">
-    <value>toolStripStatusLabelDate</value>
-  </data>
-  <data name="&gt;&gt;toolStripStatusLabelDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;styleManager1.Name" xml:space="preserve">
-    <value>styleManager1</value>
-  </data>
-  <data name="&gt;&gt;styleManager1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.StyleManager, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
-  </data>
-  <data name="&gt;&gt;colorDialog1.Name" xml:space="preserve">
-    <value>colorDialog1</value>
-  </data>
-  <data name="&gt;&gt;colorDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;notifyIcon1.Name" xml:space="preserve">
-    <value>notifyIcon1</value>
-  </data>
-  <data name="&gt;&gt;notifyIcon1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
-    <value>timer1</value>
-  </data>
-  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;模式ToolStripMenuItem.Name" xml:space="preserve">
     <value>模式ToolStripMenuItem</value>
@@ -2189,6 +2144,48 @@
   </data>
   <data name="&gt;&gt;关于ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelUser.Name" xml:space="preserve">
+    <value>toolStripStatusLabelUser</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusMsg.Name" xml:space="preserve">
+    <value>toolStripStatusMsg</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusMsg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDate.Name" xml:space="preserve">
+    <value>toolStripStatusLabelDate</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabelDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;styleManager1.Name" xml:space="preserve">
+    <value>styleManager1</value>
+  </data>
+  <data name="&gt;&gt;styleManager1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.StyleManager, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;colorDialog1.Name" xml:space="preserve">
+    <value>colorDialog1</value>
+  </data>
+  <data name="&gt;&gt;colorDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;notifyIcon1.Name" xml:space="preserve">
+    <value>notifyIcon1</value>
+  </data>
+  <data name="&gt;&gt;notifyIcon1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
+    <value>timer1</value>
+  </data>
+  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
     <value>columnHeader1</value>

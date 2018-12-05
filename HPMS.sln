@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualSwitch", "VirtualSwi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualVNA", "VirtualVNA\VirtualVNA.csproj", "{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool", "Tool\Tool.csproj", "{5809CE1D-E066-4C45-9125-20DA17B0E212}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5809CE1D-E066-4C45-9125-20DA17B0E212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5809CE1D-E066-4C45-9125-20DA17B0E212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5809CE1D-E066-4C45-9125-20DA17B0E212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5809CE1D-E066-4C45-9125-20DA17B0E212}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

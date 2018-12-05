@@ -15,6 +15,7 @@ namespace HPMS
         {
             _softVersion = softVersion;
             EnableGlass = false;
+            this.Icon = base.Icon;
             InitializeComponent();
             
            

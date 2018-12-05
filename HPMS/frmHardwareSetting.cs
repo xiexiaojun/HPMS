@@ -110,6 +110,7 @@ namespace HPMS
         {
             
             HardwareSave();
+            UI.MessageBoxMuti("保存成功");
         }
 
         private void frmSetting_FormClosing(object sender, FormClosingEventArgs e)
@@ -135,6 +136,11 @@ namespace HPMS
         private void btnBrowseTxt_Click(object sender, EventArgs e)
         {
             FolderBrowseCallback(delegate(string folderName) { txtTxtSaveFolder.Text = folderName; });
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
        
 

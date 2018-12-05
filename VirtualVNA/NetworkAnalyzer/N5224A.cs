@@ -6,7 +6,7 @@ using VirtualSwitch;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
-    public class N5224A:INetworkAnalyzer
+    public class N5224A:NetworkAnalyzer
     {
         private ISwitch _iswitch;
         private MessageBasedSession mbSession;
@@ -23,9 +23,13 @@ namespace VirtualVNA.NetworkAnalyzer
 
         ~N5224A()
         {
-            mbSession.Dispose();
+            if (mbSession != null)
+            {
+                mbSession.Dispose();
+            }
+            
         }
-        public bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace,ref string msg)
+        public override bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace,ref string msg)
         {
             bool ret = false;
             ret=_iswitch.Open(switchIndex, ref msg);
@@ -50,7 +54,7 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath,channel, ref msg);
         }
 
-        public bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace,ref string msg)
+        public override bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace,ref string msg)
         {
             bool ret = false;
             ret = _iswitch.Open(switchIndex, ref msg);
@@ -75,7 +79,7 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, channel, ref msg);
         }
 
-        public bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)
+        public override bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)
         {
             bool ret = false;
             ret = _iswitch.Open(switchIndex, ref msg);
@@ -85,7 +89,7 @@ namespace VirtualVNA.NetworkAnalyzer
             }
             Connect();
             string channel = (switchIndex + 1).ToString();
-            string strSelectTrace = GetNameList(channel, false);
+            string strSelectTrace = GetNameList(channel, true);
            
             if (!SelectTrace(channel, strSelectTrace, false, ref msg))
             {
@@ -148,8 +152,8 @@ namespace VirtualVNA.NetworkAnalyzer
             try
             {
                 mbSession.Write(strGetChannelTraces);
-                string strTemp = mbSession.ReadString(200).Trim();
-                strTemp = strTemp.Substring(1, strTemp.Length - 3);
+                string strTemp = mbSession.ReadString(200).Trim('\n').Trim('"');
+               // strTemp = strTemp.Substring(1, strTemp.Length - 3);
                 string[] tempNames = strTemp.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                 int cycleCount = tempNames.Length / 2;
@@ -274,7 +278,7 @@ namespace VirtualVNA.NetworkAnalyzer
             //this command used for set save data format
             string strSetDataFormat = ":MMEM:STOR:TRAC:FORM:SNP RI";
 
-            string strSaveCommand = "CALC" + channel + ":DATA:SNP:PORTs:Save \'1,2,3,4\', \'" + saveFilePath + "\'";
+            string strSaveCommand = "CALC" + channel + ":DATA:SNP:PORTs:Save \'1,2,3,4\', \'" + ReplaceSlash(saveFilePath) + "\'";
               try
             {
                 mbSession.Write(strSetDataFormat);
@@ -291,9 +295,10 @@ namespace VirtualVNA.NetworkAnalyzer
 
         }
 
-        private bool FindTargetParameter(bool isSingle, string testParameter)
+     
+        private bool FindTargetParameter(bool isDiff, string testParameter)
         {
-            if (isSingle)
+            if (!isDiff)
             {
                 return testParameter.Length == 3;
             }

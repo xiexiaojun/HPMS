@@ -9,6 +9,7 @@ using HPMS.Core;
 using VirtualSwitch;
 using VirtualVNA.Enum;
 using VirtualVNA.NetworkAnalyzer;
+using NetworkAnalyzer = VirtualVNA.NetworkAnalyzer.NetworkAnalyzer;
 
 namespace HPMS.Equipment
 {
@@ -236,7 +237,7 @@ namespace HPMS.Equipment
             return true;
         }
 
-        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref INetworkAnalyzer iNetworkAnalyzer, ref string msg)
+        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref NetworkAnalyzer iNetworkAnalyzer, ref string msg)
         {
             try
             {
@@ -253,10 +254,10 @@ namespace HPMS.Equipment
 
                 switch (hardware.Analyzer)
                 {
-                    case NetworkAnalyzer.Demo:
+                    case VirtualVNA.Enum.NetworkAnalyzer.Demo:
                         iNetworkAnalyzer = new DemoAnalyzer();
                         break;
-                    case NetworkAnalyzer.N5224A:
+                    case VirtualVNA.Enum.NetworkAnalyzer.N5224A:
                         iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer);
                         break;
                 }

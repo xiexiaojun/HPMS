@@ -55,7 +55,7 @@
     <Compile Include="Enum\EquipmentType.cs" />
     <Compile Include="NetworkAnalyzer\DemoAnalyzer.cs" />
     <Compile Include="NetworkAnalyzer\E5071C.cs" />
-    <Compile Include="NetworkAnalyzer\INetworkAnalyzer.cs" />
+    <Compile Include="NetworkAnalyzer\NetworkAnalyzer.cs" />
     <Compile Include="NetworkAnalyzer\N5224A.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visa\VisaSerial.cs" />
