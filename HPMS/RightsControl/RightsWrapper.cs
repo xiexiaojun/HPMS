@@ -62,5 +62,13 @@ namespace HPMS.RightsControl
         {
             return UserDao.Del(userId);
         }
+
+        [Permisson("YS-AMS-01-670")]
+        public void test()
+        {
+            MessageBoxEx.Show("OK");
+          
+           
+        }
       }
 }

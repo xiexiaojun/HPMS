@@ -4,6 +4,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Principal;
 using System.Threading;
+using HPMS.Util;
 
 namespace HPMS.AOP
 {
@@ -48,6 +49,7 @@ namespace HPMS.AOP
         public System.Runtime.Remoting.Messaging.IMessageSink GetObjectSink(MarshalByRefObject obj, System.Runtime.Remoting.Messaging.IMessageSink nextSink)
         {
             return new MyAopHandler(nextSink);
+            
         }
     }
     public sealed class MyAopHandler : IMessageSink
@@ -69,43 +71,51 @@ namespace HPMS.AOP
         //同步处理方法
         public IMessage SyncProcessMessage(IMessage msg)
         {
-
             IMessage message = null;
-
-            //方法调用接口
-            IMethodCallMessage callMessage = msg as IMethodCallMessage;
-
-            //如果被调用的方法没打MyCalculatorMethodAttribute标签
-            if (callMessage == null || (Attribute.GetCustomAttribute(callMessage.MethodBase, typeof(PermissonAttribute))) == null)
-            {
-                message = nextSink.SyncProcessMessage(msg);
-            }
-            else
-            {
+ 
                
-                var attribute = (PermissonAttribute)callMessage.MethodBase.GetCustomAttributes(typeof(PermissonAttribute), false).FirstOrDefault();
 
-                if (attribute == null)
-                {
-                    return null;
-                }
+                //方法调用接口
+                IMethodCallMessage callMessage = msg as IMethodCallMessage;
 
-                string aa = (string) attribute.Role;
-                IPrincipal threadPrincipal = Thread.CurrentPrincipal;
-                bool bbb=threadPrincipal.IsInRole(aa);
-                if (bbb)
+                //如果被调用的方法没打MyCalculatorMethodAttribute标签
+                if (callMessage == null ||
+                    (Attribute.GetCustomAttribute(callMessage.MethodBase, typeof(PermissonAttribute))) == null)
                 {
-                    PreProceed(msg);
                     message = nextSink.SyncProcessMessage(msg);
-                    PostProceed(message);
                 }
                 else
                 {
-                    throw new Exception(string.Format("角色{0}没有访问操作{1}的权限！", threadPrincipal.Identity.AuthenticationType, aa));
+
+                    var attribute = (PermissonAttribute) callMessage.MethodBase
+                        .GetCustomAttributes(typeof(PermissonAttribute), false).FirstOrDefault();
+
+                    if (attribute == null)
+                    {
+                        return null;
+                    }
+
+                    string aa = (string) attribute.Role;
+                    IPrincipal threadPrincipal = Thread.CurrentPrincipal;
+                    bool bbb = threadPrincipal.IsInRole(aa);
+                    if (bbb)
+                    {
+                        PreProceed(msg);
+                        message = nextSink.SyncProcessMessage(msg);
+                        PostProceed(message);
+                    }
+                    else
+                    {
+                        //UI.MessageBoxMuti(string.Format("角色{0}没有访问操作{1}的权限！",
+                        //    threadPrincipal.Identity.AuthenticationType, aa));
+                        throw new Exception(string.Format("角色{0}没有访问操作{1}的权限！", threadPrincipal.Identity.AuthenticationType, aa));
+                    }
+
+
                 }
+
                
-               
-            }
+          
 
             return message;
         }

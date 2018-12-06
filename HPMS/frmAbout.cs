@@ -6,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tool;
+
 
 namespace HPMS
 {
@@ -101,5 +103,35 @@ namespace HPMS
             }
         }
         #endregion
+
+        private void frmAbout_Load(object sender, EventArgs e)
+        {
+            Tool.NodeUtil nodeUtil=new NodeUtil(treeView1);
+            nodeUtil.LoadTree("B:\\aa.xml");
+            treeView1.ExpandAll();
+            treeView1.Enabled = false;
+        }
+
+        private void treeView1_BeforeCheck(object sender, TreeViewCancelEventArgs e)
+        {
+            
+            //e.Cancel = true;
+            
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    
+
+       
+
+       
+
+       
+
+       
     }
 }

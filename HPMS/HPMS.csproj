@@ -220,7 +220,6 @@
     <Compile Include="Util\EasyExcel.cs" />
     <Compile Include="Util\Extende.cs" />
     <Compile Include="Util\Gloabal.cs" />
-    <Compile Include="Util\Serializer.cs" />
     <Compile Include="Util\UI.cs">
       <SubType>Form</SubType>
     </Compile>

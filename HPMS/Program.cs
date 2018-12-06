@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.Log;
 using HPMS.Splash;
+using HPMS.Util;
 using Application = System.Windows.Forms.Application;
 
 namespace HPMS
@@ -21,7 +22,7 @@ namespace HPMS
         {
             AppDomain.CurrentDomain.AssemblyResolve+=CurrentDomain_AssemblyResolve;
             //绑定程序中的异常处理
-            #if Release
+            #if DEBUG
                         BindExceptionHandler();     
             #endif
             MessageBoxEx.EnableGlass = false;
@@ -51,10 +52,12 @@ namespace HPMS
         }
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
+            UI.MessageBoxMuti(e.Exception.Message);
             LogHelper.WriteLog(null, e.Exception);
         }
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
+            UI.MessageBoxMuti(e.ExceptionObject.ToString());
             LogHelper.WriteLog(null, e.ExceptionObject as Exception);
         }
     }

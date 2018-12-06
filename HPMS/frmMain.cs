@@ -19,6 +19,7 @@ using HPMS.RightsControl;
 using HPMS.Splash;
 using HPMS.Util;
 using HslCommunication.BasicFramework;
+using Newtonsoft.Json.Linq;
 using VirtualSwitch;
 //using VirtualSwitch;
 using VirtualVNA.Enum;
@@ -280,10 +281,19 @@ namespace HPMS
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-
+            Gloabal.GRightsWrapper.test();
+            //try
+            //{
+            //    Gloabal.GRightsWrapper.test();
+            //}
+            //catch (Exception exception)
+            //{
+            //    Console.WriteLine(exception);
+            //    throw;
+            //}
            // MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
-            Thread t = new Thread(new ThreadStart(SiTest));
-            t.Start();
+            //Thread t = new Thread(new ThreadStart(SiTest));
+            //t.Start();
 
         }
 
@@ -348,7 +358,7 @@ namespace HPMS
                     if (_frmLogin.ShowDialog() != DialogResult.OK)
                     {
                         currentUser = _frmLogin.User;
-                        GetUserRights();
+                        GetUserRights(softVersion);
                     }
                     else
                     {
@@ -369,11 +379,15 @@ namespace HPMS
             //toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
-        private void GetUserRights()
+        private void GetUserRights(string softVersion)
         {
+            JObject tempJObject = JObject.Parse(softVersion);
+
+            List<string> funcList = tempJObject.Properties().Select(t => t.Name).ToList();
+            funcList.AddRange(currentUser.Rights.Select(t => t.Key).ToList());
             Thread.CurrentPrincipal =
                 new GenericPrincipal(new GenericIdentity(currentUser.Username, currentUser.Role),
-                    currentUser.Rights.Select(t=>t.Key).ToArray());
+                    funcList.ToArray());
         }
 
         /// <summary>

@@ -7,6 +7,7 @@ using HPMS.Config;
 using HPMS.Draw;
 using HPMS.Util;
 using Newtonsoft.Json;
+using Tool;
 
 namespace HPMS.Core
 {

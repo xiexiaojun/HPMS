@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.OleDb;
 using HPMS.Config;
 using HPMS.Util;
+using Tool;
 using _32p_analyze;
 
 namespace HPMS.DB
