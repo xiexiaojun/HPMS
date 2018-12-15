@@ -16,7 +16,8 @@ namespace HPMS.Core
     {
         Loss=0,
         Next=1,
-        Fext=2
+        Fext=2,
+        Last
     }
 
    
@@ -51,6 +52,7 @@ namespace HPMS.Core
         public Action<string, ClbType> SetCheckItem;
         public Action<string> SetResult;
         public Action<Dictionary<string, List<PairData>>> SetKeyPointList;
+        public Func<bool> StopEnabbled;
 
     }
 
@@ -61,6 +63,8 @@ namespace HPMS.Core
     {
         public string SnpFilePath;
         public string TxtFilePath;
+        public string Sn;
+        public string XmlPath;
     }
 
     /// <summary>
@@ -118,6 +122,7 @@ namespace HPMS.Core
         {
            Dictionary<string, plotData> ret = new Dictionary<string, plotData>();
            DataTable dt=Serializer.Json2DataTable(pnProject.FreSpec);
+           
            int frePoints = dt.Rows.Count;
             int specNum = dt.Columns.Count;
             for (int i = 1; i < specNum; i++)
@@ -142,14 +147,96 @@ namespace HPMS.Core
             }
             plotData[] tdd1 = GetTddSpec(pnProject.Tdd11);
             plotData[] tdd2 = GetTddSpec(pnProject.Tdd22);
+            
             ret.Add("TDD11_UPPER", tdd1[0]);
             ret.Add("TDD11_LOWER", tdd1[1]);
             ret.Add("TDD22_UPPER", tdd2[0]);
             ret.Add("TDD22_LOWER", tdd2[1]);
-
+            SaveSpec(dt,tdd1,tdd2);
             return ret;
         }
 
+        public static void SaveSpec(DataTable dt, plotData[] tdd11, plotData[] tdd22)
+        {
+            if (!SaveFreSpec(Gloabal.freSpecFilePath, dt))
+            {
+                throw new Exception("save fre spec file to:" + Gloabal.freSpecFilePath+" error");
+            }
+            if (!SaveTddSpec(Gloabal.timeSpecFilePath, tdd11,tdd22))
+            {
+                throw new Exception("save time spec file to:" + Gloabal.timeSpecFilePath + " error");
+            }
+           // throw new Exception("test save spec error");
+        }
+
+
+        private static bool SaveFreSpec(string filePath, DataTable dt)
+        {
+            if (!FileCheck.FilePrepare(filePath))
+            {
+                return false;
+            }
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+
+            int column = dt.Columns.Count;
+            FileStream fs = new FileStream(filePath, FileMode.Create);
+            StreamWriter sw = new StreamWriter(new BufferedStream(fs), System.Text.Encoding.Default);
+
+            string header = "";
+            for (int i = 1; i < column; i++)
+            {
+                header = header + dt.Columns[i] + "\t";
+            }
+
+            header = header.Trim() + Environment.NewLine;
+            sw.Write(header);
+
+            foreach (DataRow variable in dt.Rows)
+            {
+                string line = "";
+                for (int i = 1; i < column; i++)
+                {
+                    line = line + variable[i] + "\t";
+                }
+
+                line = line.Substring(0,line.Length-1) + Environment.NewLine;
+                sw.Write(line);
+            }   
+            sw.Close();
+            fs.Close();
+            return true;
+        }
+
+        private static bool SaveTddSpec(string filePath, plotData[] tdd11, plotData[] tdd22)
+        {
+            if (!FileCheck.FilePrepare(filePath))
+            {
+                return false;
+            }
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            FileStream fs = new FileStream(filePath, FileMode.Create);
+            StreamWriter sw = new StreamWriter(new BufferedStream(fs), System.Text.Encoding.Default);
+            string header = "TDD11_UPPER\tTDD11_LOWER\tTDD22_UPPER\tTDD22_LOWER" + Environment.NewLine;
+            sw.Write(header);
+            int length = tdd11[0].yData.Length;
+            for (int i = 0; i < length; i++)
+            {
+                string line = tdd11[0].yData[i] + "\t" + tdd11[1].yData[i] + "\t" + tdd22[0].yData[i] + "\t" + tdd22[1].yData[i] +
+                              Environment.NewLine;
+                sw.Write(line);
+              
+            }
+            sw.Close();
+            fs.Close();
+            return true;
+        }
 
         public static plotData[] GetTddSpec(TdrParam tdrParam)
         {
@@ -208,6 +295,38 @@ namespace HPMS.Core
             ret[1].xData = x.ToArray();
             ret[1].yData = y.ToArray();
             return ret;
+        }
+
+        public static bool SaveResult_Sample(string filePath,Dictionary<string,string>result,Dictionary<string,string>info)
+        {
+            string xmlSample = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n" +
+                             "<general>\n" +
+                             "<testResult>\n" +
+                             "@testItem@" +
+                             "</testResult>\n" +
+                             "<information>\n" +
+                             "@inforItem@" +
+                             "</information>\n" +
+                             "</general>";
+            string testItem = "<testItem name=\"@key@\" result=\"@value@\"/> ";
+            string testItemNode = "";
+            foreach (var singleItem in result)
+            {
+                testItemNode = testItemNode +
+                               testItem.Replace("@key@", singleItem.Key).Replace("@value@", singleItem.Value)+Environment.NewLine;
+            }
+
+            string infoItem = "<inforItem name=\"@key@\" value=\"@value@\"/>";
+            string infoItemNode = "";
+            foreach (var singleItem in info)
+            {
+                infoItemNode = infoItemNode +
+                               infoItem.Replace("@key@", singleItem.Key).Replace("@value@", singleItem.Value) + Environment.NewLine;
+            }
+
+            string xmlFull = xmlSample.Replace("@testItem@", testItemNode).Replace("@inforItem@", infoItemNode);
+            File.WriteAllText(filePath,xmlFull);
+            return true;
         }
        
     }

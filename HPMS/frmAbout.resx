@@ -601,4 +601,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="textBoxDescription.Text" xml:space="preserve">
+    <value>HPMS  means high performance test management system, is mainly for high speed DAC/AOC/Module (QSFP28, SFP28 ,uQSFP, QSFP-DD, OSFP, SFP+, QSFP+,Slimline, Mini-SAS, Mini-SAS HD etc.). It is an automatic test management system integrated SI test, EEPROM write/read, test data traceability, report generating and label printing etc.. It can significantly improve test efficiency, accuracy, and make it possible to track data of our product at every corner of the world</value>
+  </data>
 </root>

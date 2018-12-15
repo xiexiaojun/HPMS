@@ -37,9 +37,10 @@ namespace HPMS
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelCompanyName = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -55,9 +56,10 @@ namespace HPMS
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 2, 5);
-            this.tableLayoutPanel.Controls.Add(this.treeView1, 2, 0);
+            this.tableLayoutPanel.Controls.Add(this.treeView1, 2, 1);
+            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 0, 4);
+            this.tableLayoutPanel.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(9, 8);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -77,8 +79,8 @@ namespace HPMS
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
-            this.logoPictureBox.Size = new System.Drawing.Size(144, 393);
+            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 4);
+            this.logoPictureBox.Size = new System.Drawing.Size(144, 150);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoPictureBox.TabIndex = 12;
             this.logoPictureBox.TabStop = false;
@@ -131,21 +133,6 @@ namespace HPMS
             this.labelCompanyName.Text = "公司名称";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBoxDescription
-            // 
-            this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(156, 159);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
-            this.textBoxDescription.Multiline = true;
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.ReadOnly = true;
-            this.tableLayoutPanel.SetRowSpan(this.textBoxDescription, 2);
-            this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(207, 237);
-            this.textBoxDescription.TabIndex = 23;
-            this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "说明";
-            // 
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -155,7 +142,6 @@ namespace HPMS
             this.okButton.Size = new System.Drawing.Size(75, 21);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "确定(&O)";
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // treeView1
             // 
@@ -163,11 +149,38 @@ namespace HPMS
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.ForeColor = System.Drawing.Color.Blue;
-            this.treeView1.Location = new System.Drawing.Point(369, 3);
+            this.treeView1.Location = new System.Drawing.Point(369, 42);
             this.treeView1.Name = "treeView1";
-            this.tableLayoutPanel.SetRowSpan(this.treeView1, 5);
-            this.treeView1.Size = new System.Drawing.Size(350, 349);
+            this.tableLayoutPanel.SetRowSpan(this.treeView1, 4);
+            this.treeView1.Size = new System.Drawing.Size(350, 310);
             this.treeView1.TabIndex = 25;
+            // 
+            // textBoxDescription
+            // 
+            this.tableLayoutPanel.SetColumnSpan(this.textBoxDescription, 2);
+            this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxDescription.Location = new System.Drawing.Point(6, 159);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ReadOnly = true;
+            this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxDescription.Size = new System.Drawing.Size(357, 193);
+            this.textBoxDescription.TabIndex = 23;
+            this.textBoxDescription.TabStop = false;
+            this.textBoxDescription.Text = resources.GetString("textBoxDescription.Text");
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(372, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
+            this.label1.MaximumSize = new System.Drawing.Size(0, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(347, 16);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "功能列表";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmAbout
             // 
@@ -176,6 +189,7 @@ namespace HPMS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 415);
             this.Controls.Add(this.tableLayoutPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -183,7 +197,6 @@ namespace HPMS
             this.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAbout";
             this.Load += new System.EventHandler(this.frmAbout_Load);
             this.tableLayoutPanel.ResumeLayout(false);
@@ -204,5 +217,6 @@ namespace HPMS
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
         private TreeView treeView1;
+        private Label label1;
     }
 }

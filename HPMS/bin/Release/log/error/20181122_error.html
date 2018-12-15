@@ -1,21 +1,23 @@
 
 <hr color=red />
-日志级别：ERROR 记录时间：2018-11-22 11:41:47,033  记录类：logerror 线程ID：[10]
+日志级别：ERROR 记录时间：2018-11-22 11:22:53,907  记录类：logerror 线程ID：[10]
 <br/>设备信息：{log4net:HostName=USER-20180112CI} 
 <br/>日志信息：fileName:d:\gitProjects\HPMS\HPMS\Program.cs
 ClassName:Program
-MethodName:CurrentDomain_UnhandledException
-lineNumber:50
+MethodName:Application_ThreadException
+lineNumber:45
 msg:
 <hr/>
 System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 HPMS.frmMain.LoadTheme() 位置 d:\gitProjects\HPMS\HPMS\frmMain.cs:行号 146
-   在 HPMS.frmMain..ctor() 位置 d:\gitProjects\HPMS\HPMS\frmMain.cs:行号 59
-   在 HPMS.Program.Main() 位置 d:\gitProjects\HPMS\HPMS\Program.cs:行号 31
-   在 System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
-   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
-   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
-   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
-   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
-   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
-   在 System.Threading.ThreadHelper.ThreadStart()
+   在 HPMS.frmMain.SetStatusBar() 位置 d:\gitProjects\HPMS\HPMS\frmMain.cs:行号 302
+   在 HPMS.frmMain.frmMain_Load(Object sender, EventArgs e) 位置 d:\gitProjects\HPMS\HPMS\frmMain.cs:行号 230
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 DevComponents.DotNetBar.Office2007RibbonForm.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 DevComponents.DotNetBar.Office2007RibbonForm.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

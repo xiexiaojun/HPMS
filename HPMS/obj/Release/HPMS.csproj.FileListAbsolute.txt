@@ -29,7 +29,6 @@ D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.frmVisaLists.resources
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.Properties.Resources.resources
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.Splash.frmSplash.resources
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.frmUserEdit.resources
-D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.Util.Office2007Muti.resources
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.pdb
@@ -39,3 +38,12 @@ D:\gitProjects\HPMS\HPMS\bin\Release\VirtualVNA.pdb
 D:\gitProjects\HPMS\HPMS\bin\Release\VirtualSwitch.pdb
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.frmAbout.resources
+D:\gitProjects\HPMS\HPMS\bin\Release\Tool.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.SqlServer.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.EF6.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.Linq.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.xml
+D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.SqlServer.xml
+D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.xml

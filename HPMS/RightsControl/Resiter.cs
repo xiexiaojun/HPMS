@@ -43,6 +43,7 @@ namespace HPMS.RightsControl
                 ret = (tempJObject.Property("machineCode").Value.ToString() == machineCode) ||
                       tempJObject.Property("softName").Value.ToString() == machineCode;
                 softVersion = tempJObject.Property("softVersion").Value.ToString();
+                
             }
             catch (Exception e)
             {

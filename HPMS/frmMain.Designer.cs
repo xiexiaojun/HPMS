@@ -38,8 +38,6 @@ namespace HPMS
             this.ToolStripMenuItem_Auto = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Manual = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.ToolStripMenuItem_PNProfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_FastProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_hardware = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_profile = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +64,9 @@ namespace HPMS
             this.sNP转换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOM计算ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.switchMatrixBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -80,7 +80,6 @@ namespace HPMS
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.btnTest = new DevComponents.DotNetBar.ButtonX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtSN = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.chkList_TestItem = new System.Windows.Forms.CheckedListBox();
@@ -93,6 +92,9 @@ namespace HPMS
             this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_PN = new System.Windows.Forms.TextBox();
+            this.panelEx7 = new DevComponents.DotNetBar.PanelEx();
+            this.chkStop = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.btnTest = new DevComponents.DotNetBar.ButtonX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx6 = new DevComponents.DotNetBar.PanelEx();
             this.tabControlChart = new DevComponents.DotNetBar.TabControl();
@@ -108,6 +110,9 @@ namespace HPMS
             this.labelResult = new DevComponents.DotNetBar.LabelX();
             this.pgbTest = new DevComponents.DotNetBar.Controls.ProgressBarX();
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCaption = new DevComponents.DotNetBar.LabelX();
+            this.picLogoLeft = new System.Windows.Forms.PictureBox();
             this.menuStrip_Main.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -117,12 +122,16 @@ namespace HPMS
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panelEx7.SuspendLayout();
             this.panelEx2.SuspendLayout();
             this.panelEx6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).BeginInit();
             this.expandablePanel1.SuspendLayout();
             this.panelEx3.SuspendLayout();
             this.panelEx4.SuspendLayout();
+            this.panelEx5.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoLeft)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -143,39 +152,26 @@ namespace HPMS
             this.模式ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_Auto,
             this.ToolStripMenuItem_Manual,
-            this.toolStripMenuItem4,
-            this.ToolStripMenuItem_PNProfile,
-            this.ToolStripMenuItem_FastProfile});
-            this.模式ToolStripMenuItem.Image = global::HPMS.Properties.Resources.model;
+            this.toolStripMenuItem4});
             resources.ApplyResources(this.模式ToolStripMenuItem, "模式ToolStripMenuItem");
             this.模式ToolStripMenuItem.Name = "模式ToolStripMenuItem";
             // 
             // ToolStripMenuItem_Auto
             // 
+            this.ToolStripMenuItem_Auto.Checked = true;
+            this.ToolStripMenuItem_Auto.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToolStripMenuItem_Auto.Name = "ToolStripMenuItem_Auto";
             resources.ApplyResources(this.ToolStripMenuItem_Auto, "ToolStripMenuItem_Auto");
             // 
             // ToolStripMenuItem_Manual
             // 
-            this.ToolStripMenuItem_Manual.Name = "ToolStripMenuItem_Manual";
             resources.ApplyResources(this.ToolStripMenuItem_Manual, "ToolStripMenuItem_Manual");
+            this.ToolStripMenuItem_Manual.Name = "ToolStripMenuItem_Manual";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
-            // 
-            // ToolStripMenuItem_PNProfile
-            // 
-            this.ToolStripMenuItem_PNProfile.Name = "ToolStripMenuItem_PNProfile";
-            resources.ApplyResources(this.ToolStripMenuItem_PNProfile, "ToolStripMenuItem_PNProfile");
-            this.ToolStripMenuItem_PNProfile.Click += new System.EventHandler(this.ToolStripMenuItem_ProfileMode_Click);
-            // 
-            // ToolStripMenuItem_FastProfile
-            // 
-            this.ToolStripMenuItem_FastProfile.Name = "ToolStripMenuItem_FastProfile";
-            resources.ApplyResources(this.ToolStripMenuItem_FastProfile, "ToolStripMenuItem_FastProfile");
-            this.ToolStripMenuItem_FastProfile.Click += new System.EventHandler(this.ToolStripMenuItem_ProfileMode_Click);
             // 
             // 设置ToolStripMenuItem
             // 
@@ -183,7 +179,6 @@ namespace HPMS
             this.m_Set_hardware,
             this.m_Set_profile,
             this.m_Set_user});
-            this.设置ToolStripMenuItem.Image = global::HPMS.Properties.Resources.setting;
             resources.ApplyResources(this.设置ToolStripMenuItem, "设置ToolStripMenuItem");
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
             // 
@@ -210,7 +205,6 @@ namespace HPMS
             this.语言ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.中文ToolStripMenuItem,
             this.englishToolStripMenuItem});
-            this.语言ToolStripMenuItem.Image = global::HPMS.Properties.Resources.language;
             resources.ApplyResources(this.语言ToolStripMenuItem, "语言ToolStripMenuItem");
             this.语言ToolStripMenuItem.Name = "语言ToolStripMenuItem";
             // 
@@ -243,7 +237,6 @@ namespace HPMS
             this.visualStudio2012LightToolStripMenuItem,
             this.toolStripMenuItem2,
             this.自定义ToolStripMenuItem});
-            this.Skin_ToolStripMenuItem.Image = global::HPMS.Properties.Resources.style;
             resources.ApplyResources(this.Skin_ToolStripMenuItem, "Skin_ToolStripMenuItem");
             this.Skin_ToolStripMenuItem.Name = "Skin_ToolStripMenuItem";
             // 
@@ -349,9 +342,9 @@ namespace HPMS
             this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sNP转换ToolStripMenuItem,
             this.eEPROMToolStripMenuItem,
-            this.cOM计算ToolStripMenuItem});
+            this.cOM计算ToolStripMenuItem,
+            this.switchMatrixBoxToolStripMenuItem});
             resources.ApplyResources(this.工具ToolStripMenuItem, "工具ToolStripMenuItem");
-            this.工具ToolStripMenuItem.Image = global::HPMS.Properties.Resources.tool;
             this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
             // 
             // sNP转换ToolStripMenuItem
@@ -363,19 +356,31 @@ namespace HPMS
             // 
             resources.ApplyResources(this.eEPROMToolStripMenuItem, "eEPROMToolStripMenuItem");
             this.eEPROMToolStripMenuItem.Name = "eEPROMToolStripMenuItem";
+            this.eEPROMToolStripMenuItem.Click += new System.EventHandler(this.eEPROMToolStripMenuItem_Click);
             // 
             // cOM计算ToolStripMenuItem
             // 
             resources.ApplyResources(this.cOM计算ToolStripMenuItem, "cOM计算ToolStripMenuItem");
             this.cOM计算ToolStripMenuItem.Name = "cOM计算ToolStripMenuItem";
             // 
+            // switchMatrixBoxToolStripMenuItem
+            // 
+            this.switchMatrixBoxToolStripMenuItem.Name = "switchMatrixBoxToolStripMenuItem";
+            resources.ApplyResources(this.switchMatrixBoxToolStripMenuItem, "switchMatrixBoxToolStripMenuItem");
+            this.switchMatrixBoxToolStripMenuItem.Click += new System.EventHandler(this.switchMatrixBoxToolStripMenuItem_Click);
+            // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.帮助文档ToolStripMenuItem,
             this.关于ToolStripMenuItem});
-            this.帮助ToolStripMenuItem.Image = global::HPMS.Properties.Resources.help;
             resources.ApplyResources(this.帮助ToolStripMenuItem, "帮助ToolStripMenuItem");
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            // 
+            // 帮助文档ToolStripMenuItem
+            // 
+            this.帮助文档ToolStripMenuItem.Name = "帮助文档ToolStripMenuItem";
+            resources.ApplyResources(this.帮助文档ToolStripMenuItem, "帮助文档ToolStripMenuItem");
             // 
             // 关于ToolStripMenuItem
             // 
@@ -455,13 +460,13 @@ namespace HPMS
             // 
             resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
             this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnTest, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.labelX3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtSN, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.chkList_TestItem, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.tab_pair, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panelEx7, 0, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // labelX2
@@ -472,15 +477,6 @@ namespace HPMS
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             resources.ApplyResources(this.labelX2, "labelX2");
             this.labelX2.Name = "labelX2";
-            // 
-            // btnTest
-            // 
-            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            resources.ApplyResources(this.btnTest, "btnTest");
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // labelX3
             // 
@@ -500,6 +496,7 @@ namespace HPMS
             this.txtSN.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             resources.ApplyResources(this.txtSN, "txtSN");
             this.txtSN.Name = "txtSN";
+            this.txtSN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSN_KeyDown);
             // 
             // chkList_TestItem
             // 
@@ -565,6 +562,42 @@ namespace HPMS
             resources.ApplyResources(this.txt_PN, "txt_PN");
             this.txt_PN.Name = "txt_PN";
             this.txt_PN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_PN_KeyDown);
+            // 
+            // panelEx7
+            // 
+            this.panelEx7.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx7.Controls.Add(this.chkStop);
+            this.panelEx7.Controls.Add(this.btnTest);
+            this.panelEx7.DisabledBackColor = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.panelEx7, "panelEx7");
+            this.panelEx7.Name = "panelEx7";
+            this.panelEx7.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx7.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx7.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx7.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx7.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx7.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx7.Style.GradientAngle = 90;
+            // 
+            // chkStop
+            // 
+            // 
+            // 
+            // 
+            this.chkStop.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.chkStop, "chkStop");
+            this.chkStop.Name = "chkStop";
+            this.chkStop.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            // 
+            // btnTest
+            // 
+            this.btnTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            resources.ApplyResources(this.btnTest, "btnTest");
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // panelEx2
             // 
@@ -640,7 +673,7 @@ namespace HPMS
             resources.ApplyResources(this.expandablePanel1, "expandablePanel1");
             this.expandablePanel1.ExpandButtonAlignment = DevComponents.DotNetBar.eTitleButtonAlignment.Left;
             this.expandablePanel1.Expanded = false;
-            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(760, 0, 323, 360);
+            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(764, 0, 323, 360);
             this.expandablePanel1.HideControlsWhenCollapsed = true;
             this.expandablePanel1.Name = "expandablePanel1";
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -762,6 +795,7 @@ namespace HPMS
             this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.tableLayoutPanel1.SetColumnSpan(this.panelEx5, 2);
+            this.panelEx5.Controls.Add(this.tableLayoutPanel3);
             this.panelEx5.DisabledBackColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.panelEx5, "panelEx5");
             this.panelEx5.Name = "panelEx5";
@@ -772,6 +806,31 @@ namespace HPMS
             this.panelEx5.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.panelEx5.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx5.Style.GradientAngle = 90;
+            // 
+            // tableLayoutPanel3
+            // 
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
+            this.tableLayoutPanel3.Controls.Add(this.lblCaption, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.picLogoLeft, 0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
+            // lblCaption
+            // 
+            // 
+            // 
+            // 
+            this.lblCaption.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            resources.ApplyResources(this.lblCaption, "lblCaption");
+            this.lblCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(108)))), ((int)(((byte)(169)))));
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // picLogoLeft
+            // 
+            resources.ApplyResources(this.picLogoLeft, "picLogoLeft");
+            this.picLogoLeft.Image = global::HPMS.Properties.Resources.微信图片_20181215221604;
+            this.picLogoLeft.Name = "picLogoLeft";
+            this.picLogoLeft.TabStop = false;
             // 
             // frmMain
             // 
@@ -797,12 +856,16 @@ namespace HPMS
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.panelEx7.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             this.panelEx6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControlChart)).EndInit();
             this.expandablePanel1.ResumeLayout(false);
             this.panelEx3.ResumeLayout(false);
             this.panelEx4.ResumeLayout(false);
+            this.panelEx5.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoLeft)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -853,15 +916,12 @@ namespace HPMS
         private ToolStripMenuItem ToolStripMenuItem_Auto;
         private ToolStripMenuItem ToolStripMenuItem_Manual;
         private ToolStripSeparator toolStripMenuItem4;
-        private ToolStripMenuItem ToolStripMenuItem_FastProfile;
-        private ToolStripMenuItem ToolStripMenuItem_PNProfile;
         private ToolStripMenuItem 工具ToolStripMenuItem;
         private ToolStripMenuItem sNP转换ToolStripMenuItem;
         private ToolStripMenuItem eEPROMToolStripMenuItem;
         private ToolStripMenuItem cOM计算ToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel2;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.ButtonX btnTest;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.Controls.TextBoxX txtSN;
         private CheckedListBox chkList_TestItem;
@@ -885,6 +945,14 @@ namespace HPMS
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private TableLayoutPanel tableLayoutPanel3;
+        private DevComponents.DotNetBar.LabelX lblCaption;
+        private PictureBox picLogoLeft;
+        private DevComponents.DotNetBar.PanelEx panelEx7;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkStop;
+        private DevComponents.DotNetBar.ButtonX btnTest;
+        private ToolStripMenuItem switchMatrixBoxToolStripMenuItem;
+        private ToolStripMenuItem 帮助文档ToolStripMenuItem;
 
     }
 }

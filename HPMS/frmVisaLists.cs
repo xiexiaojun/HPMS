@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
-using HPMS.Util;
+using Tool;
 
 namespace HPMS
 {

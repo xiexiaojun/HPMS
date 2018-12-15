@@ -39,5 +39,8 @@
         {
             return source.Replace("\\", "/");
         }
+
+        public abstract bool LoadCalFile(string calFilePath, ref string msg);
+
     }
 }

@@ -1,27 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tool;
 
 
 namespace HPMS
 {
-    partial class frmAbout : Form
+    partial class frmAbout : Office2007Muti
     {
+       
         public frmAbout()
         {
+            EnableGlass = false;
             InitializeComponent();
             this.Text = String.Format("关于 {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("版本 {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            //this.textBoxDescription.Text = AssemblyDescription;
+           
         }
 
         #region 程序集特性访问器
@@ -106,32 +104,15 @@ namespace HPMS
 
         private void frmAbout_Load(object sender, EventArgs e)
         {
+            string nodeAll = @"config\funcNodes.xml";
             Tool.NodeUtil nodeUtil=new NodeUtil(treeView1);
-            nodeUtil.LoadTree("B:\\aa.xml");
+
+            nodeUtil.LoadTree(nodeAll);
             treeView1.ExpandAll();
             treeView1.Enabled = false;
         }
 
-        private void treeView1_BeforeCheck(object sender, TreeViewCancelEventArgs e)
-        {
-            
-            //e.Cancel = true;
-            
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-    
-
-       
-
-       
-
-       
-
+     
        
     }
 }

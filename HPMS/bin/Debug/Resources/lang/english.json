@@ -3,7 +3,10 @@
 	"编辑": "Edit",
 	"语言": "Languange",
 	"设置": "Setting",
+	"帮助": "Help",
+	"确定": "OK",
 	"风格": "Style",
+	"工具": "Tool",
 	"自定义": "Customer Color",
 	"档案": "Profile",
 	"硬件设置": "Hardware config",
@@ -25,5 +28,10 @@
     "删除": "Delete",
 	"向导模式": "Wizard Mode",
 	"类型": "Type",
-	"近串": "NEXT"
+	"近串": "NEXT",
+	"远串": "FEXT",
+	"直通": "THRU",
+	"版本":"Version",
+	"对数":"Pairs",
+	"关于 HPMS":"About HMPS"
 }

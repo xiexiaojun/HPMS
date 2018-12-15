@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using HPMS.DB;
 using HPMS.Util;
+using Tool;
 
 namespace HPMS
 {
@@ -32,8 +33,10 @@ namespace HPMS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //this.Close();
             string userName = txtUser.Text;
-            List<User> userList=UserDao.Find(userName);
+            UserDao.DbMode = chkDBMode.Checked;
+            List<User> userList = UserDao.Find(userName);
             if (userList.Count == 1)
             {
                 User = userList[0];
@@ -41,7 +44,7 @@ namespace HPMS
                 {
                     if (User.UserStatus != RecordStatus.Enable)
                     {
-                        UI.MessageBoxMuti("账户已停用或被删除");
+                        Ui.MessageBoxMuti("账户已停用或被删除",this);
                     }
                     else
                     {
@@ -51,16 +54,16 @@ namespace HPMS
                             this.Close();
                         }
                     }
-               
+
                 }
                 else
                 {
-                    UI.MessageBoxMuti("用户名或密码错误");
+                    Ui.MessageBoxMuti("用户名或密码错误",this);
                 }
             }
             else
             {
-                UI.MessageBoxMuti("用户名或密码错误");
+                Ui.MessageBoxMuti("用户名或密码错误");
             }
            
             

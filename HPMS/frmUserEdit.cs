@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HPMS.DB;
 using HPMS.Util;
+using Tool;
 
 
 namespace HPMS
@@ -69,35 +70,35 @@ namespace HPMS
                 user.UserStatus = chkUserEnable.Checked == true ? RecordStatus.Enable : RecordStatus.Disable;
                 user.CreaterId = Gloabal.GUser.UserId;
                 user.Psw = "123456";
-                user.CreateDate = DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
+                user.CreateDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                
                 string msg = "";
 
                 if (!Gloabal.GRightsWrapper.SaveUser(user, ref msg))
                 {
-                    UI.MessageBoxMuti(msg);
+                    Ui.MessageBoxMuti(msg);
                 }
                 else
                 {
-                    UI.MessageBoxMuti("增加用户成功");
+                    Ui.MessageBoxMuti("增加用户成功");
                 }
             }
             else
             {
                 //修改
                 _user.UserStatus = chkUserEnable.Checked == true ? RecordStatus.Enable : RecordStatus.Disable;
-                _user.CreateDate = DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
+                _user.CreateDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 _user.RoleId = GetRoleId();
                 
        
                 if (!Gloabal.GRightsWrapper.UpdateUser(_user))
                 {
-                    UI.MessageBoxMuti("修改用户失败");
+                    Ui.MessageBoxMuti("修改用户失败");
                 }
                 else
                 {
 
-                    UI.MessageBoxMuti("修改用户成功");
+                    Ui.MessageBoxMuti("修改用户成功");
                 }
 
             }

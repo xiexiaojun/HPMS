@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
-using NationalInstruments.VisaNS;
 using HPMS.Config;
 using HPMS.Core;
 using VirtualSwitch;
@@ -86,7 +85,7 @@ namespace HPMS.Equipment
                     return null;
                 }
 
-                return File.ReadAllLines(strSwitchFilePath).Where(s => !(s.StartsWith("T") || s.Trim().Length == 0)).Select(ConvertSwitchLabelToIndex).ToList();
+                return File.ReadAllLines(strSwitchFilePath).Where(s => !(s.StartsWith("T") || s.StartsWith("R") || s.Trim().Length == 0)).Select(ConvertSwitchLabelToIndex).ToList();
 
             }
             catch (Exception e)
@@ -105,7 +104,10 @@ namespace HPMS.Equipment
         /// <returns></returns>
         private static byte[] ConvertSwitchLabelToIndex(string switchLabel)
         {
-              List<byte> ret = new List<byte>();
+            List<byte> ret = new List<byte>();
+            try
+            {
+                
                 string[] split = { "\t" };
                 string[] labels = switchLabel.Split(split, StringSplitOptions.RemoveEmptyEntries).ToArray();
                 foreach (string s in labels)
@@ -116,6 +118,13 @@ namespace HPMS.Equipment
                     ret.Add((byte)center);
                 }
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+             
                 return ret.ToArray();
           
            
@@ -136,9 +145,11 @@ namespace HPMS.Equipment
             TestConfig testConfigLoss = new TestConfig();
             TestConfig testConfigNext = new TestConfig();
             TestConfig testConfigFext = new TestConfig();
+            TestConfig testConfigLast = new TestConfig();
             List<string> loss = new List<string>();
             List<string> next = new List<string>();
             List<string> fext = new List<string>();
+            List<string> last = new List<string>();
 
 
             int diffPairNum = pnProject.DiffPair.Count;
@@ -176,6 +187,9 @@ namespace HPMS.Equipment
                         case "fext":
                             fext.Add(s);
                             break;
+                        case "last":
+                            last.Add(s);
+                            break;
                     }
                 }
             }
@@ -183,6 +197,7 @@ namespace HPMS.Equipment
             testConfigLoss.AnalyzeItems = loss;
             testConfigNext.AnalyzeItems = next;
             testConfigFext.AnalyzeItems = fext;
+            testConfigLast.AnalyzeItems = last;
 
             int lossStep = 120 / pairSum ;
             int nextStep = 120 / pairSum;
@@ -221,6 +236,7 @@ namespace HPMS.Equipment
             testConfigLoss.ItemType = ItemType.Loss;
             testConfigNext.ItemType = ItemType.Next;
             testConfigFext.ItemType = ItemType.Fext;
+            testConfigLast.ItemType = ItemType.Last;
 
             List<TdrParam> tdrParams = new List<TdrParam>();
             tdrParams.Add(pnProject.Tdd11);
@@ -231,6 +247,7 @@ namespace HPMS.Equipment
             testConfigs[0] = testConfigLoss;
             testConfigs[1] = testConfigNext;
             testConfigs[2] = testConfigFext;
+            testConfigs[3] = testConfigLast;
 
            
 
@@ -244,7 +261,7 @@ namespace HPMS.Equipment
                 switch (hardware.SwitchBox)
                 {
                     case SwitchBox.MCU:
-                        iswitch = new SwitchMcu(hardware.VisaSwitchBox);
+                        iswitch = new SwitchMcu(hardware.VisaSwitchBox,hardware.SwitchResponseTime);
                         break;
                     case SwitchBox.Demo:
                         iswitch = new SwitchDemo();
@@ -258,7 +275,7 @@ namespace HPMS.Equipment
                         iNetworkAnalyzer = new DemoAnalyzer();
                         break;
                     case VirtualVNA.Enum.NetworkAnalyzer.N5224A:
-                        iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer);
+                        iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer,hardware.AnalyzerResponseTime);
                         break;
                 }
 
@@ -274,19 +291,6 @@ namespace HPMS.Equipment
 
         }
 
-        /// <summary>
-        /// 获取快捷档案配置，如QSFP等
-        /// </summary>
-        /// <returns></returns>
-        public static List<string> GetFastProfile()
-        {
-            string fastProfilePath = "fastProfile";
-            if (!Directory.Exists(fastProfilePath))
-            {
-                return new List<string>();
-            }
-            DirectoryInfo fPDirectoryInfo=new DirectoryInfo(fastProfilePath);
-            return fPDirectoryInfo.GetFiles().Select(t => Path.GetFileNameWithoutExtension(t.FullName)).ToList();
-        }
+      
     }
 }

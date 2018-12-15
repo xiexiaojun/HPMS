@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevComponents.DotNetBar;
-using HPMS.Util;
+using Tool;
 using VirtualVNA.Enum;
 using _32p_analyze;
 
@@ -57,6 +57,11 @@ namespace HPMS.Config
         public string SnpFolder { get; set; }
         //txt保存路径
         public string TxtFolder { get; set; }
+        //开关响应时间
+        public int SwitchResponseTime { get; set; }
+        //网分响应时间
+        public int AnalyzerResponseTime { get; set; }
+       
     }
 
     public class TestItem
@@ -73,6 +78,12 @@ namespace HPMS.Config
         public string[]NextPair { get; set; }
         //远串对数名称
         public string[]FextPair { get; set; }
+        //速率
+        public string[]Speed { get; set; }
+        //产品类型
+        public string[]ProductType { get; set; }
+        //有源无源
+        public string[]Power { set; get; }
 
 
     }
@@ -124,6 +135,7 @@ namespace HPMS.Config
         public string RomFilePath { set; get; }
         public bool RomWrite { set; get; }
         public string SwitchFilePath { set; get; }
+        public string CalFilePath { set; get; }
 
         public string FreSpec { set; get; }
         public int FrePoints { set; get; }
@@ -132,6 +144,15 @@ namespace HPMS.Config
         public TdrParam Tdd22 { set; get; }
         public IldSpec Ild { set; get; }
         public double Skew { set; get; }
+
+        public string Speed { set; get; }
+        public string ProductTypeL { set; get; }
+        public string ProductTypeR { set; get; }
+        public string Power { set; get; }
+        public string Description { set; get; }
+
+        public string KeyPoint { set; get; }
+
 
       
     }

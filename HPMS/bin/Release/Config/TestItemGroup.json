@@ -28,8 +28,9 @@
 	"TCD22": "loss",
 	"NEXT": "next",
 	"FEXT": "fext",
-	"MDNEXT": "next",
-	"MDFEXT": "fext"
+	"MDNEXT": "last",
+	"MDFEXT": "last",
+	"ICR": "last"
 
 
 }

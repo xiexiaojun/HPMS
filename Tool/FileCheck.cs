@@ -77,5 +77,20 @@ namespace Tool
 
             return ret;
         }
+
+        public static bool FilePrepare(string filePath)
+        {
+            string folderPath = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(folderPath))
+            {
+                if (folderPath != null) Directory.CreateDirectory(folderPath);
+                else
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

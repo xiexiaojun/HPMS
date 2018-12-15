@@ -1,0 +1,2 @@
+D:\gitProjects\HPMS\Register\bin\Release\register.exe
+D:\gitProjects\HPMS\Register\bin\Release\register.exe.config

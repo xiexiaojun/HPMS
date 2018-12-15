@@ -24,15 +24,26 @@ namespace VirtualSwitch
             ret.ErrorCode = -1;
             ret.Result = true;
             ret.Msg = "";
-            if (serialSession == null)
+            if (serialSession == null||serialSession.ResourceName!=visaAddress)
             {
-                serialSession = (SerialSession)ResourceManager.GetLocalManager().Open(visaAddress, AccessModes.NoLock, 0);
+                try
+                {
+                    serialSession = (SerialSession)ResourceManager.GetLocalManager().Open(visaAddress, AccessModes.NoLock, 0);
+                    ret = SetSerial(serialSession, ret);
+                    ret = FlushIO(serialSession, ret);
+                    ret = SetIOSize(serialSession, ret);
+                    ret = WriteIO(serialSession, writeBytes, ret);
+                }
+                catch (Exception e)
+                {
+                    ret.ErrorCode = e.HResult;
+                    ret.Msg = e.Message;
+                    ret.Result = false;
+                }
+                
             }
             
-            ret = SetSerial(serialSession, ret);
-            ret=FlushIO(serialSession,ret);
-            ret=SetIOSize(serialSession,ret);
-            ret = WriteIO(serialSession, writeBytes,ret);
+          
             //serialSession.Dispose();
             return ret;
         }
@@ -65,14 +76,14 @@ namespace VirtualSwitch
                 serialSession.FlowControl = FlowControlTypes.None;
                 serialSession.Parity = Parity.None;
                 serialSession.TerminationCharacter = 0xA;
-                serialSession.TerminationCharacterEnabled = true;
+                serialSession.TerminationCharacterEnabled = false;
                
             }
             catch (Exception e)
             {
-                ret.ErrorCode = 010001;
+                ret.ErrorCode = 010010;
                 ret.Result = false;
-                ret.Msg = e.Message;
+                ret.Msg = e.Message+e.Source+e.StackTrace;
             }
 
             return ret;
@@ -102,7 +113,7 @@ namespace VirtualSwitch
             }
             catch (Exception e)
             {
-                ret.ErrorCode = 010001;
+                ret.ErrorCode = 010002;
                 ret.Result = false;
                 ret.Msg = e.Message;
             }
@@ -133,7 +144,7 @@ namespace VirtualSwitch
             }
             catch (Exception e)
             {
-                ret.ErrorCode = 010001;
+                ret.ErrorCode = 010003;
                 ret.Result = false;
                 ret.Msg = e.Message;
             }
@@ -166,7 +177,7 @@ namespace VirtualSwitch
             }
             catch (Exception e)
             {
-                ret.ErrorCode = 010001;
+                ret.ErrorCode = 010004;
                 ret.Result = false;
                 ret.Msg = e.Message;
             }

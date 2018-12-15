@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using DevComponents.DotNetBar;
-using ZedGraph;
 
 
 namespace HPMS.Draw

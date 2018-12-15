@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Hardware xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <VisaNetWorkAnalyzer>TCPIP0::172.20.30.133::inst0::INSTR</VisaNetWorkAnalyzer>
+  <VisaSwitchBox>TCPIP0::172.20.30.110::inst0::INSTR</VisaSwitchBox>
+  <Analyzer>Demo</Analyzer>
+  <SwitchBox>Demo</SwitchBox>
+  <Adapter>CP2112</Adapter>
+  <AdapterPort>COM20</AdapterPort>
+  <SnpFolder>S:\testFolder</SnpFolder>
+  <TxtFolder>S:\testFolder</TxtFolder>
+</Hardware>

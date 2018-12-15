@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-using HPMS.Util;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json.Linq;
 using Tool;
@@ -19,7 +12,7 @@ namespace Register
     {
         SoftAuthorize softAuthorize = new HslCommunication.BasicFramework.SoftAuthorize();
         private NodeUtil _nodeUtil ;
-        private string _filePath = @"config/save.xml";
+        private string _filePath = "config/funcNodes.xml";
         public frmRegister()
         {
             EnableGlass = false;
@@ -47,13 +40,16 @@ namespace Register
             {
                 funcJson.Add(variable.Key,variable.Value);
             }
-
+       
+            
             var sourceJObjectobj = new JObject { 
                 { "softName", cmbSoftName.SelectedItem.ToString() }, 
                 { "softVersion", funcJson},
                 {"machineCode",txtMachineCode.Text } };
            
             txtCode.Text = SoftSecurity.MD5Encrypt(sourceJObjectobj.ToString(), txtKey.Text);
+
+          
             
         }
 
@@ -93,7 +89,7 @@ namespace Register
             TreeNode selectedNode = treeView1.SelectedNode;
             if (selectedNode == null)
             {
-                UI.MessageBoxMuti("没有选择节点");
+                Ui.MessageBoxMuti("没有选择节点");
                 return;
             }
             TreeNode node = new TreeNode();
@@ -113,12 +109,12 @@ namespace Register
 
         private void btnSavetree_Click(object sender, EventArgs e)
         {
-            _nodeUtil.SaveTree("B:\\aa.xml");
+            _nodeUtil.SaveTree(_filePath);
         }
 
         private void btnLoadtree_Click(object sender, EventArgs e)
         {
-            _nodeUtil.LoadTree("B:\\aa.xml");
+            _nodeUtil.LoadTree(_filePath);
         }
 
      

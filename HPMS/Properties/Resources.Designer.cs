@@ -73,9 +73,29 @@ namespace HPMS.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Image1 {
+            get {
+                object obj = ResourceManager.GetObject("Image1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap language {
             get {
                 object obj = ResourceManager.GetObject("language", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap LUXSHARE_ICT_LOGO_透明底_400x90 {
+            get {
+                object obj = ResourceManager.GetObject("LUXSHARE-ICT LOGO(透明底)400x90", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace HPMS.Properties {
         internal static System.Drawing.Bitmap 图片2 {
             get {
                 object obj = ResourceManager.GetObject("图片2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 微信图片_20181215221604 {
+            get {
+                object obj = ResourceManager.GetObject("微信图片_20181215221604", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

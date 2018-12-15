@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Web;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Tool
 {
@@ -168,6 +171,13 @@ namespace Tool
             }
 
             // Datei anlegen
+            string dir = Path.GetDirectoryName(filename);
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+            
+
             Stream file = File.Open(filename, FileMode.Create);
             // Bin鋜-Formatierer init.
             BinaryFormatter bf = new BinaryFormatter();
@@ -185,22 +195,13 @@ namespace Tool
             // Datei schliessen
             file.Close();
 
+          
+
             return 0; // OKAY
         }
 
 
-        public string SaveTreeS()
-        {
-            // Neues Array anlegen
-            ArrayList al = new ArrayList();
-            foreach (TreeNode tn in treeView.Nodes)
-            {
-                // jede RootNode im TreeView sichern ...
-                al.Add(tn);
-            }
-
-            return JsonConvert.SerializeObject(al);
-        }
+       
         #endregion
 
 
@@ -247,20 +248,7 @@ namespace Tool
             else return -2; // File existiert nicht
         }
 
-        public void LoadTreeS(string jsonObj)
-        {
-
-            ArrayList nodeList = JsonConvert.DeserializeObject<ArrayList>(jsonObj);
-              
-              
-                // load Root-Nodes
-                foreach (TreeNode node in nodeList)
-                {
-                    treeView.Nodes.Add(node);
-                }
-             
-           
-        }
+        
         #endregion
 
 

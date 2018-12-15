@@ -57,15 +57,23 @@
             this.labelX41 = new DevComponents.DotNetBar.LabelX();
             this.btnBrowseSnp = new DevComponents.DotNetBar.ButtonX();
             this.txtSnpSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.numNwaRespTime = new System.Windows.Forms.NumericUpDown();
+            this.numSwtRespTime = new System.Windows.Forms.NumericUpDown();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSwtRespTime)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(473, 9);
+            this.btnCancel.Location = new System.Drawing.Point(494, 376);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(104, 26);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -75,6 +83,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelX11);
+            this.groupBox1.Controls.Add(this.labelX10);
+            this.groupBox1.Controls.Add(this.numSwtRespTime);
+            this.groupBox1.Controls.Add(this.numNwaRespTime);
+            this.groupBox1.Controls.Add(this.labelX9);
+            this.groupBox1.Controls.Add(this.labelX8);
             this.groupBox1.Controls.Add(this.labelX2);
             this.groupBox1.Controls.Add(this.cmbAdpaterPort);
             this.groupBox1.Controls.Add(this.cmbNwaType);
@@ -87,9 +101,9 @@
             this.groupBox1.Controls.Add(this.labelX3);
             this.groupBox1.Controls.Add(this.labelX4);
             this.groupBox1.Controls.Add(this.labelX5);
-            this.groupBox1.Location = new System.Drawing.Point(12, 44);
+            this.groupBox1.Location = new System.Drawing.Point(2, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(567, 211);
+            this.groupBox1.Size = new System.Drawing.Size(597, 199);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "硬件设置";
@@ -102,7 +116,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(25, 20);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(180, 21);
+            this.labelX2.Size = new System.Drawing.Size(116, 21);
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "网分型号";
             // 
@@ -113,7 +127,7 @@
             this.cmbAdpaterPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAdpaterPort.FormattingEnabled = true;
             this.cmbAdpaterPort.ItemHeight = 15;
-            this.cmbAdpaterPort.Location = new System.Drawing.Point(250, 101);
+            this.cmbAdpaterPort.Location = new System.Drawing.Point(165, 164);
             this.cmbAdpaterPort.Name = "cmbAdpaterPort";
             this.cmbAdpaterPort.Size = new System.Drawing.Size(297, 21);
             this.cmbAdpaterPort.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -135,7 +149,7 @@
             this.comboItem5});
             this.cmbNwaType.Location = new System.Drawing.Point(25, 47);
             this.cmbNwaType.Name = "cmbNwaType";
-            this.cmbNwaType.Size = new System.Drawing.Size(186, 21);
+            this.cmbNwaType.Size = new System.Drawing.Size(116, 21);
             this.cmbNwaType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbNwaType.TabIndex = 5;
             // 
@@ -158,7 +172,7 @@
             // 
             this.txtSbVisaAdd.Border.Class = "TextBoxBorder";
             this.txtSbVisaAdd.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSbVisaAdd.Location = new System.Drawing.Point(250, 167);
+            this.txtSbVisaAdd.Location = new System.Drawing.Point(165, 101);
             this.txtSbVisaAdd.Name = "txtSbVisaAdd";
             this.txtSbVisaAdd.ReadOnly = true;
             this.txtSbVisaAdd.Size = new System.Drawing.Size(297, 21);
@@ -174,9 +188,9 @@
             this.cmbAdapterType.ItemHeight = 15;
             this.cmbAdapterType.Items.AddRange(new object[] {
             this.comboItem4});
-            this.cmbAdapterType.Location = new System.Drawing.Point(25, 101);
+            this.cmbAdapterType.Location = new System.Drawing.Point(25, 164);
             this.cmbAdapterType.Name = "cmbAdapterType";
-            this.cmbAdapterType.Size = new System.Drawing.Size(186, 21);
+            this.cmbAdapterType.Size = new System.Drawing.Size(116, 21);
             this.cmbAdapterType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbAdapterType.TabIndex = 13;
             // 
@@ -190,9 +204,9 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(250, 74);
+            this.labelX6.Location = new System.Drawing.Point(165, 137);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(297, 21);
+            this.labelX6.Size = new System.Drawing.Size(68, 21);
             this.labelX6.TabIndex = 11;
             this.labelX6.Text = "烧录器端口";
             // 
@@ -206,9 +220,9 @@
             this.cmbSwitchBox.Items.AddRange(new object[] {
             this.comboItem3,
             this.comboItem6});
-            this.cmbSwitchBox.Location = new System.Drawing.Point(25, 167);
+            this.cmbSwitchBox.Location = new System.Drawing.Point(25, 101);
             this.cmbSwitchBox.Name = "cmbSwitchBox";
-            this.cmbSwitchBox.Size = new System.Drawing.Size(186, 21);
+            this.cmbSwitchBox.Size = new System.Drawing.Size(116, 21);
             this.cmbSwitchBox.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbSwitchBox.TabIndex = 9;
             // 
@@ -227,7 +241,7 @@
             // 
             this.txtNwaVisaAdd.Border.Class = "TextBoxBorder";
             this.txtNwaVisaAdd.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtNwaVisaAdd.Location = new System.Drawing.Point(250, 47);
+            this.txtNwaVisaAdd.Location = new System.Drawing.Point(165, 47);
             this.txtNwaVisaAdd.Name = "txtNwaVisaAdd";
             this.txtNwaVisaAdd.ReadOnly = true;
             this.txtNwaVisaAdd.Size = new System.Drawing.Size(297, 21);
@@ -240,9 +254,9 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(250, 15);
+            this.labelX1.Location = new System.Drawing.Point(165, 15);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(297, 26);
+            this.labelX1.Size = new System.Drawing.Size(90, 26);
             this.labelX1.TabIndex = 3;
             this.labelX1.Text = "网分地址";
             // 
@@ -252,9 +266,9 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(25, 140);
+            this.labelX3.Location = new System.Drawing.Point(25, 74);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(186, 21);
+            this.labelX3.Size = new System.Drawing.Size(116, 21);
             this.labelX3.TabIndex = 8;
             this.labelX3.Text = "开关型号";
             // 
@@ -264,9 +278,9 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(250, 140);
+            this.labelX4.Location = new System.Drawing.Point(165, 74);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(297, 21);
+            this.labelX4.Size = new System.Drawing.Size(81, 21);
             this.labelX4.TabIndex = 7;
             this.labelX4.Text = "开关地址";
             // 
@@ -276,9 +290,9 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(25, 74);
+            this.labelX5.Location = new System.Drawing.Point(25, 137);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(297, 21);
+            this.labelX5.Size = new System.Drawing.Size(116, 21);
             this.labelX5.TabIndex = 12;
             this.labelX5.Text = "烧录器型号";
             // 
@@ -286,7 +300,7 @@
             // 
             this.btnSave.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSave.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSave.Location = new System.Drawing.Point(345, 9);
+            this.btnSave.Location = new System.Drawing.Point(366, 376);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(104, 26);
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -302,9 +316,9 @@
             this.groupBox2.Controls.Add(this.labelX41);
             this.groupBox2.Controls.Add(this.btnBrowseSnp);
             this.groupBox2.Controls.Add(this.txtSnpSaveFolder);
-            this.groupBox2.Location = new System.Drawing.Point(16, 275);
+            this.groupBox2.Location = new System.Drawing.Point(2, 217);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(560, 151);
+            this.groupBox2.Size = new System.Drawing.Size(597, 151);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "路径设置";
@@ -325,7 +339,7 @@
             // 
             this.btnBrowseTxt.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnBrowseTxt.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnBrowseTxt.Location = new System.Drawing.Point(457, 105);
+            this.btnBrowseTxt.Location = new System.Drawing.Point(478, 105);
             this.btnBrowseTxt.Name = "btnBrowseTxt";
             this.btnBrowseTxt.Size = new System.Drawing.Size(74, 21);
             this.btnBrowseTxt.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -343,7 +357,7 @@
             this.txtTxtSaveFolder.Location = new System.Drawing.Point(21, 105);
             this.txtTxtSaveFolder.Name = "txtTxtSaveFolder";
             this.txtTxtSaveFolder.ReadOnly = true;
-            this.txtTxtSaveFolder.Size = new System.Drawing.Size(412, 21);
+            this.txtTxtSaveFolder.Size = new System.Drawing.Size(441, 21);
             this.txtTxtSaveFolder.TabIndex = 33;
             // 
             // labelX41
@@ -362,7 +376,7 @@
             // 
             this.btnBrowseSnp.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnBrowseSnp.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnBrowseSnp.Location = new System.Drawing.Point(457, 49);
+            this.btnBrowseSnp.Location = new System.Drawing.Point(478, 49);
             this.btnBrowseSnp.Name = "btnBrowseSnp";
             this.btnBrowseSnp.Size = new System.Drawing.Size(74, 21);
             this.btnBrowseSnp.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -380,14 +394,108 @@
             this.txtSnpSaveFolder.Location = new System.Drawing.Point(21, 49);
             this.txtSnpSaveFolder.Name = "txtSnpSaveFolder";
             this.txtSnpSaveFolder.ReadOnly = true;
-            this.txtSnpSaveFolder.Size = new System.Drawing.Size(412, 21);
+            this.txtSnpSaveFolder.Size = new System.Drawing.Size(441, 21);
             this.txtSnpSaveFolder.TabIndex = 3;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(478, 16);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(72, 26);
+            this.labelX8.TabIndex = 15;
+            this.labelX8.Text = "响应时间";
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(478, 68);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(72, 26);
+            this.labelX9.TabIndex = 16;
+            this.labelX9.Text = "响应时间";
+            // 
+            // numNwaRespTime
+            // 
+            this.numNwaRespTime.Location = new System.Drawing.Point(478, 48);
+            this.numNwaRespTime.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numNwaRespTime.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numNwaRespTime.Name = "numNwaRespTime";
+            this.numNwaRespTime.Size = new System.Drawing.Size(59, 21);
+            this.numNwaRespTime.TabIndex = 17;
+            this.numNwaRespTime.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // numSwtRespTime
+            // 
+            this.numSwtRespTime.Location = new System.Drawing.Point(478, 100);
+            this.numSwtRespTime.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numSwtRespTime.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numSwtRespTime.Name = "numSwtRespTime";
+            this.numSwtRespTime.Size = new System.Drawing.Size(59, 21);
+            this.numSwtRespTime.TabIndex = 18;
+            this.numSwtRespTime.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX10.Location = new System.Drawing.Point(556, 43);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(35, 26);
+            this.labelX10.TabIndex = 19;
+            this.labelX10.Text = "ms";
+            // 
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX11.Location = new System.Drawing.Point(556, 96);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(35, 26);
+            this.labelX11.TabIndex = 20;
+            this.labelX11.Text = "ms";
             // 
             // frmHardwareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 438);
+            this.ClientSize = new System.Drawing.Size(609, 404);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
@@ -401,6 +509,8 @@
             this.Load += new System.EventHandler(this.frmSetting_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSwtRespTime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,6 +545,12 @@
         private DevComponents.DotNetBar.ButtonX btnBrowseTxt;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTxtSaveFolder;
         private DevComponents.DotNetBar.LabelX labelX41;
+        private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.DotNetBar.LabelX labelX10;
+        private System.Windows.Forms.NumericUpDown numSwtRespTime;
+        private System.Windows.Forms.NumericUpDown numNwaRespTime;
+        private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.LabelX labelX8;
 
 
     }

@@ -18,10 +18,10 @@ namespace HPMS.DB
     {
         //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.	
 #if DEBUG
-        public static string connectionString = "Provider=SQLNCLI11;Data Source=172.20.23.107;Persist Security Info=True;User ID=sa;Initial Catalog=MesDataCenter;Password=data'songyy";
+        public static string connectionString = "Provider=SQLNCLI11;Data Source=172.20.23.107;Persist Security Info=True;User ID=sa;Initial Catalog=HPMSTest;Password=data'songyy";
         public static string DB_HTPSDBConnectionString = "Provider=SQLNCLI11;Data Source=172.20.23.107;Persist Security Info=True;User ID=sa;Initial Catalog=HTPSDB;Password=data'songyy";
 #else
-        public static string connectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=MesDataCenter;uid=sa;pwd=data'songyy";
+        public static string connectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=HPMSTest;uid=sa;pwd=data'songyy";
         public static string DB_HTPSDBConnectionString = "Provider=SQLOLEDB;server=172.20.23.107,1433;Initial Catalog=HTPSDB;uid=sa;pwd=data'songyy";
 
 #endif

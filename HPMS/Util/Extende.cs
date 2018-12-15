@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
+using Tool;
 
 namespace HPMS.Util
 {
@@ -31,7 +33,7 @@ namespace HPMS.Util
                 SelectTab(numBox);
                 numBox.Focus();
                 numBox.Select();
-                UI.MessageBoxMuti(string.Format("超出范围,输入值必须在{0}和{1}之间",max,min));
+                Ui.MessageBoxMuti(string.Format("超出范围,输入值必须在{0}和{1}之间", max, min));
                 throw new InvalidCastException("输入值格式不正确");
             }
         }
@@ -57,7 +59,7 @@ namespace HPMS.Util
             {
                 p.Focus();
                // p.SelectAll();
-                UI.MessageBoxMuti("输入值超出范围");
+                Ui.MessageBoxMuti("输入值超出范围");
             });
 
         }
@@ -92,7 +94,7 @@ namespace HPMS.Util
                 p.Focus();
                 p.FocusHighlightColor=Color.Blue;
                 p.SelectAll();
-                UI.MessageBoxMuti("输入值不能为空");
+                Ui.MessageBoxMuti("输入值不能为空");
             });
 
         }
@@ -193,6 +195,33 @@ namespace HPMS.Util
         public static string GetValue(this TextBoxX textBox)
         {
             return GetValue(textBox, true);
+        }
+
+        public static string GetValue(this ComboBox comboBox)
+        {
+            if (comboBox.SelectedItem == null)
+            {
+                SelectTab(comboBox);
+                comboBox.Focus();
+                comboBox.SelectAll();
+                throw new InvalidExpressionException("输入值不能为空");
+            }
+            else
+            {
+                return comboBox.SelectedItem.ToString();
+            }
+        }
+
+        public static void Addsafe(this Dictionary<string, string> dic, string key, string value)
+        {
+            if (dic.ContainsKey(key))
+            {
+                dic[key] = value;
+            }
+            else
+            {
+                dic.Add(key,value);
+            }
         }
     }
 }

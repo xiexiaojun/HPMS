@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.Config;
 using HPMS.DB;
 using HPMS.Log;
 using HPMS.Util;
+using NationalInstruments.Restricted;
+using Newtonsoft.Json;
 using Tool;
 using _32p_analyze;
 
@@ -17,14 +20,39 @@ namespace HPMS
     public partial class frmProfile : Office2007Muti
     {
         private bool _loaded = false;
+        private List<Project> _projects;
         public frmProfile()
         {
             EnableGlass = false;
             InitializeComponent();
-           
+        
+        }
 
-            
+        private void FastProfileLoad()
+        {
+            _projects = ProjectDao.Findfast();
+            foreach (Project project in _projects)
+            {
+                ButtonX button = new ButtonX();
+                button.Text = Tool.Encode.Decrypt(project.Pn);
+                button.Style = eDotNetBarStyle.StyleManagerControlled;
+                button.ColorTable = eButtonColor.OrangeWithBackground;
+                button.Font = new Font("微软雅黑", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                button.AutoSize = true;
+                button.Click+=buttonFastProfile_Click;
+                flowLayoutPanel_FastprofileBtn.Controls.Add(button);
+            }
+        }
 
+       
+
+        private void buttonFastProfile_Click(object sender, EventArgs e)
+        {
+            ButtonX btn = (ButtonX) sender;
+            Project findedProject = _projects.First(t => t.Pn == Encode.Encrypt(btn.Text));
+            SetCheckListUnchecked();
+            SetProject(findedProject);
+            txt_Pn.Text = "";
         }
 
         private void frmProfile_Load(object sender, EventArgs e)
@@ -36,20 +64,8 @@ namespace HPMS
 
             _loaded = true;
             TestItemIni();
-            string[] tabStyles = { "General", "Project", "SpecFrequency", "SpecTime" };
-
-            itemPanel_category.BeginUpdate();
-            int i = 0;
-            foreach (string style in tabStyles)
-            {
-                ButtonItem button = new ButtonItem(style, style);
-                button.OptionGroup = "TabStyle"; // This provides automatic Checked property management.
-                itemPanel_category.Items.Add(button);
-                //if (style == tabControl1.Style.ToString())
-                //    button.Checked = true;
-                i++;
-            }
-            itemPanel_category.EndUpdate();
+            FastProfileLoad();
+           
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.ItemSize = new Size(0, 1);
             tabControl1.SizeMode = TabSizeMode.Fixed;
@@ -77,7 +93,7 @@ namespace HPMS
             if (button == null)
                 return;
 
-            tabControl1.SelectTab("tabPage_" + button.Name);
+            tabControl1.SelectTab("tabPage_" + button.Text);
         }
 
        
@@ -116,7 +132,20 @@ namespace HPMS
             {
                 chkList_FextPair.Items.Add(temp, false);
             }
-            
+
+            foreach (string temp in testItem.Speed)
+            {
+                cmbSpeed.Items.Add(temp);
+            }
+            foreach (string temp in testItem.ProductType)
+            {
+                cmbTypeL.Items.Add(temp);
+                cmbTypeR.Items.Add(temp);
+            }
+            foreach (string temp in testItem.Power)
+            {
+                cmbPower.Items.Add(temp);
+            }
            
           return true;
         }
@@ -131,6 +160,7 @@ namespace HPMS
                 dgv_SpecFre.Columns.Clear();
                 DataTable temp = EasyExcel.GetSpecifiedTable(strPath);
                 dgv_SpecFre.DataSource = temp;
+                dgv_SpecFre.Columns[0].Name = "";
             });
         }
 
@@ -155,12 +185,25 @@ namespace HPMS
         }
 
         readonly Func<NumericUpDown,int,int,bool> _dFunc=CheckValueInRange;
-       
+
+
+        private string GetDescription()
+        {
+            string speed = cmbSpeed.GetValue();
+            string productTypeL = cmbTypeL.GetValue();
+            string productTypeR = cmbTypeR.GetValue();
+            string power = cmbPower.GetValue();
+            int awg = (int)num_AWG.Value;
+            int length = (int)num_Length.Value;
+
+            return String.Format("{0} {1} to {2} {3} Cable Assembly {4}AWG {5}mm", speed, productTypeL, productTypeR,power,awg,length);
+        }
+
         private void SaveProfile()
         {
             try
             {
-                
+                //MessageBox.Show(cmbPower.GetValue());
                 Project pnProject = new Project();
                 pnProject.Awg = num_AWG.GetNumVali<int>(1,40,_dFunc);
                 pnProject.Length = num_Length.GetNumVali<int>(1, 10000, _dFunc);
@@ -192,13 +235,21 @@ namespace HPMS
                 pnProject.Ild = (IldSpec)Enum.Parse(typeof(IldSpec), cmb_ILDSpec.SelectedItem.ToString(), true);
                 pnProject.Skew = (double)num_Skew.Value;
 
+                pnProject.Speed = cmbSpeed.GetValue();
+                pnProject.ProductTypeL = cmbTypeL.GetValue();
+                pnProject.ProductTypeR = cmbTypeR.GetValue();
+                pnProject.Power = cmbPower.GetValue();
+                pnProject.Description = GetDescription();
+                pnProject.CalFilePath = txt_CalFilePath.Text;
+                pnProject.KeyPoint = GetKeypoint();
+
                 string msg = "";
-                if (ProjectHelper.Find(pnProject.Pn, chkDBMode.Checked) != null)
+                if (ProjectHelper.Find(pnProject.Pn) != null)
                 {
-                    var key = UI.MessageBoxYesNoMuti("确定覆盖当前料号吗?");
+                    var key = Ui.MessageBoxYesNoMuti("确定覆盖当前料号吗?");
                     if (key == DialogResult.Yes)
                     {
-                        SaveProfile(pnProject, chkDBMode.Checked, true, ref msg);
+                        SaveProfile(pnProject,  true, ref msg);
                      
                     }
                     else
@@ -208,10 +259,10 @@ namespace HPMS
                 }
                 else
                 {
-                    SaveProfile(pnProject, chkDBMode.Checked,false, ref msg);
+                    SaveProfile(pnProject,false, ref msg);
                 }
 
-                UI.MessageBoxMuti(msg);
+                Ui.MessageBoxMuti(msg);
                
                
             }
@@ -224,17 +275,10 @@ namespace HPMS
 
         }
 
-        private bool SaveProfile(Project pnProject, bool dbMode, bool replace,ref string msg)
+        private bool SaveProfile(Project pnProject,  bool replace,ref string msg)
         {
             bool ret = false;
-            if (dbMode)
-            {
-                string savePath = "config\\" + pnProject.Pn + ".xml";
-                ret= LocalConfig.SaveObjToXmlFile(savePath, pnProject);
-                msg = ret ? "保存料号档案到本地成功" : "保存失败";
-            }
-            else
-            {
+          
                 msg = "保存料号档案到数据库成功";
                 if (replace)
                 {
@@ -245,61 +289,69 @@ namespace HPMS
                     ret = ProjectDao.Add(pnProject, ref msg);
                 }
                
-            }
+          
 
             return ret;
         }
 
         private void LoadProfile()
         {
-            try
-            {
+           
                 string pn = txt_Pn.GetTextVali();
-                Project pnProject = ProjectHelper.Find(pn, chkDBMode.Checked);
+                Project pnProject = ProjectHelper.Find(pn);
           
                 if (pnProject == null)
                 {
-                    UI.MessageBoxMuti("未能找到对应的料号档案");
+                    Ui.MessageBoxMuti("未能找到对应的料号档案");
                     return;
                 }
 
-                UI.MessageBoxMuti("成功找到对应的料号档案");
-                num_AWG.Value = pnProject.Awg;
-                num_Length.Value = pnProject.Length;
-                txt_PnCustomer.Text = pnProject.PnCustomer;
-                txt_Customer.Text = pnProject.Customer;
-                txt_Pn.Text = pnProject.Pn;
+                Ui.MessageBoxMuti("成功找到对应的料号档案");
+                SetProject(pnProject);
+        }
 
-                SetlistboxValue(chkList_Diff, pnProject.Diff);
-                SetlistboxValue(chkList_Single, pnProject.Single);
-                SetlistboxValue(chkList_TDR, pnProject.Tdr);
-                SetlistboxValue(chkList_SPair, pnProject.DiffPair);
-                SetlistboxValue(chkList_NextPair, pnProject.NextPair);
-                SetlistboxValue(chkList_FextPair, pnProject.FextPair);
+        private void SetProject(Project pnProject)
+        {
+            num_AWG.Value = pnProject.Awg;
+            num_Length.Value = pnProject.Length;
+            txt_PnCustomer.Text = pnProject.PnCustomer;
+            txt_Customer.Text = pnProject.Customer;
+            txt_Pn.Text = pnProject.Pn;
 
-                txt_ReportTempletePath.Text = pnProject.ReportTempletePath;
-                SetRomFileMode(pnProject.RomFileMode);
+            SetlistboxValue(chkList_Diff, pnProject.Diff);
+            SetlistboxValue(chkList_Single, pnProject.Single);
+            SetlistboxValue(chkList_TDR, pnProject.Tdr);
+            SetlistboxValue(chkList_SPair, pnProject.DiffPair);
+            SetlistboxValue(chkList_NextPair, pnProject.NextPair);
+            SetlistboxValue(chkList_FextPair, pnProject.FextPair);
 
-                chk_RomWrite.Checked = pnProject.RomWrite;
-                txt_RomFilePath.Text = pnProject.RomFilePath;
-                txt_SwitchFilePath.Text = pnProject.SwitchFilePath;
-                dgv_SpecFre.Columns.Clear();
-                dgv_SpecFre.DataSource = Serializer.Json2DataTable(pnProject.FreSpec);
-                num_FrePoints.Value = pnProject.FrePoints;
-                txt_FreSpecFilePath.Text = pnProject.FreSpecFilePath;
+            txt_ReportTempletePath.Text = pnProject.ReportTempletePath;
+            SetRomFileMode(pnProject.RomFileMode);
 
-                SetTdrParam(new[] { pnProject.Tdd11, pnProject.Tdd22 });
-                cmb_ILDSpec.SelectedIndex = cmb_ILDSpec.FindString(pnProject.Ild.ToString());
-                num_Skew.Value = (decimal)pnProject.Skew;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-               // throw;
-            }
-          
+            chk_RomWrite.Checked = pnProject.RomWrite;
+            txt_RomFilePath.Text = pnProject.RomFilePath;
+            txt_SwitchFilePath.Text = pnProject.SwitchFilePath;
+            txt_CalFilePath.Text = pnProject.CalFilePath;
+            dgv_SpecFre.Columns.Clear();
+            dgv_SpecFre.DataSource = Serializer.Json2DataTable(pnProject.FreSpec);
+            dgv_SpecFre.Columns[0].Name = "";
+            num_FrePoints.Value = pnProject.FrePoints;
+            txt_FreSpecFilePath.Text = pnProject.FreSpecFilePath;
+
+            SetTdrParam(new[] { pnProject.Tdd11, pnProject.Tdd22 });
+            cmb_ILDSpec.SelectedIndex = cmb_ILDSpec.FindString(pnProject.Ild.ToString());
+            num_Skew.Value = (decimal)pnProject.Skew;
+
+            cmbSpeed.SelectedIndex = cmbSpeed.FindString(pnProject.Speed);
+            cmbTypeL.SelectedIndex = cmbTypeL.FindString(pnProject.ProductTypeL);
+            cmbTypeR.SelectedIndex = cmbTypeR.FindString(pnProject.ProductTypeR);
+            cmbPower.SelectedIndex = cmbPower.FindString(pnProject.Power);
+            SetKeypoint(pnProject.KeyPoint);
+
+
 
         }
+
 
        
 
@@ -445,7 +497,38 @@ namespace HPMS
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
+            SetCheckListUnchecked();
+            lsvSummary.Items.Clear();
             LoadProfile();
+        }
+
+        private void SetCheckListUnchecked()
+        {
+            for (int i = 0; i < chkList_Diff.Items.Count; i++)
+            {
+                chkList_Diff.SetItemChecked(i,false);
+            }
+            for (int i = 0; i < chkList_Single.Items.Count; i++)
+            {
+                chkList_Single.SetItemChecked(i, false);
+            }
+            for (int i = 0; i < chkList_TDR.Items.Count; i++)
+            {
+                chkList_TDR.SetItemChecked(i, false);
+            }
+            for (int i = 0; i < chkList_SPair.Items.Count; i++)
+            {
+                chkList_SPair.SetItemChecked(i, false);
+            }
+            for (int i = 0; i < chkList_NextPair.Items.Count; i++)
+            {
+                chkList_NextPair.SetItemChecked(i, false);
+            }
+            for (int i = 0; i < chkList_FextPair.Items.Count; i++)
+            {
+                chkList_FextPair.SetItemChecked(i, false);
+            }
+          
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -453,16 +536,16 @@ namespace HPMS
             try
             {
                 string pn = txt_Pn.GetTextVali();
-                var key = UI.MessageBoxYesNoMuti("确定删除当前料号吗?");
+                var key = Ui.MessageBoxYesNoMuti("确定删除当前料号吗?");
                 if (key == DialogResult.Yes)
                 {
-                    if (ProjectHelper.Find(pn, chkDBMode.Checked) != null)
+                    if (ProjectHelper.Find(pn) != null)
                     {
-                        UI.MessageBoxMuti(DeleteProfile(pn, chkDBMode.Checked) ? "删除料号成功" : "删除料号失败");
+                        Ui.MessageBoxMuti(DeleteProfile(pn) ? "删除料号成功" : "删除料号失败");
                     }
                     else
                     {
-                        UI.MessageBoxMuti("未能找到对应的料号档案");
+                        Ui.MessageBoxMuti("未能找到对应的料号档案");
                     }
 
                 }
@@ -475,24 +558,9 @@ namespace HPMS
           
           }
 
-        private bool DeleteProfile(string pn,bool dbMode)
+        private bool DeleteProfile(string pn)
         {
 
-            if (dbMode)
-            {
-                try
-                {
-                    string localFilePath = "config\\" + pn + ".xml";
-                    File.Delete(localFilePath);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-               
-                return true;
-            }
 
             return ProjectDao.Delete(pn);
 
@@ -543,6 +611,81 @@ namespace HPMS
              if (ofd.ShowDialog() == DialogResult.OK)
             {
                action.Invoke(ofd.FileName);
+            }
+        }
+
+        private void chkDBMode_CheckedChanged(object sender, EventArgs e)
+        {
+            ProjectDao.DbMode = chkDBMode.Checked;
+        }
+
+        private void btnBrowseCalFile_Click(object sender, EventArgs e)
+        {
+            string filter = @"CSA|*.csa";
+            FileBrowseCallback(filter, delegate(string fileName)
+            {
+                txt_CalFilePath.Text = fileName;
+            });
+        }
+
+        private void txt_Pn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnQuery.PerformClick();
+            }
+        }
+
+        private void btnSummaryAdd_Click(object sender, EventArgs e)
+        {
+            if (lsvSummary.Items.Count > 20)
+            {
+                Ui.MessageBoxMuti("最多只能添加20个频点");
+                return;
+            }
+
+            ListViewItem lvi = new ListViewItem();
+            lvi.Text = numSummaryKeypoint.Value.ToString();
+            lsvSummary.Items.Add(lvi);
+          }
+
+        private void btnSummaryClear_Click(object sender, EventArgs e)
+        {
+            lsvSummary.Items.Clear();
+        }
+
+        private void btnSummaryDel_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lvi in lsvSummary.SelectedItems)  //选中项遍历  
+            {
+                lsvSummary.Items.RemoveAt(lvi.Index); // 按索引移除  
+                //listView1.Items.Remove(lvi);   //按项移除  
+            }   
+           
+        }
+
+        private string GetKeypoint()
+        {
+            List<string>keyList=new List<string>();
+            foreach (ListViewItem lvi in lsvSummary.Items)
+            {
+                keyList.Add(lvi.Text);
+            }
+
+            return JsonConvert.SerializeObject(keyList);
+        }
+
+        private void SetKeypoint(string keyList)
+        {
+            List<string> key =  JsonConvert.DeserializeObject<List<string>>(keyList);
+            lsvSummary.Items.Clear();
+            if(key==null)
+                return;
+            foreach (var variable in key)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = variable;
+                lsvSummary.Items.Add(lvi);
             }
         }
     }

@@ -71,7 +71,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(44, 30);
             this.labelX2.TabIndex = 5;
-            this.labelX2.Text = "机器码";
+            this.labelX2.Text = "注册码";
             // 
             // txtCode
             // 

@@ -35,6 +35,7 @@
             this.btnLogin = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.chkDBMode = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.SuspendLayout();
             // 
             // labelX1
@@ -130,14 +131,31 @@
             this.labelX3.Text = "HPMS System";
             this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // chkDBMode
+            // 
+            this.chkDBMode.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.chkDBMode.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkDBMode.Checked = true;
+            this.chkDBMode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDBMode.CheckValue = "Y";
+            this.chkDBMode.Location = new System.Drawing.Point(296, 180);
+            this.chkDBMode.Name = "chkDBMode";
+            this.chkDBMode.Size = new System.Drawing.Size(74, 19);
+            this.chkDBMode.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkDBMode.TabIndex = 7;
+            this.chkDBMode.Text = "本地登陆";
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
-            this.BackgroundImage = global::HPMS.Properties.Resources.图片2;
-            this.ClientSize = new System.Drawing.Size(324, 219);
+            this.ClientSize = new System.Drawing.Size(380, 223);
+            this.Controls.Add(this.chkDBMode);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -150,6 +168,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
 
@@ -164,5 +183,6 @@
         private DevComponents.DotNetBar.ButtonX btnLogin;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkDBMode;
     }
 }

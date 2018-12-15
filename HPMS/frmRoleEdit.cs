@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HPMS.DB;
 using HPMS.Util;
+using Tool;
 
 
 namespace HPMS
@@ -67,11 +68,11 @@ namespace HPMS
                 
                 if (!Gloabal.GRightsWrapper.SaveRole(role, ref msg))
                 {
-                    UI.MessageBoxMuti(msg);
+                    Ui.MessageBoxMuti(msg);
                 }
                 else
                 {
-                    UI.MessageBoxMuti("增加角色成功");
+                    Ui.MessageBoxMuti("增加角色成功");
                 }
             }
             else
@@ -85,12 +86,12 @@ namespace HPMS
                 _role.CreateDate = DateTime.Now.ToString("yyyyMMdd HH:mm:ss");
                 if (!Gloabal.GRightsWrapper.UpdateRole(_role))
                 {
-                    UI.MessageBoxMuti("修改角色失败");
+                    Ui.MessageBoxMuti("修改角色失败");
                 }
                 else
                 {
 
-                    UI.MessageBoxMuti("修改角色成功");
+                    Ui.MessageBoxMuti("修改角色成功");
                 }
                 
             }

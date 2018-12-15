@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
 using HPMS.Config;
-using HPMS.Util;
+using Tool;
 using VirtualVNA.Enum;
 using ToolTip = System.Windows.Forms.ToolTip;
 
@@ -35,7 +35,7 @@ namespace HPMS
             frmVisaLists _frmVisaLists = new frmVisaLists(sourceBoxX);
             _frmVisaLists.StartPosition = FormStartPosition.Manual;
 
-            _frmVisaLists.Location = UI.LocationOnClient(sourceBoxX, new System.Drawing.Point(0, 0));
+            _frmVisaLists.Location = Ui.LocationOnClient(sourceBoxX, new System.Drawing.Point(0, 0));
             _frmVisaLists.ShowDialog(this);
         }
 
@@ -80,6 +80,8 @@ namespace HPMS
             hardware.AdapterPort = cmbAdpaterPort.Text;
             hardware.SnpFolder = txtSnpSaveFolder.Text;
             hardware.TxtFolder = txtTxtSaveFolder.Text;
+            hardware.AnalyzerResponseTime = (int)numNwaRespTime.Value;
+            hardware.SwitchResponseTime = (int) numSwtRespTime.Value;
 
             LocalConfig.SaveObjToXmlFile("config\\hardware.xml", hardware);
             
@@ -100,8 +102,10 @@ namespace HPMS
             cmbAdpaterPort.Text=hardware.AdapterPort ;
             txtSnpSaveFolder.Text=hardware.SnpFolder ;
             txtTxtSaveFolder.Text=hardware.TxtFolder ;
+            numNwaRespTime.Value = hardware.AnalyzerResponseTime;
+            numSwtRespTime.Value = hardware.SwitchResponseTime;
 
-        
+
 
 
         }
@@ -110,7 +114,7 @@ namespace HPMS
         {
             
             HardwareSave();
-            UI.MessageBoxMuti("保存成功");
+            Ui.MessageBoxMuti("保存成功");
         }
 
         private void frmSetting_FormClosing(object sender, FormClosingEventArgs e)

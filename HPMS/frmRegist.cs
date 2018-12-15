@@ -2,9 +2,9 @@
 using System.IO;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-using HPMS.Util;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json.Linq;
+using Tool;
 
 namespace HPMS
 {

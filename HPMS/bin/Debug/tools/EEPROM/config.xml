@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--不同类型cable信息设置-->
+
+    <Cable Type="SFP+">
+	<VenderName start="20" end="35" blank="20"/>
+	<VendePN start="40" end="55" blank="20"/>
+	<VenderSN start="68" end="83" blank="20"/>
+	<DateCode start="84" end="91" blank="20"/>
+	<CableLength start="18" end="18" blank="20"/>
+	<CCBase start="0" end="62"/>
+	<CCExt start="64" end="94"/>
+	<ROMLength>256</ROMLength>
+	<Feature>
+		<Identifier start="0" value="03"/>
+		<Auxiliary start="12" value="067"/>
+		<DataRate>10</DataRate>
+	</Feature>
+	</Cable>
+    <Cable Type="SFP28">
+	<VenderName start="20" end="35" blank="20"/>
+	<VendePN start="40" end="55" blank="20"/>
+	<VenderSN start="68" end="83" blank="20"/>
+	<DateCode start="84" end="91" blank="20"/>
+	<CableLength start="18" end="18" blank="20"/>
+	<CCBase start="0" end="62"/>
+	<CCExt start="64" end="94"/>
+	<ROMLength>256</ROMLength>
+	<Feature>
+		<Identifier start="0" value="03"/>
+		<Auxiliary start="66" value="067"/>
+		<DataRate>25</DataRate>
+	</Feature>
+	</Cable>
+    <Cable Type="QSFP+">
+	<VenderName start="148" end="163" blank="20"/>
+	<VendePN start="168" end="183" blank="20"/>
+	<VenderSN start="196" end="211" blank="20"/>
+	<DateCode start="212" end="219" blank="20"/>
+	<CableLength start="146" end="146" blank="20"/>
+	<CCBase start="128" end="190"/>
+	<CCExt start="192" end="222"/>
+	<ROMLength>256</ROMLength>
+	<Feature>
+		<Identifier start="0" value="0D"/>
+		<Auxiliary start="140" value="067"/>
+		<DataRate>10</DataRate>
+	</Feature>
+	</Cable>
+    <Cable Type="QSFP28">
+	<VenderName start="148" end="163" blank="20"/>
+	<VendePN start="168" end="183" blank="20"/>
+	<VenderSN start="196" end="211" blank="20"/>
+	<DateCode start="212" end="219" blank="20"/>
+	<CableLength start="146" end="146" blank="20"/>
+	<CCBase start="128" end="190"/>
+	<CCExt start="192" end="222"/>
+	<ROMLength>256</ROMLength>
+	<Feature>
+		<Identifier start="0" value="11,0D"/>
+		<Auxiliary start="222" value="067"/>
+		<DataRate>25</DataRate>
+	</Feature>
+	</Cable>
+    <Cable Type="QSFP-DD">
+	<VenderName start="148" end="163" blank="20"/>
+	<VendePN start="168" end="183" blank="20"/>
+	<VenderSN start="196" end="211" blank="20"/>
+	<DateCode start="212" end="219" blank="20"/>
+	<CableLength start="146" end="146" blank="20"/>
+	<CCBase start="128" end="190"/>
+	<CCExt start="192" end="222"/>
+	<ROMLength>256</ROMLength>
+	<Feature>
+		<Identifier start="0" value="18"/>
+		<Auxiliary start="222" value="067"/>
+		<DataRate>25</DataRate>
+	</Feature>
+	</Cable>
+	  <Cable Type="Ext.HD">
+	<VenderName start="148" end="163" blank="20"/>
+	<VendePN start="168" end="183" blank="20"/>
+	<VenderSN start="196" end="211" blank="20"/>
+	<DateCode start="212" end="219" blank="20"/>
+	<CableLength start="146" end="146" blank="20"/>
+	<CCBase start="128" end="190"/>
+	<CCExt start="192" end="222"/>
+	<ROMLength>256</ROMLength>
+	<Feature>
+		<Identifier start="0" value="0F,10,14,15"/>
+		<Auxiliary start="140" value="078"/>
+		<DataRate>12</DataRate>
+	</Feature>
+	</Cable>
+	<Cable Type="Intel">
+	<VenderName start="148" end="163" blank="20"/>
+	<VendePN start="168" end="183" blank="20"/>
+	<VenderSN start="196" end="211" blank="20"/>
+	<DateCode start="212" end="219" blank="20"/>
+	<CableLength start="146" end="146" blank="20"/>
+	<CCBase start="128" end="190"/>
+	<CCExt start="192" end="222"/>
+	<ROMLength>128</ROMLength>
+	<Feature>
+		<Identifier start="0" value="0F,10,14,15"/>
+		<Auxiliary start="140" value="078"/>
+		<DataRate>12</DataRate>
+	</Feature>
+	</Cable>
+	<Cable Type="DAC">
+	<VenderName start="148" end="163" blank="20"/>
+	<VendePN start="168" end="183" blank="20"/>
+	<VenderSN start="196" end="211" blank="20"/>
+	<DateCode start="212" end="219" blank="20"/>
+	<CableLength start="146" end="146" blank="20"/>
+	<CCBase start="128" end="190"/>
+	<CCExt start="192" end="222"/>
+	<ROMLength>384</ROMLength>
+	<Feature>
+		<Identifier start="0" value="0F,10,14,15"/>
+		<Auxiliary start="140" value="078"/>
+		<DataRate>12</DataRate>
+	</Feature>
+	</Cable>
+  <!-- 文件导出设置 -->
+  <FileSave>
+	<BaseName>rom</BaseName>	
+	<PortName>port</PortName>
+	<Extension>txt</Extension>
+  </FileSave>
+    <!-- 个性化设置 -->
+	<Personality>
+	<!-- 窗体标题 -->
+	<FormTitle>EEPROM Debug Tool</FormTitle>
+	<!-- logo文件名，请放在resources文件夹下面 -->
+	<LogoFileName>Microchip_305px_1185140_easyicon.net.png</LogoFileName>
+	<SoftVersion>1.0.0.0</SoftVersion>
+	<CopyRight>@CopyRight</CopyRight>
+	<Company>Company</Company>
+	<Description>EEPROM write debug tool by Figo</Description>
+	</Personality>
+ </root>

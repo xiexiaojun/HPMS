@@ -11,6 +11,9 @@
     <AssemblyName>HPMS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>发布\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,11 +26,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -73,6 +73,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\DevComponents.DotNetBar2\14.1.0.28__7eb7c3a35b91de04\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="HslCommunication, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\HslCommunication.dll</HintPath>
@@ -101,7 +109,20 @@
       <HintPath>C:\Program Files (x86)\Softgroup .Net Forms Resize\Softgroup.NetResize45.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.2\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -130,6 +151,7 @@
     <Compile Include="DB\DbHelperOleDb.cs" />
     <Compile Include="DB\LoginHelper.cs" />
     <Compile Include="DB\ProjectHelper.cs" />
+    <Compile Include="DB\SqlLite.cs" />
     <Compile Include="Draw\ControlSafe.cs" />
     <Compile Include="Draw\DotnetChart.cs" />
     <Compile Include="Draw\VsAChart.cs" />
@@ -196,7 +218,6 @@
       <DependentUpon>frmVisaLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Draw\AChart.cs" />
-    <Compile Include="Languange\LanguageHelper.cs" />
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,9 +241,6 @@
     <Compile Include="Util\EasyExcel.cs" />
     <Compile Include="Util\Extende.cs" />
     <Compile Include="Util\Gloabal.cs" />
-    <Compile Include="Util\UI.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmUserEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,11 +287,9 @@
     <EmbeddedResource Include="frmUserEdit.resx">
       <DependentUpon>frmUserEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Util\UI.resx">
-      <DependentUpon>UI.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Config\TestItemGroup.json" />
+    <None Include="packages.config" />
     <None Include="Resources\lang\english.json">
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
@@ -317,7 +333,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.png" />
+    <None Include="Resources\img\Image1.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tool\Tool.csproj">
@@ -350,13 +366,15 @@
     <Content Include="Dll\MathNet.Numerics.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
-    <None Include="Resources\help.png" />
-    <None Include="Resources\model.png" />
-    <None Include="Resources\setting.png" />
-    <None Include="Resources\language.png" />
-    <None Include="Resources\style.png" />
-    <None Include="Resources\tool.png" />
-    <None Include="Resources\图片2.png" />
+    <None Include="Resources\微信图片_20181215221604.png" />
+    <None Include="Resources\img\LUXSHARE-ICT LOGO%28透明底%29400x90.png" />
+    <None Include="Resources\img\help.png" />
+    <None Include="Resources\img\model.png" />
+    <None Include="Resources\img\setting.png" />
+    <None Include="Resources\img\language.png" />
+    <None Include="Resources\img\style.png" />
+    <None Include="Resources\img\tool.png" />
+    <None Include="Resources\img\图片2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -365,9 +383,16 @@
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>mkdir $(ProjectDir)$(OutDir)Resources\lang;
-xcopy /e /r /y $(ProjectDir)Resources\lang $(ProjectDir)$(OutDir)\Resources\lang;
-xcopy /e /r /y $(ProjectDir)Config $(ProjectDir)$(OutDir)\Config</PreBuildEvent>
+xcopy /e /r /y $(ProjectDir)Resources\lang $(ProjectDir)$(OutDir)Resources\lang;
+xcopy /e /r /y $(ProjectDir)Config $(ProjectDir)$(OutDir)Config</PreBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.2\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

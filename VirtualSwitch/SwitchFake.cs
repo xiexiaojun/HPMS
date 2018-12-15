@@ -22,5 +22,15 @@ namespace VirtualSwitch
         {
             return true;
         }
+
+        public bool OpenS(int switchIndex, ref string errMsg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool OpenS(byte[] switchNum, ref string errMsg)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

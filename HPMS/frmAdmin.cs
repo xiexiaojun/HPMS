@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HPMS.DB;
 using HPMS.Util;
+using Tool;
 using Size = System.Drawing.Size;
 
 namespace HPMS
@@ -179,7 +180,7 @@ namespace HPMS
             var id = dgvRoleTable.CurrentRow.Cells["id"].Value.ToString();
             if (id.Equals(""))
             {
-                UI.MessageBoxMuti("没有角色被选中,无法修改");
+                Ui.MessageBoxMuti("没有角色被选中,无法修改");
             }
             else
             {
@@ -205,22 +206,22 @@ namespace HPMS
             var id = dgvRoleTable.CurrentRow.Cells["id"].Value.ToString();
             if (id.Equals(""))
             {
-                UI.MessageBoxMuti("没有角色被选中,无法删除");
+                Ui.MessageBoxMuti("没有角色被选中,无法删除");
             }
             else
             {
-                var key = UI.MessageBoxYesNoMuti("确定删除当前角色吗?");
+                var key = Ui.MessageBoxYesNoMuti("确定删除当前角色吗?");
                 if (key == DialogResult.Yes)
                 {
                     int t = int.Parse(id);
                     if(Gloabal.GRightsWrapper.DeleteRole(t))
                     {
-                        UI.MessageBoxMuti("删除角色成功");
+                        Ui.MessageBoxMuti("删除角色成功");
                         DisplayRoles();
                     }
                     else
                     {
-                        UI.MessageBoxMuti("删除角色失败");
+                        Ui.MessageBoxMuti("删除角色失败");
                     }
 
                 }
@@ -249,7 +250,7 @@ namespace HPMS
             var id = dgvUserTable.CurrentRow.Cells["id"].Value.ToString();
             if (id.Equals(""))
             {
-                UI.MessageBoxMuti("没有用户被选中,无法修改");
+                Ui.MessageBoxMuti("没有用户被选中,无法修改");
             }
             else
             {
@@ -274,22 +275,22 @@ namespace HPMS
             var id = dgvUserTable.CurrentRow.Cells["id"].Value.ToString();
             if (id.Equals(""))
             {
-                UI.MessageBoxMuti("没有用户被选中,无法删除");
+                Ui.MessageBoxMuti("没有用户被选中,无法删除");
             }
             else
             {
-                var key = UI.MessageBoxYesNoMuti("确定删除当前用户吗?");
+                var key = Ui.MessageBoxYesNoMuti("确定删除当前用户吗?");
                 if (key == DialogResult.Yes)
                 {
                     int t = int.Parse(id);
                     if (Gloabal.GRightsWrapper.DeleteUser(t))
                     {
-                        UI.MessageBoxMuti("删除用户成功");
+                        Ui.MessageBoxMuti("删除用户成功");
                         DisplayUsers();
                     }
                     else
                     {
-                        UI.MessageBoxMuti("删除用户失败");
+                        Ui.MessageBoxMuti("删除用户失败");
                     }
 
                 }

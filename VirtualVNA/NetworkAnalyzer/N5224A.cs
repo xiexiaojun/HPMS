@@ -12,11 +12,16 @@ namespace VirtualVNA.NetworkAnalyzer
         private MessageBasedSession mbSession;
         private bool _connected = false;
         private string _visaAddress;
+        private int _responseTime;
+       
    
-        public N5224A(ISwitch iSwitch,string visaAddress)
+        public N5224A(ISwitch iSwitch,string visaAddress,int responseTime=2000)
         {
+            if (responseTime == 0)
+                responseTime = 2000;
             this._iswitch = iSwitch;
             this._visaAddress = visaAddress;
+            this._responseTime = responseTime;
             Connect();
 
         }
@@ -50,7 +55,8 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 return false;
             };
-            Thread.Sleep(500);
+           
+            Thread.Sleep(_responseTime);
             return SaveS4P(saveFilePath,channel, ref msg);
         }
 
@@ -75,7 +81,8 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 return false;
             };
-            Thread.Sleep(500);
+
+            Thread.Sleep(_responseTime);
             return SaveS4P(saveFilePath, channel, ref msg);
         }
 
@@ -99,7 +106,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 return false;
             };
-            Thread.Sleep(500);
+            Thread.Sleep(_responseTime);
 
             int points = 0;
             if (!GetMeasurePoints(ref points, ref msg))
@@ -119,6 +126,18 @@ namespace VirtualVNA.NetworkAnalyzer
             return true;
         }
 
+        public override bool LoadCalFile(string calFilePath, ref string msg)
+        {
+            Connect();
+            string loadCalFile = "MMEM:load '" + calFilePath + "'";
+            mbSession.Write(loadCalFile);
+            Thread.Sleep(5000);
+            string typeLin = "Format:data ascii;SENSE1:sweep:TYPE LIN";
+            mbSession.Write(typeLin);
+            return true;
+        }
+
+    
         private void Connect()
         {
             try
@@ -134,8 +153,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                
                 throw new VnaException("Connect N5224A fail via Visa Command",e);
-               // ;
-            }
+             }
            
         }
 
@@ -228,31 +246,32 @@ namespace VirtualVNA.NetworkAnalyzer
         private bool Trigger(string channel,ref string msg)
         {
             //set singleMode
-            string strSetSingleode = "sense" + channel + ":sweep:mode single";
+            string singleMode = "sense" + channel + ":sweep:mode single";
             //this scip command used for get E5071C work mode
-            string strGetMode = "sense" + channel + ":sweep:mode?";
+            string getMode = "sense" + channel + ":sweep:mode?";
             //set holdMode
-            string strSetHoldode = "sense" + channel + ":sweep:mode hold";
+            string holdMode = "sense" + channel + ":sweep:mode hold";
 
           
 
             try
             {
-                mbSession.Write(strSetSingleode);
-               
+                mbSession.Write(singleMode);
+                Thread.Sleep(500);
 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 100; i++)
                 {
-                    mbSession.Write(strGetMode);
+                    Thread.Sleep(200);
+                    mbSession.Write(getMode);
                     string readTemp = mbSession.ReadString().Trim();
                     if (readTemp.Equals("HOLD"))
                     {
                         break;
                     }
 
-                    Thread.Sleep(200);
+                    
                 }
-                mbSession.Write(strSetHoldode);
+                mbSession.Write(holdMode);
                 return true;
 
             }

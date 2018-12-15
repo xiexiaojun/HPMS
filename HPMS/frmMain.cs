@@ -14,16 +14,14 @@ using HPMS.Config;
 using HPMS.Core;
 using HPMS.DB;
 using HPMS.Draw;
-using HPMS.Languange;
 using HPMS.RightsControl;
 using HPMS.Splash;
 using HPMS.Util;
 using HslCommunication.BasicFramework;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using VirtualSwitch;
-//using VirtualSwitch;
-using VirtualVNA.Enum;
-using VirtualVNA.NetworkAnalyzer;
+using Tool;
+
 using Convert = HPMS.Util.Convert;
 using NetworkAnalyzer = VirtualVNA.NetworkAnalyzer.NetworkAnalyzer;
 
@@ -44,22 +42,26 @@ namespace HPMS
         private bool _pnChange = false;
         private Project _curretnProject;
         private Hardware _hardware;
-        private TestConfig[] _testConfigs=new TestConfig[3];//3类测试项目参数,直通，近串，远串
+        private TestConfig[] _testConfigs=new TestConfig[4];//3类测试项目参数,直通，近串，远串
         private ISwitch _switch;
         private NetworkAnalyzer _iAnalyzer;
         private Dictionary<string, plotData> _spec = new Dictionary<string, plotData>();//规格线
 
-        private FormUi _formUi = new FormUi();
+        private FormUi _formUi;
         private Dictionary<string,Dictionary<string,KeyPoint>> _keyPointValue=new Dictionary<string, Dictionary<string, KeyPoint>>();
         private Dictionary<string,float[]>_keyPoint=new Dictionary<string, float[]>();
+        private Dictionary<string,string>_information=new Dictionary<string, string>();
+        
+       
+        
        
 
 
         public frmMain()
         {
-            Splasher.Status = "正在展示相关的内容";
-            System.Threading.Thread.Sleep(3000);
-            System.Threading.Thread.Sleep(50);
+            Splasher.Status = "正在载入";
+            Thread.Sleep(2500);
+            
 
             Splasher.Close();
            
@@ -87,18 +89,7 @@ namespace HPMS
         }
 
 
-        private void FastProfileAdd()
-        {
-            ToolStripMenuItem_Manual.Enabled = false;
-            ToolStripMenuItem_Auto.Checked = true;
-            List<string> fastProfile = Equipment.Util.GetFastProfile();
-            foreach (string profile in fastProfile)
-            {
-                ToolStripMenuItem subItem;
-                AddContextMenu(profile, ToolStripMenuItem_FastProfile.DropDownItems,
-                    FastProfileClicked);
-            }
-        }
+      
 
         private ToolStripMenuItem AddContextMenu(string text, ToolStripItemCollection cms, EventHandler callback)
         {
@@ -281,30 +272,30 @@ namespace HPMS
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            Gloabal.GRightsWrapper.test();
-            //try
-            //{
-            //    Gloabal.GRightsWrapper.test();
-            //}
-            //catch (Exception exception)
-            //{
-            //    Console.WriteLine(exception);
-            //    throw;
-            //}
-           // MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
-            //Thread t = new Thread(new ThreadStart(SiTest));
-            //t.Start();
+            chkStop.Checked = false;
+
+            //MessageBox.Show(Gloabal.GRightsWrapper.EditUser().ToString());
+            Thread t = new Thread(new ThreadStart(SiTest));
+            t.Start();
 
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            
+            Ini();
+         
+        }
+
+        private void Ini()
+        {
+            //清空测试结果
+            SetResult("");
+            btnTest.Enabled = false;
             RegisterLoginCheck();
             LoadTheme();
             SetStatusBar();
             SetUiAction();
-            FastProfileAdd();
-            //lsvKeyPointSet();
         }
 
         /// <summary>
@@ -375,8 +366,9 @@ namespace HPMS
 
         private void SetStatusBar()
         {
+
             toolStripStatusLabelUser.Text = "当前用户:" + currentUser.Username + "  角色:" + currentUser.Role;
-            //toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
         private void GetUserRights(string softVersion)
@@ -409,9 +401,7 @@ namespace HPMS
 
         private void SiTest()
         {
-            Action<string> addAction = AddStatus;
-            Action<int, bool> progressDisplay = SetProgress;
-            SITest siTest = new SITest(_switch, _iAnalyzer);
+            SITest _siTest = new SITest(_switch, _iAnalyzer,_information);
             AddStatus("测试开始");
             Savepath savepath=new Savepath();
             if (!SetTestFilePath(ref savepath))
@@ -420,7 +410,7 @@ namespace HPMS
             }
             ControlSafe.SetcontrolEnable(btnTest,false);
             ControlSafe.ClearListview(lsvKeyPoint);
-            siTest.DoTest(_testConfigs, chartDic, _aChart, _formUi, _spec,_keyPoint, savepath);
+            _siTest.DoTest(_testConfigs, chartDic, _aChart, _formUi, _spec,_keyPoint, savepath);
             ControlSafe.SetcontrolEnable(btnTest, true);
         }
 
@@ -429,7 +419,7 @@ namespace HPMS
             if (txtSN.Text.Trim() == "")
             {
                 AddStatus("SN不能为空");
-                UI.MessageBoxMuti("SN为空,请输入SN");
+                Ui.MessageBoxMuti("SN为空,请输入SN");
                 return false;
             }
             else
@@ -438,6 +428,8 @@ namespace HPMS
                 string sn=Util.Convert.SlashRepalce(txtSN.Text.Trim());
                 savepath.SnpFilePath = _hardware.SnpFolder + "\\" + pn + "\\" + sn;
                 savepath.TxtFilePath = _hardware.TxtFolder + "\\" + pn + "\\" + sn;
+                savepath.Sn = sn;
+                savepath.XmlPath = _hardware.TxtFolder + "\\" + pn + "\\" + sn + "\\Result & Sample info.xml";
 
                 Directory.CreateDirectory(savepath.SnpFilePath);
                 Directory.CreateDirectory(savepath.TxtFilePath);
@@ -448,10 +440,15 @@ namespace HPMS
         private void SetKeyPoint()
         {
             _keyPoint.Clear();
+            List<string> sdd21 = JsonConvert.DeserializeObject<List<string>>(_curretnProject.KeyPoint);
+            if (sdd21 == null)
+            {
+                return;
+            }
             float[] SDD21 = new[] { 120000000f, 130000000f, 140000000f, 150000000f };
             float[] SDD11 = new[] { 120000000f, 130000000f, 140000000f, 150000000f };
-            _keyPoint.Add("SDD21",SDD21);
-            _keyPoint.Add("SDD11", SDD11);
+            _keyPoint.Add("SDD21", sdd21.Select(t=>float.Parse(t)).ToArray());
+            //_keyPoint.Add("SDD11", SDD11);
         }
 
         private delegate void SetKeyPointListCallback(Dictionary<string, List<PairData>> keyValue);
@@ -478,8 +475,8 @@ namespace HPMS
                         {
                             ListViewItem lvi = new ListViewItem();
                             lvi.SubItems.Add(pairItem.PairName);
-                            lvi.SubItems.Add(pairItem.XData[i].ToString());
-                            lvi.SubItems.Add(pairItem.YData[i].ToString());
+                            lvi.SubItems.Add((pairItem.XData[i]/1000000).ToString("F2"));
+                            lvi.SubItems.Add(pairItem.YData[i].ToString("F2"));
                             tempGroup.Items.Add(lvi);
                             this.lsvKeyPoint.Items.Add(lvi);
                         }
@@ -487,6 +484,11 @@ namespace HPMS
                 }
                 lsvKeyPoint.EndUpdate();
             }
+        }
+
+        private bool StopEnabbledRead()
+        {
+            return chkStop.Checked;
         }
 
        
@@ -523,11 +525,12 @@ namespace HPMS
    
 
       
-        private void PnChangeHandle(string pn,bool dbMode)
+        private void PnChangeHandle(string pn)
         {
+            btnTest.Enabled = false;
             string msg = "";
             btnTest.Enabled = false;
-            _curretnProject = ProjectHelper.Find(pn, dbMode);
+            _curretnProject = ProjectHelper.Find(pn);
             _hardware = (Hardware)LocalConfig.GetObjFromXmlFile("config\\hardware.xml", typeof(Hardware));
             if (_curretnProject == null)
             {
@@ -547,8 +550,11 @@ namespace HPMS
                 AddStatus(msg);
                 return;
             }
+
+            _iAnalyzer.LoadCalFile(_curretnProject.CalFilePath,ref msg);
             AddStatus("连接开关成功");
             AddStatus("连接网分设备成功");
+            
             bool setProjectFlag = Equipment.Util.SetTestParams(_curretnProject, ref _testConfigs);
             if (!setProjectFlag)
             {
@@ -556,6 +562,7 @@ namespace HPMS
                 return;
             }
 
+            SetInformation();
             _spec = TestUtil.GetPnSpec(_curretnProject);
             ClearTestItems();
             DisplayTestItems();
@@ -563,11 +570,23 @@ namespace HPMS
             AddCharts();
             SetKeyPoint();
             btnTest.Enabled = true;
+            txtSN.Focus();
         }
 
-        private void testDemo(object sender,EventArgs e)
+
+        private void SetInformation()
         {
-            MessageBox.Show("a");
+            _information.Clear();
+            _information.Add("application",currentUser.Username);
+            _information.Add("partDescription",_curretnProject.Description);
+            _information.Add("partNo",_curretnProject.Pn);
+            _information.Add("fixtureSerialNo","No1");
+            _information.Add("preparedBy", currentUser.Username);
+            _information.Add("approvedBy", currentUser.Username);
+            _information.Add("temprature","23");
+            _information.Add("rHumidity","60");
+            _information.Add("tdrModel","None");
+            _information.Add("vnaModel","N5224A");
         }
 
 
@@ -606,21 +625,25 @@ namespace HPMS
                     chkList_TestItem.Items.Add(s);
                 }
 
-                foreach (Pair pair in VARIABLE.Pairs)
+                if (VARIABLE.Pairs != null)
                 {
-                    switch (VARIABLE.ItemType)
+                    foreach (Pair pair in VARIABLE.Pairs)
                     {
-                        case ItemType.Loss:
-                            chkList_LossPair.Items.Add(pair.PairName);
-                            break;
-                        case ItemType.Next:
-                            chkList_NextPair.Items.Add(pair.PairName);
-                            break;
-                        case ItemType.Fext:
-                            chkList_FextPair.Items.Add(pair.PairName);
-                            break;
+                        switch (VARIABLE.ItemType)
+                        {
+                            case ItemType.Loss:
+                                chkList_LossPair.Items.Add(pair.PairName);
+                                break;
+                            case ItemType.Next:
+                                chkList_NextPair.Items.Add(pair.PairName);
+                                break;
+                            case ItemType.Fext:
+                                chkList_FextPair.Items.Add(pair.PairName);
+                                break;
+                        }
                     }
                 }
+              
             }
         }
 
@@ -632,6 +655,7 @@ namespace HPMS
             _formUi.SetCheckItem = SetCheckItem;
             _formUi.SetResult = SetResult;
             _formUi.SetKeyPointList = SetKeyPointList;
+            _formUi.StopEnabbled = StopEnabbledRead;
         }
 
         private delegate void SetCheckItemCallback(string itemName, ClbType clbType);
@@ -690,6 +714,7 @@ namespace HPMS
                 {
                     labelResult.ForeColor = Color.Red;
                 }
+               
             }
         }
 
@@ -746,24 +771,11 @@ namespace HPMS
         {
             if (e.KeyCode == Keys.Enter)
             {
-                PnChangeHandle(txt_PN.Text.Trim(), false);
+                PnChangeHandle(txt_PN.Text.Trim());
             }
         }
 
-        private void ToolStripMenuItem_ProfileMode_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem[] profileModeItems = new[] {ToolStripMenuItem_PNProfile, ToolStripMenuItem_FastProfile};
-            ToolStripMenuItem_FastProfile.Checked = !ToolStripMenuItem_FastProfile.Checked;
-            foreach (var variable in profileModeItems)
-            {
-                variable.Checked = false;
-            }
-
-            ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem) sender;
-            clickedMenuItem.Checked = true;
-            SetChildMenuEnable(ToolStripMenuItem_FastProfile, clickedMenuItem.Name == "ToolStripMenuItem_FastProfile");
-           
-        }
+      
 
 
         /// <summary>
@@ -799,17 +811,47 @@ namespace HPMS
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmAbout frm=new frmAbout())
+            using (frmAbout frm = new frmAbout())
             {
                 frm.ShowDialog();
             }
         }
-      
 
-       
+        private void txtSN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTest.PerformClick();
+            }
+        }
 
-       
-       
+        private void switchMatrixBoxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string toolPath = @"tools\switchBox\SwitchBoxDebug.exe";
+            ExcAttachedTool(toolPath);
+        }
+
+        private void eEPROMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string toolPath = @"tools\EEPROM\EEPROM Tool.exe";
+            ExcAttachedTool(toolPath);
+        }
+
+        private void ExcAttachedTool(string toolPath)
+        {
+            if (!File.Exists(toolPath))
+            {
+                Ui.MessageBoxMuti("此工具不存在");
+                return;
+            }
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = toolPath;
+            psi.UseShellExecute = false;
+            psi.WorkingDirectory = Path.GetDirectoryName(toolPath);
+            psi.CreateNoWindow = true;
+            Process.Start(psi);
+        }
+     
      
     }
 }

@@ -13,11 +13,13 @@ namespace VirtualVNA.NetworkAnalyzer
         private MessageBasedSession mbSession;
         private bool _connected = false;
         private string _visaAddress;
+        private int _responseTime;
       
-        public E5071C(ISwitch iSwitch,string visaAddress)
+        public E5071C(ISwitch iSwitch,string visaAddress,int responseTime)
         {
             this._iswitch = iSwitch;
             this._visaAddress = visaAddress;
+            this._responseTime = responseTime;
           
             Connect();
 
@@ -55,7 +57,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 return false;
             };
-            Thread.Sleep(500);
+            Thread.Sleep(_responseTime);
             return SaveS4P(saveFilePath, ref msg);
         }
 
@@ -84,7 +86,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 return false;
             };
-            Thread.Sleep(500);
+            Thread.Sleep(_responseTime);
             return SaveS4P(saveFilePath, ref msg);
         }
 
@@ -113,7 +115,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 return false;
             };
-            Thread.Sleep(500);
+            Thread.Sleep(_responseTime);
 
             int points = 0;
             if (!GetMeasurePoints(ref points, ref msg))
@@ -130,6 +132,17 @@ namespace VirtualVNA.NetworkAnalyzer
                 return false;
             }
 
+            return true;
+        }
+
+        public override bool LoadCalFile(string calFilePath, ref string msg)
+        {
+            Connect();
+            string loadCalFile = "MMEM:load '" + calFilePath + "'";
+            mbSession.Write(loadCalFile);
+            Thread.Sleep(5000);
+            string typeLin = ":SENS1:SWE:TYPE LINear";
+            mbSession.Write(typeLin);
             return true;
         }
 

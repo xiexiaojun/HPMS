@@ -1,0 +1,6 @@
+obj\Debug\Product.wixobj
+D:\gitProjects\HPMS\SetupProject\bin\Debug\SetupProject.msi
+D:\gitProjects\HPMS\SetupProject\bin\Debug\SetupProject.wixpdb
+obj\Debug\SetupProject.wixproj.BindContentsFileListnull.txt
+obj\Debug\SetupProject.wixproj.BindOutputsFileListnull.txt
+obj\Debug\SetupProject.wixproj.BindBuiltOutputsFileListnull.txt

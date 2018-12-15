@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Theme xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <EStyle>Office2010Black</EStyle>
+  <EStyle>Office2007VistaGlass</EStyle>
   <Tag>customerColor</Tag>
   <Color>Lime</Color>
   <Customer>true</Customer>

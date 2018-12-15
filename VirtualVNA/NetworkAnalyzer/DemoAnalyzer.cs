@@ -23,5 +23,10 @@ namespace VirtualVNA.NetworkAnalyzer
         {
             return true;
         }
+
+        public override bool LoadCalFile(string calFilePath, ref string msg)
+        {
+            return true;
+        }
     }
 }
