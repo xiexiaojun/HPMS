@@ -9,6 +9,7 @@ using HPMS.Config;
 using HPMS.Draw;
 using HPMS.Util;
 using NationalInstruments.Restricted;
+using reporter;
 using Tool;
 using VirtualSwitch;
 using VirtualVNA.NetworkAnalyzer;
@@ -268,13 +269,33 @@ namespace HPMS.Core
             var aa = GetKeyValue(keyPoint);
             formUi.SetKeyPointList(aa);
             SetInformation(savepath.Sn);
+            CopySpec(savepath);
+            
             SetResult();
             TestUtil.SaveResult_Sample(savepath.XmlPath, _itemTestResult, _information);
+            GenerateReport(savepath);
             stopwatch.Stop(); //  停止监视
             TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
             formUi.AddStatus("测试结束");
             formUi.AddStatus("测试用时:" + timespan.TotalSeconds);
            
+        }
+
+        private void GenerateReport(Savepath savepath)
+        {
+            //DirectoryInfo info = new DirectoryInfo(savepath.TxtFilePath);
+            //String path = info.Parent.FullName;
+            Reporter aReporter = new Reporter(savepath.ReportTempletePath,
+                savepath.TxtFilePath+"\\"+savepath.Sn+".xlsx",
+                savepath.TxtFilePath+"\\txt", 1, 1);
+            error rError = aReporter.genrate();
+        }
+
+
+        private void CopySpec(Savepath savepath)
+        {
+            File.Copy(Gloabal.freSpecFilePath, savepath.TxtFilePath+ "\\txt\\1\\Freq Spec.txt",true);
+            File.Copy(Gloabal.timeSpecFilePath, savepath.TxtFilePath + "\\txt\\1\\Impedance Spec.txt",true);
         }
 
         private void SetInformation(string sn)
@@ -515,7 +536,7 @@ namespace HPMS.Core
             cpParams.TestConfigs = testConfigs;
             cpParams.FormUi = formUi;
             cpParams.Spec = spec;
-            cpParams.SaveTxtPath = saveTxtPath+"\\"+"TXT";
+            cpParams.SaveTxtPath = saveTxtPath+"\\"+"TXT"+"\\1";
             if (Directory.Exists(cpParams.SaveTxtPath))
             {
                 Directory.Delete(cpParams.SaveTxtPath,true);

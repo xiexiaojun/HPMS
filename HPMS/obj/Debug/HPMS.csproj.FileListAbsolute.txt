@@ -58,3 +58,4 @@ D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.exe
 D:\gitProjects\HPMS\HPMS\obj\Debug\HPMS.pdb
 D:\gitProjects\HPMS\HPMS\bin\Debug\HPMS.pdb
+D:\gitProjects\HPMS\HPMS\bin\Debug\reporter.dll

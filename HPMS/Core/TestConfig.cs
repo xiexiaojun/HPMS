@@ -65,6 +65,7 @@ namespace HPMS.Core
         public string TxtFilePath;
         public string Sn;
         public string XmlPath;
+        public string ReportTempletePath;
     }
 
     /// <summary>

@@ -429,7 +429,8 @@ namespace HPMS
                 savepath.SnpFilePath = _hardware.SnpFolder + "\\" + pn + "\\" + sn;
                 savepath.TxtFilePath = _hardware.TxtFolder + "\\" + pn + "\\" + sn;
                 savepath.Sn = sn;
-                savepath.XmlPath = _hardware.TxtFolder + "\\" + pn + "\\" + sn + "\\Result & Sample info.xml";
+                savepath.XmlPath = _hardware.TxtFolder + "\\" + pn + "\\" + sn + "\\txt\\1\\Result & Sample info.xml";
+                savepath.ReportTempletePath = _curretnProject.ReportTempletePath;
 
                 Directory.CreateDirectory(savepath.SnpFilePath);
                 Directory.CreateDirectory(savepath.TxtFilePath);

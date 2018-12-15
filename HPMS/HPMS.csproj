@@ -105,6 +105,10 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="reporter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\reporter.dll</HintPath>
+    </Reference>
     <Reference Include="Softgroup.NetResize45">
       <HintPath>C:\Program Files (x86)\Softgroup .Net Forms Resize\Softgroup.NetResize45.dll</HintPath>
     </Reference>
@@ -366,6 +370,7 @@
     <Content Include="Dll\MathNet.Numerics.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
+    <Content Include="Dll\reporter.dll" />
     <None Include="Resources\微信图片_20181215221604.png" />
     <None Include="Resources\img\LUXSHARE-ICT LOGO%28透明底%29400x90.png" />
     <None Include="Resources\img\help.png" />

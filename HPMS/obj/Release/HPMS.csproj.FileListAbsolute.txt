@@ -47,3 +47,4 @@ D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.Linq.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.xml
 D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.SqlServer.xml
 D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.xml
+D:\gitProjects\HPMS\HPMS\bin\Release\reporter.dll
