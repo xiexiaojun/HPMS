@@ -121,25 +121,6 @@
     <value>136, 5</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ToolStripMenuItem_Auto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="ToolStripMenuItem_Auto.Text" xml:space="preserve">
-    <value>自动</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ToolStripMenuItem_Manual.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStripMenuItem_Manual.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="ToolStripMenuItem_Manual.Text" xml:space="preserve">
-    <value>手动</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 6</value>
-  </data>
   <data name="模式ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -166,28 +147,10 @@
     <value>None</value>
   </data>
   <data name="模式ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 36</value>
+    <value>79, 36</value>
   </data>
   <data name="模式ToolStripMenuItem.Text" xml:space="preserve">
     <value>模式</value>
-  </data>
-  <data name="m_Set_hardware.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_hardware.Text" xml:space="preserve">
-    <value>硬件设置</value>
-  </data>
-  <data name="m_Set_profile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_profile.Text" xml:space="preserve">
-    <value>档案设置</value>
-  </data>
-  <data name="m_Set_user.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="m_Set_user.Text" xml:space="preserve">
-    <value>用户管理</value>
   </data>
   <data name="设置ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -246,22 +209,10 @@
     <value>None</value>
   </data>
   <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 36</value>
+    <value>79, 36</value>
   </data>
   <data name="设置ToolStripMenuItem.Text" xml:space="preserve">
     <value>设置</value>
-  </data>
-  <data name="中文ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
-    <value>中文</value>
-  </data>
-  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
   </data>
   <data name="语言ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -306,96 +257,15 @@
     <value>None</value>
   </data>
   <data name="语言ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 36</value>
+    <value>79, 36</value>
   </data>
   <data name="语言ToolStripMenuItem.Text" xml:space="preserve">
     <value>语言</value>
   </data>
-  <data name="office2016ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="office2016ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Office 2016</value>
-  </data>
-  <data name="metroOffice2013ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="metroOffice2013ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Metro/Office2013</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="toolStripMenuItem1.Text" xml:space="preserve">
-    <value>Office 2010 Blue</value>
-  </data>
-  <data name="office2010ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="office2010ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Office 2010 Silver</value>
-  </data>
-  <data name="office2010BlackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="office2010BlackToolStripMenuItem.Text" xml:space="preserve">
-    <value>Office 2010 Black</value>
-  </data>
-  <data name="visualStudio2010ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="visualStudio2010ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Visual Studio 2010</value>
-  </data>
-  <data name="windows7ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="windows7ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Windows 7</value>
-  </data>
-  <data name="office2007BlueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="office2007BlueToolStripMenuItem.Text" xml:space="preserve">
-    <value>Office 2007 Blue</value>
-  </data>
-  <data name="office2007BlackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="office2007BlackToolStripMenuItem.Text" xml:space="preserve">
-    <value>Office 2007 Black</value>
-  </data>
-  <data name="office2007SilverToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="office2007SilverToolStripMenuItem.Text" xml:space="preserve">
-    <value>Office 2007 Silver</value>
-  </data>
-  <data name="vistaGlassToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="vistaGlassToolStripMenuItem.Text" xml:space="preserve">
-    <value>Vista Glass</value>
-  </data>
-  <data name="visualStudio2012LightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="visualStudio2012LightToolStripMenuItem.Text" xml:space="preserve">
-    <value>Visual Studio 2012 Light</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 6</value>
-  </data>
-  <data name="自定义ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="自定义ToolStripMenuItem.Text" xml:space="preserve">
-    <value>自定义</value>
-  </data>
   <data name="Skin_ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3WAAAN1gGQb3mcAAAABmJL
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3VAAAN1QE91ljxAAAABmJL
         R0QA/wD/AP+gvaeTAAAAB3RJTUUH2gUYAAAAIjxl6QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOC0wNi0y
         OFQyMjozNzowNiswODowMKWhbB8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDUtMjRUMDA6MDA6MDAr
         MDg6MDDwF55mAAAAQ3RFWHRzb2Z0d2FyZQAvdXNyL2xvY2FsL2ltYWdlbWFnaWNrL3NoYXJlL2RvYy9J
@@ -446,11 +316,12 @@
     <value>None</value>
   </data>
   <data name="Skin_ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 36</value>
+    <value>79, 36</value>
   </data>
   <data name="Skin_ToolStripMenuItem.Text" xml:space="preserve">
     <value>风格</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="sNP转换ToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -458,19 +329,19 @@
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="sNP转换ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="sNP转换ToolStripMenuItem.Text" xml:space="preserve">
-    <value>SNP转换</value>
+    <value>SNP Convert System</value>
   </data>
   <data name="eEPROMToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="eEPROMToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="eEPROMToolStripMenuItem.Text" xml:space="preserve">
-    <value>EEPROM调试</value>
+    <value>EEPROM R/W System</value>
   </data>
   <data name="cOM计算ToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -479,16 +350,16 @@
     <value>微软雅黑, 9pt</value>
   </data>
   <data name="cOM计算ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="cOM计算ToolStripMenuItem.Text" xml:space="preserve">
-    <value>COM计算</value>
+    <value>COM Value Caculate System</value>
   </data>
   <data name="switchMatrixBoxToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="switchMatrixBoxToolStripMenuItem.Text" xml:space="preserve">
-    <value>Switch Matrix Box</value>
+    <value>High Speed Switch Matrix System</value>
   </data>
   <data name="工具ToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
@@ -559,22 +430,10 @@
   <data name="工具ToolStripMenuItem.Text" xml:space="preserve">
     <value>工具</value>
   </data>
-  <data name="帮助文档ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
-  </data>
-  <data name="帮助文档ToolStripMenuItem.Text" xml:space="preserve">
-    <value>帮助文档</value>
-  </data>
-  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
-  </data>
-  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
-    <value>关于 (HPMS)</value>
-  </data>
   <data name="帮助ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsRAAALEQF/ZF+RAAAABmJL
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsQAAALEAGtI711AAAABmJL
         R0QAAAAAAAD5Q7t/AAAAB3RJTUUH2wUSEzQAI5e49gAAACV0RVh0Y3JlYXRlLWRhdGUAMjAwOS0xMS0x
         N1QyMDowNjo1Ny0wNzowMM45O5IAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTgtMDYtMjhUMjI6NDk6NTUr
         MDg6MDDrW13WAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDExLTA1LTE4VDE5OjUyOjAwKzA4OjAwfL/lCwAA
@@ -626,7 +485,7 @@
     <value>None</value>
   </data>
   <data name="帮助ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 36</value>
+    <value>79, 36</value>
   </data>
   <data name="帮助ToolStripMenuItem.Text" xml:space="preserve">
     <value>帮助</value>
@@ -638,7 +497,7 @@
     <value>7, 3, 0, 3</value>
   </data>
   <data name="menuStrip_Main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1385, 42</value>
+    <value>1284, 42</value>
   </data>
   <data name="menuStrip_Main.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -658,32 +517,158 @@
   <data name="&gt;&gt;menuStrip_Main.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="ToolStripMenuItem_Auto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="ToolStripMenuItem_Auto.Text" xml:space="preserve">
+    <value>自动</value>
+  </data>
+  <data name="ToolStripMenuItem_Manual.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStripMenuItem_Manual.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="ToolStripMenuItem_Manual.Text" xml:space="preserve">
+    <value>手动</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 6</value>
+  </data>
+  <data name="m_Set_hardware.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 24</value>
+  </data>
+  <data name="m_Set_hardware.Text" xml:space="preserve">
+    <value>硬件设置</value>
+  </data>
+  <data name="m_Set_profile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 24</value>
+  </data>
+  <data name="m_Set_profile.Text" xml:space="preserve">
+    <value>档案设置</value>
+  </data>
+  <data name="m_Set_user.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 24</value>
+  </data>
+  <data name="m_Set_user.Text" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="中文ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 24</value>
+  </data>
+  <data name="中文ToolStripMenuItem.Text" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 24</value>
+  </data>
+  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="office2016ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="office2016ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Office 2016</value>
+  </data>
+  <data name="metroOffice2013ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="metroOffice2013ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Metro/Office2013</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Office 2010 Blue</value>
+  </data>
+  <data name="office2010ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="office2010ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Office 2010 Silver</value>
+  </data>
+  <data name="office2010BlackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="office2010BlackToolStripMenuItem.Text" xml:space="preserve">
+    <value>Office 2010 Black</value>
+  </data>
+  <data name="visualStudio2010ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="visualStudio2010ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Visual Studio 2010</value>
+  </data>
+  <data name="windows7ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="windows7ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Windows 7</value>
+  </data>
+  <data name="office2007BlueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="office2007BlueToolStripMenuItem.Text" xml:space="preserve">
+    <value>Office 2007 Blue</value>
+  </data>
+  <data name="office2007BlackToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="office2007BlackToolStripMenuItem.Text" xml:space="preserve">
+    <value>Office 2007 Black</value>
+  </data>
+  <data name="office2007SilverToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="office2007SilverToolStripMenuItem.Text" xml:space="preserve">
+    <value>Office 2007 Silver</value>
+  </data>
+  <data name="vistaGlassToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="vistaGlassToolStripMenuItem.Text" xml:space="preserve">
+    <value>Vista Glass</value>
+  </data>
+  <data name="visualStudio2012LightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="visualStudio2012LightToolStripMenuItem.Text" xml:space="preserve">
+    <value>Visual Studio 2012 Light</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 6</value>
+  </data>
+  <data name="自定义ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 24</value>
+  </data>
+  <data name="自定义ToolStripMenuItem.Text" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="帮助文档ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 24</value>
+  </data>
+  <data name="帮助文档ToolStripMenuItem.Text" xml:space="preserve">
+    <value>帮助文档</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 24</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
+    <value>关于 (HPMS)</value>
+  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>292, 4</value>
   </metadata>
-  <data name="toolStripStatusLabelUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
-  </data>
-  <data name="toolStripStatusLabelUser.Text" xml:space="preserve">
-    <value>当前系统时间</value>
-  </data>
-  <data name="toolStripStatusMsg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1157, 17</value>
-  </data>
-  <data name="toolStripStatusLabelDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 17</value>
-  </data>
-  <data name="toolStripStatusLabelDate.Text" xml:space="preserve">
-    <value>toolStripStatusLabel3</value>
-  </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 715</value>
+    <value>0, 713</value>
   </data>
   <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 0, 16, 0</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1385, 22</value>
+    <value>1284, 24</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -702,6 +687,21 @@
   </data>
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="toolStripStatusLabelUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 19</value>
+  </data>
+  <data name="toolStripStatusLabelUser.Text" xml:space="preserve">
+    <value>当前系统时间</value>
+  </data>
+  <data name="toolStripStatusMsg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1039, 19</value>
+  </data>
+  <data name="toolStripStatusLabelDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 19</value>
+  </data>
+  <data name="toolStripStatusLabelDate.Text" xml:space="preserve">
+    <value>toolStripStatusLabel3</value>
   </data>
   <metadata name="styleManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>414, 2</value>
@@ -1042,8 +1042,263 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;panelEx1.Name" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelEx2.Name" xml:space="preserve">
+    <value>panelEx2</value>
+  </data>
+  <data name="&gt;&gt;panelEx2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelEx2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.Name" xml:space="preserve">
+    <value>panelEx3</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panelEx5.Name" xml:space="preserve">
+    <value>panelEx5</value>
+  </data>
+  <data name="&gt;&gt;panelEx5.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelEx5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 42</value>
+  </data>
+  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1284, 671</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panelEx1" Row="1" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx2" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panelEx3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panelEx5" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,292,AutoSize,0" /&gt;&lt;Rows Styles="Absolute,77,Percent,100,Absolute,228" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtSN" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkList_TestItem" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tab_pair" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txt_PN" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx7" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,33,Absolute,32,Absolute,33,Absolute,47,Percent,50,Absolute,24,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panelEx1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEx1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 81</value>
+  </data>
+  <data name="panelEx1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="panelEx1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 586</value>
+  </data>
+  <data name="panelEx1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="panelEx1.Text" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Name" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelEx1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="tableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Name" xml:space="preserve">
+    <value>labelX2</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;labelX2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;labelX2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Name" xml:space="preserve">
+    <value>labelX3</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;labelX3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;labelX3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtSN.Name" xml:space="preserve">
+    <value>txtSN</value>
+  </data>
+  <data name="&gt;&gt;txtSN.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.TextBoxX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;txtSN.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;txtSN.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;chkList_TestItem.Name" xml:space="preserve">
+    <value>chkList_TestItem</value>
+  </data>
+  <data name="&gt;&gt;chkList_TestItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkList_TestItem.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;chkList_TestItem.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.Name" xml:space="preserve">
+    <value>tab_pair</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;txt_PN.Name" xml:space="preserve">
+    <value>txt_PN</value>
+  </data>
+  <data name="&gt;&gt;txt_PN.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_PN.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;txt_PN.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.Name" xml:space="preserve">
+    <value>panelEx7</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 586</value>
+  </data>
+  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
+    <value>panelEx1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtSN" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkList_TestItem" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tab_pair" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txt_PN" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx7" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,33,Absolute,32,Absolute,33,Absolute,47,Percent,50,Absolute,24,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="labelX2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 4</value>
@@ -1133,7 +1388,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_TestItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 194</value>
+    <value>286, 193</value>
   </data>
   <data name="chkList_TestItem.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1150,20 +1405,68 @@
   <data name="&gt;&gt;chkList_TestItem.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="chkList_LossPair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tab_pair</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+    <value>tab_pair</value>
+  </data>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+    <value>tab_pair</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tab_pair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="chkList_LossPair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="tab_pair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 392</value>
   </data>
-  <data name="chkList_LossPair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tab_pair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="chkList_LossPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 165</value>
+  <data name="tab_pair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 194</value>
   </data>
-  <data name="chkList_LossPair.TabIndex" type="System.Int32, mscorlib">
+  <data name="tab_pair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.Name" xml:space="preserve">
+    <value>tab_pair</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;tab_pair.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;chkList_LossPair.Name" xml:space="preserve">
     <value>chkList_LossPair</value>
@@ -1184,7 +1487,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 165</value>
+    <value>278, 164</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1204,20 +1507,32 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="chkList_NextPair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="chkList_LossPair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="chkList_NextPair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 4</value>
+  <data name="chkList_LossPair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="chkList_NextPair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="chkList_LossPair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="chkList_NextPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 157</value>
+  <data name="chkList_LossPair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 164</value>
   </data>
-  <data name="chkList_NextPair.TabIndex" type="System.Int32, mscorlib">
+  <data name="chkList_LossPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="&gt;&gt;chkList_LossPair.Name" xml:space="preserve">
+    <value>chkList_LossPair</value>
+  </data>
+  <data name="&gt;&gt;chkList_LossPair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkList_LossPair.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;chkList_LossPair.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;chkList_NextPair.Name" xml:space="preserve">
     <value>chkList_NextPair</value>
@@ -1261,20 +1576,32 @@
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="chkList_FextPair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="chkList_NextPair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="chkList_FextPair.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="chkList_NextPair.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 4</value>
   </data>
-  <data name="chkList_FextPair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="chkList_NextPair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="chkList_FextPair.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="chkList_NextPair.Size" type="System.Drawing.Size, System.Drawing">
     <value>272, 157</value>
   </data>
-  <data name="chkList_FextPair.TabIndex" type="System.Int32, mscorlib">
+  <data name="chkList_NextPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="&gt;&gt;chkList_NextPair.Name" xml:space="preserve">
+    <value>chkList_NextPair</value>
+  </data>
+  <data name="&gt;&gt;chkList_NextPair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkList_NextPair.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;chkList_NextPair.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;chkList_FextPair.Name" xml:space="preserve">
     <value>chkList_FextPair</value>
@@ -1318,32 +1645,32 @@
   <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="tab_pair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="chkList_FextPair.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tab_pair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 393</value>
+  <data name="chkList_FextPair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 4</value>
   </data>
-  <data name="tab_pair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="chkList_FextPair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="tab_pair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 195</value>
+  <data name="chkList_FextPair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 157</value>
   </data>
-  <data name="tab_pair.TabIndex" type="System.Int32, mscorlib">
+  <data name="chkList_FextPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;tab_pair.Name" xml:space="preserve">
-    <value>tab_pair</value>
+  <data name="&gt;&gt;chkList_FextPair.Name" xml:space="preserve">
+    <value>chkList_FextPair</value>
   </data>
-  <data name="&gt;&gt;tab_pair.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;chkList_FextPair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tab_pair.Parent" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
+  <data name="&gt;&gt;chkList_FextPair.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
-  <data name="&gt;&gt;tab_pair.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;chkList_FextPair.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -1355,7 +1682,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 372</value>
+    <value>127, 371</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 17</value>
@@ -1401,6 +1728,57 @@
   </data>
   <data name="&gt;&gt;txt_PN.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;chkStop.Name" xml:space="preserve">
+    <value>chkStop</value>
+  </data>
+  <data name="&gt;&gt;chkStop.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.CheckBoxX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;chkStop.Parent" xml:space="preserve">
+    <value>panelEx7</value>
+  </data>
+  <data name="&gt;&gt;chkStop.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnTest.Name" xml:space="preserve">
+    <value>btnTest</value>
+  </data>
+  <data name="&gt;&gt;btnTest.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;btnTest.Parent" xml:space="preserve">
+    <value>panelEx7</value>
+  </data>
+  <data name="&gt;&gt;btnTest.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelEx7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEx7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 131</value>
+  </data>
+  <data name="panelEx7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 41</value>
+  </data>
+  <data name="panelEx7.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="panelEx7.Text" xml:space="preserve">
+    <value>panelEx7</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.Name" xml:space="preserve">
+    <value>panelEx7</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;panelEx7.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="chkStop.Location" type="System.Drawing.Point, System.Drawing">
     <value>209, 3</value>
@@ -1453,116 +1831,59 @@
   <data name="&gt;&gt;btnTest.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panelEx7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;panelEx6.Name" xml:space="preserve">
+    <value>panelEx6</value>
   </data>
-  <data name="panelEx7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 131</value>
-  </data>
-  <data name="panelEx7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 41</value>
-  </data>
-  <data name="panelEx7.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="panelEx7.Text" xml:space="preserve">
-    <value>panelEx7</value>
-  </data>
-  <data name="&gt;&gt;panelEx7.Name" xml:space="preserve">
-    <value>panelEx7</value>
-  </data>
-  <data name="&gt;&gt;panelEx7.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelEx6.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
   </data>
-  <data name="&gt;&gt;panelEx7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
+  <data name="&gt;&gt;panelEx6.Parent" xml:space="preserve">
+    <value>panelEx2</value>
   </data>
-  <data name="&gt;&gt;panelEx7.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 588</value>
-  </data>
-  <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
-    <value>panelEx1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelEx6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtSN" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkList_TestItem" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tab_pair" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txt_PN" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx7" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,33,Absolute,32,Absolute,33,Absolute,47,Percent,50,Absolute,24,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="&gt;&gt;expandablePanel1.Name" xml:space="preserve">
+    <value>expandablePanel1</value>
   </data>
-  <data name="panelEx1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="&gt;&gt;expandablePanel1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ExpandablePanel, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;expandablePanel1.Parent" xml:space="preserve">
+    <value>panelEx2</value>
+  </data>
+  <data name="&gt;&gt;expandablePanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelEx2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panelEx1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 81</value>
+  <data name="panelEx2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 81</value>
   </data>
-  <data name="panelEx1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="panelEx2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="panelEx1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 588</value>
+  <data name="panelEx2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1087, 358</value>
   </data>
-  <data name="panelEx1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="panelEx2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="panelEx1.Text" xml:space="preserve">
-    <value>panelEx1</value>
+  <data name="panelEx2.Text" xml:space="preserve">
+    <value>panelEx2</value>
   </data>
-  <data name="&gt;&gt;panelEx1.Name" xml:space="preserve">
-    <value>panelEx1</value>
+  <data name="&gt;&gt;panelEx2.Name" xml:space="preserve">
+    <value>panelEx2</value>
   </data>
-  <data name="&gt;&gt;panelEx1.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelEx2.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
   </data>
-  <data name="&gt;&gt;panelEx1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelEx2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;panelEx1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabControlChart.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControlChart.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 10.5pt, style=Bold</value>
-  </data>
-  <data name="tabControlChart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControlChart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="tabControlChart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1057, 360</value>
-  </data>
-  <data name="tabControlChart.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
-  </data>
-  <data name="tabControlChart.Text" xml:space="preserve">
-    <value>tabControl2</value>
+  <data name="&gt;&gt;panelEx2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tabControlChart.Name" xml:space="preserve">
     <value>tabControlChart</value>
@@ -1583,7 +1904,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelEx6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1057, 360</value>
+    <value>1057, 358</value>
   </data>
   <data name="panelEx6.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
@@ -1602,6 +1923,102 @@
   </data>
   <data name="&gt;&gt;panelEx6.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tabControlChart.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControlChart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 10.5pt, style=Bold</value>
+  </data>
+  <data name="tabControlChart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControlChart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="tabControlChart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1057, 358</value>
+  </data>
+  <data name="tabControlChart.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="tabControlChart.Text" xml:space="preserve">
+    <value>tabControl2</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Name" xml:space="preserve">
+    <value>tabControlChart</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.TabControl, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.Parent" xml:space="preserve">
+    <value>panelEx6</value>
+  </data>
+  <data name="&gt;&gt;tabControlChart.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.Name" xml:space="preserve">
+    <value>lsvKeyPoint</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.Parent" xml:space="preserve">
+    <value>expandablePanel1</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="expandablePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="expandablePanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1057, 0</value>
+  </data>
+  <data name="expandablePanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 358</value>
+  </data>
+  <data name="expandablePanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="expandablePanel1.TitleText" xml:space="preserve">
+    <value>summary</value>
+  </data>
+  <data name="&gt;&gt;expandablePanel1.Name" xml:space="preserve">
+    <value>expandablePanel1</value>
+  </data>
+  <data name="&gt;&gt;expandablePanel1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ExpandablePanel, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;expandablePanel1.Parent" xml:space="preserve">
+    <value>panelEx2</value>
+  </data>
+  <data name="&gt;&gt;expandablePanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lsvKeyPoint.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lsvKeyPoint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 26</value>
+  </data>
+  <data name="lsvKeyPoint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 332</value>
+  </data>
+  <data name="lsvKeyPoint.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.Name" xml:space="preserve">
+    <value>lsvKeyPoint</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.Parent" xml:space="preserve">
+    <value>expandablePanel1</value>
+  </data>
+  <data name="&gt;&gt;lsvKeyPoint.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="columnHeader1.Text" xml:space="preserve">
     <value>itemName</value>
@@ -1627,86 +2044,113 @@
   <data name="columnHeader4.Width" type="System.Int32, mscorlib">
     <value>88</value>
   </data>
-  <data name="lsvKeyPoint.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;panelEx4.Name" xml:space="preserve">
+    <value>panelEx4</value>
   </data>
-  <data name="lsvKeyPoint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 26</value>
-  </data>
-  <data name="lsvKeyPoint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 334</value>
-  </data>
-  <data name="lsvKeyPoint.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lsvKeyPoint.Name" xml:space="preserve">
-    <value>lsvKeyPoint</value>
-  </data>
-  <data name="&gt;&gt;lsvKeyPoint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lsvKeyPoint.Parent" xml:space="preserve">
-    <value>expandablePanel1</value>
-  </data>
-  <data name="&gt;&gt;lsvKeyPoint.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="expandablePanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="expandablePanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1057, 0</value>
-  </data>
-  <data name="expandablePanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 360</value>
-  </data>
-  <data name="expandablePanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
-  </data>
-  <data name="expandablePanel1.TitleText" xml:space="preserve">
-    <value>summary</value>
-  </data>
-  <data name="&gt;&gt;expandablePanel1.Name" xml:space="preserve">
-    <value>expandablePanel1</value>
-  </data>
-  <data name="&gt;&gt;expandablePanel1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ExpandablePanel, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
-  </data>
-  <data name="&gt;&gt;expandablePanel1.Parent" xml:space="preserve">
-    <value>panelEx2</value>
-  </data>
-  <data name="&gt;&gt;expandablePanel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panelEx2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelEx2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 81</value>
-  </data>
-  <data name="panelEx2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="panelEx2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1087, 360</value>
-  </data>
-  <data name="panelEx2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="panelEx2.Text" xml:space="preserve">
-    <value>panelEx2</value>
-  </data>
-  <data name="&gt;&gt;panelEx2.Name" xml:space="preserve">
-    <value>panelEx2</value>
-  </data>
-  <data name="&gt;&gt;panelEx2.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelEx4.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
   </data>
-  <data name="&gt;&gt;panelEx2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelEx4.Parent" xml:space="preserve">
+    <value>panelEx3</value>
+  </data>
+  <data name="&gt;&gt;panelEx4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelEx3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEx3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 447</value>
+  </data>
+  <data name="panelEx3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="panelEx3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1087, 220</value>
+  </data>
+  <data name="panelEx3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="panelEx3.Text" xml:space="preserve">
+    <value>panelEx3</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.Name" xml:space="preserve">
+    <value>panelEx3</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx3.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;panelEx2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelEx3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;rTextStatus.Name" xml:space="preserve">
+    <value>rTextStatus</value>
+  </data>
+  <data name="&gt;&gt;rTextStatus.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.RichTextBoxEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;rTextStatus.Parent" xml:space="preserve">
+    <value>panelEx4</value>
+  </data>
+  <data name="&gt;&gt;rTextStatus.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelResult.Name" xml:space="preserve">
+    <value>labelResult</value>
+  </data>
+  <data name="&gt;&gt;labelResult.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;labelResult.Parent" xml:space="preserve">
+    <value>panelEx4</value>
+  </data>
+  <data name="&gt;&gt;labelResult.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;pgbTest.Name" xml:space="preserve">
+    <value>pgbTest</value>
+  </data>
+  <data name="&gt;&gt;pgbTest.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.Controls.ProgressBarX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;pgbTest.Parent" xml:space="preserve">
+    <value>panelEx4</value>
+  </data>
+  <data name="&gt;&gt;pgbTest.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panelEx4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEx4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelEx4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="panelEx4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1087, 220</value>
+  </data>
+  <data name="panelEx4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="panelEx4.Text" xml:space="preserve">
+    <value>panelEx4</value>
+  </data>
+  <data name="&gt;&gt;panelEx4.Name" xml:space="preserve">
+    <value>panelEx4</value>
+  </data>
+  <data name="&gt;&gt;panelEx4.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;panelEx4.Parent" xml:space="preserve">
+    <value>panelEx3</value>
+  </data>
+  <data name="&gt;&gt;panelEx4.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="rTextStatus.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1798,68 +2242,107 @@
   <data name="&gt;&gt;pgbTest.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panelEx4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
   </data>
-  <data name="panelEx4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="panelEx4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
+    <value>panelEx5</value>
   </data>
-  <data name="panelEx4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1087, 220</value>
-  </data>
-  <data name="panelEx4.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="panelEx4.Text" xml:space="preserve">
-    <value>panelEx4</value>
-  </data>
-  <data name="&gt;&gt;panelEx4.Name" xml:space="preserve">
-    <value>panelEx4</value>
-  </data>
-  <data name="&gt;&gt;panelEx4.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
-  </data>
-  <data name="&gt;&gt;panelEx4.Parent" xml:space="preserve">
-    <value>panelEx3</value>
-  </data>
-  <data name="&gt;&gt;panelEx4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="panelEx3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblCaption" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="picLogoLeft" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,290,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="panelEx5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panelEx3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 449</value>
+  <data name="panelEx5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 36pt, style=Bold</value>
   </data>
-  <data name="panelEx3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="panelEx5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 4</value>
+  </data>
+  <data name="panelEx5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="panelEx3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1087, 220</value>
+  <data name="panelEx5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1379, 69</value>
   </data>
-  <data name="panelEx3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="panelEx5.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="panelEx3.Text" xml:space="preserve">
-    <value>panelEx3</value>
+  <data name="&gt;&gt;panelEx5.Name" xml:space="preserve">
+    <value>panelEx5</value>
   </data>
-  <data name="&gt;&gt;panelEx3.Name" xml:space="preserve">
-    <value>panelEx3</value>
-  </data>
-  <data name="&gt;&gt;panelEx3.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelEx5.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
   </data>
-  <data name="&gt;&gt;panelEx3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelEx5.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;panelEx3.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;panelEx5.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.Name" xml:space="preserve">
+    <value>lblCaption</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.LabelX, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;lblCaption.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;picLogoLeft.Name" xml:space="preserve">
+    <value>picLogoLeft</value>
+  </data>
+  <data name="&gt;&gt;picLogoLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picLogoLeft.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;picLogoLeft.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1379, 69</value>
+  </data>
+  <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
+    <value>panelEx5</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblCaption" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="picLogoLeft" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,290,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="lblCaption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1918,99 +2401,6 @@
   <data name="&gt;&gt;picLogoLeft.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1379, 69</value>
-  </data>
-  <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Name" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
-    <value>panelEx5</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblCaption" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="picLogoLeft" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,290,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="panelEx5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelEx5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 36pt, style=Bold</value>
-  </data>
-  <data name="panelEx5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 4</value>
-  </data>
-  <data name="panelEx5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="panelEx5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1379, 69</value>
-  </data>
-  <data name="panelEx5.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;panelEx5.Name" xml:space="preserve">
-    <value>panelEx5</value>
-  </data>
-  <data name="&gt;&gt;panelEx5.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.PanelEx, DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
-  </data>
-  <data name="&gt;&gt;panelEx5.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;panelEx5.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 42</value>
-  </data>
-  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1385, 673</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panelEx1" Row="1" RowSpan="2" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx2" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panelEx3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="panelEx5" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,292,AutoSize,0" /&gt;&lt;Rows Styles="Absolute,77,Percent,100,Absolute,228" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2021,7 +2411,7 @@
     <value>7, 17</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1385, 737</value>
+    <value>1284, 737</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>

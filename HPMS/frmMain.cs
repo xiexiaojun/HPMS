@@ -367,7 +367,7 @@ namespace HPMS
         private void SetStatusBar()
         {
 
-            toolStripStatusLabelUser.Text = "当前用户:" + currentUser.Username + "  角色:" + currentUser.Role;
+            toolStripStatusLabelUser.Text = "user:" + currentUser.Username + "  role:" + currentUser.Role;
             toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
@@ -851,6 +851,11 @@ namespace HPMS
             psi.WorkingDirectory = Path.GetDirectoryName(toolPath);
             psi.CreateNoWindow = true;
             Process.Start(psi);
+        }
+
+        private void 帮助文档ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("config\\help.chm");
         }
      
      

@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsControlLibrary1;
-using NationalInstruments.VisaNS;
 using Tool;
 using VirtualSwitch;
 
@@ -46,15 +43,22 @@ namespace SwitchBoxDebug
                 variable.BorderStyle = BorderStyle.FixedSingle;
             }
 
-            cmbBoxType.SelectedIndex = 0;
+            cmbBoxType.SelectedIndex = 2;
             cmbMapType.SelectedIndex = 0;
             cmbPair.SelectedIndex = 0;
-            //cmbSerialVisa_update();
-            SerialUpdate();
+            cmbSerialVisa_update();
+            //SerialUpdate();
         }
 
         private void cmbBoxType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbBoxType.SelectedIndex != 2)
+            {
+                Ui.MessageBoxMuti("未检测到此种类型的开关盒子");
+                cmbBoxType.SelectedIndex = 2;
+                return;
+            }
+
             BoxType boxType = (BoxType)Enum.Parse(typeof(BoxType), ((ComboBox)sender).SelectedItem.ToString());
             SetBoxInterface(boxType);
         }
@@ -130,6 +134,15 @@ namespace SwitchBoxDebug
             //led.Name = (80 + block - 1).ToString();
             panel.Controls.Add(led);
 
+            Label label=new Label();
+            label.AutoSize = true;
+            label.Text = "S"+block;
+            label.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            label.Location = new Point(centerX - 5, centerY -25);
+            label.Location = new Point(0, 0);
+            label.ForeColor = Color.Crimson;
+            panel.Controls.Add(label);
+            
             led.Anchor = AnchorStyles.None;
             leds.Add(80 + block - 1, led);
 
@@ -158,6 +171,7 @@ namespace SwitchBoxDebug
             label.AutoSize = true;
             label.Text = group + block + num;
             label.Font = new System.Drawing.Font("Arial", 9.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            
             SetLabellocation(label, centerX, centerY, r);
             panel.Controls.Add(led);
             panel.Controls.Add(label);
@@ -230,8 +244,18 @@ namespace SwitchBoxDebug
 
                 if (variable is Label)
                 {
+                    
                     Label label = (Label)variable;
-                    SetLabellocation(label, centerX, centerY, rDistance);
+                    if (label.Text.StartsWith("P"))
+                    {
+                        SetLabellocation(label, centerX, centerY, rDistance);
+                    }
+                    else
+                    {
+                        //label.Location = new Point(centerX - 5, centerY - 25);
+                    }
+                    
+                   
                 }
             }
 
@@ -241,7 +265,7 @@ namespace SwitchBoxDebug
         {
             string name = led.Name;
             int num = int.Parse(name.Substring(name.Length - 1, 1));
-            double angel = 2.0 / _bloclNum * Math.PI * (num + 1) - Math.PI * 0.5;
+            double angel = 2.0 / _bloclNum * Math.PI * (num + 1) - Math.PI * 1.2;
             led.Location = new Point(centerX + (int)(Math.Cos(angel) * rDistance) - 15, centerY + (int)(Math.Sin(angel) * rDistance) - 15);
         }
 
@@ -249,7 +273,8 @@ namespace SwitchBoxDebug
         {
             string text = label.Text;
             int num = int.Parse(text.Substring(text.Length - 1, 1));
-            double angel = 2.0 / _bloclNum * Math.PI * (num + 1) - Math.PI * 0.5;
+            double angel = 2.0 / _bloclNum * Math.PI * (num + 1) - Math.PI * 1.2;
+            label.Text = "P" +( num+1);
             label.Location = new Point(centerX + (int)(Math.Cos(angel) * rDistance) - 10, centerY + (int)(Math.Sin(angel) * rDistance) - 25);
         }
 
@@ -267,7 +292,7 @@ namespace SwitchBoxDebug
         }
         private void cmbSerialVisa_update()
         {
-            string[] resources = ResourceManager.GetLocalManager().FindResources("?*");
+            string[] resources = SwitchUtil.GetResource();
             cmbSerialVisa.Items.Clear();
             foreach (string s in resources)
             {
@@ -440,7 +465,7 @@ namespace SwitchBoxDebug
             }
 
             string msg = "";
-            if (!iSwitch.OpenS(temp.ToArray(), ref msg))
+            if (!iSwitch.Open(temp.ToArray(), ref msg))
             {
                
                 MessageBox.Show(msg);
@@ -517,34 +542,34 @@ namespace SwitchBoxDebug
 
         private void cmbSerial_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SerialPort sp=new SerialPort();
-            sp.PortName = cmbSerial.SelectedItem.ToString();
-            iSwitch = new SwitchMcu(sp);
+            //SerialPort sp=new SerialPort();
+            //sp.PortName = cmbSerial.SelectedItem.ToString();
+            //iSwitch = new SwitchMcu(sp);
         }
 
-        private void SerialUpdate()
-        {
-            string[] str = SerialPort.GetPortNames();
-            if (str == null)
-            {
-                MessageBox.Show("本机没有串口！", "Error");
-                return;
-            }
-            if (str.Length == 0)
-            {
-                MessageBox.Show("本机没有串口！", "Error");
-                return;
-            }
-            Array.Sort(str);
-            //添加串口项目  
-            foreach (string s in str)
-            {//获取有多少个COM口  
-                cmbSerial.Items.Add(s);
-            }
+        //private void SerialUpdate()
+        //{
+        //    string[] str = SerialPort.GetPortNames();
+        //    if (str == null)
+        //    {
+        //        MessageBox.Show("本机没有串口！", "Error");
+        //        return;
+        //    }
+        //    if (str.Length == 0)
+        //    {
+        //        MessageBox.Show("本机没有串口！", "Error");
+        //        return;
+        //    }
+        //    Array.Sort(str);
+        //    //添加串口项目  
+        //    foreach (string s in str)
+        //    {//获取有多少个COM口  
+        //        cmbSerial.Items.Add(s);
+        //    }
 
-            //串口设置默认选择项  
-            cmbSerial.SelectedIndex = 0;   
-        }
+        //    //串口设置默认选择项  
+        //    cmbSerial.SelectedIndex = 0;   
+        //}
      
     }
 }

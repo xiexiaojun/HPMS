@@ -2,11 +2,8 @@ D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\SwitchBoxDebug.exe.config
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\SwitchBoxDebug.exe
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\SwitchBoxDebug.pdb
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\Tool.dll
-D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\VirtualSwitch.dll
-D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\WindowsFormsControlLibrary1.dll
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\Newtonsoft.Json.dll
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\Tool.pdb
-D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\VirtualSwitch.pdb
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\WindowsFormsControlLibrary1.pdb
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\Newtonsoft.Json.xml
 D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.csprojResolveAssemblyReference.cache
@@ -15,3 +12,5 @@ D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.Properties.Resources
 D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.csproj.GenerateResource.Cache
 D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.exe
 D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.pdb
+D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\VirtualSwitch.dll
+D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\VirtualSwitch.pdb

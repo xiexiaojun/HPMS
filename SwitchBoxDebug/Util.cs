@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using NationalInstruments.Restricted;
+using VirtualSwitch;
 
 namespace SwitchBoxDebug
 {
@@ -355,10 +355,10 @@ namespace SwitchBoxDebug
             string[]ret=new string[4];
             string[] txrx = pairName.Split('-');
 
-            int indexTxP = directPair.IndexOf(txrx[0] + "+");
-            int indexTxN = directPair.IndexOf(txrx[0] + "-");
-            int indexRxP = directPair.IndexOf(txrx[1] + "+");
-            int indexRxN = directPair.IndexOf(txrx[1] + "-");
+            int indexTxP = SwitchUtil.FindIndex(directPair, txrx[0] + "+");
+            int indexTxN = SwitchUtil.FindIndex(directPair,txrx[0] + "-");
+            int indexRxP = SwitchUtil.FindIndex(directPair,txrx[1] + "+");
+            int indexRxN = SwitchUtil.FindIndex(directPair,txrx[1] + "-");
             ret[0] = directSwitch[indexTxP];
             ret[1] = directSwitch[indexTxN];
             ret[2] = directSwitch[indexRxP];

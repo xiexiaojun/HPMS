@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using NationalInstruments.Restricted;
+using NationalInstruments.VisaNS;
+
 
 namespace VirtualSwitch
 {
@@ -122,6 +125,16 @@ namespace VirtualSwitch
                 }
                 return ret;
             }
+        }
+
+        public static string[] GetResource()
+        {
+            return ResourceManager.GetLocalManager().FindResources("?*");
+        }
+
+        public static int FindIndex(string[] source, string findstr)
+        {
+            return source.IndexOf(findstr);
         }
     }
 }

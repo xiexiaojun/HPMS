@@ -152,7 +152,6 @@
     <Compile Include="Config\LocalConfig.cs" />
     <Compile Include="Core\SITest.cs" />
     <Compile Include="Core\TestConfig.cs" />
-    <Compile Include="DB\DbHelperOleDb.cs" />
     <Compile Include="DB\LoginHelper.cs" />
     <Compile Include="DB\ProjectHelper.cs" />
     <Compile Include="DB\SqlLite.cs" />

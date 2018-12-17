@@ -381,6 +381,7 @@ namespace HPMS
             // 
             this.帮助文档ToolStripMenuItem.Name = "帮助文档ToolStripMenuItem";
             resources.ApplyResources(this.帮助文档ToolStripMenuItem, "帮助文档ToolStripMenuItem");
+            this.帮助文档ToolStripMenuItem.Click += new System.EventHandler(this.帮助文档ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
@@ -839,7 +840,6 @@ namespace HPMS
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip_Main);
-            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);

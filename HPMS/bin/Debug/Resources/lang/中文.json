@@ -33,7 +33,11 @@
 	"THRU": "直通",
 	"Version":"版本",
 	"Pairs":"对数",
-	"About HMPS":"关于 HPMS"
+	"About HMPS":"关于 HPMS",
+	"Model":"模式",
+	"User Manage":"用户管理",
+	"Help File":"帮助文档",
+	"About (HPMS)":"关于 (HPMS)"
 	
 	
 }

@@ -24,11 +24,13 @@ namespace VirtualSwitch
             ret.ErrorCode = -1;
             ret.Result = true;
             ret.Msg = "";
-            if (serialSession == null||serialSession.ResourceName!=visaAddress)
-            {
+          
                 try
                 {
-                    serialSession = (SerialSession)ResourceManager.GetLocalManager().Open(visaAddress, AccessModes.NoLock, 0);
+                    if (serialSession == null || serialSession.ResourceName != visaAddress)
+                    {
+                        serialSession = (SerialSession)ResourceManager.GetLocalManager().Open(visaAddress, AccessModes.NoLock, 0);
+                    }
                     ret = SetSerial(serialSession, ret);
                     ret = FlushIO(serialSession, ret);
                     ret = SetIOSize(serialSession, ret);
@@ -41,7 +43,7 @@ namespace VirtualSwitch
                     ret.Result = false;
                 }
                 
-            }
+           
             
           
             //serialSession.Dispose();
@@ -76,7 +78,7 @@ namespace VirtualSwitch
                 serialSession.FlowControl = FlowControlTypes.None;
                 serialSession.Parity = Parity.None;
                 serialSession.TerminationCharacter = 0xA;
-                serialSession.TerminationCharacterEnabled = false;
+                serialSession.TerminationCharacterEnabled = true;
                
             }
             catch (Exception e)

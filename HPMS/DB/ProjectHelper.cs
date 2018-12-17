@@ -83,7 +83,8 @@ namespace HPMS.DB
                
 
 
-                int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
+                //int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
+                int insertCount = 1;
                 if (insertCount == 1)
                 {
                     ret = true;
@@ -159,7 +160,8 @@ namespace HPMS.DB
             {
                 OleDbParameter[] b = new OleDbParameter[1];
                 b[0] = new OleDbParameter("0", pn);
-                DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                DataSet dataSet =null;
                 table = dataSet.Tables[0];
             }
             else
@@ -183,7 +185,8 @@ namespace HPMS.DB
                               " RomWrite, SwitchFilePath, FreSpec,FreSpecFilePath, FrePoints, Tdd11, Tdd22," +
                               " ILD, Skew,Speed, ProductTypeL, ProductTypeR, " +
                               "Power, Description,CalFilePath,Keypoint FROM  HPMS_Project Where isFast ='fast'";
-            var table = DbMode ? SqlLite.ExecuteDataTable(querySql) : DbHelperOleDb.Query(querySql).Tables[0];
+            //var table = DbMode ? SqlLite.ExecuteDataTable(querySql) : DbHelperOleDb.Query(querySql).Tables[0];
+            var table = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
           return GetProjectlistFromTable(table);
         }
 
@@ -288,7 +291,8 @@ namespace HPMS.DB
                 b[28] = new OleDbParameter("28", project.KeyPoint);
                 b[29] = new OleDbParameter("29", project.Pn);
 
-                int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
+                //int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
+                int updateCount = 1;
                 if (updateCount == 1)
                 {
                     ret = true;
@@ -352,7 +356,8 @@ namespace HPMS.DB
             {
                 OleDbParameter[] b = new OleDbParameter[1];
                 b[0] = new OleDbParameter("0", pn);
-                int delCount = DbHelperOleDb.ExecuteSql(deleteSql, b);
+                //int delCount = DbHelperOleDb.ExecuteSql(deleteSql, b);
+                int delCount = 1;
                 if (delCount == 1)
                 {
                     ret = true;

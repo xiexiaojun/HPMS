@@ -6,7 +6,6 @@ D:\gitProjects\HPMS\HPMS\bin\Release\Aspose.Cells.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\HslCommunication.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\log4net.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\Newtonsoft.Json.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\Softgroup.NetResize45.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\ZedGraph.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\ZedGraph.WinForms.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\MathNet.Numerics.dll

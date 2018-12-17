@@ -17,7 +17,6 @@ D:\gitProjects\HPMS\HPMS\bin\Debug\EntityFramework.SqlServer.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\HslCommunication.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\log4net.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\Newtonsoft.Json.dll
-D:\gitProjects\HPMS\HPMS\bin\Debug\Softgroup.NetResize45.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\System.Data.SQLite.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\System.Data.SQLite.EF6.dll
 D:\gitProjects\HPMS\HPMS\bin\Debug\System.Data.SQLite.Linq.dll

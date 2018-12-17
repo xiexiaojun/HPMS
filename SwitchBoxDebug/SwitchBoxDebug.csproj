@@ -42,14 +42,6 @@
     <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.Instrumentation, Version=14.1.0.28, Culture=neutral, PublicKeyToken=f90dc37c26666a67" />
-    <Reference Include="NationalInstruments.Common, Version=15.0.40.49154, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\National Instruments\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\National Instruments\MeasurementStudioVS2012\DotNET\Assemblies\Current\NationalInstruments.VisaNS.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -106,7 +98,7 @@
       <Name>Tool</Name>
     </ProjectReference>
     <ProjectReference Include="..\VirtualSwitch\VirtualSwitch.csproj">
-      <Project>{6297D14F-A402-465D-9F31-D5730CB612AC}</Project>
+      <Project>{6297d14f-a402-465d-9f31-d5730cb612ac}</Project>
       <Name>VirtualSwitch</Name>
     </ProjectReference>
   </ItemGroup>

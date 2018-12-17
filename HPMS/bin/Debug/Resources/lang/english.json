@@ -33,5 +33,9 @@
 	"直通": "THRU",
 	"版本":"Version",
 	"对数":"Pairs",
-	"关于 HPMS":"About HMPS"
+	"关于 HPMS":"About HMPS",
+	"模式":"Model",
+	"用户管理":"User Manage",
+	"帮助文档":"Help File",
+	"关于 (HPMS)":"About (HPMS)"
 }

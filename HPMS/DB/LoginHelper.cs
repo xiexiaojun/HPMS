@@ -79,7 +79,8 @@ namespace HPMS.DB
 
 
 
-                int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
+                //int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
+                int insertCount = 1;
                 if (insertCount == 1)
                 {
                     ret = true;
@@ -124,7 +125,8 @@ namespace HPMS.DB
             bool ret = false;
             //just make a deleted flag,do not delete record really.
             string updateSql = "Update HPMS_User set Status = -1 where ID = " + userId;
-            int delCount = DbMode?SqlLite.ExecuteNonQuery(updateSql):DbHelperOleDb.ExecuteSql(updateSql);
+            //int delCount = DbMode?SqlLite.ExecuteNonQuery(updateSql):DbHelperOleDb.ExecuteSql(updateSql);
+            int delCount = DbMode ? SqlLite.ExecuteNonQuery(updateSql) : 1;
             if (delCount == 1)
             {
                 ret = true;
@@ -156,7 +158,8 @@ namespace HPMS.DB
 
 
 
-                int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
+                //int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
+                int updateCount = 1;
                 if (updateCount == 1)
                 {
                     ret = true;
@@ -201,7 +204,8 @@ namespace HPMS.DB
             {
                 OleDbParameter[] b = new OleDbParameter[1];
                 b[0] = new OleDbParameter("0", userId);
-                DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                DataSet dataSet = null;
                 table = dataSet.Tables[0];
             }
             else
@@ -246,7 +250,8 @@ namespace HPMS.DB
             {
                 OleDbParameter[] b = new OleDbParameter[1];
                 b[0] = new OleDbParameter("0", userName);
-                DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                DataSet dataSet = null;
                 table = dataSet.Tables[0];
             }
             else
@@ -287,7 +292,8 @@ namespace HPMS.DB
                               " where isSuper is Null and UserStatus >=0 ";
           
            
-            DataTable dt =DbMode?SqlLite.ExecuteDataTable(querySql): DbHelperOleDb.Query(querySql).Tables[0];
+            //DataTable dt =DbMode?SqlLite.ExecuteDataTable(querySql): DbHelperOleDb.Query(querySql).Tables[0];
+            DataTable dt = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
             //SqlLite.ExecuteDataTable(querySql);
             return dt;
 
@@ -326,7 +332,8 @@ namespace HPMS.DB
                 b[4] = new OleDbParameter("4", role.CreateId);
                 b[5] = new OleDbParameter("5", role.CreateDate);
 
-                int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
+                //int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
+                int insertCount =1;
 
 
                 if (insertCount == 1)
@@ -369,7 +376,8 @@ namespace HPMS.DB
             bool ret = false;
             //just make a deleted flag,do not delete record really.
             string updateSql = "Update HPMS_Role set Status = -1 where ID = " + roleId;
-            int delCount = DbMode?SqlLite.ExecuteNonQuery(updateSql):DbHelperOleDb.ExecuteSql(updateSql);
+            //int delCount = DbMode?SqlLite.ExecuteNonQuery(updateSql):DbHelperOleDb.ExecuteSql(updateSql);
+            int delCount = DbMode ? SqlLite.ExecuteNonQuery(updateSql) : 1;
             if (delCount == 1)
             {
                 ret = true;
@@ -394,7 +402,8 @@ namespace HPMS.DB
                 b[5] = new OleDbParameter("5", role.CreateDate);
                 b[6] = new OleDbParameter("6", role.RoleId);
 
-                int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
+                //int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
+                int updateCount =1;
                 if (updateCount == 1)
                 {
                     ret = true;
@@ -425,7 +434,8 @@ namespace HPMS.DB
         {
          
             string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role Where Status >=0 and isSuper is Null";
-            DataTable ret = DbMode ? SqlLite.ExecuteDataTable(querySql) : DbHelperOleDb.Query(querySql).Tables[0];
+            //DataTable ret = DbMode ? SqlLite.ExecuteDataTable(querySql) : DbHelperOleDb.Query(querySql).Tables[0];
+            DataTable ret = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
 
             return ret;
         }
@@ -439,7 +449,8 @@ namespace HPMS.DB
             {
                 OleDbParameter[] b = new OleDbParameter[1];
                 b[0] = new OleDbParameter("0", roleId);
-                DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                DataSet dataSet = null;
                 table = dataSet.Tables[0];
             }
             else
@@ -481,7 +492,8 @@ namespace HPMS.DB
             {
                 OleDbParameter[] b = new OleDbParameter[1];
                 b[0] = new OleDbParameter("0", roleName);
-                DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
+                DataSet dataSet = null;
                 table = dataSet.Tables[0];
             }
             else
@@ -516,7 +528,8 @@ namespace HPMS.DB
             List<Role> ret = new List<Role>();
             string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where  Status =1 and isSuper is Null";
            
-            DataTable table =DbMode?SqlLite.ExecuteDataTable(querySql):DbHelperOleDb.Query(querySql).Tables[0];
+            //DataTable table =DbMode?SqlLite.ExecuteDataTable(querySql):DbHelperOleDb.Query(querySql).Tables[0];
+            DataTable table = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
 
             foreach (DataRow tempRow in table.Rows)
             {
@@ -547,7 +560,8 @@ namespace HPMS.DB
         {
             var ret = new Dictionary<string,string>();
             string querySql = "select name,Description from HPMS_rights where ID in (" + rightsId + ")" + " and status=1";
-            DataTable dataTable =DbMode?SqlLite.ExecuteDataTable(querySql): DbHelperOleDb.Query(querySql).Tables[0];
+            //DataTable dataTable =DbMode?SqlLite.ExecuteDataTable(querySql): DbHelperOleDb.Query(querySql).Tables[0];
+            DataTable dataTable = SqlLite.ExecuteDataTable(querySql);
             foreach (DataRow tempRow in dataTable.Rows)
             {
                 ret.Add((string)tempRow[0], (string)tempRow[1]);
@@ -568,7 +582,8 @@ namespace HPMS.DB
         {
             List<Right> ret = new List<Right>();
             string querySql = "SELECT ID, Name, Description, Version, Status FROM HPMS_Rights";
-            DataTable dataTable = DbMode?SqlLite.ExecuteDataTable(querySql):DbHelperOleDb.Query(querySql).Tables[0];
+            //DataTable dataTable = DbMode?SqlLite.ExecuteDataTable(querySql):DbHelperOleDb.Query(querySql).Tables[0];
+            DataTable dataTable = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
             foreach (DataRow tempRow in dataTable.Rows)
             {
                 var right = new Right();

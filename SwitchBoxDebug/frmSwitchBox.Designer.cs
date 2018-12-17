@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSwitchBox));
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -83,12 +83,10 @@
             this.btnExeSwitch = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.btnImport = new DevComponents.DotNetBar.ButtonX();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.cmbSerial = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBasic)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contextMenuBar1)).BeginInit();
@@ -102,8 +100,9 @@
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel8
@@ -163,14 +162,14 @@
             this.dgvBasic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBasic.Location = new System.Drawing.Point(0, 0);
             this.dgvBasic.Name = "dgvBasic";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBasic.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBasic.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBasic.RowHeadersWidth = 40;
             this.dgvBasic.RowTemplate.Height = 23;
             this.dgvBasic.Size = new System.Drawing.Size(250, 539);
@@ -324,8 +323,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panelSwitch, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelX1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel17, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -354,7 +352,6 @@
             this.flowLayoutPanel1.Controls.Add(this.panel12);
             this.flowLayoutPanel1.Controls.Add(this.panel14);
             this.flowLayoutPanel1.Controls.Add(this.panel13);
-            this.flowLayoutPanel1.Controls.Add(this.panel16);
             this.flowLayoutPanel1.Controls.Add(this.panel15);
             this.flowLayoutPanel1.Controls.Add(this.btnDirect);
             this.flowLayoutPanel1.Controls.Add(this.btnAll);
@@ -555,7 +552,7 @@
             this.panel15.Controls.Add(this.chkFext);
             this.panel15.Controls.Add(this.chkNext);
             this.flowLayoutPanel1.SetFlowBreak(this.panel15, true);
-            this.panel15.Location = new System.Drawing.Point(266, 69);
+            this.panel15.Location = new System.Drawing.Point(3, 69);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(200, 60);
             this.panel15.TabIndex = 79;
@@ -650,16 +647,32 @@
             this.btnImport.Text = "导入";
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // pictureBox1
+            // panel17
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(244, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel17, 2);
+            this.panel17.Controls.Add(this.tableLayoutPanel3);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel17.Location = new System.Drawing.Point(3, 3);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(1027, 74);
+            this.panel17.TabIndex = 6;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.labelX1, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1027, 74);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // labelX1
             // 
@@ -669,56 +682,23 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX1.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX1.Location = new System.Drawing.Point(253, 3);
+            this.labelX1.Location = new System.Drawing.Point(346, 3);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(777, 74);
-            this.labelX1.TabIndex = 5;
-            this.labelX1.Text = "Switch Matrix Debug Tool";
+            this.labelX1.Size = new System.Drawing.Size(678, 68);
+            this.labelX1.TabIndex = 7;
+            this.labelX1.Text = "High Speed Switch Matrix System";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // panel16
+            // pictureBox1
             // 
-            this.panel16.Controls.Add(this.buttonX1);
-            this.panel16.Controls.Add(this.cmbSerial);
-            this.panel16.Controls.Add(this.label6);
-            this.panel16.Location = new System.Drawing.Point(3, 69);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(257, 60);
-            this.panel16.TabIndex = 94;
-            // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(203, 29);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(47, 22);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 58;
-            this.buttonX1.Text = "刷新";
-            // 
-            // cmbSerial
-            // 
-            this.cmbSerial.DisplayMember = "Text";
-            this.cmbSerial.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbSerial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSerial.FormattingEnabled = true;
-            this.cmbSerial.ItemHeight = 16;
-            this.cmbSerial.Location = new System.Drawing.Point(14, 30);
-            this.cmbSerial.Name = "cmbSerial";
-            this.cmbSerial.Size = new System.Drawing.Size(183, 22);
-            this.cmbSerial.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbSerial.TabIndex = 57;
-            this.cmbSerial.SelectedIndexChanged += new System.EventHandler(this.cmbSerial_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 56;
-            this.label6.Text = "串口地址";
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(131, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(209, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // frmSwitchBox
             // 
@@ -726,7 +706,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 619);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.DoubleBuffered = true;
             this.Name = "frmSwitchBox";
             this.Text = "High Speed Switch Matrix System";
             this.Load += new System.EventHandler(this.frmSwitchBox_Load);
@@ -748,9 +727,9 @@
             this.panel13.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -810,12 +789,10 @@
         private DevComponents.DotNetBar.ButtonItem btnRowEdit;
         private DevComponents.DotNetBar.ButtonItem dgv_RightMenu;
         private DevComponents.DotNetBar.ButtonItem btn_RightExe;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private System.Windows.Forms.Panel panel16;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbSerial;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

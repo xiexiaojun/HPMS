@@ -19,10 +19,10 @@ namespace VirtualSwitch
         /// <param name="switchArrays">开关矩阵</param>
         /// <param name="visaAddress">开关visa地址</param>
         /// <param name="responseTime">响应时间，单位ms</param>
-        public SwitchMcu(bool[,] switchArrays,string visaAddress,int responseTime=2000 )
+        public SwitchMcu(bool[,] switchArrays,string visaAddress,int responseTime=500 )
         {
             if (responseTime == 0)
-                responseTime = 2000;
+                responseTime = 500;
             this._switchArrays = switchArrays;
             this._visaAddress = visaAddress;
             this._responseTime = responseTime;
@@ -32,17 +32,17 @@ namespace VirtualSwitch
         /// </summary>
         /// <param name="visaAddress">开关visa地址</param>
         /// <param name="responseTime">响应时间，单位ms</param>
-        public SwitchMcu(string visaAddress, int responseTime=2000)
+        public SwitchMcu(string visaAddress, int responseTime=500)
         {
             if (responseTime == 0)
-                responseTime = 2000;
+                responseTime = 500;
             this._visaAddress = visaAddress;
             this._responseTime = responseTime;
         }
-        public SwitchMcu(SerialPort sp, int responseTime = 2000)
+        public SwitchMcu(SerialPort sp, int responseTime = 500)
         {
             if (responseTime == 0)
-                responseTime = 2000;
+                responseTime = 500;
             this._serialPort = sp;
             this._responseTime = responseTime;
         }
