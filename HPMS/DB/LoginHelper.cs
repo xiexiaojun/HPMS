@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
-using System.Data.SQLite;
+using HPMS.Util;
 
 namespace HPMS.DB
 {
@@ -50,7 +49,7 @@ namespace HPMS.DB
     }
     public class UserDao
     {
-        public static bool DbMode;
+        
         public static bool Add(User user,ref string msg)
         {
             bool ret = false;
@@ -59,28 +58,22 @@ namespace HPMS.DB
                 msg = "same user name already exists";
                 return false;
             }
-            string insertSql = "INSERT INTO HPMS_User (" +
-                               "UserName, Password, Salt, RoleID, CreateID, CreateDate, Status" +
-                               ") VALUES (" +
-                               "?, ?, ?, ?, ?, ?, ?)";
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[7];
-                b[0] = new OleDbParameter("0", user.Username);
-                b[1] = new OleDbParameter("1", user.Psw);
-                //salt is always figoba currently
-                b[2] = new OleDbParameter("2", "figoba");
-                b[3] = new OleDbParameter("3", user.RoleId);
-                //all users created by this code are always normal users,so isSuper=0.
 
-                b[4] = new OleDbParameter("4", user.CreaterId);
-                b[5] = new OleDbParameter("5", user.CreateDate);
-                b[6] = new OleDbParameter("6", (int)user.UserStatus);
+            string insertSql = "INSERT INTO HPMS_User (UserName, Password, Salt, RoleID,  CreateID, CreateDate, Status) VALUES" +
+                               " (@username, @password, @salt, @roleid,  @createid, @createdate, @status)";
 
 
+            IDataParameter[] b = new IDataParameter[7];
+            b[0] = Gloabal.GDatabase.CreatePara("username", user.Username);
+            b[1] = Gloabal.GDatabase.CreatePara("password", user.Psw);
+            b[2] = Gloabal.GDatabase.CreatePara("salt", "figoba");
+            b[3] = Gloabal.GDatabase.CreatePara("roleid", user.RoleId);
+            b[4] = Gloabal.GDatabase.CreatePara("createid", user.CreaterId);
+            b[5] = Gloabal.GDatabase.CreatePara("createdate", user.CreateDate);
+            b[6] = Gloabal.GDatabase.CreatePara("status", (int)user.UserStatus);
+              
 
-                //int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
-                int insertCount = 1;
+                int insertCount = Gloabal.GDatabase.ExecuteSql(insertSql, b);
                 if (insertCount == 1)
                 {
                     ret = true;
@@ -89,33 +82,7 @@ namespace HPMS.DB
                 {
                     msg = "insert new user fail";
                 }
-            }
-            else
-            {
-                SQLiteParameter[] b = new SQLiteParameter[7];
-                b[0] = new SQLiteParameter("0", user.Username);
-                b[1] = new SQLiteParameter("1", user.Psw);
-                //salt is always figoba currently
-                b[2] = new SQLiteParameter("2", "figoba");
-                b[3] = new SQLiteParameter("3", user.RoleId);
-                //all users created by this code are always normal users,so isSuper=0.
-
-                b[4] = new SQLiteParameter("4", user.CreaterId);
-                b[5] = new SQLiteParameter("5", user.CreateDate);
-                b[6] = new SQLiteParameter("6", (int)user.UserStatus);
-
-
-
-                int insertCount = SqlLite.ExecuteNonQuery(insertSql, b);
-                if (insertCount == 1)
-                {
-                    ret = true;
-                }
-                else
-                {
-                    msg = "insert new user fail";
-                }
-            }
+         
          
             return ret;
         }
@@ -125,8 +92,7 @@ namespace HPMS.DB
             bool ret = false;
             //just make a deleted flag,do not delete record really.
             string updateSql = "Update HPMS_User set Status = -1 where ID = " + userId;
-            //int delCount = DbMode?SqlLite.ExecuteNonQuery(updateSql):DbHelperOleDb.ExecuteSql(updateSql);
-            int delCount = DbMode ? SqlLite.ExecuteNonQuery(updateSql) : 1;
+            int delCount = Gloabal.GDatabase.ExecuteSql(updateSql);
             if (delCount == 1)
             {
                 ret = true;
@@ -138,56 +104,29 @@ namespace HPMS.DB
         {
             bool ret = false;
             string updateSql = "UPDATE HPMS_User" +
-                               " SET UserName = ?,Password = ?,Salt = ?,RoleID = ?," +
-                               " CreateID = ?,CreateDate = ?,Status = ? where " +
-                               "ID = ?";
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[8];
-                b[0] = new OleDbParameter("0", user.Username);
-                b[1] = new OleDbParameter("1", user.Psw);
+                               " SET UserName = @username,Password =@password,Salt =@salt,RoleID = @roleid," +
+                               " CreateID = @createid,CreateDate = @createdate,Status = @status where " +
+                               "ID = @id";
+
+
+            IDataParameter[] b = new IDataParameter[8];
+            b[0] = Gloabal.GDatabase.CreatePara("username", user.Username);
+            b[1] = Gloabal.GDatabase.CreatePara("password", user.Psw);
                 //salt is always figoba currently
-                b[2] = new OleDbParameter("2", "figoba");
-                b[3] = new OleDbParameter("3", user.RoleId);
+            b[2] = Gloabal.GDatabase.CreatePara("salt", "figoba");
+            b[3] = Gloabal.GDatabase.CreatePara("roleid", user.RoleId);
                 //all users created by this code are always normal users,so isSuper=0.
 
-                b[4] = new OleDbParameter("5", user.CreaterId);
-                b[5] = new OleDbParameter("6", user.CreateDate);
-                b[6] = new OleDbParameter("7", (int)user.UserStatus);
-                b[7] = new OleDbParameter("8", user.UserId);
+            b[4] = Gloabal.GDatabase.CreatePara("createid", user.CreaterId);
+            b[5] = Gloabal.GDatabase.CreatePara("createdate", user.CreateDate);
+            b[6] = Gloabal.GDatabase.CreatePara("status", (int)user.UserStatus);
+            b[7] = Gloabal.GDatabase.CreatePara("id", user.UserId);
 
-
-
-                //int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
-                int updateCount = 1;
+                int updateCount = Gloabal.GDatabase.ExecuteSql(updateSql, b);
                 if (updateCount == 1)
                 {
                     ret = true;
                 }
-            }
-            else
-            {
-                SQLiteParameter[] b = new SQLiteParameter[8];
-                b[0] = new SQLiteParameter("0", user.Username);
-                b[1] = new SQLiteParameter("1", user.Psw);
-                //salt is always figoba currently
-                b[2] = new SQLiteParameter("2", "figoba");
-                b[3] = new SQLiteParameter("3", user.RoleId);
-                //all users created by this code are always normal users,so isSuper=0.
-
-                b[4] = new SQLiteParameter("5", user.CreaterId);
-                b[5] = new SQLiteParameter("6", user.CreateDate);
-                b[6] = new SQLiteParameter("7", (int)user.UserStatus);
-                b[7] = new SQLiteParameter("8", user.UserId);
-
-
-
-                int updateCount = SqlLite.ExecuteNonQuery(updateSql, b);
-                if (updateCount == 1)
-                {
-                    ret = true;
-                }
-            }
           
             return ret;
         }
@@ -197,25 +136,13 @@ namespace HPMS.DB
             List<User> ret=new List<User>();
             string querySql = "SELECT ID, UserName, Password, Salt, RoleID, " +
                               "isSuper, CreateID, CreateDate,RoleRights, UserStatus,RoleName,RoleStatus FROM v_HPMS_User" +
-                              " where ID = ?";
+                              " where ID = @id";
 
-            DataTable table;
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[1];
-                b[0] = new OleDbParameter("0", userId);
-                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
-                DataSet dataSet = null;
-                table = dataSet.Tables[0];
-            }
-            else
-            {
-                SQLiteParameter[]b=new SQLiteParameter[1];
-                b[0] = new SQLiteParameter("0", userId);
-                table = SqlLite.ExecuteDataTable(querySql, b);
-            }
-           
-            
+
+                IDbDataParameter[] b = new IDbDataParameter[1];
+                b[0] = Gloabal.GDatabase.CreatePara("id", userId);
+                DataTable table = Gloabal.GDatabase.GetDataTable(querySql, b);
+         
             foreach (DataRow tempRow in table.Rows)
             {
                 var user = new User();
@@ -244,23 +171,12 @@ namespace HPMS.DB
             List<User> ret = new List<User>();
             string querySql = "SELECT ID, UserName, Password, Salt, RoleID, " +
                               "isSuper, CreateID, CreateDate,RoleRights, UserStatus,RoleName,RoleStatus FROM v_HPMS_User" +
-                              " where UserName = ?";
-            DataTable table;
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[1];
-                b[0] = new OleDbParameter("0", userName);
-                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
-                DataSet dataSet = null;
-                table = dataSet.Tables[0];
-            }
-            else
-            {
-                SQLiteParameter[]b=new SQLiteParameter[1];
-                b[0]=new SQLiteParameter("0",userName);
-                table = SqlLite.ExecuteDataTable(querySql, b);
-            }
-           
+                              " where UserName = @username";
+
+                IDbDataParameter[] b = new IDbDataParameter[1];
+                b[0] = Gloabal.GDatabase.CreatePara("username", userName);
+                DataTable table = Gloabal.GDatabase.GetDataTable(querySql, b);
+          
 
             foreach (DataRow tempRow in table.Rows)
             {
@@ -290,10 +206,9 @@ namespace HPMS.DB
             string querySql = "SELECT ID, UserName, Password, Salt, RoleID, " +
                               " CreateID, CreateDate,RoleRights, UserStatus,RoleName,RoleStatus FROM v_HPMS_User" +
                               " where isSuper is Null and UserStatus >=0 ";
-          
-           
-            //DataTable dt =DbMode?SqlLite.ExecuteDataTable(querySql): DbHelperOleDb.Query(querySql).Tables[0];
-            DataTable dt = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
+
+
+            DataTable dt = Gloabal.GDatabase.GetDataTable(querySql);
             //SqlLite.ExecuteDataTable(querySql);
             return dt;
 
@@ -303,7 +218,7 @@ namespace HPMS.DB
 
     public class RoleDao
     {
-        public static bool DbMode;
+        
         /// <summary>
         /// 增加角色
         /// </summary>
@@ -321,21 +236,18 @@ namespace HPMS.DB
             string insertSql = "INSERT INTO HPMS_Role (" +
                                "Name, Description, RightsID, Status, CreateID, CreateDate" +
                                ") VALUES (" +
-                               "?, ?, ?, ?, ?, ?)";
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[6];
-                b[0] = new OleDbParameter("0", role.Name);
-                b[1] = new OleDbParameter("1", role.Description);
-                b[2] = new OleDbParameter("2", role.RightsId);
-                b[3] = new OleDbParameter("3", (int)role.RecordStatus);
-                b[4] = new OleDbParameter("4", role.CreateId);
-                b[5] = new OleDbParameter("5", role.CreateDate);
+                               "@name, @description, @rightsid, @status, @createid, @createdate)";
 
-                //int insertCount = DbHelperOleDb.ExecuteSql(insertSql, b);
-                int insertCount =1;
+                IDataParameter[] b = new IDataParameter[6];
+                b[0] = Gloabal.GDatabase.CreatePara("name", role.Name);
+                b[1] = Gloabal.GDatabase.CreatePara("description", role.Description);
+                b[2] = Gloabal.GDatabase.CreatePara("rightsid", role.RightsId);
+                b[3] = Gloabal.GDatabase.CreatePara("status", (int)role.RecordStatus);
+                b[4] = Gloabal.GDatabase.CreatePara("createid", role.CreateId);
+                b[5] = Gloabal.GDatabase.CreatePara("createdate", role.CreateDate);
 
-
+                int insertCount = Gloabal.GDatabase.ExecuteSql(insertSql, b);
+            
                 if (insertCount == 1)
                 {
                     ret = true;
@@ -344,30 +256,7 @@ namespace HPMS.DB
                 {
                     msg = "insert new role fail";
                 }
-            }
-            else
-            {
-                SQLiteParameter[] b = new SQLiteParameter[6];
-                b[0] = new SQLiteParameter("0", role.Name);
-                b[1] = new SQLiteParameter("1", role.Description);
-                b[2] = new SQLiteParameter("2", role.RightsId);
-                b[3] = new SQLiteParameter("3", (int)role.RecordStatus);
-                b[4] = new SQLiteParameter("4", role.CreateId);
-                b[5] = new SQLiteParameter("5", role.CreateDate);
-
-                int insertCount = SqlLite.ExecuteNonQuery(insertSql, b);
-
-
-                if (insertCount == 1)
-                {
-                    ret = true;
-                }
-                else
-                {
-                    msg = "insert new role fail";
-                }
-            }
-          
+       
             return ret;
         }
 
@@ -376,8 +265,7 @@ namespace HPMS.DB
             bool ret = false;
             //just make a deleted flag,do not delete record really.
             string updateSql = "Update HPMS_Role set Status = -1 where ID = " + roleId;
-            //int delCount = DbMode?SqlLite.ExecuteNonQuery(updateSql):DbHelperOleDb.ExecuteSql(updateSql);
-            int delCount = DbMode ? SqlLite.ExecuteNonQuery(updateSql) : 1;
+            int delCount = Gloabal.GDatabase.ExecuteSql(updateSql);
             if (delCount == 1)
             {
                 ret = true;
@@ -389,44 +277,24 @@ namespace HPMS.DB
         {
             bool ret = false;
             string updateSql ="UPDATE HPMS_Role " +
-                              "SET Name = ?,Description =?,RightsID = ?,Status = ?,CreateID = ?,CreateDate = ? " +
-                              "where ID = ?";
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[7];
-                b[0] = new OleDbParameter("0", role.Name);
-                b[1] = new OleDbParameter("1", role.Description);
-                b[2] = new OleDbParameter("2", role.RightsId);
-                b[3] = new OleDbParameter("3", (int)role.RecordStatus);
-                b[4] = new OleDbParameter("4", role.CreateId);
-                b[5] = new OleDbParameter("5", role.CreateDate);
-                b[6] = new OleDbParameter("6", role.RoleId);
+                              "SET Name = @name,Description =@description,RightsID = @rights,Status = @status,CreateID = createid,CreateDate = @createdate " +
+                              "where ID = @id";
 
-                //int updateCount = DbHelperOleDb.ExecuteSql(updateSql, b);
-                int updateCount =1;
+                IDataParameter[] b = new IDataParameter[7];
+                b[0] = Gloabal.GDatabase.CreatePara("name", role.Name);
+                b[1] = Gloabal.GDatabase.CreatePara("description", role.Description);
+                b[2] = Gloabal.GDatabase.CreatePara("rights", role.RightsId);
+                b[3] = Gloabal.GDatabase.CreatePara("status", (int)role.RecordStatus);
+                b[4] = Gloabal.GDatabase.CreatePara("createid", role.CreateId);
+                b[5] = Gloabal.GDatabase.CreatePara("createdate", role.CreateDate);
+                b[6] = Gloabal.GDatabase.CreatePara("id", role.RoleId);
+
+                int updateCount = Gloabal.GDatabase.ExecuteSql(updateSql, b);
                 if (updateCount == 1)
                 {
                     ret = true;
                 }
-            }
-            else
-            {
-                SQLiteParameter[] b = new SQLiteParameter[7];
-                b[0] = new SQLiteParameter("0", role.Name);
-                b[1] = new SQLiteParameter("1", role.Description);
-                b[2] = new SQLiteParameter("2", role.RightsId);
-                b[3] = new SQLiteParameter("3", (int)role.RecordStatus);
-                b[4] = new SQLiteParameter("4", role.CreateId);
-                b[5] = new SQLiteParameter("5", role.CreateDate);
-                b[6] = new SQLiteParameter("6", role.RoleId);
-
-                int updateCount = SqlLite.ExecuteNonQuery(updateSql, b);
-                if (updateCount == 1)
-                {
-                    ret = true;
-                }
-            }
-            
+           
             return ret;
         }
 
@@ -434,34 +302,19 @@ namespace HPMS.DB
         {
          
             string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role Where Status >=0 and isSuper is Null";
-            //DataTable ret = DbMode ? SqlLite.ExecuteDataTable(querySql) : DbHelperOleDb.Query(querySql).Tables[0];
-            DataTable ret = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
+            DataTable ret = Gloabal.GDatabase.GetDataTable(querySql);
 
             return ret;
         }
         public static List<Role> Find(int roleId)
         {
             List<Role> ret = new List<Role>();
-            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where ID=? and  Status >=0";
-            DataTable table;
-            
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[1];
-                b[0] = new OleDbParameter("0", roleId);
-                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
-                DataSet dataSet = null;
-                table = dataSet.Tables[0];
-            }
-            else
-            {
-                SQLiteParameter[] b = new SQLiteParameter[1];
-                b[0] = new SQLiteParameter("0", roleId);
-                table = SqlLite.ExecuteDataTable(querySql, b);
-            }
-            
-           
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where ID=@id and  Status >=0";
 
+                IDbDataParameter[] b = new IDbDataParameter[1];
+                b[0] = Gloabal.GDatabase.CreatePara("id", roleId);
+                DataTable table = Gloabal.GDatabase.GetDataTable(querySql,b);
+           
             foreach (DataRow tempRow in table.Rows)
             {
                 Role role = new Role
@@ -485,23 +338,11 @@ namespace HPMS.DB
         public static List<Role> Find(string roleName)
         {
             List<Role> ret = new List<Role>();
-            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where Name=? and  Status >=0";
-            DataTable table;
+            string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where Name=@name and  Status >=0";
 
-            if (!DbMode)
-            {
-                OleDbParameter[] b = new OleDbParameter[1];
-                b[0] = new OleDbParameter("0", roleName);
-                //DataSet dataSet = DbHelperOleDb.Query(querySql, b);
-                DataSet dataSet = null;
-                table = dataSet.Tables[0];
-            }
-            else
-            {
-                SQLiteParameter[] b = new SQLiteParameter[1];
-                b[0] = new SQLiteParameter("0", roleName);
-                table = SqlLite.ExecuteDataTable(querySql, b);
-            }
+            IDbDataParameter[] b = new IDbDataParameter[1];
+            b[0] = Gloabal.GDatabase.CreatePara("name", roleName);
+            DataTable table = Gloabal.GDatabase.GetDataTable(querySql, b);
 
             foreach (DataRow tempRow in table.Rows)
             {
@@ -527,9 +368,8 @@ namespace HPMS.DB
         {
             List<Role> ret = new List<Role>();
             string querySql = "SELECT ID, Name, Description, RightsID, Status,CreateID,CreateDate FROM HPMS_Role where  Status =1 and isSuper is Null";
-           
-            //DataTable table =DbMode?SqlLite.ExecuteDataTable(querySql):DbHelperOleDb.Query(querySql).Tables[0];
-            DataTable table = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
+
+            DataTable table = Gloabal.GDatabase.GetDataTable(querySql);
 
             foreach (DataRow tempRow in table.Rows)
             {
@@ -555,13 +395,12 @@ namespace HPMS.DB
     public class RightDao
     {
         #region 根据权限ID获取对应的权限
-        public static bool DbMode;
+        
         public static Dictionary<string,string> GetRightsById(string rightsId)
         {
             var ret = new Dictionary<string,string>();
             string querySql = "select name,Description from HPMS_rights where ID in (" + rightsId + ")" + " and status=1";
-            //DataTable dataTable =DbMode?SqlLite.ExecuteDataTable(querySql): DbHelperOleDb.Query(querySql).Tables[0];
-            DataTable dataTable = SqlLite.ExecuteDataTable(querySql);
+            DataTable dataTable =Gloabal.GDatabase.GetDataTable(querySql);
             foreach (DataRow tempRow in dataTable.Rows)
             {
                 ret.Add((string)tempRow[0], (string)tempRow[1]);
@@ -582,8 +421,7 @@ namespace HPMS.DB
         {
             List<Right> ret = new List<Right>();
             string querySql = "SELECT ID, Name, Description, Version, Status FROM HPMS_Rights";
-            //DataTable dataTable = DbMode?SqlLite.ExecuteDataTable(querySql):DbHelperOleDb.Query(querySql).Tables[0];
-            DataTable dataTable = DbMode ? SqlLite.ExecuteDataTable(querySql) : null;
+            DataTable dataTable = Gloabal.GDatabase.GetDataTable(querySql);
             foreach (DataRow tempRow in dataTable.Rows)
             {
                 var right = new Right();

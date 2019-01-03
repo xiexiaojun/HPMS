@@ -59,5 +59,15 @@ namespace SwitchBoxDebug.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap LUXSHARE_ICT_LOGO_透明底_400x90 {
+            get {
+                object obj = ResourceManager.GetObject("LUXSHARE-ICT LOGO(透明底)400x90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

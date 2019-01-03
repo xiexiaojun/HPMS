@@ -7,8 +7,10 @@ using System.Threading;
 
 using HPMS.Config;
 using HPMS.Draw;
+using HPMS.Log;
 using HPMS.Util;
 using NationalInstruments.Restricted;
+using Newtonsoft.Json;
 using reporter;
 using Tool;
 using VirtualSwitch;
@@ -50,6 +52,7 @@ namespace HPMS.Core
         private NetworkAnalyzer _analyzer;
         private string _snpFolder;
         private object myLock = new object();
+        private object resultLock = new object();
         private Queue<TaskSnp> TaskQueue = new Queue<TaskSnp>();
         //private Semaphore TaskSemaphore = new Semaphore(0, 1);
         private bool stop = false;
@@ -77,8 +80,10 @@ namespace HPMS.Core
             public List<string>AnalyzeItem { set; get; }
             public string PairName { set; get; }
             public int ProgressValue { set; get; }
+            public bool FirstHalf { set; get; }
+            public bool Srevert { set; get; }
+            public bool Trevert { set; get; }
 
-            
         }
 
         private void InsertTestData(plotData plotData,string testItem,string pairName)
@@ -127,28 +132,37 @@ namespace HPMS.Core
 
         private void InsertTestJudge(string testItem,bool result,string pairName)
         {
-            if (_testResult.ContainsKey(testItem))
-            {
-                _testResult[testItem].Add(pairName, result);
-            }
-            else
-            {
-                Dictionary<string, bool> tResult = new Dictionary<string, bool>();
-                tResult.Add(pairName, result);
-                _testResult.Add(testItem, tResult);
-            }
+ 
+                if (_testResult.ContainsKey(testItem))
+                {
+                    _testResult[testItem].Add(pairName, result);
+                }
+                else
+                {
+                    Dictionary<string, bool> tResult = new Dictionary<string, bool>();
+                    tResult.Add(pairName, result);
+                    _testResult.Add(testItem, tResult);
+
+                } 
+          
         }
 
         private void Analyze(TaskSnp taskSnp, ConsumerParams cpParams)
         {
        
             SNP temp = new SNP(taskSnp.SnpPath, SNPPort.X1324);
-           // Thread.Sleep(3000);
+           // Thread.Sleep(6000);
            
             foreach (var testItem in taskSnp.AnalyzeItem)
             {
                 object tempChart = cpParams.ChartDic[testItem];
-                plotData plotData = GetPlotdata(temp, testItem, taskSnp.ItemType, cpParams);
+                plotData offset=new plotData();
+                if (cpParams.Spec.ContainsKey(testItem+"_OFFSET"))
+                {
+                    offset = cpParams.Spec[testItem + "_OFFSET"];
+                }
+                
+                plotData plotData = GetPlotdata(temp, testItem, taskSnp, cpParams, offset);
                 string savePath = cpParams.SaveTxtPath + "\\" + testItem + ".txt";
                 SaveTxt(plotData,savePath);
                 cpParams.FormUi.AddStatus(savePath + "写入成功");
@@ -158,7 +172,10 @@ namespace HPMS.Core
                 DrawSpec(testItem, cpParams, tempChart);
                 bool result = HPMS.Util.Convert.Judge(cpParams.Spec, plotData, testItem);
                 cpParams.FormUi.AddStatus(testItem + " " + taskSnp.PairName + ":" + (result ? "PASS" : "Fail"));
-                InsertTestJudge(testItem, result, taskSnp.PairName);
+               
+                    InsertTestJudge(testItem, result, taskSnp.PairName);
+               
+                
 
                 cpParams.FormUi.SetCheckItem(testItem, ClbType.TestItem);
                 cpParams.AChart.DrawLine(tempChart, plotData, taskSnp.PairName, testItem.StartsWith("TDD") ? LineType.Time : LineType.Fre);
@@ -192,16 +209,49 @@ namespace HPMS.Core
             }
         }
 
+        private string GetReverseItem(string testItem,bool reverse)
+        {
+            if (reverse)
+            {
+                if (testItem.Length == 5)
+                {
+                    string last2 = testItem.Substring(3, 2);
+                    if (last2 == "11")
+                    {
+                        return testItem.Substring(0, 3) + "22";
+                    }
+                    if (last2 == "22")
+                    {
+                        return testItem.Substring(0, 3) + "11";
+                    }
 
-        private plotData GetPlotdata(SNP snp,string itemName,ItemType itemType,ConsumerParams cpParams)
+                    return testItem;
+
+                }
+
+                if (testItem.Length == 11)
+                {
+                    return GetReverseItem(testItem.Substring(0,5),true)+"-"+GetReverseItem(testItem.Substring(6, 5),true);
+                }
+
+                return testItem;
+            }
+
+            return testItem;
+        }
+
+        private plotData GetPlotdata(SNP snp,string itemName,TaskSnp taskSnp,ConsumerParams cpParams,plotData offset)
         {
             plotData dataSeries = new plotData();
             List<TdrParam> tdrParams = cpParams.TestConfigs[0].TdrParams;
-            switch (itemType)
+            switch (taskSnp.ItemType)
             {
                 case   ItemType.Loss:
+                  
                     if (itemName.StartsWith("S"))
                     {
+                        itemName = GetReverseItem(itemName, !taskSnp.FirstHalf && taskSnp.Srevert);
+                       // cpParams.FormUi.AddStatus("analyze:"+itemName);
                         string[] outPairs = new string[1];
                         var data = snp.EasyGetfreData(itemName, out outPairs);
                         float[] x = SConvert.indexArray(data.dB, 0, false);
@@ -210,6 +260,8 @@ namespace HPMS.Core
                     }
                     else if(itemName.StartsWith("TDD"))
                     {
+                        itemName = GetReverseItem(itemName, !taskSnp.FirstHalf && taskSnp.Trevert);
+                       // cpParams.FormUi.AddStatus("analyze:" + itemName);
                         TdrParam tdrParam = tdrParams[int.Parse(itemName.Substring(3, 1))-1];
                         string[] outPairs = new string[1];
                         double timeStep = (tdrParam.EndTime - tdrParam.StartTime) / (tdrParam.Points - 1);
@@ -222,6 +274,7 @@ namespace HPMS.Core
                 case ItemType.Next:
                     if (itemName.StartsWith("NEXT"))
                     {
+                       // cpParams.FormUi.AddStatus("analyze:" + itemName);
                         string[] outPairs = new string[1];
                         var data = snp.EasyGetfreData("SDD21", out outPairs);
                         float[] x = SConvert.indexArray(data.dB, 0, false);
@@ -232,6 +285,7 @@ namespace HPMS.Core
                 case ItemType.Fext:
                     if (itemName.StartsWith("FEXT"))
                     {
+                       // cpParams.FormUi.AddStatus("analyze:" + itemName);
                         string[] outPairs = new string[1];
                         var data = snp.EasyGetfreData("SDD21", out outPairs);
                         float[] x = SConvert.indexArray(data.dB, 0, false);
@@ -240,6 +294,17 @@ namespace HPMS.Core
                     }
                     break;
                
+            }
+
+            if (offset.yData!=null)
+            {
+                int length = dataSeries.yData.Length < offset.yData.Length
+                    ? dataSeries.yData.Length
+                    : offset.yData.Length;
+                for (int i = 0; i < length; i++)
+                {
+                    dataSeries.yData[i] = dataSeries.yData[i] + offset.yData[i];
+                }
             }
 
             return dataSeries;
@@ -285,10 +350,19 @@ namespace HPMS.Core
         {
             //DirectoryInfo info = new DirectoryInfo(savepath.TxtFilePath);
             //String path = info.Parent.FullName;
-            Reporter aReporter = new Reporter(savepath.ReportTempletePath,
-                savepath.TxtFilePath+"\\"+savepath.Sn+".xlsx",
-                savepath.TxtFilePath+"\\txt", 1, 1);
-            error rError = aReporter.genrate();
+            try
+            {
+                Reporter aReporter = new Reporter(savepath.ReportTempletePath,
+                    savepath.TxtFilePath + "\\" + savepath.Sn + ".xlsx",
+                    savepath.TxtFilePath + "\\txt", 1, 1);
+                error rError = aReporter.genrate();
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteLog("生成报告错误",e);
+              Ui.MessageBoxMuti(e.Message);
+            }
+           
         }
 
 
@@ -456,6 +530,7 @@ namespace HPMS.Core
                 int pairIndex = 0;
                 if (testConfig.Pairs != null)
                 {
+                    int pairNum = testConfig.Pairs.Count;
                     foreach (Pair pair in testConfig.Pairs)
                     {
                         if (stop || producerParams.FormUi.StopEnabbled())
@@ -471,12 +546,24 @@ namespace HPMS.Core
                         task.AnalyzeItem = testConfig.AnalyzeItems;
                         task.PairName = pair.PairName;
                         task.ProgressValue = pair.ProgressValue;
+                        task.FirstHalf = pairIndex < pairNum / 2;
+                        task.Srevert = testConfig.Sreverse;
+                        task.Trevert = testConfig.Treverse;
+                        
 
                         string switchMsg = "";
                         try
                         {
-                            _analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex, pairIndex, multiChannel, nextByTrace, ref switchMsg);
-                            producerParams.FormUi.AddStatus(switchMsg);
+                            //string switchIndex=JsonConvert.SerializeObject(pair.SwitchIndex);
+                            //producerParams.FormUi.AddStatus("打开开关:" + switchIndex);
+                            if (!_analyzer.SaveSnp(task.SnpPath, pair.SwitchIndex, pairIndex, multiChannel, nextByTrace, ref switchMsg))
+                            {
+                                producerParams.FormUi.AddStatus(switchMsg);
+                                stop = true;
+                                _totalResult = false;
+                                return;
+                            }
+                            
                         }
                         catch (Exception e)
                         {
@@ -559,10 +646,9 @@ namespace HPMS.Core
         private void SnpConsumer(object data)
         {
             ConsumerParams cpParams = (ConsumerParams)data;
-            TaskSnp GetTask = null;
-         
             while (true&&!stop)
             {
+                TaskSnp GetTask = null;
                 //TaskSemaphore.WaitOne();
                 lock (myLock)
                 {
@@ -574,20 +660,27 @@ namespace HPMS.Core
                             stop = true;
                             return;
                         }
-                        string msg = "";
-                        int iChecktime = 0;
-                        bool bFileExist=Tool.FileCheck.FileIsUsing(GetTask.SnpPath, 10000, 10000, ref msg, ref iChecktime);
-                        if (!bFileExist)
-                        {
-                            stop = true;
-                            _totalResult = false;
-                            cpParams.FormUi.AddStatus("SNP文件:" + GetTask.SnpPath + "不存在:"+msg);
-                            return;
-                        }
-                        Analyze(GetTask, cpParams);
-                        cpParams.FormUi.AddStatus("分析SNP文件:" + GetTask.SnpPath + "完毕");
-                        cpParams.FormUi.ProgressDisplay(GetTask.ProgressValue, true);
+                  
                     }
+                }
+
+
+
+                if (GetTask != null)
+                {
+                    string msg = "";
+                    int iChecktime = 0;
+                    bool bFileExist = Tool.FileCheck.FileIsUsing(GetTask.SnpPath, 10000, 10000, ref msg, ref iChecktime);
+                    if (!bFileExist)
+                    {
+                        stop = true;
+                        _totalResult = false;
+                        cpParams.FormUi.AddStatus("SNP文件:" + GetTask.SnpPath + "不存在:" + msg);
+                        return;
+                    }
+                    Analyze(GetTask, cpParams);
+                    cpParams.FormUi.AddStatus("分析SNP文件:" + GetTask.SnpPath + "完毕");
+                    cpParams.FormUi.ProgressDisplay(GetTask.ProgressValue, true);
                 }
                
             }
@@ -761,7 +854,7 @@ namespace HPMS.Core
                         tempYdata[j] =
                             (float)(10 * Math.Log10(Math.Pow(10, mdnext[i].YData[j] / 10) +
                                             Math.Pow(10, mdfext[i].YData[j] / 10)) -
-                            20 * Math.Log10(Math.Abs(sdd21[i + length21 / 2].YData[j])));
+                                    sdd21[i + length21 / 2].YData[j]);
                     }
 
                     temp.PairName = mdnext[i].PairName;

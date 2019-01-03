@@ -113,7 +113,7 @@ namespace HPMS.Equipment
                 foreach (string s in labels)
                 {
                     int index = int.Parse(s.Substring(1, 2)) - 9;
-                    int center = 80 + int.Parse(s.Substring(1, 2));
+                    int center = 80 + int.Parse(s.Substring(1, 1));
                     ret.Add((byte)index);
                     ret.Add((byte)center);
                 }
@@ -242,6 +242,8 @@ namespace HPMS.Equipment
             tdrParams.Add(pnProject.Tdd11);
             tdrParams.Add(pnProject.Tdd22);
             testConfigLoss.TdrParams = tdrParams;
+            testConfigLoss.Sreverse = pnProject.Srevert;
+            testConfigLoss.Treverse = pnProject.Trevert;
 
          
             testConfigs[0] = testConfigLoss;

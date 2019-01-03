@@ -78,7 +78,6 @@
             this.chkList_SPair = new System.Windows.Forms.CheckedListBox();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.chkList_TDR = new System.Windows.Forms.CheckedListBox();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.chkList_Single = new System.Windows.Forms.CheckedListBox();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.chkList_Diff = new System.Windows.Forms.CheckedListBox();
@@ -186,6 +185,8 @@
             this.btnBrowseReport = new DevComponents.DotNetBar.ButtonX();
             this.txt_ReportTempletePath = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.highlighter1 = new DevComponents.DotNetBar.Validator.Highlighter();
+            this.chkSRevert = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.chkTRevert = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -290,27 +291,27 @@
             // btnGeneral
             // 
             this.btnGeneral.Name = "btnGeneral";
-            this.btnGeneral.Text = "General";
+            this.btnGeneral.Text = "通用";
             // 
             // btnProject
             // 
             this.btnProject.Name = "btnProject";
-            this.btnProject.Text = "Project";
+            this.btnProject.Text = "项目";
             // 
             // btnSpecFrequency
             // 
             this.btnSpecFrequency.Name = "btnSpecFrequency";
-            this.btnSpecFrequency.Text = "SpecFrequency";
+            this.btnSpecFrequency.Text = "频域";
             // 
             // btnSpecTime
             // 
             this.btnSpecTime.Name = "btnSpecTime";
-            this.btnSpecTime.Text = "SpecTime";
+            this.btnSpecTime.Text = "时域";
             // 
             // btnOther
             // 
             this.btnOther.Name = "btnOther";
-            this.btnOther.Text = "Other";
+            this.btnOther.Text = "其他";
             // 
             // labelX1
             // 
@@ -320,6 +321,7 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelX1.Location = new System.Drawing.Point(0, 0);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(13, 3, 3, 3);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(164, 21);
             this.labelX1.TabIndex = 0;
@@ -413,10 +415,10 @@
             // flowLayoutPanel_FastprofileBtn
             // 
             this.flowLayoutPanel_FastprofileBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel_FastprofileBtn.Location = new System.Drawing.Point(0, 33);
+            this.flowLayoutPanel_FastprofileBtn.Location = new System.Drawing.Point(0, 39);
             this.flowLayoutPanel_FastprofileBtn.Name = "flowLayoutPanel_FastprofileBtn";
             this.flowLayoutPanel_FastprofileBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.flowLayoutPanel_FastprofileBtn.Size = new System.Drawing.Size(870, 71);
+            this.flowLayoutPanel_FastprofileBtn.Size = new System.Drawing.Size(870, 65);
             this.flowLayoutPanel_FastprofileBtn.TabIndex = 12;
             // 
             // chkDBMode
@@ -430,7 +432,7 @@
             this.chkDBMode.CheckValue = "Y";
             this.chkDBMode.Location = new System.Drawing.Point(418, 10);
             this.chkDBMode.Name = "chkDBMode";
-            this.chkDBMode.Size = new System.Drawing.Size(82, 17);
+            this.chkDBMode.Size = new System.Drawing.Size(92, 17);
             this.chkDBMode.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.chkDBMode.TabIndex = 11;
             this.chkDBMode.Text = "本地模式";
@@ -563,7 +565,7 @@
             this.labelX43.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX43.Location = new System.Drawing.Point(633, 84);
             this.labelX43.Name = "labelX43";
-            this.labelX43.Size = new System.Drawing.Size(112, 21);
+            this.labelX43.Size = new System.Drawing.Size(173, 21);
             this.labelX43.TabIndex = 38;
             this.labelX43.Text = "有源";
             // 
@@ -584,7 +586,7 @@
             this.labelX49.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX49.Location = new System.Drawing.Point(427, 84);
             this.labelX49.Name = "labelX49";
-            this.labelX49.Size = new System.Drawing.Size(112, 21);
+            this.labelX49.Size = new System.Drawing.Size(173, 21);
             this.labelX49.TabIndex = 36;
             this.labelX49.Text = "产品类型(右)";
             // 
@@ -605,7 +607,7 @@
             this.labelX37.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX37.Location = new System.Drawing.Point(222, 84);
             this.labelX37.Name = "labelX37";
-            this.labelX37.Size = new System.Drawing.Size(112, 21);
+            this.labelX37.Size = new System.Drawing.Size(173, 21);
             this.labelX37.TabIndex = 34;
             this.labelX37.Text = "产品类型(左)";
             // 
@@ -626,7 +628,7 @@
             this.labelX36.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX36.Location = new System.Drawing.Point(18, 84);
             this.labelX36.Name = "labelX36";
-            this.labelX36.Size = new System.Drawing.Size(112, 21);
+            this.labelX36.Size = new System.Drawing.Size(173, 21);
             this.labelX36.TabIndex = 32;
             this.labelX36.Text = "速率 (G)";
             // 
@@ -683,9 +685,9 @@
             // 
             // 
             this.labelX47.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX47.Location = new System.Drawing.Point(648, 20);
+            this.labelX47.Location = new System.Drawing.Point(633, 20);
             this.labelX47.Name = "labelX47";
-            this.labelX47.Size = new System.Drawing.Size(112, 21);
+            this.labelX47.Size = new System.Drawing.Size(151, 21);
             this.labelX47.TabIndex = 19;
             this.labelX47.Text = "线材直径(AWG)";
             // 
@@ -707,7 +709,7 @@
             // 
             // 
             this.labelX45.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX45.Location = new System.Drawing.Point(247, 20);
+            this.labelX45.Location = new System.Drawing.Point(222, 20);
             this.labelX45.Name = "labelX45";
             this.labelX45.Size = new System.Drawing.Size(112, 21);
             this.labelX45.TabIndex = 17;
@@ -740,6 +742,8 @@
             // 
             this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx3.Controls.Add(this.chkTRevert);
+            this.panelEx3.Controls.Add(this.chkSRevert);
             this.panelEx3.Controls.Add(this.labelX6);
             this.panelEx3.Controls.Add(this.chkList_FextPair);
             this.panelEx3.Controls.Add(this.labelX5);
@@ -748,7 +752,6 @@
             this.panelEx3.Controls.Add(this.chkList_SPair);
             this.panelEx3.Controls.Add(this.labelX3);
             this.panelEx3.Controls.Add(this.chkList_TDR);
-            this.panelEx3.Controls.Add(this.labelX2);
             this.panelEx3.Controls.Add(this.chkList_Single);
             this.panelEx3.Controls.Add(this.labelX7);
             this.panelEx3.Controls.Add(this.chkList_Diff);
@@ -783,9 +786,9 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_FextPair.Location = new System.Drawing.Point(706, 30);
+            this.chkList_FextPair.Location = new System.Drawing.Point(702, 30);
             this.chkList_FextPair.Name = "chkList_FextPair";
-            this.chkList_FextPair.Size = new System.Drawing.Size(102, 340);
+            this.chkList_FextPair.Size = new System.Drawing.Size(137, 308);
             this.chkList_FextPair.TabIndex = 23;
             this.chkList_FextPair.ThreeDCheckBoxes = true;
             // 
@@ -795,7 +798,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(570, 3);
+            this.labelX5.Location = new System.Drawing.Point(532, 3);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(112, 21);
             this.labelX5.TabIndex = 22;
@@ -808,9 +811,9 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_NextPair.Location = new System.Drawing.Point(570, 30);
+            this.chkList_NextPair.Location = new System.Drawing.Point(532, 30);
             this.chkList_NextPair.Name = "chkList_NextPair";
-            this.chkList_NextPair.Size = new System.Drawing.Size(102, 340);
+            this.chkList_NextPair.Size = new System.Drawing.Size(137, 308);
             this.chkList_NextPair.TabIndex = 21;
             this.chkList_NextPair.ThreeDCheckBoxes = true;
             // 
@@ -820,7 +823,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(434, 3);
+            this.labelX4.Location = new System.Drawing.Point(362, 3);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(112, 21);
             this.labelX4.TabIndex = 20;
@@ -833,9 +836,9 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_SPair.Location = new System.Drawing.Point(434, 30);
+            this.chkList_SPair.Location = new System.Drawing.Point(362, 30);
             this.chkList_SPair.Name = "chkList_SPair";
-            this.chkList_SPair.Size = new System.Drawing.Size(102, 340);
+            this.chkList_SPair.Size = new System.Drawing.Size(137, 308);
             this.chkList_SPair.TabIndex = 19;
             this.chkList_SPair.ThreeDCheckBoxes = true;
             // 
@@ -845,7 +848,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(298, 3);
+            this.labelX3.Location = new System.Drawing.Point(192, 3);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(112, 21);
             this.labelX3.TabIndex = 18;
@@ -858,36 +861,23 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_TDR.Location = new System.Drawing.Point(298, 30);
+            this.chkList_TDR.Location = new System.Drawing.Point(192, 30);
             this.chkList_TDR.Name = "chkList_TDR";
-            this.chkList_TDR.Size = new System.Drawing.Size(102, 340);
+            this.chkList_TDR.Size = new System.Drawing.Size(137, 308);
             this.chkList_TDR.TabIndex = 17;
             this.chkList_TDR.ThreeDCheckBoxes = true;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(161, 3);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(112, 21);
-            this.labelX2.TabIndex = 16;
-            this.labelX2.Text = "Single Test Items ";
             // 
             // chkList_Single
             // 
             this.chkList_Single.FormattingEnabled = true;
             this.chkList_Single.Items.AddRange(new object[] {
-            "AA",
-            "BB",
-            "CC"});
-            this.chkList_Single.Location = new System.Drawing.Point(162, 30);
+            "S11"});
+            this.chkList_Single.Location = new System.Drawing.Point(702, 361);
             this.chkList_Single.Name = "chkList_Single";
-            this.chkList_Single.Size = new System.Drawing.Size(102, 340);
+            this.chkList_Single.Size = new System.Drawing.Size(111, 20);
             this.chkList_Single.TabIndex = 15;
             this.chkList_Single.ThreeDCheckBoxes = true;
+            this.chkList_Single.Visible = false;
             // 
             // labelX7
             // 
@@ -908,9 +898,9 @@
             "AA",
             "BB",
             "CC"});
-            this.chkList_Diff.Location = new System.Drawing.Point(26, 30);
+            this.chkList_Diff.Location = new System.Drawing.Point(22, 30);
             this.chkList_Diff.Name = "chkList_Diff";
-            this.chkList_Diff.Size = new System.Drawing.Size(102, 340);
+            this.chkList_Diff.Size = new System.Drawing.Size(137, 308);
             this.chkList_Diff.TabIndex = 13;
             this.chkList_Diff.ThreeDCheckBoxes = true;
             // 
@@ -1073,13 +1063,13 @@
             // 
             // Frequency
             // 
-            this.Frequency.Text = "Frequency";
+            this.Frequency.Text = "频率";
             this.Frequency.Width = 163;
             // 
             // num_FrePoints
             // 
             this.highlighter1.SetHighlightOnFocus(this.num_FrePoints, true);
-            this.num_FrePoints.Location = new System.Drawing.Point(54, 378);
+            this.num_FrePoints.Location = new System.Drawing.Point(104, 375);
             this.num_FrePoints.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -1109,10 +1099,10 @@
             this.txt_FreSpecFilePath.Border.Class = "TextBoxBorder";
             this.txt_FreSpecFilePath.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.highlighter1.SetHighlightOnFocus(this.txt_FreSpecFilePath, true);
-            this.txt_FreSpecFilePath.Location = new System.Drawing.Point(318, 375);
+            this.txt_FreSpecFilePath.Location = new System.Drawing.Point(372, 375);
             this.txt_FreSpecFilePath.Name = "txt_FreSpecFilePath";
             this.txt_FreSpecFilePath.ReadOnly = true;
-            this.txt_FreSpecFilePath.Size = new System.Drawing.Size(464, 21);
+            this.txt_FreSpecFilePath.Size = new System.Drawing.Size(410, 21);
             this.txt_FreSpecFilePath.TabIndex = 4;
             // 
             // labelX9
@@ -1121,7 +1111,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(206, 373);
+            this.labelX9.Location = new System.Drawing.Point(260, 375);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(106, 24);
             this.labelX9.TabIndex = 3;
@@ -1216,7 +1206,7 @@
             // num_TdrOffset1
             // 
             this.num_TdrOffset1.DecimalPlaces = 2;
-            this.num_TdrOffset1.Location = new System.Drawing.Point(756, 32);
+            this.num_TdrOffset1.Location = new System.Drawing.Point(698, 32);
             this.num_TdrOffset1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1229,7 +1219,7 @@
             // num_RiseTime1
             // 
             this.num_RiseTime1.DecimalPlaces = 2;
-            this.num_RiseTime1.Location = new System.Drawing.Point(620, 32);
+            this.num_RiseTime1.Location = new System.Drawing.Point(562, 32);
             this.num_RiseTime1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1241,7 +1231,7 @@
             // 
             // num_TdrPoint1
             // 
-            this.num_TdrPoint1.Location = new System.Drawing.Point(490, 32);
+            this.num_TdrPoint1.Location = new System.Drawing.Point(432, 32);
             this.num_TdrPoint1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1254,7 +1244,7 @@
             // num_StopTime1
             // 
             this.num_StopTime1.DecimalPlaces = 2;
-            this.num_StopTime1.Location = new System.Drawing.Point(360, 32);
+            this.num_StopTime1.Location = new System.Drawing.Point(302, 32);
             this.num_StopTime1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1267,7 +1257,7 @@
             // num_StartTime1
             // 
             this.num_StartTime1.DecimalPlaces = 2;
-            this.num_StartTime1.Location = new System.Drawing.Point(230, 32);
+            this.num_StartTime1.Location = new System.Drawing.Point(172, 32);
             this.num_StartTime1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1283,9 +1273,9 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(759, 5);
+            this.labelX11.Location = new System.Drawing.Point(697, 5);
             this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(80, 18);
+            this.labelX11.Size = new System.Drawing.Size(146, 18);
             this.labelX11.TabIndex = 41;
             this.labelX11.Text = "阻抗补偿";
             // 
@@ -1295,7 +1285,7 @@
             // 
             // 
             this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(626, 5);
+            this.labelX12.Location = new System.Drawing.Point(561, 3);
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(86, 18);
             this.labelX12.TabIndex = 40;
@@ -1307,7 +1297,7 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(497, 5);
+            this.labelX13.Location = new System.Drawing.Point(432, 5);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(67, 18);
             this.labelX13.TabIndex = 39;
@@ -1319,7 +1309,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(366, 5);
+            this.labelX14.Location = new System.Drawing.Point(302, 5);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(85, 18);
             this.labelX14.TabIndex = 38;
@@ -1331,7 +1321,7 @@
             // 
             // 
             this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(236, 5);
+            this.labelX15.Location = new System.Drawing.Point(171, 3);
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(82, 18);
             this.labelX15.TabIndex = 37;
@@ -1601,8 +1591,8 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX10.Location = new System.Drawing.Point(18, 26);
+            this.labelX10.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX10.Location = new System.Drawing.Point(7, 26);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(66, 32);
             this.labelX10.TabIndex = 35;
@@ -1640,7 +1630,7 @@
             // num_TdrOffset2
             // 
             this.num_TdrOffset2.DecimalPlaces = 2;
-            this.num_TdrOffset2.Location = new System.Drawing.Point(755, 30);
+            this.num_TdrOffset2.Location = new System.Drawing.Point(697, 30);
             this.num_TdrOffset2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1653,7 +1643,7 @@
             // num_RiseTime2
             // 
             this.num_RiseTime2.DecimalPlaces = 2;
-            this.num_RiseTime2.Location = new System.Drawing.Point(619, 30);
+            this.num_RiseTime2.Location = new System.Drawing.Point(561, 30);
             this.num_RiseTime2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1665,7 +1655,7 @@
             // 
             // num_TdrPoint2
             // 
-            this.num_TdrPoint2.Location = new System.Drawing.Point(489, 30);
+            this.num_TdrPoint2.Location = new System.Drawing.Point(431, 30);
             this.num_TdrPoint2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1678,7 +1668,7 @@
             // num_StopTime2
             // 
             this.num_StopTime2.DecimalPlaces = 2;
-            this.num_StopTime2.Location = new System.Drawing.Point(359, 30);
+            this.num_StopTime2.Location = new System.Drawing.Point(301, 30);
             this.num_StopTime2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1691,7 +1681,7 @@
             // num_StartTime2
             // 
             this.num_StartTime2.DecimalPlaces = 2;
-            this.num_StartTime2.Location = new System.Drawing.Point(229, 30);
+            this.num_StartTime2.Location = new System.Drawing.Point(171, 30);
             this.num_StartTime2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1707,9 +1697,9 @@
             // 
             // 
             this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX17.Location = new System.Drawing.Point(758, 3);
+            this.labelX17.Location = new System.Drawing.Point(697, 3);
             this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(80, 18);
+            this.labelX17.Size = new System.Drawing.Size(146, 18);
             this.labelX17.TabIndex = 56;
             this.labelX17.Text = "阻抗补偿";
             // 
@@ -1719,7 +1709,7 @@
             // 
             // 
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(625, 3);
+            this.labelX18.Location = new System.Drawing.Point(561, 3);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(86, 18);
             this.labelX18.TabIndex = 55;
@@ -1731,7 +1721,7 @@
             // 
             // 
             this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX19.Location = new System.Drawing.Point(496, 3);
+            this.labelX19.Location = new System.Drawing.Point(432, 3);
             this.labelX19.Name = "labelX19";
             this.labelX19.Size = new System.Drawing.Size(67, 18);
             this.labelX19.TabIndex = 54;
@@ -1743,7 +1733,7 @@
             // 
             // 
             this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX20.Location = new System.Drawing.Point(365, 3);
+            this.labelX20.Location = new System.Drawing.Point(301, 3);
             this.labelX20.Name = "labelX20";
             this.labelX20.Size = new System.Drawing.Size(85, 18);
             this.labelX20.TabIndex = 53;
@@ -1755,7 +1745,7 @@
             // 
             // 
             this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX21.Location = new System.Drawing.Point(235, 3);
+            this.labelX21.Location = new System.Drawing.Point(171, 3);
             this.labelX21.Name = "labelX21";
             this.labelX21.Size = new System.Drawing.Size(82, 18);
             this.labelX21.TabIndex = 52;
@@ -2025,9 +2015,9 @@
             // 
             // 
             this.chkTdr2Same.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkTdr2Same.Location = new System.Drawing.Point(107, 29);
+            this.chkTdr2Same.Location = new System.Drawing.Point(77, 29);
             this.chkTdr2Same.Name = "chkTdr2Same";
-            this.chkTdr2Same.Size = new System.Drawing.Size(112, 23);
+            this.chkTdr2Same.Size = new System.Drawing.Size(88, 23);
             this.chkTdr2Same.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.chkTdr2Same.TabIndex = 37;
             this.chkTdr2Same.Text = "与TDD11相同";
@@ -2039,8 +2029,8 @@
             // 
             // 
             this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX16.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX16.Location = new System.Drawing.Point(18, 22);
+            this.labelX16.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX16.Location = new System.Drawing.Point(5, 22);
             this.labelX16.Name = "labelX16";
             this.labelX16.Size = new System.Drawing.Size(66, 32);
             this.labelX16.TabIndex = 35;
@@ -2097,7 +2087,7 @@
             this.cmb_ILDSpec.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmb_ILDSpec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_ILDSpec.FormattingEnabled = true;
-            this.cmb_ILDSpec.ItemHeight = 15;
+            this.cmb_ILDSpec.ItemHeight = 16;
             this.cmb_ILDSpec.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2,
@@ -2106,7 +2096,7 @@
             this.comboItem5});
             this.cmb_ILDSpec.Location = new System.Drawing.Point(18, 30);
             this.cmb_ILDSpec.Name = "cmb_ILDSpec";
-            this.cmb_ILDSpec.Size = new System.Drawing.Size(148, 21);
+            this.cmb_ILDSpec.Size = new System.Drawing.Size(148, 22);
             this.cmb_ILDSpec.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmb_ILDSpec.TabIndex = 4;
             // 
@@ -2218,7 +2208,7 @@
             this.labelX50.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX50.Location = new System.Drawing.Point(25, 237);
             this.labelX50.Name = "labelX50";
-            this.labelX50.Size = new System.Drawing.Size(123, 23);
+            this.labelX50.Size = new System.Drawing.Size(245, 23);
             this.labelX50.TabIndex = 58;
             this.labelX50.Text = "档案文件路径";
             // 
@@ -2256,7 +2246,7 @@
             this.labelX48.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX48.Location = new System.Drawing.Point(26, 181);
             this.labelX48.Name = "labelX48";
-            this.labelX48.Size = new System.Drawing.Size(123, 23);
+            this.labelX48.Size = new System.Drawing.Size(208, 23);
             this.labelX48.TabIndex = 55;
             this.labelX48.Text = "开关文件路径";
             // 
@@ -2387,14 +2377,47 @@
             this.highlighter1.ContainerControl = this;
             this.highlighter1.FocusHighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
             // 
+            // chkSRevert
+            // 
+            // 
+            // 
+            // 
+            this.chkSRevert.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkSRevert.Checked = true;
+            this.chkSRevert.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSRevert.CheckValue = "Y";
+            this.chkSRevert.Location = new System.Drawing.Point(26, 364);
+            this.chkSRevert.Name = "chkSRevert";
+            this.chkSRevert.Size = new System.Drawing.Size(92, 17);
+            this.chkSRevert.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkSRevert.TabIndex = 25;
+            this.chkSRevert.Text = "S参数对调";
+            // 
+            // chkTRevert
+            // 
+            // 
+            // 
+            // 
+            this.chkTRevert.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkTRevert.Checked = true;
+            this.chkTRevert.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTRevert.CheckValue = "Y";
+            this.chkTRevert.Location = new System.Drawing.Point(192, 364);
+            this.chkTRevert.Name = "chkTRevert";
+            this.chkTRevert.Size = new System.Drawing.Size(92, 17);
+            this.chkTRevert.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkTRevert.TabIndex = 26;
+            this.chkTRevert.Text = "T参数对调";
+            // 
             // frmProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1040, 547);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.expandableSplitter1);
             this.Controls.Add(this.panelEx1);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "frmProfile";
             this.Text = "档案设置";
@@ -2492,7 +2515,6 @@
         private System.Windows.Forms.CheckedListBox chkList_SPair;
         private DevComponents.DotNetBar.LabelX labelX3;
         private System.Windows.Forms.CheckedListBox chkList_TDR;
-        private DevComponents.DotNetBar.LabelX labelX2;
         private System.Windows.Forms.CheckedListBox chkList_Single;
         private DevComponents.DotNetBar.LabelX labelX7;
         private System.Windows.Forms.CheckedListBox chkList_Diff;
@@ -2617,5 +2639,7 @@
         private DevComponents.DotNetBar.LabelX labelX51;
         private System.Windows.Forms.ListView lsvSummary;
         private System.Windows.Forms.ColumnHeader Frequency;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkTRevert;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkSRevert;
     }
 }

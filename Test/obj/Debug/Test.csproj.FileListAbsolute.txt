@@ -30,3 +30,5 @@ D:\gitProjects\HPMS\Test\bin\Debug\Tool.pdb
 D:\gitProjects\HPMS\Test\bin\Debug\Test.dll.config
 D:\gitProjects\HPMS\Test\bin\Debug\System.Data.SQLite.dll
 D:\gitProjects\HPMS\Test\bin\Debug\System.Data.SQLite.xml
+D:\gitProjects\HPMS\Test\bin\Debug\DBUtil.dll
+D:\gitProjects\HPMS\Test\bin\Debug\reporter.dll

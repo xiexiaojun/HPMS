@@ -1,5 +1,4 @@
 D:\gitProjects\HPMS\VirtualSwitch\bin\Release\VirtualSwitch.dll
 D:\gitProjects\HPMS\VirtualSwitch\bin\Release\VirtualSwitch.pdb
-D:\gitProjects\HPMS\VirtualSwitch\obj\Release\VirtualSwitch.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\VirtualSwitch\obj\Release\VirtualSwitch.dll
 D:\gitProjects\HPMS\VirtualSwitch\obj\Release\VirtualSwitch.pdb

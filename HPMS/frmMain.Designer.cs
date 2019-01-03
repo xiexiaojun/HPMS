@@ -674,7 +674,7 @@ namespace HPMS
             resources.ApplyResources(this.expandablePanel1, "expandablePanel1");
             this.expandablePanel1.ExpandButtonAlignment = DevComponents.DotNetBar.eTitleButtonAlignment.Left;
             this.expandablePanel1.Expanded = false;
-            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(764, 0, 323, 360);
+            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(811, 0, 279, 360);
             this.expandablePanel1.HideControlsWhenCollapsed = true;
             this.expandablePanel1.Name = "expandablePanel1";
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -829,7 +829,10 @@ namespace HPMS
             // picLogoLeft
             // 
             resources.ApplyResources(this.picLogoLeft, "picLogoLeft");
+            this.picLogoLeft.Image = global::HPMS.Properties.Resources.LUXSHARE_ICT_LOGO_透明底_400x90;
+#if Publish
             this.picLogoLeft.Image = global::HPMS.Properties.Resources.微信图片_20181215221604;
+#endif
             this.picLogoLeft.Name = "picLogoLeft";
             this.picLogoLeft.TabStop = false;
             // 
@@ -840,6 +843,7 @@ namespace HPMS
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip_Main);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);

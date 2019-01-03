@@ -4,6 +4,6 @@ D:\gitProjects\CommonSwitchTool\CommonSwitchTool\VirtualSwitch\obj\Debug\Virtual
 D:\gitProjects\CommonSwitchTool\CommonSwitchTool\VirtualSwitch\obj\Debug\VirtualSwitch.pdb
 D:\gitProjects\HPMS\VirtualSwitch\bin\Debug\VirtualSwitch.dll
 D:\gitProjects\HPMS\VirtualSwitch\bin\Debug\VirtualSwitch.pdb
+D:\gitProjects\HPMS\VirtualSwitch\obj\Debug\VirtualSwitch.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\VirtualSwitch\obj\Debug\VirtualSwitch.dll
 D:\gitProjects\HPMS\VirtualSwitch\obj\Debug\VirtualSwitch.pdb
-D:\gitProjects\HPMS\VirtualSwitch\obj\Debug\VirtualSwitch.csprojResolveAssemblyReference.cache

@@ -75,10 +75,10 @@ namespace HPMS.Splash
             m_SplashForm = null;
         }
 
-        private static void CreateInstance(Type FormType)
+        private static void CreateInstance(Type formType)
         {
 
-            object obj = FormType.InvokeMember(null,
+            object obj = formType.InvokeMember(null,
                                 BindingFlags.DeclaredOnly |
                                 BindingFlags.Public | BindingFlags.NonPublic |
                                 BindingFlags.Instance | BindingFlags.CreateInstance, null, null, null);

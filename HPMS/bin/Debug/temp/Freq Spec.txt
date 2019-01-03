@@ -1,6 +1,6 @@
 SDD21_Lower	SDD11_Upper	SCD21_Upper	SCD22_Upper	SCD21-SDD21_Upper	NEXT_Upper	SDD21_offset
--6		-18				0.029739
--6		-18				0.03929
+-6		-18				100.029739
+-6		-18				100.03929
 -6		-18				0.045344
 -6		-18				0.051005
 -6		-18				0.057188

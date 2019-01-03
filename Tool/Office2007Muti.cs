@@ -24,6 +24,7 @@ namespace Tool
         private void Office2007Muti_Shown(object sender, EventArgs e)
         {
             this.Text = LanguageHelper.GetLanguageText(this.Text);
+            this.Font = LanguageHelper.GetFont();
         }
 
         private void Office2007Muti_TextChanged(object sender, EventArgs e)

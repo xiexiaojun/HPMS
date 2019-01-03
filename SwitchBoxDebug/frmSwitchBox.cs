@@ -52,12 +52,12 @@ namespace SwitchBoxDebug
 
         private void cmbBoxType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoxType.SelectedIndex != 2)
-            {
-                Ui.MessageBoxMuti("未检测到此种类型的开关盒子");
-                cmbBoxType.SelectedIndex = 2;
-                return;
-            }
+            //if (cmbBoxType.SelectedIndex != 2)
+            //{
+            //    Ui.MessageBoxMuti("未检测到此种类型的开关盒子");
+            //    cmbBoxType.SelectedIndex = 2;
+            //    return;
+            //}
 
             BoxType boxType = (BoxType)Enum.Parse(typeof(BoxType), ((ComboBox)sender).SelectedItem.ToString());
             SetBoxInterface(boxType);

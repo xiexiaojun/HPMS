@@ -2,6 +2,7 @@ D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\SwitchBoxDebug.exe.config
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\SwitchBoxDebug.exe
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\Tool.dll
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\VirtualSwitch.dll
+D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\WindowsFormsControlLibrary1.dll
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\Newtonsoft.Json.dll
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\VirtualSwitch.pdb
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Release\WindowsFormsControlLibrary1.pdb

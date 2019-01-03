@@ -8,6 +8,6 @@
   <AdapterPort>COM20</AdapterPort>
   <SnpFolder>S:\testFolder</SnpFolder>
   <TxtFolder>S:\testFolder</TxtFolder>
-  <SwitchResponseTime>2000</SwitchResponseTime>
-  <AnalyzerResponseTime>2000</AnalyzerResponseTime>
+  <SwitchResponseTime>500</SwitchResponseTime>
+  <AnalyzerResponseTime>1500</AnalyzerResponseTime>
 </Hardware>

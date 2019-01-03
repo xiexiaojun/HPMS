@@ -38,12 +38,8 @@ D:\gitProjects\HPMS\HPMS\bin\Release\VirtualSwitch.pdb
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.csprojResolveAssemblyReference.cache
 D:\gitProjects\HPMS\HPMS\obj\Release\HPMS.frmAbout.resources
 D:\gitProjects\HPMS\HPMS\bin\Release\Tool.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.SqlServer.dll
 D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.EF6.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.Linq.dll
-D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.xml
-D:\gitProjects\HPMS\HPMS\bin\Release\EntityFramework.SqlServer.xml
 D:\gitProjects\HPMS\HPMS\bin\Release\System.Data.SQLite.xml
 D:\gitProjects\HPMS\HPMS\bin\Release\reporter.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\DBUtil.dll
+D:\gitProjects\HPMS\HPMS\bin\Release\Softgroup.NetResize45.dll

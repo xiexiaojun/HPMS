@@ -44,6 +44,11 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="DevComponents.DotNetBar.Schedule" version="14.1.0.28" publicKeyToken="7EB7C3A35B91DE04" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="DevComponents.DotNetBar2" version="14.1.0.28" publicKeyToken="7EB7C3A35B91DE04" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
@@ -72,26 +77,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="register.exe" size="40960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="register.exe" size="41472">
       <assemblyIdentity name="register" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0pt3eaSHhBm5mXembH0KZtMAXOvkr07t2SoNVNHTxek=</dsig:DigestValue>
+        <dsig:DigestValue>tyP7Ud56JyJC9eUiSyo4n7O3aVyGk+YNHc6c7ImQhUs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Tool.dll" size="39424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Tool.dll" size="45568">
       <assemblyIdentity name="Tool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Oc4MjDwbnVWq7UUMPg4oR08Adma59jBD8AhDYRGa2oE=</dsig:DigestValue>
+        <dsig:DigestValue>0I9tm0p+zg/TNMT+TEkypE1bvnBPteJT/7RjPDjJi+g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

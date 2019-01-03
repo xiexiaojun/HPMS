@@ -9,12 +9,12 @@ namespace HPMS
 {
     public partial class frmLogin : Office2007Muti
     {
-        private string _softVersion;
+        
         public User User;
        
-        public frmLogin(string softVersion)
+        public frmLogin()
         {
-            _softVersion = softVersion;
+            
             EnableGlass = false;
             this.Icon = base.Icon;
             InitializeComponent();
@@ -34,8 +34,10 @@ namespace HPMS
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //this.Close();
+            Gloabal.SetDb(chkDBMode.Checked);
             string userName = txtUser.Text;
-            UserDao.DbMode = chkDBMode.Checked;
+            
+           // Gloabal.GDatabase = DBUtil.IDBFactory.CreateIDB("Data Source=.;Initial Catalog=JACKOA;User ID=sa;Password=sa;", "SQLSERVER");
             List<User> userList = UserDao.Find(userName);
             if (userList.Count == 1)
             {

@@ -21,7 +21,7 @@ namespace HPMS
         {
             AppDomain.CurrentDomain.AssemblyResolve+=CurrentDomain_AssemblyResolve;
             //绑定程序中的异常处理
-            #if Release
+            #if Publish
                         BindExceptionHandler();     
             #endif
             MessageBoxEx.EnableGlass = false;

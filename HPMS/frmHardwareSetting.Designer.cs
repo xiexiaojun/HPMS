@@ -31,6 +31,12 @@
         {
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.numSwtRespTime = new System.Windows.Forms.NumericUpDown();
+            this.numNwaRespTime = new System.Windows.Forms.NumericUpDown();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.cmbAdpaterPort = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cmbNwaType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -57,16 +63,10 @@
             this.labelX41 = new DevComponents.DotNetBar.LabelX();
             this.btnBrowseSnp = new DevComponents.DotNetBar.ButtonX();
             this.txtSnpSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.numNwaRespTime = new System.Windows.Forms.NumericUpDown();
-            this.numSwtRespTime = new System.Windows.Forms.NumericUpDown();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
-            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSwtRespTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -78,7 +78,7 @@
             this.btnCancel.Size = new System.Drawing.Size(104, 26);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 17;
-            this.btnCancel.Text = "取消";
+            this.btnCancel.Text = "关闭";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
@@ -108,6 +108,100 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "硬件设置";
             // 
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX11.Location = new System.Drawing.Point(556, 96);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(35, 26);
+            this.labelX11.TabIndex = 20;
+            this.labelX11.Text = "ms";
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX10.Location = new System.Drawing.Point(556, 43);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(35, 26);
+            this.labelX10.TabIndex = 19;
+            this.labelX10.Text = "ms";
+            // 
+            // numSwtRespTime
+            // 
+            this.numSwtRespTime.Location = new System.Drawing.Point(478, 100);
+            this.numSwtRespTime.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numSwtRespTime.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numSwtRespTime.Name = "numSwtRespTime";
+            this.numSwtRespTime.Size = new System.Drawing.Size(59, 21);
+            this.numSwtRespTime.TabIndex = 18;
+            this.numSwtRespTime.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            // 
+            // numNwaRespTime
+            // 
+            this.numNwaRespTime.Location = new System.Drawing.Point(478, 48);
+            this.numNwaRespTime.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numNwaRespTime.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numNwaRespTime.Name = "numNwaRespTime";
+            this.numNwaRespTime.Size = new System.Drawing.Size(59, 21);
+            this.numNwaRespTime.TabIndex = 17;
+            this.numNwaRespTime.Value = new decimal(new int[] {
+            1500,
+            0,
+            0,
+            0});
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(478, 68);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(113, 26);
+            this.labelX9.TabIndex = 16;
+            this.labelX9.Text = "响应时间";
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(478, 16);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(113, 26);
+            this.labelX8.TabIndex = 15;
+            this.labelX8.Text = "响应时间";
+            // 
             // labelX2
             // 
             // 
@@ -116,7 +210,7 @@
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Location = new System.Drawing.Point(25, 20);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(116, 21);
+            this.labelX2.Size = new System.Drawing.Size(140, 21);
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "网分型号";
             // 
@@ -204,9 +298,9 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(165, 137);
+            this.labelX6.Location = new System.Drawing.Point(171, 137);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(68, 21);
+            this.labelX6.Size = new System.Drawing.Size(177, 21);
             this.labelX6.TabIndex = 11;
             this.labelX6.Text = "烧录器端口";
             // 
@@ -254,9 +348,9 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(165, 15);
+            this.labelX1.Location = new System.Drawing.Point(171, 17);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(90, 26);
+            this.labelX1.Size = new System.Drawing.Size(218, 26);
             this.labelX1.TabIndex = 3;
             this.labelX1.Text = "网分地址";
             // 
@@ -268,7 +362,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(25, 74);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(116, 21);
+            this.labelX3.Size = new System.Drawing.Size(140, 21);
             this.labelX3.TabIndex = 8;
             this.labelX3.Text = "开关型号";
             // 
@@ -278,9 +372,9 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(165, 74);
+            this.labelX4.Location = new System.Drawing.Point(171, 73);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(81, 21);
+            this.labelX4.Size = new System.Drawing.Size(218, 21);
             this.labelX4.TabIndex = 7;
             this.labelX4.Text = "开关地址";
             // 
@@ -292,7 +386,7 @@
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Location = new System.Drawing.Point(25, 137);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(116, 21);
+            this.labelX5.Size = new System.Drawing.Size(140, 21);
             this.labelX5.TabIndex = 12;
             this.labelX5.Text = "烧录器型号";
             // 
@@ -397,100 +491,6 @@
             this.txtSnpSaveFolder.Size = new System.Drawing.Size(441, 21);
             this.txtSnpSaveFolder.TabIndex = 3;
             // 
-            // labelX8
-            // 
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(478, 16);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(72, 26);
-            this.labelX8.TabIndex = 15;
-            this.labelX8.Text = "响应时间";
-            // 
-            // labelX9
-            // 
-            // 
-            // 
-            // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(478, 68);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(72, 26);
-            this.labelX9.TabIndex = 16;
-            this.labelX9.Text = "响应时间";
-            // 
-            // numNwaRespTime
-            // 
-            this.numNwaRespTime.Location = new System.Drawing.Point(478, 48);
-            this.numNwaRespTime.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numNwaRespTime.Minimum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.numNwaRespTime.Name = "numNwaRespTime";
-            this.numNwaRespTime.Size = new System.Drawing.Size(59, 21);
-            this.numNwaRespTime.TabIndex = 17;
-            this.numNwaRespTime.Value = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            // 
-            // numSwtRespTime
-            // 
-            this.numSwtRespTime.Location = new System.Drawing.Point(478, 100);
-            this.numSwtRespTime.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numSwtRespTime.Minimum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.numSwtRespTime.Name = "numSwtRespTime";
-            this.numSwtRespTime.Size = new System.Drawing.Size(59, 21);
-            this.numSwtRespTime.TabIndex = 18;
-            this.numSwtRespTime.Value = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX10.Location = new System.Drawing.Point(556, 43);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(35, 26);
-            this.labelX10.TabIndex = 19;
-            this.labelX10.Text = "ms";
-            // 
-            // labelX11
-            // 
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX11.Location = new System.Drawing.Point(556, 96);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(35, 26);
-            this.labelX11.TabIndex = 20;
-            this.labelX11.Text = "ms";
-            // 
             // frmHardwareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -508,9 +508,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSetting_FormClosing);
             this.Load += new System.EventHandler(this.frmSetting_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSwtRespTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

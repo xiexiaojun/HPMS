@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using HslCommunication.BasicFramework;
+using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
 using Tool;
 
@@ -22,6 +23,16 @@ namespace Register
      
         private void btnGetMachineCode_Click(object sender, EventArgs e)
         {
+            //Tool.Register aa=new Tool.Register();
+            //aa.SubKey = "SOFTWARE\\FigoAA\\";
+            //aa.CreateSubKey("SOFTWARE\\FigoAA\\");
+            //aa.WriteRegeditKey("value", 1);
+            //aa.WriteRegeditKey("value", "Test");
+            
+            ////RegistryKey aimdir = Registry.LocalMachine.CreateSubKey("SOFTWARE\\TagReceiver\\Params\\SerialPort");
+            ////aimdir.SetValue( "PortName", "Figo2018"); 
+            ////  aimdir.Close();
+            
             txtMachineCode.Text = softAuthorize.GetMachineCodeString();
         }
 
@@ -42,15 +53,23 @@ namespace Register
             }
        
             
+            var licJObjectobj=new JObject
+            {
+                {"dateType",chkDateType.Checked},
+                {"licDate",DateTime.Now},
+                {"lastDate",DateTime.Now},
+                {"expireDate",dateTimeExpire.Value}
+            };
+
             var sourceJObjectobj = new JObject { 
-                { "softName", cmbSoftName.SelectedItem.ToString() }, 
-                { "softVersion", funcJson},
+                {"softName", cmbSoftName.SelectedItem.ToString() }, 
+                {"lic",licJObjectobj},
+                {"softVersion", funcJson},
                 {"machineCode",txtMachineCode.Text } };
            
             txtCode.Text = SoftSecurity.MD5Encrypt(sourceJObjectobj.ToString(), txtKey.Text);
 
-          
-            
+           
         }
 
         private void GetFuncs(TreeNodeCollection nodes,Dictionary<string,string>func)
@@ -137,6 +156,7 @@ namespace Register
         private void frmRegister_Load(object sender, EventArgs e)
         {
             cmbSoftName.SelectedIndex = 0;
+            dateTimeExpire.Value=DateTime.Now;
             //cmbSoftVersion.SelectedIndex = 0;
             _nodeUtil = new NodeUtil(treeView1);
         }

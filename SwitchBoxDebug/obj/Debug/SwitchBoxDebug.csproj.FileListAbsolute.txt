@@ -14,3 +14,4 @@ D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.exe
 D:\gitProjects\HPMS\SwitchBoxDebug\obj\Debug\SwitchBoxDebug.pdb
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\VirtualSwitch.dll
 D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\VirtualSwitch.pdb
+D:\gitProjects\HPMS\SwitchBoxDebug\bin\Debug\WindowsFormsControlLibrary1.dll

@@ -153,6 +153,9 @@ namespace HPMS.Config
 
         public string KeyPoint { set; get; }
 
+        public bool Srevert { set; get; }
+        public bool Trevert { set; get; }
+
 
       
     }

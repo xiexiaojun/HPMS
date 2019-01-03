@@ -36,11 +36,12 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.dateTimeExpire = new System.Windows.Forms.DateTimePicker();
+            this.chkDateType = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.btnCalcuCode = new DevComponents.DotNetBar.ButtonX();
             this.btnGetMachineCode = new DevComponents.DotNetBar.ButtonX();
             this.txtKey = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.cmbSoftVersion = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.cmbSoftName = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem1 = new DevComponents.Editors.ComboItem();
@@ -153,11 +154,12 @@
             // 
             // tabControlPanel1
             // 
+            this.tabControlPanel1.Controls.Add(this.dateTimeExpire);
+            this.tabControlPanel1.Controls.Add(this.chkDateType);
             this.tabControlPanel1.Controls.Add(this.btnCalcuCode);
             this.tabControlPanel1.Controls.Add(this.btnGetMachineCode);
             this.tabControlPanel1.Controls.Add(this.txtKey);
             this.tabControlPanel1.Controls.Add(this.labelX4);
-            this.tabControlPanel1.Controls.Add(this.cmbSoftVersion);
             this.tabControlPanel1.Controls.Add(this.labelX3);
             this.tabControlPanel1.Controls.Add(this.cmbSoftName);
             this.tabControlPanel1.Controls.Add(this.labelX2);
@@ -178,6 +180,27 @@
             this.tabControlPanel1.Style.GradientAngle = 90;
             this.tabControlPanel1.TabIndex = 1;
             this.tabControlPanel1.TabItem = this.tabItem3;
+            // 
+            // dateTimeExpire
+            // 
+            this.dateTimeExpire.Location = new System.Drawing.Point(80, 99);
+            this.dateTimeExpire.Name = "dateTimeExpire";
+            this.dateTimeExpire.Size = new System.Drawing.Size(107, 21);
+            this.dateTimeExpire.TabIndex = 74;
+            // 
+            // chkDateType
+            // 
+            this.chkDateType.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.chkDateType.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkDateType.Location = new System.Drawing.Point(224, 96);
+            this.chkDateType.Name = "chkDateType";
+            this.chkDateType.Size = new System.Drawing.Size(54, 26);
+            this.chkDateType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkDateType.TabIndex = 73;
+            this.chkDateType.Text = "长期";
             // 
             // btnCalcuCode
             // 
@@ -228,18 +251,6 @@
             this.labelX4.TabIndex = 65;
             this.labelX4.Text = "秘钥";
             // 
-            // cmbSoftVersion
-            // 
-            this.cmbSoftVersion.DisplayMember = "Text";
-            this.cmbSoftVersion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbSoftVersion.FormattingEnabled = true;
-            this.cmbSoftVersion.ItemHeight = 15;
-            this.cmbSoftVersion.Location = new System.Drawing.Point(80, 99);
-            this.cmbSoftVersion.Name = "cmbSoftVersion";
-            this.cmbSoftVersion.Size = new System.Drawing.Size(107, 21);
-            this.cmbSoftVersion.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbSoftVersion.TabIndex = 63;
-            // 
             // labelX3
             // 
             this.labelX3.BackColor = System.Drawing.Color.Transparent;
@@ -251,7 +262,7 @@
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(44, 21);
             this.labelX3.TabIndex = 62;
-            this.labelX3.Text = "版本";
+            this.labelX3.Text = "到期";
             // 
             // cmbSoftName
             // 
@@ -556,7 +567,6 @@
         private DevComponents.DotNetBar.ButtonX btnGetMachineCode;
         private DevComponents.DotNetBar.Controls.TextBoxX txtKey;
         private DevComponents.DotNetBar.LabelX labelX4;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbSoftVersion;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbSoftName;
         private DevComponents.DotNetBar.LabelX labelX2;
@@ -575,6 +585,8 @@
         private DevComponents.DotNetBar.ButtonX btnDelnode;
         private DevComponents.Editors.ComboItem comboItem1;
         private System.Windows.Forms.TreeView treeView1;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkDateType;
+        private System.Windows.Forms.DateTimePicker dateTimeExpire;
 
 
     }

@@ -31,6 +31,8 @@ namespace HPMS.Core
         public ItemType ItemType { set; get; }
         public List<TdrParam>TdrParams { set; get; }
         public Dictionary<string,float[]>KeyPoint { set; get; }
+        public bool Sreverse { set; get; }
+        public bool Treverse { set; get; }
     }
 
     /// <summary>
@@ -131,20 +133,41 @@ namespace HPMS.Core
                 plotData temp = new plotData();
                 List<float> x = new List<float>();
                 List<float> y = new List<float>();
-                for (int j = 0; j < frePoints; j++)
+                string itemName = dt.Columns[i].ColumnName.ToString().ToUpper();
+                if (itemName.Contains("OFFSET"))
                 {
-                    var cellValue = dt.Rows[j][i];
-                    if (!(cellValue is DBNull))
+                    for (int j = 0; j < frePoints; j++)
                     {
-                    
+                        var cellValue = dt.Rows[j][i];
                         x.Add(float.Parse((string)dt.Rows[j][0]));
-                        
-                        y.Add(float.Parse((string)cellValue));
+                        if (!(cellValue is DBNull))
+                        {
+                            y.Add(float.Parse((string)cellValue));
+                        }
+                        else
+                        {
+                            y.Add(0);
+                        }
                     }
                 }
+                else
+                {
+                    for (int j = 0; j < frePoints; j++)
+                    {
+                        var cellValue = dt.Rows[j][i];
+                        if (!(cellValue is DBNull))
+                        {
+
+                            x.Add(float.Parse((string)dt.Rows[j][0]));
+
+                            y.Add(float.Parse((string)cellValue));
+                        }
+                    }
+                }
+               
                 temp.xData = x.ToArray();
                 temp.yData = y.ToArray();
-                ret.Add(dt.Columns[i].ColumnName.ToString().ToUpper(), temp);
+                ret.Add(itemName, temp);
             }
             plotData[] tdd1 = GetTddSpec(pnProject.Tdd11);
             plotData[] tdd2 = GetTddSpec(pnProject.Tdd22);

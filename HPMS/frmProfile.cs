@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
@@ -10,7 +9,6 @@ using HPMS.Config;
 using HPMS.DB;
 using HPMS.Log;
 using HPMS.Util;
-using NationalInstruments.Restricted;
 using Newtonsoft.Json;
 using Tool;
 using _32p_analyze;
@@ -74,9 +72,18 @@ namespace HPMS
             {
                 tab.Text = "";
             }
-            tableLayoutPanel1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel1, true, null);
-            tableLayoutPanel2.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel2, true, null);
-            tableLayoutPanel4.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(tableLayoutPanel4, true, null);
+            tableLayoutPanel1.GetType()
+                .GetProperty("DoubleBuffered",
+                    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                .SetValue(tableLayoutPanel1, true, null);
+            tableLayoutPanel2.GetType()
+                .GetProperty("DoubleBuffered",
+                    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                .SetValue(tableLayoutPanel2, true, null);
+            tableLayoutPanel4.GetType()
+                .GetProperty("DoubleBuffered",
+                    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
+                .SetValue(tableLayoutPanel4, true, null);
 
             cmb_ILDSpec.SelectedIndex = 0;
         }
@@ -92,9 +99,9 @@ namespace HPMS
             ButtonItem button = sender as ButtonItem;
             if (button == null)
                 return;
-
-            tabControl1.SelectTab("tabPage_" + button.Text);
-        }
+            string btnName = button.Name;
+            tabControl1.SelectTab("tabPage_" + btnName.Substring(3,btnName.Length-3));
+           }
 
        
        
@@ -243,6 +250,10 @@ namespace HPMS
                 pnProject.CalFilePath = txt_CalFilePath.Text;
                 pnProject.KeyPoint = GetKeypoint();
 
+                pnProject.Srevert = chkSRevert.Checked;
+                pnProject.Trevert = chkTRevert.Checked;
+
+
                 string msg = "";
                 if (ProjectHelper.Find(pnProject.Pn) != null)
                 {
@@ -348,6 +359,8 @@ namespace HPMS
             cmbPower.SelectedIndex = cmbPower.FindString(pnProject.Power);
             SetKeypoint(pnProject.KeyPoint);
 
+            chkSRevert.Checked = pnProject.Srevert;
+            chkTRevert.Checked = pnProject.Trevert;
 
 
         }
@@ -560,13 +573,7 @@ namespace HPMS
 
         private bool DeleteProfile(string pn)
         {
-
-
             return ProjectDao.Delete(pn);
-
-
-
-
 
         }
 
@@ -616,7 +623,7 @@ namespace HPMS
 
         private void chkDBMode_CheckedChanged(object sender, EventArgs e)
         {
-            ProjectDao.DbMode = chkDBMode.Checked;
+           // Gloabal.SetDb(chkDBMode.Checked);
         }
 
         private void btnBrowseCalFile_Click(object sender, EventArgs e)

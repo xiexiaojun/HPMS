@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Power_Switch_User_128px_1064151_easyicon.net.ico" />
+    <None Include="Resources\LUXSHARE-ICT LOGO%28透明底%29400x90.png" />
     <Content Include="switchBox.ico" />
     <Content Include="switchwidget_72px_1106726_easyicon.net.ico" />
     <Content Include="switch_straight_72px_518181_easyicon.net.ico" />

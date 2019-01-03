@@ -63,8 +63,8 @@
   </Tdr>
   <DiffPair>
     <string>TX1</string>
-	<string>RX1</string>
 	<string>TX2</string>
+	<string>RX1</string>
 	<string>RX2</string>
 	<string>TX3</string>
 	<string>RX3</string>

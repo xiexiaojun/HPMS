@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
 using HPMS.Config;
@@ -23,6 +24,7 @@ namespace HPMS
             SetTooltip();
             SetAdapterPorts();
             HardwareLoad();
+
         }
 
        
@@ -119,8 +121,8 @@ namespace HPMS
 
         private void frmSetting_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Hide();
-            e.Cancel = true;
+            //Hide();
+            //e.Cancel = true;
         }
 
         private void FolderBrowseCallback( Action<string> action)
@@ -144,7 +146,8 @@ namespace HPMS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
+            //Hide();
         }
        
 

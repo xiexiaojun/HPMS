@@ -11,7 +11,7 @@ using Size = System.Drawing.Size;
 
 namespace HPMS
 {
-    public partial class frmAdmin : Office2007Form
+    public partial class frmAdmin : Office2007Muti
     {
        
         private User _curretUser;

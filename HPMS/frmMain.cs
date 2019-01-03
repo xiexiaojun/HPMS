@@ -30,27 +30,25 @@ namespace HPMS
     public partial class frmMain : Office2007Form
     {
        
-        frmHardwareSetting _frmHardwareSetting;
+       // frmHardwareSetting _frmHardwareSetting;
         frmProfile _frmProfile;
         private Dictionary<string,ToolStripMenuItem>styleItems=new Dictionary<string, ToolStripMenuItem>();
         private Theme _theme=new Theme();
         SoftAuthorize softAuthorize = new SoftAuthorize();
         private bool _regFlag = false;
-        private User currentUser;
+        private User _currentUser;
         private AChart _aChart = null;
-        private Dictionary<string, object> chartDic = new Dictionary<string, object>();
-        private bool _pnChange = false;
+        private readonly Dictionary<string, object> _chartDic = new Dictionary<string, object>();
         private Project _curretnProject;
         private Hardware _hardware;
         private TestConfig[] _testConfigs=new TestConfig[4];//3类测试项目参数,直通，近串，远串
         private ISwitch _switch;
         private NetworkAnalyzer _iAnalyzer;
         private Dictionary<string, plotData> _spec = new Dictionary<string, plotData>();//规格线
-
         private FormUi _formUi;
-        private Dictionary<string,Dictionary<string,KeyPoint>> _keyPointValue=new Dictionary<string, Dictionary<string, KeyPoint>>();
-        private Dictionary<string,float[]>_keyPoint=new Dictionary<string, float[]>();
-        private Dictionary<string,string>_information=new Dictionary<string, string>();
+        
+        private readonly Dictionary<string,float[]>_keyPoint=new Dictionary<string, float[]>();//关键频点
+        private readonly Dictionary<string,string>_information=new Dictionary<string, string>();//报告信息
         
        
         
@@ -60,11 +58,8 @@ namespace HPMS
         public frmMain()
         {
             Splasher.Status = "正在载入";
-            Thread.Sleep(2500);
-            
-
+            Thread.Sleep(1000);
             Splasher.Close();
-           
             EnableGlass = false;
             InitializeComponent();
             GetThemeDic();
@@ -86,49 +81,6 @@ namespace HPMS
             var msgSourceFile = toolStripMenuItem.Text == "中文" ? null : "Resources/lang/englishMsg.json";
             LanguageHelper.SetResources(languangeSourceFile, msgSourceFile);
             foreach (Control VARIABLE in Controls) LanguageHelper.SetControlLanguageText(VARIABLE);
-        }
-
-
-      
-
-        private ToolStripMenuItem AddContextMenu(string text, ToolStripItemCollection cms, EventHandler callback)
-        {
-            if (text == "-")
-            {
-                var tsp = new ToolStripSeparator();
-                cms.Add(tsp);
-                return null;
-            }
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                var tsmi = new ToolStripMenuItem(text);
-                tsmi.Tag = text + "TAG";
-                if (callback != null) tsmi.Click += callback;
-                cms.Add(tsmi);
-                return tsmi;
-            }
-
-            return null;
-        }
-        private void FastProfileClicked(object sender, EventArgs e)
-        {
-            var styleClickedItem = (ToolStripMenuItem)sender;
-            ToolStripMenuItem parentItem = (ToolStripMenuItem)styleClickedItem.OwnerItem;
-            //bool fastProfileEnabled=toolStripMenuItem_ProfilePNEnable.Checked ;
-            foreach (var variable in parentItem.DropDownItems)
-            {
-                if (!(variable is ToolStripSeparator))
-                {
-                    ToolStripMenuItem childItem = (ToolStripMenuItem)variable;
-                    childItem.Checked = false;
-                }
-               
-            }
-            //SetBrotherMenuStatus(sender, false);
-            //toolStripMenuItem_ProfilePNEnable.Checked = fastProfileEnabled;
-            styleClickedItem.Checked = true;
-            MessageBox.Show(styleClickedItem.Text);
         }
 
 
@@ -217,17 +169,8 @@ namespace HPMS
         private void m_Set_hardware_Click(object sender, EventArgs e)
         {
           
-
-            if (_frmHardwareSetting == null || _frmHardwareSetting.IsDisposed)
-            {
-                _frmHardwareSetting = new frmHardwareSetting {StartPosition = FormStartPosition.CenterParent};
-                _frmHardwareSetting.ShowDialog();
-            }
-            else
-            {
-                _frmHardwareSetting.WindowState = FormWindowState.Normal;
-                _frmHardwareSetting.ShowDialog();
-            }
+            frmHardwareSetting frmHardwareSetting = new frmHardwareSetting();
+            frmHardwareSetting.ShowDialog();
            
         }
 
@@ -282,36 +225,37 @@ namespace HPMS
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
-            Ini();
-         
-        }
+           Ini();
+         }
 
         private void Ini()
         {
-            //清空测试结果
-            SetResult("");
-            btnTest.Enabled = false;
-            RegisterLoginCheck();
+           
+            if(!RegisterCheck())
+                return;
+            if(!LoginCheck())
+                return;
+            ResetUi();
             LoadTheme();
             SetStatusBar();
             SetUiAction();
         }
 
-        /// <summary>
-        /// registration & login check
-        /// </summary>
-        private void RegisterLoginCheck()
+        private void ResetUi()
         {
-            #region register check
+            //清空测试结果
+            SetResult("");
+            btnTest.Enabled = false;
+        }
 
-
-            string softVersion = "";
+        private bool RegisterCheck()
+        {
+            string msg = "";
             // 检测激活码是否正确，没有文件，或激活码错误都算作激活失败
-            if (!Resiter.IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref softVersion))
+            if (!Resiter.IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref Gloabal.SoftVersion, ref Gloabal.ExpireDate, ref msg))
             {
                 // 显示注册窗口
-
+                Ui.MessageBoxMuti(msg);
                 using (frmRegist form =
                     new frmRegist())
                 {
@@ -327,47 +271,40 @@ namespace HPMS
                     Application.Exit();
                     Application.Restart();
                     Process.GetCurrentProcess().Kill();
+                    return false;
 
                 }
-                else
-                {
-                    Close();
-                }
+
+                Close();
+                return false;
 
             }
 
+            return true;
 
 
-            #endregion
+        }
 
-            #region Login check
-
-            else
-            {
-                using (frmLogin _frmLogin = new frmLogin(softVersion))
+        private bool LoginCheck()
+        {
+                using (frmLogin _frmLogin = new frmLogin())
                 {
                     if (_frmLogin.ShowDialog() != DialogResult.OK)
                     {
-                        currentUser = _frmLogin.User;
-                        GetUserRights(softVersion);
+                        _currentUser = _frmLogin.User;
+                        GetUserRights(Gloabal.SoftVersion);
+                        return true;
                     }
-                    else
-                    {
-                        Close();
-                        return;
-                    }
+
+                    Close();
+                    return false;
 
                 }
-
-            }
-
-            #endregion
         }
-
+       
         private void SetStatusBar()
         {
-
-            toolStripStatusLabelUser.Text = "user:" + currentUser.Username + "  role:" + currentUser.Role;
+            toolStripStatusLabelUser.Text = "user:" + _currentUser.Username + "  role:" + _currentUser.Role;
             toolStripStatusLabelDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
 
@@ -376,9 +313,9 @@ namespace HPMS
             JObject tempJObject = JObject.Parse(softVersion);
 
             List<string> funcList = tempJObject.Properties().Select(t => t.Name).ToList();
-            funcList.AddRange(currentUser.Rights.Select(t => t.Key).ToList());
+            funcList.AddRange(_currentUser.Rights.Select(t => t.Key).ToList());
             Thread.CurrentPrincipal =
-                new GenericPrincipal(new GenericIdentity(currentUser.Username, currentUser.Role),
+                new GenericPrincipal(new GenericIdentity(_currentUser.Username, _currentUser.Role),
                     funcList.ToArray());
         }
 
@@ -391,7 +328,7 @@ namespace HPMS
         private void m_Set_user_Click(object sender, EventArgs e)
         {
             using (frmAdmin form =
-                new frmAdmin(currentUser))
+                new frmAdmin(_currentUser))
             {
                 form.ShowDialog();
             
@@ -402,7 +339,8 @@ namespace HPMS
         private void SiTest()
         {
             SITest _siTest = new SITest(_switch, _iAnalyzer,_information);
-            AddStatus("测试开始");
+            string msg = "";
+          
             Savepath savepath=new Savepath();
             if (!SetTestFilePath(ref savepath))
             {
@@ -410,7 +348,7 @@ namespace HPMS
             }
             ControlSafe.SetcontrolEnable(btnTest,false);
             ControlSafe.ClearListview(lsvKeyPoint);
-            _siTest.DoTest(_testConfigs, chartDic, _aChart, _formUi, _spec,_keyPoint, savepath);
+            _siTest.DoTest(_testConfigs, _chartDic, _aChart, _formUi, _spec,_keyPoint, savepath);
             ControlSafe.SetcontrolEnable(btnTest, true);
         }
 
@@ -502,22 +440,22 @@ namespace HPMS
             foreach (var VARIABLE in pnProject.Diff)
             {
                 object chart = _aChart.ChartAdd(VARIABLE);
-                chartDic.Add(VARIABLE, chart);
+                _chartDic.Add(VARIABLE, chart);
             }
             foreach (var VARIABLE in pnProject.Tdr)
             {
                 object chart = _aChart.ChartAdd(VARIABLE);
-                chartDic.Add(VARIABLE, chart);
+                _chartDic.Add(VARIABLE, chart);
             }
             foreach (var VARIABLE in pnProject.NextPair)
             {
                 object chart = _aChart.ChartAdd(VARIABLE);
-                chartDic.Add(VARIABLE, chart);
+                _chartDic.Add(VARIABLE, chart);
             }
             foreach (var VARIABLE in pnProject.FextPair)
             {
                 object chart = _aChart.ChartAdd(VARIABLE);
-                chartDic.Add(VARIABLE, chart);
+                _chartDic.Add(VARIABLE, chart);
             }
         }
         
@@ -528,9 +466,8 @@ namespace HPMS
       
         private void PnChangeHandle(string pn)
         {
-            btnTest.Enabled = false;
+            ResetUi();
             string msg = "";
-            btnTest.Enabled = false;
             _curretnProject = ProjectHelper.Find(pn);
             _hardware = (Hardware)LocalConfig.GetObjFromXmlFile("config\\hardware.xml", typeof(Hardware));
             if (_curretnProject == null)
@@ -578,12 +515,12 @@ namespace HPMS
         private void SetInformation()
         {
             _information.Clear();
-            _information.Add("application",currentUser.Username);
+            _information.Add("application",_currentUser.Username);
             _information.Add("partDescription",_curretnProject.Description);
             _information.Add("partNo",_curretnProject.Pn);
             _information.Add("fixtureSerialNo","No1");
-            _information.Add("preparedBy", currentUser.Username);
-            _information.Add("approvedBy", currentUser.Username);
+            _information.Add("preparedBy", _currentUser.Username);
+            _information.Add("approvedBy", _currentUser.Username);
             _information.Add("temprature","23");
             _information.Add("rHumidity","60");
             _information.Add("tdrModel","None");
@@ -593,7 +530,7 @@ namespace HPMS
 
         private void AddCharts()
         {
-            chartDic.Clear();
+            _chartDic.Clear();
 
             _aChart = new VsAChart(this.tabControlChart);
             _aChart.ChartClear();
@@ -602,7 +539,7 @@ namespace HPMS
                 foreach (var test in VARIABLE.AnalyzeItems)
                 {
                     object chart = _aChart.ChartAdd(test);
-                    chartDic.Add(test, chart); 
+                    _chartDic.Add(test, chart); 
                 }
             }
           

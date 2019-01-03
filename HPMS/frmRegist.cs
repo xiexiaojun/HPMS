@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using HPMS.RightsControl;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json.Linq;
 using Tool;
@@ -29,9 +30,12 @@ namespace HPMS
         private void btnRegist_Click(object sender, EventArgs e)
         {
             string softVersion = "";
-            if (IsAuthorize(txtMachineCode.Text, "HPTS", ref softVersion, txtCode.Text))
+            string expireDate = "";
+            string msg = "";
+            if (Resiter.IsAuthorize(txtCode.Text,txtMachineCode.Text ,"HPTS", ref softVersion,ref expireDate,ref msg ))
             {
-                MessageBoxEx.Show("注册成功"+Environment.NewLine+"您注册的是:"+softVersion+"版");
+                MessageBoxEx.Show("注册成功"+Environment.NewLine+"您注册的是:"
+                                  +softVersion+"版"+Environment.NewLine+"注册有效期:"+expireDate);
                 File.WriteAllText(Application.StartupPath + @"\license.lic", txtCode.Text);
 
                 _regFlag = true;
@@ -43,25 +47,7 @@ namespace HPMS
             }
            }
 
-        private bool IsAuthorize(string machineCode,string softName,ref string softVersion,string regCode)
-        {
-            bool ret = false;
-            string regJson = SoftSecurity.MD5Decrypt(regCode, "bayuejun");
-            try
-            {
-                JObject tempJObject = JObject.Parse(regJson.ToString());
-                ret= (tempJObject.Property("machineCode").Value.ToString() == machineCode)||
-                     tempJObject.Property("softName").Value.ToString() == machineCode;
-                softVersion = tempJObject.Property("softVersion").Value.ToString();
-            }
-            catch (Exception e)
-            {
-              
-            }
-
-            return ret;
-        }
-
+       
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();

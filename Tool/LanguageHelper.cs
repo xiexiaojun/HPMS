@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -13,16 +14,49 @@ namespace Tool
 {
     public class LanguageHelper
     {
+        public enum LanCode
+        {
+            Chinese,
+            English
+        }
+
+        private static Font _font;
+       
         private static Dictionary<string, string> resources=new Dictionary<string, string>();//界面语言资源
         private static Dictionary<string,string> msgResources=new Dictionary<string, string>();//消息语言资源,只有英文，代码里面是中文
+
+        public static Font GetFont()
+        {
+            return _font;
+        }
+
 
         public static void SetResources(string resourceFileName,string msgFileName)
         {
             resources.Clear();
             var content = File.ReadAllText(resourceFileName, Encoding.UTF8);
+            if (resourceFileName.Contains("中文"))
+            {
+                _font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+            else
+            {
+                _font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
             if (!string.IsNullOrEmpty(content))
             {
                 var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);
+                //Dictionary<string,string>chinese=new Dictionary<string, string>();
+                //Dictionary<string, string> english = new Dictionary<string, string>();
+                //int i = 1;
+                //foreach (string key in dict.Keys)
+                //{
+                //    chinese.Add(i.ToString(),key);
+                //    english.Add(i.ToString(),dict[key]);
+                //    i++;
+                //}
+                //File.WriteAllText("B:\\chinese.txt",JsonConvert.SerializeObject(chinese));
+                //File.WriteAllText("B:\\english.txt", JsonConvert.SerializeObject(english));
                 foreach (string key in dict.Keys)
                 {
                     //遍历集合如果语言资源键值不存在，则创建，否则更新
@@ -106,7 +140,7 @@ namespace Tool
                 catch (Exception)
                 { }
             }
-            if (ctrl is MenuStrip)
+            else if (ctrl is MenuStrip)
             {
                 MenuStrip menuStrip = (MenuStrip)ctrl;
                 try
@@ -211,6 +245,18 @@ namespace Tool
                 catch (Exception)
                 { }
             }
+            else if(ctrl is ItemPanel)
+            {
+                ItemPanel itemPanel = (ItemPanel) ctrl;
+                foreach (var btnItem in itemPanel.Items)
+                {
+                    var btn = btnItem as ButtonItem;
+                    if (btn != null)
+                    {
+                        btn.Text = GetLanguageText(btn.Text);
+                    }
+                }
+            }
             else
             {
                 SetLanguage(ctrl);
@@ -252,6 +298,7 @@ namespace Tool
                     try
                     {
                         checkBoxX.Text = GetLanguageText(checkBoxX.Text);
+
                     }
                     catch (Exception)
                     {
@@ -280,6 +327,18 @@ namespace Tool
                     {
                     }
                 }
+                else if (ctrl is TextBoxX)
+                {
+                    TextBoxX textBoxX = (TextBoxX)ctrl;
+                    try
+                    {
+                        textBoxX.WatermarkText = GetLanguageText(textBoxX.WatermarkText);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+
 
                 else if (ctrl is Button)
                 {
@@ -331,6 +390,22 @@ namespace Tool
                     try
                     {
                         radioButton.Text = GetLanguageText(radioButton.Text);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                else if (ctrl is ListView)
+                {
+                    ListView listView = (ListView)ctrl;
+                    try
+                    {
+                        foreach (var variable in listView.Columns)
+                        {
+                            ColumnHeader columnHeader=variable as ColumnHeader;
+                            if (columnHeader != null) columnHeader.Text = GetLanguageText(columnHeader.Text);
+                        }
+                     
                     }
                     catch (Exception)
                     {
