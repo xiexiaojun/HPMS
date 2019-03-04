@@ -56,7 +56,7 @@ namespace HPMS.RightsControl
         /// <returns></returns>
         public static bool IsAuthorize(string regCode,string machineCode, string softName, ref string softVersion,ref string expireDate,ref string msg)
         {
-            //string regCode = ReadCode();
+          
             bool ret = false;
 
             try
@@ -64,8 +64,21 @@ namespace HPMS.RightsControl
                 string regJson = SoftSecurity.MD5Decrypt(regCode, "bayuejun");
                 JObject regJObject = JObject.Parse(regJson);
                 softVersion = regJObject.Property("softVersion").Value.ToString();
-                if (regJObject.ContainsKey("lic"))
+
+                string regMachineCode = regJObject.Property("machineCode").Value.ToString();
+                if (regMachineCode != machineCode)
                 {
+                    msg = "机器码错误";
+                    return false;
+                }
+
+                if (!regJObject.ContainsKey("lic"))
+                {
+                    //兼容未加入时间限制时的许可证处理
+                    expireDate = "长期";
+                    return true;
+                }
+
                     JObject dateJObject = (JObject)regJObject.Property("lic").Value;
                     bool dateType = (bool)dateJObject.Property("dateType").Value;
                     if (dateType)
@@ -90,22 +103,9 @@ namespace HPMS.RightsControl
                             expireDate = expireDateTime.ToString("yyyy-MM-dd");
                             ret = true;
                         }
-                        else
-                        {
-                            //许可到期
-                            ret = false;
-                           }
+                       
                     }
-                }
-                else
-                {
-                    //兼容未加入时间限制时的许可证处理
-                    ret = (regJObject.Property("machineCode").Value.ToString() == machineCode) ||
-                          regJObject.Property("softName").Value.ToString() == machineCode;
-                    
-                    expireDate = "长期";
-                }
-              
+               
                 
             }
             catch (Exception e)

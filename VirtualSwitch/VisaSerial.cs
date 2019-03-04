@@ -30,6 +30,7 @@ namespace VirtualSwitch
                     if (serialSession == null || serialSession.ResourceName != visaAddress)
                     {
                         serialSession = (SerialSession)ResourceManager.GetLocalManager().Open(visaAddress, AccessModes.NoLock, 0);
+                        //serialSession.Dispose();
                     }
                     ret = SetSerial(serialSession, ret);
                     ret = FlushIO(serialSession, ret);

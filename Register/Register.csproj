@@ -122,6 +122,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\customerControl\CustomerControl.csproj">
+      <Project>{1F54E8E0-A325-479B-A80E-D5841BF4BD53}</Project>
+      <Name>CustomerControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tool\Tool.csproj">
       <Project>{5809ce1d-e066-4c45-9125-20da17b0e212}</Project>
       <Name>Tool</Name>

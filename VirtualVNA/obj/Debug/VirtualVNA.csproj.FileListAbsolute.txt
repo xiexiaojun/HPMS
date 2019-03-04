@@ -1,7 +1,0 @@
-D:\gitProjects\HPMS\VirtualVNA\bin\Debug\VirtualVNA.dll
-D:\gitProjects\HPMS\VirtualVNA\bin\Debug\VirtualVNA.pdb
-D:\gitProjects\HPMS\VirtualVNA\bin\Debug\VirtualSwitch.dll
-D:\gitProjects\HPMS\VirtualVNA\bin\Debug\VirtualSwitch.pdb
-D:\gitProjects\HPMS\VirtualVNA\obj\Debug\VirtualVNA.csprojResolveAssemblyReference.cache
-D:\gitProjects\HPMS\VirtualVNA\obj\Debug\VirtualVNA.dll
-D:\gitProjects\HPMS\VirtualVNA\obj\Debug\VirtualVNA.pdb

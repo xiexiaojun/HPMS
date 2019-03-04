@@ -93,9 +93,19 @@ namespace HPMS.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap LUXSHARE_ICT_LOGO_透明底_400x90 {
+        internal static System.Drawing.Bitmap logo_isamtec {
             get {
-                object obj = ResourceManager.GetObject("LUXSHARE-ICT LOGO(透明底)400x90", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_isamtec", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_luxshare {
+            get {
+                object obj = ResourceManager.GetObject("logo_luxshare", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,16 +156,6 @@ namespace HPMS.Properties {
         internal static System.Drawing.Bitmap 图片2 {
             get {
                 object obj = ResourceManager.GetObject("图片2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap 微信图片_20181215221604 {
-            get {
-                object obj = ResourceManager.GetObject("微信图片_20181215221604", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

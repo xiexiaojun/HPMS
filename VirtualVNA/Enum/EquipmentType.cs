@@ -11,6 +11,7 @@
     {
         Demo,
         MCU,
+        Manual
      }
 
     public enum Adapter

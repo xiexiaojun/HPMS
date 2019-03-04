@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using HPMS.Config;
@@ -8,6 +9,7 @@ using HPMS.Draw;
 using HPMS.Util;
 using Newtonsoft.Json;
 using Tool;
+using _32p_analyze;
 
 namespace HPMS.Core
 {
@@ -33,6 +35,7 @@ namespace HPMS.Core
         public Dictionary<string,float[]>KeyPoint { set; get; }
         public bool Sreverse { set; get; }
         public bool Treverse { set; get; }
+        public IldSpec IldSpec { set; get; }
     }
 
     /// <summary>
@@ -247,12 +250,16 @@ namespace HPMS.Core
             }
             FileStream fs = new FileStream(filePath, FileMode.Create);
             StreamWriter sw = new StreamWriter(new BufferedStream(fs), System.Text.Encoding.Default);
+            System.Globalization.NumberFormatInfo numberFormatInfo =
+                (System.Globalization.NumberFormatInfo)System.Globalization.NumberFormatInfo.CurrentInfo.Clone();
+            numberFormatInfo.NaNSymbol = "NaN";
             string header = "TDD11_UPPER\tTDD11_LOWER\tTDD22_UPPER\tTDD22_LOWER" + Environment.NewLine;
             sw.Write(header);
             int length = tdd11[0].yData.Length;
             for (int i = 0; i < length; i++)
             {
-                string line = tdd11[0].yData[i] + "\t" + tdd11[1].yData[i] + "\t" + tdd22[0].yData[i] + "\t" + tdd22[1].yData[i] +
+                string line = tdd11[0].yData[i].ToString(numberFormatInfo) + "\t" + tdd11[1].yData[i].ToString(numberFormatInfo)
+                              + "\t" + tdd22[0].yData[i].ToString(numberFormatInfo) + "\t" + tdd22[1].yData[i].ToString(numberFormatInfo) +
                               Environment.NewLine;
                 sw.Write(line);
               
@@ -284,7 +291,13 @@ namespace HPMS.Core
 
             List<float> x = new List<float>();
             List<float> y = new List<float>();
-            double pointX = upperPoint1;
+            double pointX = 0;
+            while (pointX < upperPoint1)
+            {
+                x.Add(float.Parse(pointX.ToString()));
+                y.Add(float.NaN);
+                pointX = pointX + step;
+            }
             while (pointX <= upperPoint2)
             {
                 x.Add(float.Parse(pointX.ToString()));
@@ -297,13 +310,25 @@ namespace HPMS.Core
                 y.Add(float.Parse(upperValue2.ToString()));
                 pointX = pointX + step;
             }
+            while (pointX <= tdrParam.EndTime+step/2)
+            {
+                x.Add(float.Parse(pointX.ToString()));
+                y.Add(float.NaN);
+                pointX = pointX + step;
+            }
 
             ret[0].xData = x.ToArray();
             ret[0].yData = y.ToArray();
 
             x.Clear();
             y.Clear();
-            pointX = lowerPoint1;
+            pointX = 0;
+            while (pointX < lowerPoint1)
+            {
+                x.Add(float.Parse(pointX.ToString()));
+                y.Add(float.NaN);
+                pointX = pointX + step;
+            }
             while (pointX <= lowerPoint2)
             {
                 x.Add(float.Parse(pointX.ToString()));
@@ -314,6 +339,12 @@ namespace HPMS.Core
             {
                 x.Add(float.Parse(pointX.ToString()));
                 y.Add(float.Parse(lowerValue2.ToString()));
+                pointX = pointX + step;
+            }
+            while (pointX <= tdrParam.EndTime + step / 2)
+            {
+                x.Add(float.Parse(pointX.ToString()));
+                y.Add(float.NaN);
                 pointX = pointX + step;
             }
             ret[1].xData = x.ToArray();

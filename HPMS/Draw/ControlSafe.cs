@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using DevComponents.DotNetBar.Controls;
+
 //using System.Linq;
 
 namespace HPMS.Draw
@@ -54,6 +56,25 @@ namespace HPMS.Draw
             {
                 listView.Items.Clear();
             }
+        }
+
+        public static void ClearChecked(CheckedListBox chkListBox)
+        {
+            if (chkListBox.InvokeRequired)
+            {
+
+                Action<CheckedListBox> dSetListbox = ClearChecked;
+                chkListBox.BeginInvoke(dSetListbox, new object[] { chkListBox });
+            }
+            else
+            {
+                foreach (int variable in chkListBox.CheckedIndices)
+                {
+                    chkListBox.SetItemChecked(variable, false);
+                }
+            }
+
+
         }
 
         private delegate void DSetListbox(ListBox listBox, string textValue);
@@ -134,6 +155,21 @@ namespace HPMS.Draw
             {
                 
                 temp = null;
+            }
+        }
+
+        public static void SetCheckbox(CheckBoxX checkBox, bool value)
+        {
+            if (checkBox.InvokeRequired)
+            {
+                Action<CheckBoxX, bool> setCheckboxAction = SetCheckbox;
+                //DSetListbox dSetListbox = SetListbox;
+                checkBox.BeginInvoke(setCheckboxAction, new object[] { checkBox, value });
+            }
+            else
+            {
+                checkBox.Checked = value;
+                //listBox.SelectedIndex = listBox.FindString(textValue);
             }
         }
 

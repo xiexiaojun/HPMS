@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Windows.Forms;
 using HPMS.Config;
 using HPMS.Core;
 using VirtualSwitch;
@@ -251,12 +252,12 @@ namespace HPMS.Equipment
             testConfigs[2] = testConfigFext;
             testConfigs[3] = testConfigLast;
 
-           
+            testConfigLoss.IldSpec = pnProject.Ild;
 
             return true;
         }
 
-        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref NetworkAnalyzer iNetworkAnalyzer, ref string msg)
+        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref NetworkAnalyzer iNetworkAnalyzer, ref string msg,Func<DialogResult>blockedMsg)
         {
             try
             {
@@ -268,13 +269,16 @@ namespace HPMS.Equipment
                     case SwitchBox.Demo:
                         iswitch = new SwitchDemo();
                         break;
+                    case SwitchBox.Manual:
+                        iswitch = new SwitchManual((Func<DialogResult>);
+                        break;
                 }
 
 
                 switch (hardware.Analyzer)
                 {
                     case VirtualVNA.Enum.NetworkAnalyzer.Demo:
-                        iNetworkAnalyzer = new DemoAnalyzer();
+                        iNetworkAnalyzer = new DemoAnalyzer(iswitch, hardware.VisaNetWorkAnalyzer, hardware.AnalyzerResponseTime);
                         break;
                     case VirtualVNA.Enum.NetworkAnalyzer.N5224A:
                         iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer,hardware.AnalyzerResponseTime);

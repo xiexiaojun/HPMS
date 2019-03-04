@@ -1,3 +1,20 @@
 ﻿{
-	"增加角色成功": "add role succese"
+	"增加角色成功": "add role succese",
+	"成功找到对应的料号档案": "Find pn project success",
+	"未能找到对应的料号档案": "Find pn project fail",
+	"测试开始": "Test start",
+	"清除图形": "Clear chart",
+	"直通测试开始": "THUR test start",
+	"文件生成成功": "file create success",
+	"路径": "path",
+	"写入成功": "save success",
+	"分析": "analyze",
+	"文件": "file",
+	"完毕": "finished",
+	"近串测试开始": "NEXT test start",
+	"远串测试开始": "FEXT test start",
+	"测试结束": "test finished",
+	"测试用时": "test time count:",
+	"不存在": "not exist"
+
 }

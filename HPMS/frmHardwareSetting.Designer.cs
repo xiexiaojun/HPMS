@@ -63,6 +63,7 @@
             this.labelX41 = new DevComponents.DotNetBar.LabelX();
             this.btnBrowseSnp = new DevComponents.DotNetBar.ButtonX();
             this.txtSnpSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.comboItem7 = new DevComponents.Editors.ComboItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSwtRespTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).BeginInit();
@@ -220,10 +221,10 @@
             this.cmbAdpaterPort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbAdpaterPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAdpaterPort.FormattingEnabled = true;
-            this.cmbAdpaterPort.ItemHeight = 15;
+            this.cmbAdpaterPort.ItemHeight = 16;
             this.cmbAdpaterPort.Location = new System.Drawing.Point(165, 164);
             this.cmbAdpaterPort.Name = "cmbAdpaterPort";
-            this.cmbAdpaterPort.Size = new System.Drawing.Size(297, 21);
+            this.cmbAdpaterPort.Size = new System.Drawing.Size(297, 22);
             this.cmbAdpaterPort.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbAdpaterPort.TabIndex = 14;
             // 
@@ -236,14 +237,14 @@
             this.cmbNwaType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbNwaType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNwaType.FormattingEnabled = true;
-            this.cmbNwaType.ItemHeight = 15;
+            this.cmbNwaType.ItemHeight = 16;
             this.cmbNwaType.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2,
             this.comboItem5});
             this.cmbNwaType.Location = new System.Drawing.Point(25, 47);
             this.cmbNwaType.Name = "cmbNwaType";
-            this.cmbNwaType.Size = new System.Drawing.Size(116, 21);
+            this.cmbNwaType.Size = new System.Drawing.Size(116, 22);
             this.cmbNwaType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbNwaType.TabIndex = 5;
             // 
@@ -279,12 +280,12 @@
             this.cmbAdapterType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbAdapterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAdapterType.FormattingEnabled = true;
-            this.cmbAdapterType.ItemHeight = 15;
+            this.cmbAdapterType.ItemHeight = 16;
             this.cmbAdapterType.Items.AddRange(new object[] {
             this.comboItem4});
             this.cmbAdapterType.Location = new System.Drawing.Point(25, 164);
             this.cmbAdapterType.Name = "cmbAdapterType";
-            this.cmbAdapterType.Size = new System.Drawing.Size(116, 21);
+            this.cmbAdapterType.Size = new System.Drawing.Size(116, 22);
             this.cmbAdapterType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbAdapterType.TabIndex = 13;
             // 
@@ -310,13 +311,14 @@
             this.cmbSwitchBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbSwitchBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSwitchBox.FormattingEnabled = true;
-            this.cmbSwitchBox.ItemHeight = 15;
+            this.cmbSwitchBox.ItemHeight = 16;
             this.cmbSwitchBox.Items.AddRange(new object[] {
             this.comboItem3,
-            this.comboItem6});
+            this.comboItem6,
+            this.comboItem7});
             this.cmbSwitchBox.Location = new System.Drawing.Point(25, 101);
             this.cmbSwitchBox.Name = "cmbSwitchBox";
-            this.cmbSwitchBox.Size = new System.Drawing.Size(116, 21);
+            this.cmbSwitchBox.Size = new System.Drawing.Size(116, 22);
             this.cmbSwitchBox.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbSwitchBox.TabIndex = 9;
             // 
@@ -491,6 +493,10 @@
             this.txtSnpSaveFolder.Size = new System.Drawing.Size(441, 21);
             this.txtSnpSaveFolder.TabIndex = 3;
             // 
+            // comboItem7
+            // 
+            this.comboItem7.Text = "Manual";
+            // 
             // frmHardwareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -501,7 +507,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MaximizeBox = false;
             this.Name = "frmHardwareSetting";
             this.Text = "本地设置";
@@ -551,6 +556,7 @@
         private System.Windows.Forms.NumericUpDown numNwaRespTime;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.Editors.ComboItem comboItem7;
 
 
     }

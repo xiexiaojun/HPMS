@@ -70,6 +70,8 @@
             this.labelX44 = new DevComponents.DotNetBar.LabelX();
             this.tabPage_Project = new System.Windows.Forms.TabPage();
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
+            this.chkTRevert = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.chkSRevert = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
@@ -185,8 +187,6 @@
             this.btnBrowseReport = new DevComponents.DotNetBar.ButtonX();
             this.txt_ReportTempletePath = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.highlighter1 = new DevComponents.DotNetBar.Validator.Highlighter();
-            this.chkSRevert = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.chkTRevert = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -766,6 +766,38 @@
             this.panelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx3.Style.GradientAngle = 90;
             this.panelEx3.TabIndex = 0;
+            // 
+            // chkTRevert
+            // 
+            // 
+            // 
+            // 
+            this.chkTRevert.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkTRevert.Checked = true;
+            this.chkTRevert.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTRevert.CheckValue = "Y";
+            this.chkTRevert.Location = new System.Drawing.Point(192, 364);
+            this.chkTRevert.Name = "chkTRevert";
+            this.chkTRevert.Size = new System.Drawing.Size(92, 17);
+            this.chkTRevert.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkTRevert.TabIndex = 26;
+            this.chkTRevert.Text = "T参数对调";
+            // 
+            // chkSRevert
+            // 
+            // 
+            // 
+            // 
+            this.chkSRevert.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkSRevert.Checked = true;
+            this.chkSRevert.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSRevert.CheckValue = "Y";
+            this.chkSRevert.Location = new System.Drawing.Point(26, 364);
+            this.chkSRevert.Name = "chkSRevert";
+            this.chkSRevert.Size = new System.Drawing.Size(92, 17);
+            this.chkSRevert.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkSRevert.TabIndex = 25;
+            this.chkSRevert.Text = "S参数对调";
             // 
             // labelX6
             // 
@@ -2376,38 +2408,6 @@
             // 
             this.highlighter1.ContainerControl = this;
             this.highlighter1.FocusHighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
-            // 
-            // chkSRevert
-            // 
-            // 
-            // 
-            // 
-            this.chkSRevert.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkSRevert.Checked = true;
-            this.chkSRevert.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSRevert.CheckValue = "Y";
-            this.chkSRevert.Location = new System.Drawing.Point(26, 364);
-            this.chkSRevert.Name = "chkSRevert";
-            this.chkSRevert.Size = new System.Drawing.Size(92, 17);
-            this.chkSRevert.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chkSRevert.TabIndex = 25;
-            this.chkSRevert.Text = "S参数对调";
-            // 
-            // chkTRevert
-            // 
-            // 
-            // 
-            // 
-            this.chkTRevert.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkTRevert.Checked = true;
-            this.chkTRevert.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTRevert.CheckValue = "Y";
-            this.chkTRevert.Location = new System.Drawing.Point(192, 364);
-            this.chkTRevert.Name = "chkTRevert";
-            this.chkTRevert.Size = new System.Drawing.Size(92, 17);
-            this.chkTRevert.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chkTRevert.TabIndex = 26;
-            this.chkTRevert.Text = "T参数对调";
             // 
             // frmProfile
             // 

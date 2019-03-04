@@ -27,5 +27,9 @@
     "删除": "Delete",
 	"向导模式": "Wizard Mode",
 	"类型": "Type",
-	"近串": "NEXT"
+	"模式": "Mode",
+	"工具": "Tool",
+	"帮助文档": "Help File",
+	"关于 (HPMS)": "About (HPMS)"
+	
 }

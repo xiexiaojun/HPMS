@@ -192,6 +192,12 @@
     <Compile Include="frmHardwareSetting.Designer.cs">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrompt.Designer.cs">
+      <DependentUpon>frmPrompt.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPswModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +271,9 @@
     <EmbeddedResource Include="frmHardwareSetting.resx">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPrompt.resx">
+      <DependentUpon>frmPrompt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPswModify.resx">
       <DependentUpon>frmPswModify.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,6 +304,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
     <None Include="Resources\lang\englishMsg.json" />
+    <None Include="Resources\lang\staus.json" />
     <None Include="Resources\lang\中文.json">
       <Generator>ResXFileCodeGenerator</Generator>
     </None>
@@ -337,6 +347,10 @@
     <None Include="Resources\img\Image1.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\customerControl\CustomerControl.csproj">
+      <Project>{1F54E8E0-A325-479B-A80E-D5841BF4BD53}</Project>
+      <Name>CustomerControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tool\Tool.csproj">
       <Project>{5809ce1d-e066-4c45-9125-20da17b0e212}</Project>
       <Name>Tool</Name>
@@ -381,13 +395,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>@echo msgbox "[$(ProjectName)]生成已完成！"&gt;msg.vbs 
+@msg.vbs
+@del msg.vbs</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>mkdir $(ProjectDir)$(OutDir)Resources\lang;
-xcopy /e /r /y $(ProjectDir)Resources\lang $(ProjectDir)$(OutDir)Resources\lang;
-xcopy /e /r /y $(ProjectDir)Config $(ProjectDir)$(OutDir)Config</PreBuildEvent>
+    <PreBuildEvent>if not exist $(ProjectDir)$(OutDir)Resources\lang mkdir $(ProjectDir)$(OutDir)Resources\lang
+xcopy /e /r /y $(ProjectDir)Resources\lang $(ProjectDir)$(OutDir)Resources\lang
+xcopy /e /r /y $(ProjectDir)Config $(ProjectDir)$(OutDir)Config
+
+</PreBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net45\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

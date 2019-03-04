@@ -90,11 +90,11 @@ namespace HPMS
             this.chkList_NextPair = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.chkList_FextPair = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txt_PN = new System.Windows.Forms.TextBox();
             this.panelEx7 = new DevComponents.DotNetBar.PanelEx();
             this.chkStop = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.btnTest = new DevComponents.DotNetBar.ButtonX();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx6 = new DevComponents.DotNetBar.PanelEx();
             this.tabControlChart = new DevComponents.DotNetBar.TabControl();
@@ -107,7 +107,7 @@ namespace HPMS
             this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx4 = new DevComponents.DotNetBar.PanelEx();
             this.rTextStatus = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
-            this.labelResult = new DevComponents.DotNetBar.LabelX();
+            this.labelResult = new CustomerControl.BlinkLabel();
             this.pgbTest = new DevComponents.DotNetBar.Controls.ProgressBarX();
             this.panelEx5 = new DevComponents.DotNetBar.PanelEx();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -465,9 +465,9 @@ namespace HPMS
             this.tableLayoutPanel2.Controls.Add(this.txtSN, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.chkList_TestItem, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.tab_pair, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.txt_PN, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panelEx7, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // labelX2
@@ -504,6 +504,7 @@ namespace HPMS
             resources.ApplyResources(this.chkList_TestItem, "chkList_TestItem");
             this.chkList_TestItem.FormattingEnabled = true;
             this.chkList_TestItem.Name = "chkList_TestItem";
+            this.chkList_TestItem.SelectedIndexChanged += new System.EventHandler(this.chkList_TestItem_SelectedIndexChanged);
             // 
             // tab_pair
             // 
@@ -553,11 +554,6 @@ namespace HPMS
             this.chkList_FextPair.FormattingEnabled = true;
             this.chkList_FextPair.Name = "chkList_FextPair";
             // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
             // txt_PN
             // 
             resources.ApplyResources(this.txt_PN, "txt_PN");
@@ -599,6 +595,11 @@ namespace HPMS
             this.btnTest.Name = "btnTest";
             this.btnTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // panelEx2
             // 
@@ -766,8 +767,7 @@ namespace HPMS
             this.rTextStatus.Name = "rTextStatus";
             this.rTextStatus.ReadOnly = true;
             this.rTextStatus.Rtf = "{\\rtf1\\ansi\\ansicpg936\\deff0\\deflang1033\\deflangfe2052{\\fonttbl{\\f0\\fnil\\fcharset" +
-    "134 \\\'ce\\\'a2\\\'c8\\\'ed\\\'d1\\\'c5\\\'ba\\\'da;}}\r\n\\viewkind4\\uc1\\pard\\lang2052\\f0\\fs18\\pa" +
-    "r\r\n}\r\n";
+    "0 Arial;}}\r\n\\viewkind4\\uc1\\pard\\lang2052\\fs21\\par\r\n}\r\n";
             this.rTextStatus.TextChanged += new System.EventHandler(this.rTextStatus_TextChanged);
             // 
             // labelResult
@@ -776,9 +776,13 @@ namespace HPMS
             // 
             // 
             this.labelResult.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelResult.Blink = false;
+            this.labelResult.BlinkColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.labelResult, "labelResult");
+            this.labelResult.Interval = 1000;
             this.labelResult.Name = "labelResult";
             this.labelResult.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.labelResult.TextMove = false;
             // 
             // pgbTest
             // 
@@ -829,10 +833,7 @@ namespace HPMS
             // picLogoLeft
             // 
             resources.ApplyResources(this.picLogoLeft, "picLogoLeft");
-            this.picLogoLeft.Image = global::HPMS.Properties.Resources.LUXSHARE_ICT_LOGO_透明底_400x90;
-#if Publish
-            this.picLogoLeft.Image = global::HPMS.Properties.Resources.微信图片_20181215221604;
-#endif
+            this.picLogoLeft.Image = global::HPMS.Properties.Resources.logo_luxshare;
             this.picLogoLeft.Name = "picLogoLeft";
             this.picLogoLeft.TabStop = false;
             // 
@@ -914,7 +915,6 @@ namespace HPMS
         private ToolStripMenuItem 中文ToolStripMenuItem;
         private ToolStripMenuItem englishToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.RichTextBoxEx rTextStatus;
-        private DevComponents.DotNetBar.LabelX labelResult;
         private DevComponents.DotNetBar.Controls.ProgressBarX pgbTest;
         private ToolStripMenuItem 模式ToolStripMenuItem;
         private ToolStripMenuItem ToolStripMenuItem_Auto;
@@ -957,6 +957,7 @@ namespace HPMS
         private DevComponents.DotNetBar.ButtonX btnTest;
         private ToolStripMenuItem switchMatrixBoxToolStripMenuItem;
         private ToolStripMenuItem 帮助文档ToolStripMenuItem;
+        private CustomerControl.BlinkLabel labelResult;
 
     }
 }

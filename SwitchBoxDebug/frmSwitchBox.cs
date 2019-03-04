@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
-using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
-using WindowsFormsControlLibrary1;
+using CustomerControl;
 using Tool;
 using VirtualSwitch;
 
@@ -449,6 +448,8 @@ namespace SwitchBoxDebug
 
         private void btnExeSwitch_Click(object sender, EventArgs e)
         {
+            CycleOpen();
+            return;
             if (iSwitch == null)
             {
                 Ui.MessageBoxMuti("请选择开关盒子的地址");
@@ -474,6 +475,21 @@ namespace SwitchBoxDebug
             {
                 MessageBox.Show("成功");
             }
+        }
+
+        private void CycleOpen()
+        {
+            string msg = "";
+            byte[] index0 = new[] { (byte)1, (byte)21, (byte)41, (byte)61, (byte)81, (byte)83, (byte)85, (byte)87 };
+            byte[] index1 = new[] { (byte)2, (byte)22, (byte)42, (byte)62, (byte)81, (byte)83, (byte)85, (byte)87 };
+            for (int i = 0; i < 100; i++)
+            {
+                byte[] temp = i % 2 == 0 ? index0 : index1;
+                iSwitch.Open(temp, ref msg);
+                Thread.Sleep(400);
+                GC.Collect();
+            }
+           
         }
 
         private void cmbSerialVisa_SelectedIndexChanged(object sender, EventArgs e)

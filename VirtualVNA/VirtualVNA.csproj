@@ -54,6 +54,7 @@
     <Compile Include="NetworkAnalyzer\E5071C.cs" />
     <Compile Include="NetworkAnalyzer\NetworkAnalyzer.cs" />
     <Compile Include="NetworkAnalyzer\N5224A.cs" />
+    <Compile Include="NetworkAnalyzer\RsZnb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visa\VisaSerial.cs" />
     <Compile Include="VNAException.cs" />

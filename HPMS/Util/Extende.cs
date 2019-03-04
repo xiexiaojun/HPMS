@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using Tool;
+using TabControl = System.Windows.Forms.TabControl;
 
 namespace HPMS.Util
 {
@@ -102,6 +103,9 @@ namespace HPMS.Util
         public static void SelectTab(Control ctl)
         {
             var temp = ctl;
+            var form = FindForm(ctl);
+            if(form.WindowState==FormWindowState.Minimized)
+                return;
             while (temp.Parent != null)
             {
                 temp = temp.Parent;
@@ -118,6 +122,29 @@ namespace HPMS.Util
 
                 }
             }
+        }
+
+        public static void SelectTab(DevComponents.DotNetBar.TabControl tabControl, string tabText)
+        {
+           
+            var tabsCollection = tabControl.Tabs;
+            for (int i = 0; i < tabsCollection.Count; i++)
+            {
+                if (tabsCollection[i].Text == tabText)
+                {
+                    tabControl.SelectedTabIndex = i;
+                    return;
+                }
+            }
+        }
+
+        public static Form FindForm(Control c)
+        {
+            if (c is Form)
+                return c as Form;
+            if (c.Parent != null)
+                return FindForm(c.Parent);
+            return null;
         }
 
         public static string GetTextVali(this TextBoxX textBox)
@@ -222,6 +249,26 @@ namespace HPMS.Util
             {
                 dic.Add(key,value);
             }
+        }
+
+        public static void ClearChecked(this CheckedListBox chkListBox)
+        {
+            if (chkListBox.InvokeRequired)
+            {
+
+                Action<CheckedListBox> dSetListbox = ClearChecked;
+                chkListBox.BeginInvoke(dSetListbox, new object[] { chkListBox });
+            }
+            else
+            {
+                foreach (int variable in chkListBox.CheckedIndices)
+                {
+                    chkListBox.SetItemChecked(variable, false);
+                }
+            }
+
+
+           
         }
     }
 }

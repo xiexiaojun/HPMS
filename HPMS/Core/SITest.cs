@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-
+using System.Threading.Tasks;
 using HPMS.Config;
 using HPMS.Draw;
 using HPMS.Log;
@@ -83,6 +83,7 @@ namespace HPMS.Core
             public bool FirstHalf { set; get; }
             public bool Srevert { set; get; }
             public bool Trevert { set; get; }
+            public ClbType ClbType { set; get; }
 
         }
 
@@ -151,7 +152,7 @@ namespace HPMS.Core
         {
        
             SNP temp = new SNP(taskSnp.SnpPath, SNPPort.X1324);
-           // Thread.Sleep(6000);
+           // Thread.Sleep(2000);
            
             foreach (var testItem in taskSnp.AnalyzeItem)
             {
@@ -165,7 +166,7 @@ namespace HPMS.Core
                 plotData plotData = GetPlotdata(temp, testItem, taskSnp, cpParams, offset);
                 string savePath = cpParams.SaveTxtPath + "\\" + testItem + ".txt";
                 SaveTxt(plotData,savePath);
-                cpParams.FormUi.AddStatus(savePath + "写入成功");
+                cpParams.FormUi.AddStatus(savePath +" "+ LanguageHelper.GetMsgText("写入成功"));
 
                 InsertTestData(plotData, testItem, taskSnp.PairName);
 
@@ -176,7 +177,7 @@ namespace HPMS.Core
                     InsertTestJudge(testItem, result, taskSnp.PairName);
                
                 
-
+                cpParams.FormUi.SetCheckItem(taskSnp.PairName, taskSnp.ClbType);
                 cpParams.FormUi.SetCheckItem(testItem, ClbType.TestItem);
                 cpParams.AChart.DrawLine(tempChart, plotData, taskSnp.PairName, testItem.StartsWith("TDD") ? LineType.Time : LineType.Fre);
 
@@ -270,6 +271,14 @@ namespace HPMS.Core
                         dataSeries.xData = data.time;
                         dataSeries.yData = x;
                     }
+                    else if(itemName.Equals("ILD",StringComparison.OrdinalIgnoreCase))
+                    {
+                        string[] outPairs = new string[1];
+                        var data = snp.EasyGetILD(cpParams.TestConfigs[0].IldSpec, out outPairs);
+                        float[] x = SConvert.indexArray(data.dB, 0, false);
+                        dataSeries.xData = data.fre;
+                        dataSeries.yData = x;
+                    }
                    break;
                 case ItemType.Next:
                     if (itemName.StartsWith("NEXT"))
@@ -311,39 +320,60 @@ namespace HPMS.Core
         }
 
         public void DoTest(TestConfig[] testConfigs,Dictionary<string, object> chartDic, 
-            AChart _aChart, FormUi formUi,Dictionary<string, plotData> spec, Dictionary<string,float[]>keyPoint,Savepath savepath)
+            AChart aChart, FormUi formUi,Dictionary<string, plotData> spec, Dictionary<string,float[]>keyPoint,Savepath savepath)
         {
-            System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
+            Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
+            TestInitia(formUi,chartDic,aChart);
+            StartProducer(testConfigs, formUi, savepath.SnpFilePath);
+            Thread.Sleep(2000);
+            StartConsumer(testConfigs, chartDic, aChart, formUi, spec, savepath.TxtFilePath);
+
+            formUi.SetKeyPointList(GetKeyValue(keyPoint));
+            SetTestResult(formUi.AddStatus,formUi.SetResult,_testResult);
+         
+            
+            //SetInformation(savepath.Sn);
+            //CopySpec(savepath);
+            //TestUtil.SaveResult_Sample(savepath.XmlPath, _itemTestResult, _information);
+            SaveSummary(savepath, _itemTestResult, _information);
+
+            GenerateReport(savepath);
+            stopwatch.Stop(); //  停止监视
+            TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
+            formUi.AddStatus(LanguageHelper.GetMsgText("测试结束"));
+            formUi.AddStatus(LanguageHelper.GetMsgText("测试用时") + String.Format(":{0:F}S", timespan.TotalSeconds));
+           
+        }
+
+
+        private void SaveSummary(Savepath savepath, Dictionary<string, string> itemTestResult, Dictionary<string, string> information)
+        {
+            SetInformation(savepath.Sn);
+            CopySpec(savepath);
+            TestUtil.SaveResult_Sample(savepath.XmlPath, itemTestResult, information);
+        }
+
+        /// <summary>
+        /// 测试数据，状态初始化
+        /// </summary>
+        /// <param name="formUi"></param>
+        /// <param name="chartDic"></param>
+        /// <param name="aChart"></param>
+        private void TestInitia(FormUi formUi, Dictionary<string, object> chartDic,
+            AChart aChart)
+        {
             formUi.ProgressDisplay(0, false);
-            formUi.AddStatus("测试开始");
+            formUi.AddStatus(LanguageHelper.GetMsgText("测试开始"));
             formUi.SetResult("TEST");
             _testData.Clear();
             _testResult.Clear();
             _specLine.Clear();
             chartDic.ForEach(t =>
             {
-                formUi.AddStatus("清除图形" + t.Key);
-                _aChart.ChartClear(t.Value);
+                formUi.AddStatus(LanguageHelper.GetMsgText("清除图形") +":"+ t.Key);
+                aChart.ChartClear(t.Value);
             });
-            StartProducer(testConfigs, formUi, savepath.SnpFilePath);
-            Thread.Sleep(2000);
-            StartConsumer(testConfigs, chartDic, _aChart, formUi, spec, savepath.TxtFilePath);
-
-            SetTestResult(formUi.AddStatus,formUi.SetResult);
-            var aa = GetKeyValue(keyPoint);
-            formUi.SetKeyPointList(aa);
-            SetInformation(savepath.Sn);
-            CopySpec(savepath);
-            
-            SetResult();
-            TestUtil.SaveResult_Sample(savepath.XmlPath, _itemTestResult, _information);
-            GenerateReport(savepath);
-            stopwatch.Stop(); //  停止监视
-            TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
-            formUi.AddStatus("测试结束");
-            formUi.AddStatus("测试用时:" + timespan.TotalSeconds);
-           
         }
 
         private void GenerateReport(Savepath savepath)
@@ -379,19 +409,7 @@ namespace HPMS.Core
             _information.Addsafe("date", DateTime.Now.ToString("yyyy-MM-dd"));
          }
 
-        private void SetResult()
-        {
-            _itemTestResult.Clear();
-            foreach (var variable in _testResult)
-            {
-                bool itemResult = true;
-                foreach (var pair in variable.Value)
-                {
-                    itemResult = itemResult && pair.Value;
-                }
-                _itemTestResult.Add(variable.Key,itemResult?"OK":"NG");
-            }
-        }
+       
 
         #region 获取关键频点数据
 
@@ -441,18 +459,20 @@ namespace HPMS.Core
 
 
         #endregion
-        private void SetTestResult(Action<string> addStatus,Action<string>setResult)
+        private void SetTestResult(Action<string> addStatus, Action<string> setResult, Dictionary<string, Dictionary<string, bool>> testResult)
         {
-            bool TotalResult = true;
-            foreach (var variable in _testResult)
+            bool totalResult = true;
+            _itemTestResult.Clear();
+            foreach (var variable in testResult)
             {
                bool result= variable.Value.Select(t => t.Value).Aggregate((a, b) => a && b);
                addStatus(variable.Key + ":" + (result ? "PASS" : "FAIL"));
-                TotalResult = TotalResult && result;
+               _itemTestResult.Add(variable.Key, result ? "OK" : "NG");
+                totalResult = totalResult && result;
             }
 
-            addStatus("Test result:" + (TotalResult && _totalResult ? "PASS" : "FAIL"));
-            setResult(TotalResult && _totalResult ? "PASS" : "FAIL");
+            addStatus("Test result:" + (totalResult && _totalResult ? "PASS" : "FAIL"));
+            setResult(totalResult && _totalResult ? "PASS" : "FAIL");
         }
 
         private string GetSnpPath(string parentFolder,string pair,ItemType itemType)
@@ -507,18 +527,18 @@ namespace HPMS.Core
                 switch (testConfig.ItemType)
                 {
                     case ItemType.Loss:
-                        producerParams.FormUi.AddStatus("直通测试开始");
+                        producerParams.FormUi.AddStatus(LanguageHelper.GetMsgText("直通测试开始"));
                         multiChannel = true;
                         clbType = ClbType.DiffPair;
                         break;
                     case ItemType.Next:
-                        producerParams.FormUi.AddStatus("近串测试开始");
+                        producerParams.FormUi.AddStatus(LanguageHelper.GetMsgText("近串测试开始"));
                         multiChannel = false;
                         nextByTrace = true;
                         clbType = ClbType.NextPair;
                         break;
                     case ItemType.Fext:
-                        producerParams.FormUi.AddStatus("远串测试开始");
+                        producerParams.FormUi.AddStatus(LanguageHelper.GetMsgText("远串测试开始"));
                         multiChannel = false;
                         nextByTrace = true;
                         clbType = ClbType.FextPair;
@@ -549,6 +569,7 @@ namespace HPMS.Core
                         task.FirstHalf = pairIndex < pairNum / 2;
                         task.Srevert = testConfig.Sreverse;
                         task.Trevert = testConfig.Treverse;
+                        task.ClbType = clbType;
                         
 
                         string switchMsg = "";
@@ -576,8 +597,8 @@ namespace HPMS.Core
 
                         if (!stop)
                         {
-                            producerParams.FormUi.SetCheckItem(pair.PairName, clbType);
-                            producerParams.FormUi.AddStatus("SNP 文件生成成功 路径:" + task.SnpPath);
+                            //producerParams.FormUi.SetCheckItem(pair.PairName, clbType);
+                            producerParams.FormUi.AddStatus(String.Format("SNP {0} {1}:{2}", LanguageHelper.GetMsgText("文件生成成功"),LanguageHelper.GetMsgText("路径"), task.SnpPath));
                             producerParams.FormUi.ProgressDisplay(pair.ProgressValue, true);
                         }
 
@@ -603,15 +624,22 @@ namespace HPMS.Core
             //TaskSemaphore.Release(1);
         }
 
+        /// <summary>
+        /// 控制仪器生成SNP文件
+        /// </summary>
+        /// <param name="testConfigs">测试参数配置</param>
+        /// <param name="formUi">回调操作</param>
+        /// <param name="testDataPath">SNP保存路径</param>
         private void StartProducer(TestConfig[] testConfigs, FormUi formUi, string testDataPath)
         {
             ProducerParams producerParams=new ProducerParams();
-            Thread t = new Thread(new ParameterizedThreadStart(SnpProducer));
             producerParams.TestConfigs = testConfigs;
             producerParams.FormUi = formUi;
             producerParams.TestDataPath = testDataPath;
-            t.Start(producerParams);
-           
+            //Thread t = new Thread(new ParameterizedThreadStart(SnpProducer));
+            //t.Start(producerParams);
+            Task.Factory.StartNew(SnpProducer, producerParams);
+        
         }
 
         private void StartConsumer(TestConfig[] testConfigs,Dictionary<string, object> chartDic,
@@ -629,15 +657,14 @@ namespace HPMS.Core
                 Directory.Delete(cpParams.SaveTxtPath,true);
             }
             Directory.CreateDirectory(cpParams.SaveTxtPath);
-            Thread t = new Thread(new ParameterizedThreadStart(this.SnpConsumer));
-               t.IsBackground = true;
-               t.Start(cpParams);
-            t.Join();
 
-            Thread t1 = new Thread(new ParameterizedThreadStart(this.SnpConsumerLast));
-            t1.IsBackground = true;
-            t1.Start(cpParams);
-            t1.Join();
+          
+            Task taskSnpConsumer = Task.Factory.StartNew(SnpConsumer, cpParams);
+            taskSnpConsumer.Wait();
+
+
+            Task taskTxtConsumer = Task.Factory.StartNew(DataConsumer, cpParams);
+            taskTxtConsumer.Wait();
             formUi.ProgressDisplay(300, false);
 
         }
@@ -675,11 +702,15 @@ namespace HPMS.Core
                     {
                         stop = true;
                         _totalResult = false;
-                        cpParams.FormUi.AddStatus("SNP文件:" + GetTask.SnpPath + "不存在:" + msg);
+
+                        cpParams.FormUi.AddStatus(string.Format("SNP {0}:{1} {2}: {3}", LanguageHelper.GetMsgText("文件"), GetTask.SnpPath, LanguageHelper.GetMsgText("不存在"), msg));
                         return;
                     }
+                    
                     Analyze(GetTask, cpParams);
-                    cpParams.FormUi.AddStatus("分析SNP文件:" + GetTask.SnpPath + "完毕");
+
+                    cpParams.FormUi.AddStatus(string.Format("{0} SNP {1}:{2} {3}", LanguageHelper.GetMsgText("分析"),
+                        LanguageHelper.GetMsgText("文件"), GetTask.SnpPath, LanguageHelper.GetMsgText("完毕")));
                     cpParams.FormUi.ProgressDisplay(GetTask.ProgressValue, true);
                 }
                
@@ -687,7 +718,7 @@ namespace HPMS.Core
         }
 
 
-        private void SnpConsumerLast(object data)
+        private void DataConsumer(object data)
         {
             try
             {
@@ -731,7 +762,7 @@ namespace HPMS.Core
                                 cpParams.AChart.DrawLine(tempChart, plotData, pairData.PairName, testItem.StartsWith("TDD") ? LineType.Time : LineType.Fre);
                                 string savePath = cpParams.SaveTxtPath + "\\" + testItem + ".txt";
                                 SaveTxt(plotData, savePath);
-                                cpParams.FormUi.AddStatus(savePath + "写入成功");
+                                cpParams.FormUi.AddStatus(savePath + " " + LanguageHelper.GetMsgText("写入成功"));
                             }
 
 

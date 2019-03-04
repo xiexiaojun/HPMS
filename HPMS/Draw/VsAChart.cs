@@ -230,7 +230,17 @@ namespace HPMS.Draw
                 // currentSeries.LabelForeColor = Color.Black;
 
                 // currentSeries.CustomProperties = "DrawingStyle = Cylinder";
-                currentSeries.Points.DataBindXY(temp.xData, temp.yData);
+                if (lineType == LineType.Spec)
+                {
+                    plotData trimPlotData = TrimNaN(temp);
+                    currentSeries.Points.DataBindXY(trimPlotData.xData, trimPlotData.yData);
+                }
+                else
+                {
+                    currentSeries.Points.DataBindXY(temp.xData, temp.yData); 
+                }
+                
+                
                 //currentSeries.Points.AddXY(temp.xData, temp.yData);
                 //CalloutAnnotation annotation = new CalloutAnnotation();
                 //annotation.Text = seriName + ":" + temp.yData[0];
@@ -264,6 +274,7 @@ namespace HPMS.Draw
                     case LineType.Spec:
                         currentSeries.Color = Color.Red;
                         currentSeries.BorderWidth = 2;
+                       
                         break;
 
                 }
@@ -272,6 +283,26 @@ namespace HPMS.Draw
                 //chart.Visible = true;
             }
 
+        }
+
+        private plotData TrimNaN(plotData plotData)
+        {
+            Draw.plotData ret=new plotData();
+            int length = plotData.yData.Length;
+            List<float>x=new List<float>();
+            List<float>y=new List<float>();
+            for (int i = 0; i < length; i++)
+            {
+                if (!float.IsNaN(plotData.yData[i]))
+                {
+                    x.Add(plotData.xData[i]);
+                    y.Add(plotData.yData[i]);
+                }
+            }
+
+            ret.xData = x.ToArray();
+            ret.yData = y.ToArray();
+            return ret;
         }
 
         public override void DrawSpec(string itemName, Dictionary<string, plotData> spec, object tChart)

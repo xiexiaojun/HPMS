@@ -76,7 +76,14 @@ namespace HPMS
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::HPMS.Properties.Resources.微信图片_20181215221604;
+#if DEBUG
+this.logoPictureBox.Image = global::HPMS.Properties.Resources.logo_luxshare;
+#elif Release
+            this.logoPictureBox.Image = global::HPMS.Properties.Resources.logo_luxshare;
+#elif Publish
+            this.logoPictureBox.Image = global::HPMS.Properties.Resources.logo_isamtec;
+#endif
+            //this.logoPictureBox.Image = global::HPMS.Properties.Resources.logo_luxshare;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 4);

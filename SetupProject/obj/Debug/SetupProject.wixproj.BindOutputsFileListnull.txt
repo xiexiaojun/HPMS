@@ -1,2 +1,0 @@
-D:\gitProjects\HPMS\SetupProject\bin\Debug\SetupProject.msi
-D:\gitProjects\HPMS\SetupProject\bin\Debug\SetupProject.wixpdb
