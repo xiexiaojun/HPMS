@@ -270,14 +270,6 @@ namespace HPMS
             ControlSafe.ClearChecked(chkList_LossPair);
             ControlSafe.ClearChecked(chkList_NextPair);
             ControlSafe.ClearChecked(chkList_FextPair);
-            //chkList_TestItem.ClearChecked();
-            //chkList_LossPair.ClearChecked();
-            //chkList_NextPair.ClearChecked();
-            //chkList_FextPair.ClearChecked();
-            //chkList_TestItem.ClearSelected();
-            //chkList_LossPair.ClearSelected();
-            //chkList_NextPair.ClearSelected();
-            //chkList_FextPair.ClearSelected();
             ControlSafe.ClearListview(lsvKeyPoint);
            // lsvKeyPoint.Items.Clear();
             rTextStatus.BeginInvoke(new Action(() => { rTextStatus.Clear();}));

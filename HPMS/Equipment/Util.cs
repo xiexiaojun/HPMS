@@ -270,7 +270,7 @@ namespace HPMS.Equipment
                         iswitch = new SwitchDemo();
                         break;
                     case SwitchBox.Manual:
-                        iswitch = new SwitchManual((Func<DialogResult>);
+                        iswitch = new SwitchManual(blockedMsg);
                         break;
                 }
 

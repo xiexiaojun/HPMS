@@ -114,9 +114,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\reporter.dll</HintPath>
     </Reference>
-    <Reference Include="Softgroup.NetResize45">
-      <HintPath>C:\Program Files (x86)\Softgroup .Net Forms Resize\Softgroup.NetResize45.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />

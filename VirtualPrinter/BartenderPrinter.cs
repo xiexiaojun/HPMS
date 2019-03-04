@@ -27,13 +27,17 @@ namespace VirtualPrinter
     /// Bartender打印方式类
     /// <example>
     /// <code>
+    /// //初始化打印类
     /// BartenderPrinter bartenderPrinter=new BartenderPrinter();
-    /// string printSn="PZQF01192T0403AA";
+    /// string printSn="L01HE019-SD-R190304000053";
     /// string printContent = "";
     /// string templatePath = "";
+    /// //根据条码sn查出对应的打印内容
     /// if (bartenderPrinter.QuerySn(sn, ref printContent, ref templatePath, LabelType.Product, ref queryMsg))
     /// {
+    ///         //设置打印模板路径
     ///          bartenderPrinter.TemplatePath = templatePath;
+    ///         //打印返回的模板内容
     ///          bartenderPrinter.Print(printContent);
     /// }
     /// </code>
@@ -58,7 +62,7 @@ namespace VirtualPrinter
         /// bartender打印功能实现
         /// </summary>
         /// <param name="content">打印内容，并非直接是SN</param>
-        /// <returns>bool</returns>
+        /// <returns>打印成功返回True</returns>
         public bool Print(string content)
         {
             BarTender.Format btFormat;
