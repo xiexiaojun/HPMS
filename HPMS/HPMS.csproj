@@ -65,30 +65,39 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="32p_analyze, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\32p_analyze.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Aspose.Cells, Version=8.6.3.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\Aspose.Cells.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DBUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\DBUtil.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DevComponents.DotNetBar.Charts, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar.Charts.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\DevComponents.DotNetBar2\14.1.0.28__7eb7c3a35b91de04\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="HslCommunication, Version=5.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\HslCommunication.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Ivi.Visa.Interop, Version=5.8.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -98,28 +107,34 @@
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\log4net.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NationalInstruments.Common, Version=13.0.40.190, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.Common\v4.0_15.0.40.49154__dc6ad606294fc298\NationalInstruments.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL" />
+    <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="reporter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\reporter.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.2\lib\net45\System.Data.SQLite.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -136,39 +151,41 @@
     <Reference Include="WindowsFormsIntegration" />
     <Reference Include="ZedGraph">
       <HintPath>Dll\ZedGraph.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ZedGraph.WinForms">
       <HintPath>Dll\ZedGraph.WinForms.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AOP\AOP.cs" />
-    <Compile Include="Config\LocalConfig.cs" />
-    <Compile Include="Core\SITest.cs" />
-    <Compile Include="Core\TestConfig.cs" />
-    <Compile Include="DB\LoginHelper.cs" />
-    <Compile Include="DB\ProjectHelper.cs" />
-    <Compile Include="Draw\ControlSafe.cs" />
-    <Compile Include="Draw\DotnetChart.cs" />
-    <Compile Include="Draw\VsAChart.cs" />
-    <Compile Include="Draw\ZedAChart.cs" />
-    <Compile Include="Equipment\Util.cs" />
-    <Compile Include="frmAbout.cs">
+    <Compile Include="Code\AOP\AOP.cs" />
+    <Compile Include="Code\Config\LocalConfig.cs" />
+    <Compile Include="Code\Core\SITest.cs" />
+    <Compile Include="Code\Core\TestConfig.cs" />
+    <Compile Include="Code\DB\LoginHelper.cs" />
+    <Compile Include="Code\DB\ProjectHelper.cs" />
+    <Compile Include="Code\Draw\ControlSafe.cs" />
+    <Compile Include="Code\Draw\DotnetChart.cs" />
+    <Compile Include="Code\Draw\VsAChart.cs" />
+    <Compile Include="Code\Draw\ZedAChart.cs" />
+    <Compile Include="Code\Equipment\Util.cs" />
+    <Compile Include="Forms\frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.cs">
+    <Compile Include="Forms\frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAdmin.cs">
+    <Compile Include="Forms\frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdmin.Designer.cs">
+    <Compile Include="Forms\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -177,121 +194,123 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProfile.cs">
+    <Compile Include="Forms\frmProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProfile.Designer.cs">
+    <Compile Include="Forms\frmProfile.Designer.cs">
       <DependentUpon>frmProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHardwareSetting.cs">
+    <Compile Include="Forms\frmHardwareSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHardwareSetting.Designer.cs">
+    <Compile Include="Forms\frmHardwareSetting.Designer.cs">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrompt.cs">
+    <Compile Include="Forms\frmPrompt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrompt.Designer.cs">
+    <Compile Include="Forms\frmPrompt.Designer.cs">
       <DependentUpon>frmPrompt.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPswModify.cs">
+    <Compile Include="Forms\frmPswModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPswModify.Designer.cs">
+    <Compile Include="Forms\frmPswModify.Designer.cs">
       <DependentUpon>frmPswModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegist.cs">
+    <Compile Include="Forms\frmRegist.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegist.Designer.cs">
+    <Compile Include="Forms\frmRegist.Designer.cs">
       <DependentUpon>frmRegist.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRoleEdit.cs">
+    <Compile Include="Forms\frmRoleEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRoleEdit.Designer.cs">
+    <Compile Include="Forms\frmRoleEdit.Designer.cs">
       <DependentUpon>frmRoleEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVisaLists.cs">
+    <Compile Include="Forms\frmVisaLists.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVisaLists.Designer.cs">
+    <Compile Include="Forms\frmVisaLists.Designer.cs">
       <DependentUpon>frmVisaLists.cs</DependentUpon>
     </Compile>
-    <Compile Include="Draw\AChart.cs" />
-    <Compile Include="Log\LogHelper.cs" />
+    <Compile Include="Code\Draw\AChart.cs" />
+    <Compile Include="Code\Log\LogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="RightsControl\Resiter.cs" />
-    <Compile Include="RightsControl\RightsWrapper.cs" />
-    <Compile Include="Splash\frmSplash.cs">
+    <Compile Include="Code\RightsControl\Register.cs" />
+    <Compile Include="Code\RightsControl\RightsWrapper.cs" />
+    <Compile Include="Code\Splash\frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Splash\frmSplash.Designer.cs" />
-    <Compile Include="Splash\ISplashForm.cs" />
-    <Compile Include="Splash\Splasher.cs" />
-    <Compile Include="Test\Class1.cs" />
-    <Compile Include="Test\Class2.cs" />
-    <Compile Include="Util\ArrayEnhance.cs" />
-    <Compile Include="Util\Convert.cs" />
-    <Compile Include="Util\EasyExcel.cs" />
-    <Compile Include="Util\Extende.cs" />
-    <Compile Include="Util\Gloabal.cs" />
-    <Compile Include="frmUserEdit.cs">
+    <Compile Include="Code\Splash\frmSplash.Designer.cs" />
+    <Compile Include="Code\Splash\ISplashForm.cs" />
+    <Compile Include="Code\Splash\Splasher.cs" />
+    <Compile Include="Code\Test\Class1.cs" />
+    <Compile Include="Code\Test\Class2.cs" />
+    <Compile Include="Code\Utility\ArrayEnhance.cs" />
+    <Compile Include="Code\Utility\Convert.cs" />
+    <Compile Include="Code\Utility\EasyExcel.cs" />
+    <Compile Include="Code\Utility\Extende.cs" />
+    <Compile Include="Code\Utility\Gloabal.cs" />
+    <Compile Include="Forms\frmUserEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserEdit.Designer.cs">
+    <Compile Include="Forms\frmUserEdit.Designer.cs">
       <DependentUpon>frmUserEdit.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAbout.resx">
+    <EmbeddedResource Include="Forms\frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdmin.resx">
+    <EmbeddedResource Include="Forms\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProfile.resx">
+    <EmbeddedResource Include="Forms\frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHardwareSetting.resx">
+    <EmbeddedResource Include="Forms\frmHardwareSetting.resx">
       <DependentUpon>frmHardwareSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrompt.resx">
+    <EmbeddedResource Include="Forms\frmPrompt.resx">
       <DependentUpon>frmPrompt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPswModify.resx">
+    <EmbeddedResource Include="Forms\frmPswModify.resx">
       <DependentUpon>frmPswModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegist.resx">
+    <EmbeddedResource Include="Forms\frmRegist.resx">
       <DependentUpon>frmRegist.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRoleEdit.resx">
+    <EmbeddedResource Include="Forms\frmRoleEdit.resx">
       <DependentUpon>frmRoleEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVisaLists.resx">
+    <EmbeddedResource Include="Forms\frmVisaLists.resx">
       <DependentUpon>frmVisaLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Splash\frmSplash.resx">
+    <EmbeddedResource Include="Code\Splash\frmSplash.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserEdit.resx">
+    <EmbeddedResource Include="Forms\frmUserEdit.resx">
       <DependentUpon>frmUserEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
@@ -347,28 +366,32 @@
     <ProjectReference Include="..\customerControl\CustomerControl.csproj">
       <Project>{1F54E8E0-A325-479B-A80E-D5841BF4BD53}</Project>
       <Name>CustomerControl</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Tool\Tool.csproj">
       <Project>{5809ce1d-e066-4c45-9125-20da17b0e212}</Project>
       <Name>Tool</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\VirtualSwitch\VirtualSwitch.csproj">
       <Project>{6297D14F-A402-465D-9F31-D5730CB612AC}</Project>
       <Name>VirtualSwitch</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\VirtualVNA\VirtualVNA.csproj">
       <Project>{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B}</Project>
       <Name>VirtualVNA</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="animal_bird_twitter_72px_4141_easyicon.net.ico" />
-    <Content Include="DB\sql\DB.sql" />
-    <Content Include="DB\sql\MESDataCenter.HPMS_Project 2018-12-03.sql" />
-    <Content Include="DB\sql\MESDataCenter.HPMS_Rights 2018-12-03.sql" />
-    <Content Include="DB\sql\MESDataCenter.HPMS_Role 2018-12-03.sql" />
-    <Content Include="DB\sql\MESDataCenter.HPMS_User 2018-12-03.sql" />
-    <Content Include="DB\sql\view.sql" />
+    <Content Include="Code\DB\sql\DB.sql" />
+    <Content Include="Code\DB\sql\MESDataCenter.HPMS_Project 2018-12-03.sql" />
+    <Content Include="Code\DB\sql\MESDataCenter.HPMS_Rights 2018-12-03.sql" />
+    <Content Include="Code\DB\sql\MESDataCenter.HPMS_Role 2018-12-03.sql" />
+    <Content Include="Code\DB\sql\MESDataCenter.HPMS_User 2018-12-03.sql" />
+    <Content Include="Code\DB\sql\view.sql" />
     <Content Include="Dll\32p_analyze.dll" />
     <Content Include="Dll\32p_analyze.XML" />
     <Content Include="Dll\Aspose.Cells.dll" />

@@ -2,10 +2,11 @@
 using System.Reflection;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-using HPMS.Log;
-using HPMS.Splash;
+using HPMS.Code.Log;
+using HPMS.Code.Splash;
 using Tool;
 using Application = System.Windows.Forms.Application;
+using frmSplash = HPMS.Code.Splash.frmSplash;
 
 namespace HPMS
 {
@@ -19,7 +20,7 @@ namespace HPMS
         [STAThread]
         static void Main()
         {
-            AppDomain.CurrentDomain.AssemblyResolve+=CurrentDomain_AssemblyResolve;
+           //AppDomain.CurrentDomain.AssemblyResolve+=CurrentDomain_AssemblyResolve;
             //绑定程序中的异常处理
             #if Publish
                         BindExceptionHandler();     
@@ -31,7 +32,16 @@ namespace HPMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Splasher.Show(typeof(frmSplash));
-            Application.Run(new frmMain());
+            try
+            {
+                Application.Run(new frmMain());
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteLog("用户取消了注册");
+            }
+           
+            
         }
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)

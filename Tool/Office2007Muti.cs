@@ -18,7 +18,7 @@ namespace Tool
             base.TextChanged += Office2007Muti_TextChanged;
             base.Shown += Office2007Muti_Shown;
             this.StartPosition = FormStartPosition.CenterParent;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+           this.Icon = Properties.Resources.icon;
         }
 
         private void Office2007Muti_Shown(object sender, EventArgs e)
@@ -43,14 +43,12 @@ namespace Tool
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Office2007Muti));
             this.SuspendLayout();
             // 
             // Office2007Muti
             // 
             this.ClientSize = new System.Drawing.Size(385, 278);
             this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Office2007Muti";
             this.Load += new System.EventHandler(this.Office2007Muti_Load);
             this.ResumeLayout(false);

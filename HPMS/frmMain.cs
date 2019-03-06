@@ -9,22 +9,24 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using HPMS.Code.Config;
+using HPMS.Code.Core;
+using HPMS.Code.DB;
+using HPMS.Code.Draw;
+using HPMS.Code.Equipment;
+using HPMS.Code.RightsControl;
+using HPMS.Code.Splash;
+using HPMS.Code.Utility;
+using HPMS.Forms;
 using VirtualSwitch;
-
-using HPMS.Config;
-using HPMS.Core;
-using HPMS.DB;
-using HPMS.Draw;
-using HPMS.RightsControl;
-using HPMS.Splash;
-using HPMS.Util;
 using HslCommunication.BasicFramework;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Tool;
 
-using Convert = HPMS.Util.Convert;
+using Convert = HPMS.Code.Utility.Convert;
 using NetworkAnalyzer = VirtualVNA.NetworkAnalyzer.NetworkAnalyzer;
+using Register = HPMS.Code.RightsControl.Register;
 
 namespace HPMS
 {
@@ -280,10 +282,10 @@ namespace HPMS
         {
             string msg = "";
             // 检测激活码是否正确，没有文件，或激活码错误都算作激活失败
-            if (!Resiter.IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref Gloabal.SoftVersion, ref Gloabal.ExpireDate, ref msg))
+            if (!Register.IsAuthorize(softAuthorize.GetMachineCodeString(), "HPTS", ref Gloabal.SoftVersion, ref Gloabal.ExpireDate, ref msg))
             {
                 // 显示注册窗口
-                Ui.MessageBoxMuti(msg);
+                Ui.MessageBoxMuti(msg, this);
                 using (frmRegist form =
                     new frmRegist())
                 {
@@ -388,8 +390,8 @@ namespace HPMS
             }
             else
             {
-                string pn = Util.Convert.SlashRepalce(txt_PN.Text.Trim());
-                string sn=Util.Convert.SlashRepalce(txtSN.Text.Trim());
+                string pn = Convert.SlashRepalce(txt_PN.Text.Trim());
+                string sn=Convert.SlashRepalce(txtSN.Text.Trim());
                 savepath.SnpFilePath = _hardware.SnpFolder + "\\" + pn + "\\" + sn;
                 savepath.TxtFilePath = _hardware.TxtFolder + "\\" + pn + "\\" + sn;
                 savepath.Sn = sn;
@@ -483,7 +485,7 @@ namespace HPMS
                 return;
             }
             AddStatus("成功找到对应硬件设置档案");
-            if (!Equipment.Util.SetHardware(_hardware, ref _switch, ref _iAnalyzer, ref msg, BlockedMsg))
+            if (!Util.SetHardware(_hardware, ref _switch, ref _iAnalyzer, ref msg, BlockedMsg))
             {
                 AddStatus(msg);
                 return;
@@ -493,7 +495,7 @@ namespace HPMS
             AddStatus("连接开关成功");
             AddStatus("连接网分设备成功");
             
-            bool setProjectFlag = Equipment.Util.SetTestParams(_curretnProject, ref _testConfigs);
+            bool setProjectFlag = Util.SetTestParams(_curretnProject, ref _testConfigs);
             if (!setProjectFlag)
             {
                 AddStatus("开关对数与测试对数不一致");

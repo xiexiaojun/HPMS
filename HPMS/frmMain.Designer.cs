@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using HPMS.Draw;
 
 namespace HPMS
 {

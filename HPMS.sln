@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPMS", "HPMS\HPMS.csproj", "{E5745732-DEC0-443D-8673-73D7EA302EF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F3696DA5-EB21-4668-AAA0-A7F312873F05}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.md = Readme.md
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{31641565-C342-4C27-BA97-E1D8DE3913B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register", "Register\Register.csproj", "{755EBB01-765C-4797-8096-ED98A51BD884}"
 EndProject
@@ -25,6 +25,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerControl", "customerControl\CustomerControl.csproj", "{1F54E8E0-A325-479B-A80E-D5841BF4BD53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualPrinter", "VirtualPrinter\VirtualPrinter.csproj", "{C643E384-5D94-4BF9-9345-B6571E276DBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{5F51BAE2-DE15-4296-9710-7BB21C600BA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Driver", "Driver", "{CF92A2C6-7E69-44CE-8DC1-01CA6BCBF20E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{7124BCEB-E654-45AC-874C-4BA912BE45E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,36 +84,6 @@ Global
 		{E5745732-DEC0-443D-8673-73D7EA302EF5}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E5745732-DEC0-443D-8673-73D7EA302EF5}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
 		{E5745732-DEC0-443D-8673-73D7EA302EF5}.SingleImage|x86.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.CD_ROM|Mixed Platforms.Build.0 = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.CD_ROM|x86.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.DVD-5|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.DVD-5|Mixed Platforms.Build.0 = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.DVD-5|x86.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Publish|Any CPU.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Publish|Any CPU.Build.0 = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Publish|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Publish|Mixed Platforms.Build.0 = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Publish|x86.ActiveCfg = Debug|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.Release|x86.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
-		{31641565-C342-4C27-BA97-E1D8DE3913B2}.SingleImage|x86.ActiveCfg = Release|Any CPU
 		{755EBB01-765C-4797-8096-ED98A51BD884}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
 		{755EBB01-765C-4797-8096-ED98A51BD884}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{755EBB01-765C-4797-8096-ED98A51BD884}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
@@ -357,5 +333,17 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{755EBB01-765C-4797-8096-ED98A51BD884} = {7124BCEB-E654-45AC-874C-4BA912BE45E3}
+		{6297D14F-A402-465D-9F31-D5730CB612AC} = {CF92A2C6-7E69-44CE-8DC1-01CA6BCBF20E}
+		{CA3922CA-C2E4-4AB2-B4E1-373FED2DA73B} = {CF92A2C6-7E69-44CE-8DC1-01CA6BCBF20E}
+		{5809CE1D-E066-4C45-9125-20DA17B0E212} = {7124BCEB-E654-45AC-874C-4BA912BE45E3}
+		{F3E7EC3E-6912-4429-9206-CAB83019A2DA} = {7124BCEB-E654-45AC-874C-4BA912BE45E3}
+		{1F54E8E0-A325-479B-A80E-D5841BF4BD53} = {5F51BAE2-DE15-4296-9710-7BB21C600BA0}
+		{C643E384-5D94-4BF9-9345-B6571E276DBF} = {CF92A2C6-7E69-44CE-8DC1-01CA6BCBF20E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2DA104B-9D86-4064-8944-8D9D406B930A}
 	EndGlobalSection
 EndGlobal

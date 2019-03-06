@@ -29,7 +29,9 @@ namespace Tool
 
         public static void MessageBoxMuti(string msg,System.Windows.Forms.IWin32Window window)
         {
-            MessageBoxEx.Show(window,LanguageHelper.GetMsgText(msg), "HPMS System");
+            Form frm = (Form) window;
+            frm.TopMost = true;
+            MessageBoxEx.Show(frm,LanguageHelper.GetMsgText(msg), "HPMS System");
         }
         public static DialogResult MessageBoxYesNoMuti(string msg)
         {
