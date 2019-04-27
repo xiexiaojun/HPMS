@@ -319,7 +319,7 @@ namespace HPMS.Code.Core
         }
 
         public void DoTest(TestConfig[] testConfigs,Dictionary<string, object> chartDic, 
-            AChart aChart, FormUi formUi,Dictionary<string, plotData> spec, Dictionary<string,float[]>keyPoint,Savepath savepath)
+            AChart aChart, FormUi formUi,Dictionary<string, plotData> spec, Dictionary<string,float[]>keyPoint,Savepath savepath,bool report)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -336,8 +336,15 @@ namespace HPMS.Code.Core
             //CopySpec(savepath);
             //TestUtil.SaveResult_Sample(savepath.XmlPath, _itemTestResult, _information);
             SaveSummary(savepath, _itemTestResult, _information);
-
-            GenerateReport(savepath);
+            if (report)
+            {
+                GenerateReport(savepath);
+            }
+            else
+            {
+                formUi.AddStatus(LanguageHelper.GetMsgText("报告生成设定为false,取消生成报告"));
+            }
+            
             stopwatch.Stop(); //  停止监视
             TimeSpan timespan = stopwatch.Elapsed; //  获取当前实例测量得出的总时间
             formUi.AddStatus(LanguageHelper.GetMsgText("测试结束"));
@@ -345,6 +352,22 @@ namespace HPMS.Code.Core
            
         }
 
+
+        public void DoTestManualStart(FormUi formUi, Dictionary<string, object> chartDic, AChart aChart)
+        {
+            TestInitia(formUi, chartDic, aChart);
+        }
+
+        public void DoTestManualEnd()
+        {
+
+        }
+
+        public void DoTestManual(TestConfig[] testConfigs, Dictionary<string, object> chartDic,
+            AChart aChart, FormUi formUi, Dictionary<string, plotData> spec, Dictionary<string, float[]> keyPoint, Savepath savePath)
+        {
+
+        }
 
         private void SaveSummary(Savepath savepath, Dictionary<string, string> itemTestResult, Dictionary<string, string> information)
         {

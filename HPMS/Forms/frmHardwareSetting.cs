@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using HPMS.Code.Config;
 using HPMS.Code.Equipment;
 using Tool;
-using VirtualVNA.Enum;
+using Adapter = HPMS.Code.Equipment.Adapter;
+using SwitchBox = HPMS.Code.Equipment.SwitchBox;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace HPMS.Forms
@@ -33,12 +37,14 @@ namespace HPMS.Forms
 
         private void GetVisaAddress(object sender, MouseEventArgs e)
         {
-            TextBoxX sourceBoxX = (TextBoxX) sender;
+            TextBoxX sourceBoxX = (TextBoxX)sender;
             frmVisaLists _frmVisaLists = new frmVisaLists(sourceBoxX);
             _frmVisaLists.StartPosition = FormStartPosition.Manual;
 
             _frmVisaLists.Location = Ui.LocationOnClient(sourceBoxX, new System.Drawing.Point(0, 0));
             _frmVisaLists.ShowDialog(this);
+
+
         }
 
      
@@ -74,7 +80,7 @@ namespace HPMS.Forms
         {
             Hardware hardware=new Hardware();
            
-            hardware.Analyzer = (NetworkAnalyzer)Enum.Parse(typeof(NetworkAnalyzer), cmbNwaType.SelectedItem.ToString()); 
+            hardware.AnalyzerType = (NetworkAnalyzerType)Enum.Parse(typeof(NetworkAnalyzerType), cmbNwaType.SelectedItem.ToString()); 
             hardware.SwitchBox = (SwitchBox)Enum.Parse(typeof(SwitchBox), cmbSwitchBox.SelectedItem.ToString());
             hardware.VisaNetWorkAnalyzer = txtNwaVisaAdd.Text;
             hardware.VisaSwitchBox = txtSbVisaAdd.Text;
@@ -94,7 +100,7 @@ namespace HPMS.Forms
         private void HardwareLoad()
         {
             Hardware hardware = (Hardware) LocalConfig.GetObjFromXmlFile("config\\hardware.xml", typeof(Hardware));
-            cmbNwaType.SelectedIndex = cmbNwaType.FindString(hardware.Analyzer.ToString());
+            cmbNwaType.SelectedIndex = cmbNwaType.FindString(hardware.AnalyzerType.ToString());
             cmbSwitchBox.SelectedIndex = cmbSwitchBox.FindString(hardware.SwitchBox.ToString());
            
             txtNwaVisaAdd.Text=hardware.VisaNetWorkAnalyzer ;
@@ -149,7 +155,6 @@ namespace HPMS.Forms
             Close();
             //Hide();
         }
-       
 
        
     }

@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
-using HPMS.Code.RightsControl;
 using HslCommunication.BasicFramework;
 using Tool;
 using Register = HPMS.Code.RightsControl.Register;

@@ -6,6 +6,9 @@ using System.Threading;
 
 namespace VirtualSwitch
 {
+    /// <summary>
+    /// MCU Visa方式控制
+    /// </summary>
     public class SwitchMcu:ISwitch
     {
         private bool[,] _switchArrays;
@@ -39,13 +42,12 @@ namespace VirtualSwitch
             this._visaAddress = visaAddress;
             this._responseTime = responseTime;
         }
-        public SwitchMcu(SerialPort sp, int responseTime = 500)
-        {
-            if (responseTime == 0)
-                responseTime = 500;
-            this._serialPort = sp;
-            this._responseTime = responseTime;
-        }
+
+        /// <summary>
+        /// 关闭所有通道
+        /// </summary>
+        /// <param name="errMsg">错误信息</param>
+        /// <returns></returns>
         public bool CloseAll(ref string errMsg)
         {
             byte[] closeAllBytes =
@@ -65,6 +67,12 @@ namespace VirtualSwitch
             return retErrMsg.Result;
         }
 
+        /// <summary>
+        /// 开启开关矩阵配置中的指定行或列的开关,由构造函数来决定打开一行或一列
+        /// </summary>
+        /// <param name="switchIndex">行/列索引</param>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
         public bool Open(int switchIndex, ref string errMsg)
         {
            // CloseAll(ref errMsg);
@@ -78,32 +86,13 @@ namespace VirtualSwitch
             return retErrMsg.Result;
         }
 
-        public bool OpenS(int switchIndex, ref string errMsg)
-        {
-            // CloseAll(ref errMsg);
-            byte[] writeBytes = SwitchUtil.GetMcuFormatBytes(this._switchArrays, switchIndex);
-            SPConnect();
-            _serialPort.Write(writeBytes, 0, writeBytes.Length);
-            return true;
-        }
 
-        private void SPConnect()
-        {
-            if (_serialPort != null&&!_serialPort.IsOpen)
-            {
-                _serialPort.BaudRate = 115200;
-                _serialPort.WriteTimeout = 1000;
-                _serialPort.BaudRate = 115200;
-                _serialPort.DataBits = 8;
-                _serialPort.StopBits = StopBits.One;
-                _serialPort.ReadBufferSize = 1024;
-                _serialPort.WriteBufferSize = 4096;
-                _serialPort.Parity = Parity.None;
-                _serialPort.Open();
-                
-            }
-        }
-
+        /// <summary>
+        /// 开启由对应开关组的串口指令指定的开关
+        /// </summary>
+        /// <param name="switchNum">要写入的byte[]数组</param>
+        /// <param name="errMsg">异常信息</param>
+        /// <returns></returns>
         public bool Open(byte[] switchNum, ref string errMsg)
         {
             byte[] writeBytes = SwitchUtil.GetMcuFormatBytes(switchNum);
@@ -116,12 +105,6 @@ namespace VirtualSwitch
             return retErrMsg.Result;
         }
 
-        public bool OpenS(byte[] switchNum, ref string errMsg)
-        {
-            byte[] writeBytes = SwitchUtil.GetMcuFormatBytes(switchNum);
-            SPConnect();
-            _serialPort.Write(writeBytes, 0, writeBytes.Length);
-            return true;
-        }
+      
     }
 }

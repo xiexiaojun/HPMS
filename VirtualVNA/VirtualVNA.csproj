@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\VirtualVNA.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,15 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\EquipmentType.cs" />
     <Compile Include="NetworkAnalyzer\DemoAnalyzer.cs" />
     <Compile Include="NetworkAnalyzer\E5071C.cs" />
     <Compile Include="NetworkAnalyzer\NetworkAnalyzer.cs" />
     <Compile Include="NetworkAnalyzer\N5224A.cs" />
     <Compile Include="NetworkAnalyzer\RsZnb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Visa\VisaSerial.cs" />
-    <Compile Include="VNAException.cs" />
+    <Compile Include="NetworkAnalyzer\VNAException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VirtualSwitch\VirtualSwitch.csproj">

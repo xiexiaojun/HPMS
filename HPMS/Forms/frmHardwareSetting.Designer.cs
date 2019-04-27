@@ -50,6 +50,7 @@
             this.cmbSwitchBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.comboItem6 = new DevComponents.Editors.ComboItem();
+            this.comboItem7 = new DevComponents.Editors.ComboItem();
             this.txtNwaVisaAdd = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -63,7 +64,7 @@
             this.labelX41 = new DevComponents.DotNetBar.LabelX();
             this.btnBrowseSnp = new DevComponents.DotNetBar.ButtonX();
             this.txtSnpSaveFolder = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.comboItem7 = new DevComponents.Editors.ComboItem();
+            this.comboItem8 = new DevComponents.Editors.ComboItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSwtRespTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNwaRespTime)).BeginInit();
@@ -314,6 +315,7 @@
             this.cmbSwitchBox.ItemHeight = 16;
             this.cmbSwitchBox.Items.AddRange(new object[] {
             this.comboItem3,
+            this.comboItem8,
             this.comboItem6,
             this.comboItem7});
             this.cmbSwitchBox.Location = new System.Drawing.Point(25, 101);
@@ -329,6 +331,10 @@
             // comboItem6
             // 
             this.comboItem6.Text = "Demo";
+            // 
+            // comboItem7
+            // 
+            this.comboItem7.Text = "Manual";
             // 
             // txtNwaVisaAdd
             // 
@@ -493,15 +499,15 @@
             this.txtSnpSaveFolder.Size = new System.Drawing.Size(441, 21);
             this.txtSnpSaveFolder.TabIndex = 3;
             // 
-            // comboItem7
+            // comboItem8
             // 
-            this.comboItem7.Text = "Manual";
+            this.comboItem8.Text = "MCU Serial";
             // 
             // frmHardwareSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 404);
+            this.ClientSize = new System.Drawing.Size(609, 405);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
@@ -557,7 +563,6 @@
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.Editors.ComboItem comboItem7;
-
-
+        private DevComponents.Editors.ComboItem comboItem8;
     }
 }

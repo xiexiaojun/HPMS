@@ -12,6 +12,10 @@ using _32p_analyze;
 
 namespace HPMS.Code.Core
 {
+    public struct ManualTestConfig
+    {
+        public List<string> AnalyzeItems { set; get; }
+    }
 
     public enum ItemType
     {
@@ -21,6 +25,11 @@ namespace HPMS.Code.Core
         Last
     }
 
+    public enum TestMode
+    {
+        Auto,
+        Manual
+    }
    
     /// <summary>
     /// 测试项目转换

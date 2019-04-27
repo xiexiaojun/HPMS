@@ -7,14 +7,23 @@ using VirtualSwitch;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
+    /// <summary>
+    /// E5071C型号网分控制类
+    /// </summary>
     public class E5071C:NetworkAnalyzer
     {
         private ISwitch _iswitch;
-        private MessageBasedSession mbSession;
+        private MessageBasedSession _mbSession;
         private bool _connected = false;
         private string _visaAddress;
         private int _responseTime;
       
+        /// <summary>
+        /// E5071C网分构造函数
+        /// </summary>
+        /// <param name="iSwitch">开关对象</param>
+        /// <param name="visaAddress">网分visa地址</param>
+        /// <param name="responseTime">响应时间</param>
         public E5071C(ISwitch iSwitch,string visaAddress,int responseTime)
         {
             this._iswitch = iSwitch;
@@ -24,14 +33,26 @@ namespace VirtualVNA.NetworkAnalyzer
             Connect();
 
         }
+        /// <summary>
+        /// 析构函数,释放visa资源
+        /// </summary>
         ~E5071C()
         {
-            if (mbSession != null)
+            if (_mbSession != null)
             {
-                mbSession.Dispose();
+                _mbSession.Dispose();
             }
             
         }
+        /// <summary>
+        /// 保存s4p
+        /// </summary>
+        /// <param name="saveFilePath">s4p文件路径</param>
+        /// <param name="switchIndex">开关矩阵索引</param>
+        /// <param name="mutiChannel">是否使用多个channel</param>
+        /// <param name="nextByTrace">是否串音</param>
+        /// <param name="msg">异常信息</param>
+        /// <returns>true/false</returns>
         public override bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             bool ret = false;
@@ -61,6 +82,16 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, ref msg);
         }
 
+        /// <summary>
+        /// 保存s4p
+        /// </summary>
+        /// <param name="saveFilePath">s4p文件路径</param>
+        /// <param name="switchIndex">开关矩阵字节数组</param>
+        /// <param name="index">开关矩阵索引</param>
+        /// <param name="mutiChannel">是否使用多个channel</param>
+        /// <param name="nextByTrace">是否串音</param>
+        /// <param name="msg">异常信息</param>
+        /// <returns>true/false</returns>
         public override bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace, ref string msg)
         {
             bool ret = false;
@@ -90,6 +121,15 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, ref msg);
         }
 
+        /// <summary>
+        /// 直接获取测试数据，不保存s4p文件
+        /// </summary>
+        /// <param name="fre">返回的频率</param>
+        /// <param name="db">返回的db值</param>
+        /// <param name="switchIndex">开关矩阵索引</param>
+        /// <param name="msg">异常信息</param>
+        /// <returns></returns>
+        [Obsolete]
         public override bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)
         {
             bool ret = false;
@@ -135,14 +175,20 @@ namespace VirtualVNA.NetworkAnalyzer
             return true;
         }
 
+        /// <summary>
+        /// 载入校准档案文件
+        /// </summary>
+        /// <param name="calFilePath">档案文件路径,相对网分设备</param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public override bool LoadCalFile(string calFilePath, ref string msg)
         {
             Connect();
             string loadCalFile = "MMEM:load '" + calFilePath + "'";
-            mbSession.Write(loadCalFile);
+            _mbSession.Write(loadCalFile);
             Thread.Sleep(5000);
             string typeLin = ":SENS1:SWE:TYPE LINear";
-            mbSession.Write(typeLin);
+            _mbSession.Write(typeLin);
             return true;
         }
 
@@ -152,7 +198,7 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 if (!_connected)
                 {
-                    mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(_visaAddress);
+                    _mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(_visaAddress);
                     _connected = true;
                 }
               
@@ -175,16 +221,16 @@ namespace VirtualVNA.NetworkAnalyzer
             //refer to SCPI.CALCulate(Ch).PARameter.COUNt
             List<string> retList=new List<string>();
             string strGetChannelTraces = ":CALC"+channel+":PAR:COUN?";
-            mbSession.Write(strGetChannelTraces);
-            int traceCount=int.Parse(mbSession.ReadString(100).Trim());
+            _mbSession.Write(strGetChannelTraces);
+            int traceCount=int.Parse(_mbSession.ReadString(100).Trim());
             try
             {
                 for (int i = 0; i < traceCount; i++)
                 {
                     string strGetChannelTraceSelected = nextByTrace ? ":CALC" + channel + ":FSIM:BAL:PAR" + (i + 1) + ":BBAL?" :
                         ":CALC" + channel + ":PAR" + (i + 1) + ":DEF?";
-                    mbSession.Write(strGetChannelTraceSelected);
-                    retList.Add(mbSession.ReadString(100).Trim());
+                    _mbSession.Write(strGetChannelTraceSelected);
+                    retList.Add(_mbSession.ReadString(100).Trim());
 
                 }
             }
@@ -224,16 +270,15 @@ namespace VirtualVNA.NetworkAnalyzer
                     "Not Find \"Sdd21\"Parameter, please open a \"Sdd21\" parameter, and Try Again! ";
                 return false;
             }
-            string strSlectedTrace = ":CALC" + channel + ":PAR" + (singleTraceNum + 1) + ":SEL";
+            string selectedTrace = ":CALC" + channel + ":PAR" + (singleTraceNum + 1) + ":SEL";
             try
             {
-                mbSession.Write(strSlectedTrace);
+                _mbSession.Write(selectedTrace);
                 return true;
             }
             catch (Exception e)
             {
                throw new VnaException("Set trace fail",e);
-               return false;
             }
            
         }
@@ -262,16 +307,16 @@ namespace VirtualVNA.NetworkAnalyzer
 
             try
             {
-                mbSession.Write(strSetHoldMode);
-                mbSession.Write(strSetActiveChannel);
+                _mbSession.Write(strSetHoldMode);
+                _mbSession.Write(strSetActiveChannel);
                 Thread.Sleep(1000);
-                mbSession.Write(strSetChannelStateIni);
+                _mbSession.Write(strSetChannelStateIni);
                 Thread.Sleep(500);
 
                 for (int i = 0; i < 10; i++)
                 {
-                    mbSession.Write(strGetMode);
-                    string readTemp = mbSession.ReadString().Trim();
+                    _mbSession.Write(strGetMode);
+                    string readTemp = _mbSession.ReadString().Trim();
                     if (readTemp.Equals("0"))
                     {
                         break;
@@ -287,7 +332,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "E5071C trigger fail";
                 throw new VnaException(msg,e);
-                return false;
             }
            
         }
@@ -307,16 +351,14 @@ namespace VirtualVNA.NetworkAnalyzer
             string strSaveCommand = ":MMEM:STOR:SNP:TYPE:S4P 1,2,3,4;:MMEM:STOR:SNP \"" + saveFilePath + "\"";
             try
             {
-                mbSession.Write(strSetDataFormat);
-                mbSession.Write(strSaveCommand);
+                _mbSession.Write(strSetDataFormat);
+                _mbSession.Write(strSaveCommand);
                 return true;
             }
             catch (Exception e)
             {
                 msg = "save s4p file fail";
                 throw new VnaException(msg,e);
-                Console.WriteLine(e);
-                return false;
             }
 
         }
@@ -339,15 +381,14 @@ namespace VirtualVNA.NetworkAnalyzer
             string strGetMeasurePoints = ":SENS1:SWE:POIN?";
             try
             {
-                mbSession.Write(strGetMeasurePoints);
-                points = int.Parse(mbSession.ReadString(100).Trim());
+                _mbSession.Write(strGetMeasurePoints);
+                points = int.Parse(_mbSession.ReadString(100).Trim());
                 return true;
             }
             catch (Exception e)
             {
                 msg = "get E5071C measurement points fail";
                 throw new VnaException(msg,e);
-                return false;
             }
           
         }
@@ -357,8 +398,8 @@ namespace VirtualVNA.NetworkAnalyzer
             string strGetFre = ":SENS1:FREQ:DATA?";
             try
             {
-                mbSession.Write(strGetFre);
-                string temp=mbSession.ReadString(800000);
+                _mbSession.Write(strGetFre);
+                string temp=_mbSession.ReadString(800000);
                 fre = StrData2DoubleArray(temp);
                 return true;
             }
@@ -366,7 +407,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "get E5071C fre fail";
                 throw new VnaException(msg, e);
-                return false;
             }
         }
 
@@ -381,9 +421,9 @@ namespace VirtualVNA.NetworkAnalyzer
             string strGetFdata = ":CALC" + channel + ":data:FDAT?";
             try
             {
-                mbSession.Write(strAbort);
-                mbSession.Write(strGetFdata);
-                string temp = mbSession.ReadString(800000);
+                _mbSession.Write(strAbort);
+                _mbSession.Write(strGetFdata);
+                string temp = _mbSession.ReadString(800000);
                 List<double> tempList = StrData2DoubleArray(temp).Take(points*2).ToList();
                 List<double>dbList=new List<double>();
                 int i = 0;
@@ -404,7 +444,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "get E5071C fre fail";
                 throw new VnaException(msg, e);
-                return false;
             }
         }
 

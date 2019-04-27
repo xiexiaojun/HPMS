@@ -252,6 +252,7 @@ namespace HPMS.Forms
 
                 pnProject.Srevert = chkSRevert.Checked;
                 pnProject.Trevert = chkTRevert.Checked;
+                pnProject.Report = chk_Report.Checked;
 
 
                 string msg = "";
@@ -340,6 +341,7 @@ namespace HPMS.Forms
             SetRomFileMode(pnProject.RomFileMode);
 
             chk_RomWrite.Checked = pnProject.RomWrite;
+            chk_Report.Checked = pnProject.Report;
             txt_RomFilePath.Text = pnProject.RomFilePath;
             txt_SwitchFilePath.Text = pnProject.SwitchFilePath;
             txt_CalFilePath.Text = pnProject.CalFilePath;

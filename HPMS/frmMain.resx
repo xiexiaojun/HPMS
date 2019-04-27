@@ -127,18 +127,30 @@
   <data name="ToolStripMenuItem_Auto.Text" xml:space="preserve">
     <value>自动</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ToolStripMenuItem_Manual.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="toolStripMenuManualStart.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="toolStripMenuManualStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 22</value>
+  </data>
+  <data name="toolStripMenuManualStart.Text" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="toolStripMenuManualEnd.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+E</value>
+  </data>
+  <data name="toolStripMenuManualEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 22</value>
+  </data>
+  <data name="toolStripMenuManualEnd.Text" xml:space="preserve">
+    <value>结束</value>
   </data>
   <data name="ToolStripMenuItem_Manual.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 22</value>
   </data>
   <data name="ToolStripMenuItem_Manual.Text" xml:space="preserve">
     <value>手动</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 6</value>
   </data>
   <data name="模式ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -161,7 +173,6 @@
         YII=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="模式ToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -451,6 +462,7 @@
   <data name="Skin_ToolStripMenuItem.Text" xml:space="preserve">
     <value>风格</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="sNP转换ToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -662,28 +674,34 @@
     <value>292, 4</value>
   </metadata>
   <data name="toolStripStatusLabelUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
+    <value>80, 21</value>
   </data>
   <data name="toolStripStatusLabelUser.Text" xml:space="preserve">
     <value>当前系统时间</value>
   </data>
+  <data name="toolStripStatusMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 21</value>
+  </data>
+  <data name="toolStripStatusMode.Text" xml:space="preserve">
+    <value>toolStripStatusLabel1</value>
+  </data>
   <data name="toolStripStatusMsg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1160, 17</value>
+    <value>1025, 21</value>
   </data>
   <data name="toolStripStatusLabelDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 17</value>
+    <value>131, 21</value>
   </data>
   <data name="toolStripStatusLabelDate.Text" xml:space="preserve">
     <value>toolStripStatusLabel3</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 715</value>
+    <value>0, 711</value>
   </data>
   <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 0, 16, 0</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1388, 22</value>
+    <value>1388, 26</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1052,7 +1070,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="labelX2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>86, 17</value>
   </data>
   <data name="labelX2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1073,13 +1091,13 @@
     <value>0</value>
   </data>
   <data name="labelX3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 67</value>
+    <value>3, 69</value>
   </data>
   <data name="labelX3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="labelX3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 24</value>
+    <value>86, 17</value>
   </data>
   <data name="labelX3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1099,14 +1117,20 @@
   <data name="&gt;&gt;labelX3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="txtSN.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txtSN.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 12pt, style=Bold</value>
+  </data>
   <data name="txtSN.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 99</value>
+    <value>3, 94</value>
   </data>
   <data name="txtSN.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="txtSN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 23</value>
+    <value>280, 29</value>
   </data>
   <data name="txtSN.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1127,13 +1151,13 @@
     <value>Fill</value>
   </data>
   <data name="chkList_TestItem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 175</value>
+    <value>0, 177</value>
   </data>
   <data name="chkList_TestItem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_TestItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 194</value>
+    <value>286, 191</value>
   </data>
   <data name="chkList_TestItem.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1160,7 +1184,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_LossPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 165</value>
+    <value>278, 162</value>
   </data>
   <data name="chkList_LossPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1184,7 +1208,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 165</value>
+    <value>278, 162</value>
   </data>
   <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1214,7 +1238,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_NextPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 157</value>
+    <value>272, 154</value>
   </data>
   <data name="chkList_NextPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1241,7 +1265,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 165</value>
+    <value>278, 162</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1271,7 +1295,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="chkList_FextPair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 157</value>
+    <value>272, 154</value>
   </data>
   <data name="chkList_FextPair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1298,7 +1322,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 165</value>
+    <value>278, 162</value>
   </data>
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1322,13 +1346,13 @@
     <value>Fill</value>
   </data>
   <data name="tab_pair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 393</value>
+    <value>0, 392</value>
   </data>
   <data name="tab_pair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tab_pair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 195</value>
+    <value>286, 192</value>
   </data>
   <data name="tab_pair.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1345,14 +1369,20 @@
   <data name="&gt;&gt;tab_pair.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="txt_PN.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="txt_PN.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 12pt, style=Bold</value>
+  </data>
   <data name="txt_PN.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 34</value>
+    <value>3, 29</value>
   </data>
   <data name="txt_PN.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="txt_PN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 23</value>
+    <value>280, 29</value>
   </data>
   <data name="txt_PN.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1393,6 +1423,9 @@
   <data name="&gt;&gt;chkStop.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 14.25pt, style=Bold</value>
+  </data>
   <data name="btnTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 2</value>
   </data>
@@ -1424,7 +1457,7 @@
     <value>Fill</value>
   </data>
   <data name="panelEx7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 131</value>
+    <value>3, 133</value>
   </data>
   <data name="panelEx7.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 41</value>
@@ -1457,7 +1490,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 372</value>
+    <value>3, 371</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 17</value>
@@ -1493,7 +1526,7 @@
     <value>8</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 588</value>
+    <value>286, 584</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1511,7 +1544,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtSN" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkList_TestItem" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tab_pair" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txt_PN" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx7" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,30,Absolute,33,Absolute,32,Absolute,33,Absolute,47,Percent,50,Absolute,24,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelX2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelX3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtSN" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="chkList_TestItem" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tab_pair" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txt_PN" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelEx7" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Absolute,25,Absolute,40,Absolute,25,Absolute,40,Absolute,47,Percent,50,Absolute,24,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="panelEx1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1523,7 +1556,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="panelEx1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 588</value>
+    <value>286, 584</value>
   </data>
   <data name="panelEx1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1556,7 +1589,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="tabControlChart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1060, 360</value>
+    <value>1060, 356</value>
   </data>
   <data name="tabControlChart.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -1583,7 +1616,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelEx6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1060, 360</value>
+    <value>1060, 356</value>
   </data>
   <data name="panelEx6.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
@@ -1634,7 +1667,7 @@
     <value>0, 26</value>
   </data>
   <data name="lsvKeyPoint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 334</value>
+    <value>30, 330</value>
   </data>
   <data name="lsvKeyPoint.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1658,7 +1691,7 @@
     <value>1060, 0</value>
   </data>
   <data name="expandablePanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 360</value>
+    <value>30, 356</value>
   </data>
   <data name="expandablePanel1.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
@@ -1688,7 +1721,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="panelEx2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1090, 360</value>
+    <value>1090, 356</value>
   </data>
   <data name="panelEx2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1832,7 +1865,7 @@
     <value>Fill</value>
   </data>
   <data name="panelEx3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 449</value>
+    <value>295, 445</value>
   </data>
   <data name="panelEx3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -1991,7 +2024,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1388, 673</value>
+    <value>1388, 669</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2368,11 +2401,17 @@
   <data name="&gt;&gt;ToolStripMenuItem_Manual.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
-    <value>toolStripMenuItem4</value>
+  <data name="&gt;&gt;toolStripMenuManualStart.Name" xml:space="preserve">
+    <value>toolStripMenuManualStart</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripMenuManualStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuManualEnd.Name" xml:space="preserve">
+    <value>toolStripMenuManualEnd</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuManualEnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;设置ToolStripMenuItem.Name" xml:space="preserve">
     <value>设置ToolStripMenuItem</value>
@@ -2558,6 +2597,12 @@
     <value>toolStripStatusLabelUser</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabelUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusMode.Name" xml:space="preserve">
+    <value>toolStripStatusMode</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusMode.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripStatusMsg.Name" xml:space="preserve">

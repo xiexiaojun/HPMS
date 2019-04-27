@@ -6,6 +6,9 @@ using VirtualSwitch;
 
 namespace VirtualVNA.NetworkAnalyzer
 {
+    /// <summary>
+    /// N5224A型号网分控制类
+    /// </summary>
     public class N5224A:NetworkAnalyzer
     {
         private ISwitch _iswitch;
@@ -14,7 +17,12 @@ namespace VirtualVNA.NetworkAnalyzer
         private string _visaAddress;
         private int _responseTime;
        
-   
+       /// <summary>
+       /// N5224A网分型号构造函数
+       /// </summary>
+       /// <param name="iSwitch">开关对象</param>
+       /// <param name="visaAddress">网分visa地址</param>
+       /// <param name="responseTime">网分响应时间</param>
         public N5224A(ISwitch iSwitch,string visaAddress,int responseTime=2000)
         {
             if (responseTime == 0)
@@ -26,6 +34,9 @@ namespace VirtualVNA.NetworkAnalyzer
 
         }
 
+        /// <summary>
+        /// 析构函数，释放visa资源
+        /// </summary>
         ~N5224A()
         {
             if (mbSession != null)
@@ -34,6 +45,15 @@ namespace VirtualVNA.NetworkAnalyzer
             }
             
         }
+        /// <summary>
+        /// 保存s4p
+        /// </summary>
+        /// <param name="saveFilePath">s4p文件路径</param>
+        /// <param name="switchIndex">开关矩阵索引</param>
+        /// <param name="mutiChannel">是否使用多个channel</param>
+        /// <param name="nextByTrace">是否串音</param>
+        /// <param name="msg">异常信息</param>
+        /// <returns>true/false</returns>
         public override bool SaveSnp(string saveFilePath, int switchIndex, bool mutiChannel, bool nextByTrace,ref string msg)
         {
             bool ret = false;
@@ -60,6 +80,16 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath,channel, ref msg);
         }
 
+        /// <summary>
+        /// 保存s4p
+        /// </summary>
+        /// <param name="saveFilePath">s4p文件路径</param>
+        /// <param name="switchIndex">开关矩阵字节数组</param>
+        /// <param name="index">开关矩阵索引</param>
+        /// <param name="mutiChannel">是否使用多个channel</param>
+        /// <param name="nextByTrace">是否串音</param>
+        /// <param name="msg">异常信息</param>
+        /// <returns>true/false</returns>
         public override bool SaveSnp(string saveFilePath, byte[] switchIndex, int index, bool mutiChannel, bool nextByTrace,ref string msg)
         {
             bool ret = false;
@@ -86,6 +116,15 @@ namespace VirtualVNA.NetworkAnalyzer
             return SaveS4P(saveFilePath, channel, ref msg);
         }
 
+        /// <summary>
+        /// 直接获取测试数据，不保存s4p文件
+        /// </summary>
+        /// <param name="fre">返回的频率</param>
+        /// <param name="db">返回的db值</param>
+        /// <param name="switchIndex">开关矩阵索引</param>
+        /// <param name="msg">异常信息</param>
+        /// <returns></returns>
+        [Obsolete]
         public override bool GetTestData(ref double[]fre,double[]db, int switchIndex, ref string msg)
         {
             bool ret = false;
@@ -126,6 +165,12 @@ namespace VirtualVNA.NetworkAnalyzer
             return true;
         }
 
+        /// <summary>
+        /// 载入校准档案文件
+        /// </summary>
+        /// <param name="calFilePath">档案文件路径,相对网分设备</param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public override bool LoadCalFile(string calFilePath, ref string msg)
         {
             Connect();
@@ -198,7 +243,6 @@ namespace VirtualVNA.NetworkAnalyzer
                 if (singleIndex == -1)
                 {
                     throw new VnaException("Not Find Any Single Parameter, please open a \"S21\" or \"S11\" parameter, and Try Again! ");
-                    return null;
                 }
             }
             catch (Exception e)
@@ -232,7 +276,6 @@ namespace VirtualVNA.NetworkAnalyzer
             catch (Exception e)
             {
                throw new VnaException("Set trace fail",e);
-               return false;
             }
            
         }
@@ -279,7 +322,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "N5224A trigger fail";
                 throw new VnaException(msg,e);
-                return false;
             }
            
         }
@@ -308,8 +350,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "save s4p file fail";
                 throw new VnaException(msg,e);
-                Console.WriteLine(e);
-                return false;
             }
 
         }
@@ -341,7 +381,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "get N5224A measurement points fail";
                 throw new VnaException(msg,e);
-                return false;
             }
           
         }
@@ -360,7 +399,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "get E5071C fre fail";
                 throw new VnaException(msg, e);
-                return false;
             }
         }
 
@@ -382,7 +420,6 @@ namespace VirtualVNA.NetworkAnalyzer
             {
                 msg = "get N5224A fre fail";
                 throw new VnaException(msg, e);
-                return false;
             }
         }
 

@@ -35,6 +35,8 @@ namespace HPMS
        
        // frmHardwareSetting _frmHardwareSetting;
         frmProfile _frmProfile;
+        private TestMode _testMode;//测试模式
+        private SITest _siTestManual;//手动模式
         private Dictionary<string,ToolStripMenuItem>styleItems=new Dictionary<string, ToolStripMenuItem>();
         private Theme _theme=new Theme();
         SoftAuthorize softAuthorize = new SoftAuthorize();
@@ -65,9 +67,18 @@ namespace HPMS
             Splasher.Close();
             EnableGlass = false;
             InitializeComponent();
+            SetLogo();
             GetThemeDic();
             Gloabal.GRightsWrapper=new RightsWrapper();
            
+        }
+
+        private void SetLogo()
+        {
+            #if Publish
+                        this.picLogoLeft.Image = global::HPMS.Properties.Resources.logo_isamtec;
+            #endif
+
         }
 
 
@@ -152,9 +163,7 @@ namespace HPMS
                     StyleManager.MetroColorGeneratorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(Color.White, Color.FromName(_theme.Color));
                 else
                     StyleManager.ColorTint = Color.FromName(_theme.Color);
-                //StyleManager.ChangeStyle(_theme.EStyle, Color.FromName(_theme.Color));
-                //StyleManager.ColorTint = Color.FromName(_theme.Color);
-            }
+              }
             else
             {
                 styleItems[_theme.Tag].Checked = true;
@@ -250,6 +259,7 @@ namespace HPMS
                 return;
             if(!LoginCheck())
                 return;
+            ToolStripMenuItem_Auto.PerformClick();
             ResetUi();
             LoadTheme();
             SetStatusBar();
@@ -369,13 +379,18 @@ namespace HPMS
             SITest siTest = new SITest(_switch, _iAnalyzer,_information);
 
             Savepath savepath=new Savepath();
-            if (!SetTestFilePath(ref savepath))
+            if (SetTestFilePath(ref savepath))
             {
-                return;
+                siTest.DoTest(_testConfigs, _chartDic, _aChart, _formUi, _spec, _keyPoint, savepath,_curretnProject.Report);
             }
             
-            siTest.DoTest(_testConfigs, _chartDic, _aChart, _formUi, _spec,_keyPoint, savepath);
+            
             ControlSafe.SetcontrolEnable(btnTest, true);
+        }
+
+        private void SiTestManual()
+        {
+           // _siTestManual
         }
 
         private bool SetTestFilePath(ref Savepath savepath)
@@ -852,7 +867,48 @@ namespace HPMS
             Extende.SelectTab(tabControlChart,chkList_TestItem.SelectedItem.ToString());
           
         }
-     
-     
+
+        private void ToolStripMenuItem_testMode_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem modeItem=(ToolStripMenuItem)sender;
+            var modeItemParent=modeItem.GetCurrentParent();
+            foreach (var VARIABLE in modeItemParent.Items)
+            {
+                if (VARIABLE is ToolStripMenuItem tempItem)
+                {
+                    tempItem.Checked = false;
+                    tempItem.Enabled = true;
+                }
+               
+            }
+
+            modeItem.Checked = true;
+          //  modeItem.Enabled = false;
+            if (modeItem.Name =="ToolStripMenuItem_Auto")
+            {
+                _testMode = TestMode.Auto;
+                toolStripStatusMode.ForeColor = Color.Black;
+            }
+            else
+            {
+                _testMode = TestMode.Manual;
+                toolStripStatusMode.ForeColor = Color.Red;
+            }
+
+            toolStripStatusMode.Text = "test mode:" + _testMode.ToString();
+        }
+
+        private void toolStripMenuManualStart_Click(object sender, EventArgs e)
+        {
+            AddStatus("手动测试开始");
+        }
+
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S && e.Control)
+            {
+                toolStripMenuManualStart.PerformClick(); //执行单击button1的动作      
+            }
+        }
     }
 }

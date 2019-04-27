@@ -169,6 +169,7 @@
     <Compile Include="Code\Draw\DotnetChart.cs" />
     <Compile Include="Code\Draw\VsAChart.cs" />
     <Compile Include="Code\Draw\ZedAChart.cs" />
+    <Compile Include="Code\Equipment\EquipmentType.cs" />
     <Compile Include="Code\Equipment\Util.cs" />
     <Compile Include="Forms\frmAbout.cs">
       <SubType>Form</SubType>
@@ -333,6 +334,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="System.Data.SQLite.Core.targets" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -403,6 +405,8 @@
     <Content Include="Dll\Newtonsoft.Json.dll" />
     <Content Include="Dll\Newtonsoft.Json.xml" />
     <Content Include="Dll\reporter.dll" />
+    <Content Include="Dll\ToolTipLib.dll" />
+    <Content Include="Dll\ToolTipLib.pdb" />
     <None Include="Resources\微信图片_20181215221604.png" />
     <None Include="Resources\img\LUXSHARE-ICT LOGO%28透明底%29400x90.png" />
     <None Include="Resources\img\help.png" />

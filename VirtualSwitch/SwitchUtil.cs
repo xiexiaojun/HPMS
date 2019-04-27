@@ -18,7 +18,6 @@ namespace VirtualSwitch
 
         public byte[] convertToByteArray()
         {
-            byte[] byteArray;
             int _dataLength = 0;
            
             if ((this.param == null) || (this.param.Length == 0))
@@ -67,6 +66,12 @@ namespace VirtualSwitch
     public class SwitchUtil
     {
         private static byte[] cmdUART0 = {0xEE,0xA,0x1,0x0,0xFF,0xFC,0xFF,0xFF};//开关完整帧的数据格式
+        /// <summary>
+        /// labview版本的开关矩阵数据解析
+        /// </summary>
+        /// <param name="switchArrays">开关矩阵二维数组</param>
+        /// <param name="switchIndex">行索引</param>
+        /// <returns>I2C通信传输的byte[]数组</returns>
         public static byte[] GetMcuFormatBytes(bool[,] switchArrays, int switchIndex)
         {
             bool[] currentArrays = IndexArray(switchArrays, switchIndex,IndexType.Row);
@@ -83,6 +88,11 @@ namespace VirtualSwitch
             cmdFrame.param = switchEnableIndexs.ToArray();
             return cmdFrame.convertToByteArray();
         }
+        /// <summary>
+        /// c#版本开关矩阵数据解析
+        /// </summary>
+        /// <param name="switchArrays">开关序号数组</param>
+        /// <returns>I2C通信传输的byte[]数组</returns>
         public static byte[] GetMcuFormatBytes(byte[]switchArrays)
         {
            
@@ -127,11 +137,21 @@ namespace VirtualSwitch
             }
         }
 
+        /// <summary>
+        /// 查找visa资源列表
+        /// </summary>
+        /// <returns></returns>
         public static string[] GetResource()
         {
             return ResourceManager.GetLocalManager().FindResources("?*");
         }
 
+        /// <summary>
+        /// 查找数据中中指定字符串的索引
+        /// </summary>
+        /// <param name="source">目标数组</param>
+        /// <param name="findstr">待查找的字符串</param>
+        /// <returns>查找到的索引</returns>
         public static int FindIndex(string[] source, string findstr)
         {
             return source.IndexOf(findstr);

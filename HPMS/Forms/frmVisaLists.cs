@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using HPMS.Code.Equipment;
 using Tool;
@@ -10,6 +13,7 @@ namespace HPMS.Forms
     public partial class frmVisaLists : Office2007Muti
     {
         private TextBoxX _textBoxX;
+        
         public frmVisaLists(TextBoxX textBoxX)
         {
             EnableGlass = false;
@@ -19,13 +23,16 @@ namespace HPMS.Forms
 
         private void frmVisaLists_Load(object sender, EventArgs e)
         {
-            
-            foreach (string s in Util.GetVisaList())
-            {
-                cmbVisaLists.Items.Add(s);
-            }
+          
+            List<string> visaList = Util.GetVisaList();
+            foreach (string s in visaList)
+                {
+                    cmbVisaLists.Items.Add(s);
+                }
 
-            cmbVisaLists.SelectedIndex = 0;
+                cmbVisaLists.SelectedIndex = 0;
+         
+            
         }
 
       

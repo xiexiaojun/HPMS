@@ -187,6 +187,7 @@
             this.btnBrowseReport = new DevComponents.DotNetBar.ButtonX();
             this.txt_ReportTempletePath = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.highlighter1 = new DevComponents.DotNetBar.Validator.Highlighter();
+            this.chk_Report = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -2179,6 +2180,7 @@
             // 
             this.panelEx7.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx7.Controls.Add(this.chk_Report);
             this.panelEx7.Controls.Add(this.btnBrowseCalFile);
             this.panelEx7.Controls.Add(this.txt_CalFilePath);
             this.panelEx7.Controls.Add(this.labelX50);
@@ -2398,16 +2400,29 @@
             this.txt_ReportTempletePath.Border.Class = "TextBoxBorder";
             this.txt_ReportTempletePath.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.highlighter1.SetHighlightOnFocus(this.txt_ReportTempletePath, true);
-            this.txt_ReportTempletePath.Location = new System.Drawing.Point(25, 45);
+            this.txt_ReportTempletePath.Location = new System.Drawing.Point(185, 45);
             this.txt_ReportTempletePath.Name = "txt_ReportTempletePath";
             this.txt_ReportTempletePath.ReadOnly = true;
-            this.txt_ReportTempletePath.Size = new System.Drawing.Size(678, 21);
+            this.txt_ReportTempletePath.Size = new System.Drawing.Size(518, 21);
             this.txt_ReportTempletePath.TabIndex = 47;
             // 
             // highlighter1
             // 
             this.highlighter1.ContainerControl = this;
             this.highlighter1.FocusHighlightColor = DevComponents.DotNetBar.Validator.eHighlightColor.Red;
+            // 
+            // chk_Report
+            // 
+            // 
+            // 
+            // 
+            this.chk_Report.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chk_Report.Location = new System.Drawing.Point(26, 45);
+            this.chk_Report.Name = "chk_Report";
+            this.chk_Report.Size = new System.Drawing.Size(96, 21);
+            this.chk_Report.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chk_Report.TabIndex = 61;
+            this.chk_Report.Text = "报告生成";
             // 
             // frmProfile
             // 
@@ -2641,5 +2656,6 @@
         private System.Windows.Forms.ColumnHeader Frequency;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkTRevert;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkSRevert;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chk_Report;
     }
 }

@@ -26,10 +26,7 @@ namespace HPMS
                         BindExceptionHandler();     
             #endif
             MessageBoxEx.EnableGlass = false;
-            //Softgroup.NetResize.License.LicenseName = "figoba1";
-            //Softgroup.NetResize.License.LicenseUser = "figoba@gmail1.com";
-            //Softgroup.NetResize.License.LicenseKey = "FWAQB8CVZ9GDUBBUCRICXU9WE";
-            Application.EnableVisualStyles();
+           Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Splasher.Show(typeof(frmSplash));
             try

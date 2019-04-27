@@ -7,9 +7,7 @@ using System.Windows.Forms;
 using HPMS.Code.Config;
 using HPMS.Code.Core;
 using VirtualSwitch;
-using VirtualVNA.Enum;
 using VirtualVNA.NetworkAnalyzer;
-using NetworkAnalyzer = VirtualVNA.NetworkAnalyzer.NetworkAnalyzer;
 
 namespace HPMS.Code.Equipment
 {
@@ -257,7 +255,7 @@ namespace HPMS.Code.Equipment
             return true;
         }
 
-        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref NetworkAnalyzer iNetworkAnalyzer, ref string msg,Func<DialogResult>blockedMsg)
+        public static bool SetHardware(Hardware hardware,ref ISwitch iswitch,ref VirtualVNA.NetworkAnalyzer.NetworkAnalyzer iNetworkAnalyzer, ref string msg,Func<DialogResult>blockedMsg)
         {
             try
             {
@@ -275,15 +273,17 @@ namespace HPMS.Code.Equipment
                 }
 
 
-                switch (hardware.Analyzer)
+                switch (hardware.AnalyzerType)
                 {
-                    case VirtualVNA.Enum.NetworkAnalyzer.Demo:
+                    case NetworkAnalyzerType.Demo:
                         iNetworkAnalyzer = new DemoAnalyzer(iswitch, hardware.VisaNetWorkAnalyzer, hardware.AnalyzerResponseTime);
                         break;
-                    case VirtualVNA.Enum.NetworkAnalyzer.N5224A:
-                        iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer,hardware.AnalyzerResponseTime);
+                    case NetworkAnalyzerType.N5224A:
+                        iNetworkAnalyzer = new N5224A(iswitch, hardware.VisaNetWorkAnalyzer, hardware.AnalyzerResponseTime);
                         break;
                 }
+
+
 
                 return true;
 

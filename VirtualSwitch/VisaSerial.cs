@@ -3,21 +3,46 @@ using NationalInstruments.VisaNS;
 
 namespace VirtualSwitch
 {
+    /// <summary>
+    /// 串口驱动异常信息
+    /// </summary>
     public struct ErrMsg
     {
+        /// <summary>
+        /// 串口操作是否成功
+        /// </summary>
         public bool Result;
+        /// <summary>
+        /// 对应的错误码
+        /// </summary>
         public int ErrorCode;
+        /// <summary>
+        /// 对应的异常信息
+        /// </summary>
         public string Msg;
 
     }
+    /// <summary>
+    /// 串口对应的visa方式控制类
+    /// </summary>
     public class VisaSerial
     {
         private static SerialSession serialSession = null;
 
+        /// <summary>
+        /// 析构函数，释放visa资源
+        /// </summary>
         ~VisaSerial()
         {
             serialSession.Dispose();
         }
+
+        /// <summary>
+        /// 写入串口数据
+        /// </summary>
+        /// <param name="writeBytes"></param>
+        /// <param name="visaAddress"></param>
+        /// <returns></returns>
         public static ErrMsg WriteData(byte[]writeBytes,string visaAddress)
         {
             ErrMsg ret = new ErrMsg();
@@ -30,7 +55,7 @@ namespace VirtualSwitch
                     if (serialSession == null || serialSession.ResourceName != visaAddress)
                     {
                         serialSession = (SerialSession)ResourceManager.GetLocalManager().Open(visaAddress, AccessModes.NoLock, 0);
-                        //serialSession.Dispose();
+
                     }
                     ret = SetSerial(serialSession, ret);
                     ret = FlushIO(serialSession, ret);

@@ -36,7 +36,8 @@ namespace HPMS
             this.模式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Auto = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Manual = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuManualStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuManualEnd = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_hardware = new System.Windows.Forms.ToolStripMenuItem();
             this.m_Set_profile = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +70,7 @@ namespace HPMS
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusMode = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusMsg = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
@@ -150,27 +152,35 @@ namespace HPMS
             // 
             this.模式ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_Auto,
-            this.ToolStripMenuItem_Manual,
-            this.toolStripMenuItem4});
+            this.ToolStripMenuItem_Manual});
             resources.ApplyResources(this.模式ToolStripMenuItem, "模式ToolStripMenuItem");
             this.模式ToolStripMenuItem.Name = "模式ToolStripMenuItem";
             // 
             // ToolStripMenuItem_Auto
             // 
-            this.ToolStripMenuItem_Auto.Checked = true;
-            this.ToolStripMenuItem_Auto.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToolStripMenuItem_Auto.Name = "ToolStripMenuItem_Auto";
             resources.ApplyResources(this.ToolStripMenuItem_Auto, "ToolStripMenuItem_Auto");
+            this.ToolStripMenuItem_Auto.Click += new System.EventHandler(this.ToolStripMenuItem_testMode_Click);
             // 
             // ToolStripMenuItem_Manual
             // 
-            resources.ApplyResources(this.ToolStripMenuItem_Manual, "ToolStripMenuItem_Manual");
+            this.ToolStripMenuItem_Manual.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuManualStart,
+            this.toolStripMenuManualEnd});
             this.ToolStripMenuItem_Manual.Name = "ToolStripMenuItem_Manual";
+            resources.ApplyResources(this.ToolStripMenuItem_Manual, "ToolStripMenuItem_Manual");
+            this.ToolStripMenuItem_Manual.Click += new System.EventHandler(this.ToolStripMenuItem_testMode_Click);
             // 
-            // toolStripMenuItem4
+            // toolStripMenuManualStart
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            this.toolStripMenuManualStart.Name = "toolStripMenuManualStart";
+            resources.ApplyResources(this.toolStripMenuManualStart, "toolStripMenuManualStart");
+            this.toolStripMenuManualStart.Click += new System.EventHandler(this.toolStripMenuManualStart_Click);
+            // 
+            // toolStripMenuManualEnd
+            // 
+            this.toolStripMenuManualEnd.Name = "toolStripMenuManualEnd";
+            resources.ApplyResources(this.toolStripMenuManualEnd, "toolStripMenuManualEnd");
             // 
             // 设置ToolStripMenuItem
             // 
@@ -392,6 +402,7 @@ namespace HPMS
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelUser,
+            this.toolStripStatusMode,
             this.toolStripStatusMsg,
             this.toolStripStatusLabelDate});
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
@@ -401,6 +412,12 @@ namespace HPMS
             // 
             this.toolStripStatusLabelUser.Name = "toolStripStatusLabelUser";
             resources.ApplyResources(this.toolStripStatusLabelUser, "toolStripStatusLabelUser");
+            // 
+            // toolStripStatusMode
+            // 
+            this.toolStripStatusMode.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusMode.Name = "toolStripStatusMode";
+            resources.ApplyResources(this.toolStripStatusMode, "toolStripStatusMode");
             // 
             // toolStripStatusMsg
             // 
@@ -848,6 +865,7 @@ namespace HPMS
             this.Name = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.SizeChanged += new System.EventHandler(this.frmMain_SizeChanged);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -875,7 +893,7 @@ namespace HPMS
 
         }
 
-        #endregion
+#endregion
 
         private System.Windows.Forms.MenuStrip menuStrip_Main;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -918,7 +936,6 @@ namespace HPMS
         private ToolStripMenuItem 模式ToolStripMenuItem;
         private ToolStripMenuItem ToolStripMenuItem_Auto;
         private ToolStripMenuItem ToolStripMenuItem_Manual;
-        private ToolStripSeparator toolStripMenuItem4;
         private ToolStripMenuItem 工具ToolStripMenuItem;
         private ToolStripMenuItem sNP转换ToolStripMenuItem;
         private ToolStripMenuItem eEPROMToolStripMenuItem;
@@ -957,7 +974,9 @@ namespace HPMS
         private ToolStripMenuItem switchMatrixBoxToolStripMenuItem;
         private ToolStripMenuItem 帮助文档ToolStripMenuItem;
         private CustomerControl.BlinkLabel labelResult;
-
+        private ToolStripStatusLabel toolStripStatusMode;
+        private ToolStripMenuItem toolStripMenuManualStart;
+        private ToolStripMenuItem toolStripMenuManualEnd;
     }
 }
 

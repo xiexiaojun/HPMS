@@ -1,24 +1,25 @@
-﻿namespace VirtualVNA.Enum
+﻿namespace HPMS.Code.Equipment
 {
-    public enum NetworkAnalyzer
+    public enum NetworkAnalyzerType
     {
         Demo,
         N5224A,
         E5071C
     }
-
+    /// <summary>
+    /// 开关盒子型号
+    /// </summary>
     public enum SwitchBox
     {
         Demo,
         MCU,
-        Manual
+        Manual,
+        MCUSerial
      }
 
     public enum Adapter
     {
         CP2112
     }
-    class EquipmentType
-    {
-    }
+    
 }

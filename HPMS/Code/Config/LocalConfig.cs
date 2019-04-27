@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevComponents.DotNetBar;
+using HPMS.Code.Equipment;
 using Tool;
-using VirtualVNA.Enum;
+using VirtualVNA.NetworkAnalyzer;
 using _32p_analyze;
+using Adapter = HPMS.Code.Equipment.Adapter;
+using SwitchBox = HPMS.Code.Equipment.SwitchBox;
 
 namespace HPMS.Code.Config
 {
@@ -46,7 +49,7 @@ namespace HPMS.Code.Config
         //开关盒子的网分地址
         public string VisaSwitchBox { get; set; }
         //网分型号
-        public NetworkAnalyzer Analyzer { get; set; }
+        public NetworkAnalyzerType AnalyzerType { get; set; }
         //开关盒子型号
         public SwitchBox SwitchBox { get; set; }
         //烧录器型号
@@ -156,7 +159,7 @@ namespace HPMS.Code.Config
         public bool Srevert { set; get; }
         public bool Trevert { set; get; }
 
-
+        public bool Report { set; get; }
       
     }
 }

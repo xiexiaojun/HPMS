@@ -70,6 +70,8 @@ namespace HPMS.Code.Utility
         {
             InsertColumn("HPMS_Project", "Srevert", "BOOLEAN");
             InsertColumn("HPMS_Project", "Trevert", "BOOLEAN");
+            InsertColumn("HPMS_Project", "Report", "BOOLEAN");
+           
         }
 
     }

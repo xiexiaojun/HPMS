@@ -38,15 +38,15 @@ namespace HPMS.Code.DB
                                "ReportTempletePath, RomFileMode, RomFilePath, RomWrite, SwitchFilePath, " +
                                "FreSpec, FrePoints, Tdd11, Tdd22, ILD, " +
                                "Skew, Customer,FreSpecFilePath, Speed, ProductTypeL, " +
-                               "ProductTypeR, Power, Description,CalFilePath,Keypoint,Srevert,Trevert) VALUES (" +
+                               "ProductTypeR, Power, Description,CalFilePath,Keypoint,Srevert,Trevert,Report) VALUES (" +
                                "@pn,@pncustomer,@length,@awg,@diff," +
                                "@single,@tdr,@diffpair,@nextpair,@fextpair," +
                                "@reporttempletepath,@romfilemode,@romfilepath,@romwrite,@switchfilepath," +
                                "@frespec,@frepoints,@tdd11,@tdd22,@ild," +
                                "@skew,@customer,@frespecfilepath,@speed,@producttypel," +
-                               "@producttyper,@power,@description,@calfilepath,@keypoint,@srevert,@trevert) ";
+                               "@producttyper,@power,@description,@calfilepath,@keypoint,@srevert,@trevert,@report) ";
 
-            IDataParameter[] b = new IDataParameter[32];
+            IDataParameter[] b = new IDataParameter[33];
 
             b[0] = Gloabal.GDatabase.CreatePara("pn", project.Pn);
             b[1] = Gloabal.GDatabase.CreatePara("pncustomer", project.PnCustomer);
@@ -86,11 +86,12 @@ namespace HPMS.Code.DB
             b[29] = Gloabal.GDatabase.CreatePara("keypoint", project.KeyPoint);
             b[30] = Gloabal.GDatabase.CreatePara("srevert", project.Srevert);
             b[31] = Gloabal.GDatabase.CreatePara("trevert", project.Trevert);
-         
+            b[32] = Gloabal.GDatabase.CreatePara("report", project.Report);
 
 
 
-                int insertCount = Gloabal.GDatabase.ExecuteSql(insertSql, b);
+
+            int insertCount = Gloabal.GDatabase.ExecuteSql(insertSql, b);
                 if (insertCount == 1)
                 {
                     ret = true;
@@ -110,7 +111,7 @@ namespace HPMS.Code.DB
                               "NextPair, FextPair, ReportTempletePath, RomFileMode, RomFilePath," +
                               " RomWrite, SwitchFilePath, FreSpec,FreSpecFilePath, FrePoints, Tdd11, Tdd22," +
                               " ILD, Skew,Speed, ProductTypeL, ProductTypeR, " +
-                              "Power, Description,CalFilePath,Keypoint,Srevert,Trevert FROM  HPMS_Project Where PN = @pn and isFast is Null";
+                              "Power, Description,CalFilePath,Keypoint,Srevert,Trevert,Report FROM  HPMS_Project Where PN = @pn and isFast is Null";
 
                 IDbDataParameter[] b = new IDbDataParameter[1];
                 b[0] = Gloabal.GDatabase.CreatePara("pn", pn);
@@ -126,7 +127,7 @@ namespace HPMS.Code.DB
                               "NextPair, FextPair, ReportTempletePath, RomFileMode, RomFilePath," +
                               " RomWrite, SwitchFilePath, FreSpec,FreSpecFilePath, FrePoints, Tdd11, Tdd22," +
                               " ILD, Skew,Speed, ProductTypeL, ProductTypeR, " +
-                              "Power, Description,CalFilePath,Keypoint,Srevert,Trevert FROM  HPMS_Project Where isFast ='fast'";
+                              "Power, Description,CalFilePath,Keypoint,Srevert,Trevert,Report FROM  HPMS_Project Where isFast ='fast'";
             var table = Gloabal.GDatabase.GetDataTable(querySql);
           return GetProjectlistFromTable(table);
         }
@@ -152,6 +153,7 @@ namespace HPMS.Code.DB
                 project.RomFileMode = (RomFileMode)Enum.Parse(typeof(RomFileMode), (string)tempRow["RomFileMode"]);
                 project.RomFilePath = (string)tempRow["RomFilePath"];
                 project.RomWrite = (bool)tempRow["RomWrite"];
+                project.Report = GetDbValue(tempRow["Report"],true);
                 project.SwitchFilePath = (string)tempRow["SwitchFilePath"];
                 project.FreSpec = (string)tempRow["FreSpec"];
                 project.FreSpecFilePath = (string)tempRow["FreSpecFilePath"];
@@ -194,9 +196,9 @@ namespace HPMS.Code.DB
                               "RomFileMode = @romfilemode,RomFilePath = @romfilepath,RomWrite = @romwrite,SwitchFilePath = @switchfilepath,FreSpec = @frespec," +
                               "FrePoints = @frepoints,Tdd11 =@tdd11,Tdd22 = @tdd22,ILD = @ild,Skew = @skew," +
                               "Customer = @customer,FreSpecFilePath = @frespecfilepath, Speed = @speed,ProductTypeL = @producttypel,ProductTypeR = @producttyper," +
-                              "Power = @power, Description = @description,CalFilePath = @calfilepath,Keypoint = @keypoint,Srevert=@srevert,Trevert=@trevert where PN = @pn ";
+                              "Power = @power, Description = @description,CalFilePath = @calfilepath,Keypoint = @keypoint,Srevert=@srevert,Trevert=@trevert,Report=@report where PN = @pn ";
 
-            IDataParameter[] b = new IDataParameter[32];
+            IDataParameter[] b = new IDataParameter[33];
 
             b[0] = Gloabal.GDatabase.CreatePara("pn", project.Pn);
             b[1] = Gloabal.GDatabase.CreatePara("pncustomer", project.PnCustomer);
@@ -236,6 +238,7 @@ namespace HPMS.Code.DB
             b[29] = Gloabal.GDatabase.CreatePara("keypoint", project.KeyPoint);
             b[30] = Gloabal.GDatabase.CreatePara("srevert", project.Srevert);
             b[31] = Gloabal.GDatabase.CreatePara("trevert", project.Trevert);
+            b[32] = Gloabal.GDatabase.CreatePara("report", project.Report);
 
 
 
